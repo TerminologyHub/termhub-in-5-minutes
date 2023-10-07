@@ -1,0 +1,134 @@
+{
+  "id": "32820a45-c767-45ac-bac0-3655410af1f7",
+  "confidence": 23.335575103759766,
+  "modified": "2002-01-31T00:00:00.000+00:00",
+  "created": "2002-01-31T00:00:00.000+00:00",
+  "modifiedBy": "loader",
+  "local": false,
+  "active": true,
+  "name": "Diabetes mellitus",
+  "code": "73211009",
+  "terminology": "SNOMEDCT",
+  "version": "20230731",
+  "publisher": "SANDBOX",
+  "leaf": true,
+  "defined": false,
+  "normName": "diabetes mellitus",
+  "stemName": "diabet mellitus",
+  "terms": [
+    {
+      "id": "8b5bec36-cfcd-418b-a19a-ab444ecdc208",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Diabetes mellitus, NOS",
+      "normName": "diabetes mellitus nos",
+      "stemName": "diabet mellitus nos",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "121590018",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en": false
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000020002",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "0d0d12fc-8940-4271-b7dd-ef6027773cd1",
+      "modified": "2017-07-31T00:00:00.000+00:00",
+      "created": "2017-07-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus",
+      "normName": "diabetes mellitus",
+      "stemName": "diabet mellitus",
+      "wordCt": 2,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "121589010",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": true,
+        "en": true
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000448009",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "ae7c5155-19b9-4a0e-80c2-31f8523efb80",
+      "modified": "2017-07-31T00:00:00.000+00:00",
+      "created": "2017-07-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus (disorder)",
+      "normName": "diabetes mellitus disorder",
+      "stemName": "diabet mellitus disord",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "813575016",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": true,
+        "en": true
+      },
+      "type": "900000000000003001",
+      "attributes": {
+        "caseSignificanceId": "900000000000448009",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "1e371c1f-5089-4cd7-9bb1-7ce1fc618dae",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "DM - Diabetes mellitus",
+      "normName": "dm diabetes mellitus",
+      "stemName": "dm diabet mellitus",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "502372015",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": false,
+        "en": false
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000017005",
+        "moduleId": "900000000000207008"
+      }
+    }
+  ],
+  "attributes": {
+    "definitionStatusId": "900000000000074008",
+    "moduleId": "900000000000207008"
+  },
+  "semanticTypes": [
+    "disorder"
+  ]
+}

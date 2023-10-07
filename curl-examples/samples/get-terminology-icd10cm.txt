@@ -1,0 +1,24 @@
+{
+  "id": "baffe020-a623-47fb-aae6-01db99aa6baf",
+  "confidence": 5.728499412536621,
+  "modified": "2023-09-06T01:28:53.560+00:00",
+  "created": "2023-09-06T01:28:53.560+00:00",
+  "modifiedBy": "loader",
+  "local": false,
+  "active": true,
+  "abbreviation": "ICD10CM",
+  "name": "International Classification of Diseases, 10th Edition, Clinical Modification, 2023",
+  "version": "2023",
+  "publisher": "SANDBOX",
+  "latest": true,
+  "loaded": true,
+  "family": "ICD10CM",
+  "releaseDate": "2022-11-07",
+  "license": "UNRESTRICTED",
+  "attributes": {
+    "tree-positions": "true"
+  },
+  "conceptCt": 6,
+  "relationshipCt": 10,
+  "treePositionCt": 6
+}

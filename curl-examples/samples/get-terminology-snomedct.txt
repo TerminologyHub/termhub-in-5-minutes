@@ -1,0 +1,24 @@
+{
+  "id": "584227ae-c7cd-4847-9574-d427856c1886",
+  "confidence": 4.9812846183776855,
+  "modified": "2023-09-06T01:25:34.310+00:00",
+  "created": "2023-09-06T01:25:34.310+00:00",
+  "modifiedBy": "loader",
+  "local": false,
+  "active": true,
+  "abbreviation": "SNOMEDCT",
+  "name": "Systematized Nomenclature of Medicine–Clinical Terminology",
+  "version": "20230731",
+  "publisher": "SANDBOX",
+  "latest": true,
+  "loaded": true,
+  "family": "SNOMEDCT",
+  "releaseDate": "2023-07-31",
+  "license": "UNRESTRICTED",
+  "attributes": {
+    "tree-positions": "true"
+  },
+  "conceptCt": 409,
+  "relationshipCt": 666,
+  "treePositionCt": 1997
+}

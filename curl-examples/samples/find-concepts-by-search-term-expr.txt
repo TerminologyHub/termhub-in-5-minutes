@@ -1,0 +1,26 @@
+{
+  "total": 1,
+  "parameters": {
+    "query": "diabetes AND terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731 AND (code:64572001 OR (ecl:ancestor=64572001))",
+    "limit": 5,
+    "offset": 0
+  },
+  "items": [
+    {
+      "id": "32820a45-c767-45ac-bac0-3655410af1f7",
+      "confidence": 25.254600524902344,
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus",
+      "code": "73211009",
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "leaf": true,
+      "defined": false
+    }
+  ]
+}

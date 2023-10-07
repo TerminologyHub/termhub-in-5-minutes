@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "ec7393ff-dd1a-4fd5-a642-20ea4eeccf89",
+		"name": "TermHub Postman Client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11076096"
+	},
+	"item": [
+		{
+			"name": "Get terminologies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get terminology - SNOMEDCT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/SNOMEDCT/SANDBOX/20230731",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get terminology - ICD10CM",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/ICD10CM/SANDBOX/2023",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"ICD10CM",
+						"SANDBOX",
+						"2023"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept relationships by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/relationships",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009",
+						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept tree positions by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/trees",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009",
+						"trees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&limit=5&resolver=MIN",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "diabetes"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "resolver",
+							"value": "MIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term and expression",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&expression=%3C%3C64572001&limit=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "diabetes"
+						},
+						{
+							"key": "expression",
+							"value": "%3C%3C64572001"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://api.terminologyhub.com/auth/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "https://api.terminologyhub.com",
+			"type": "string"
+		}
+	]
+}

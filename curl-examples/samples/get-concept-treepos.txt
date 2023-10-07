@@ -1,0 +1,329 @@
+{
+  "total": 2,
+  "parameters": {
+    "query": "terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731 AND concept.code:73211009",
+    "limit": 10,
+    "offset": 0
+  },
+  "items": [
+    {
+      "id": "c4deea09-6059-43bd-a248-6a3fd92bf05f",
+      "confidence": 42.02667236328125,
+      "modified": "2023-09-06T01:25:50.416+00:00",
+      "created": "2023-09-06T01:25:50.416+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "concept": {
+        "id": "7ae1a8d1-742d-43c7-9de6-2b6712bb2aa4",
+        "local": false,
+        "active": true,
+        "name": "SNOMED CT Concept",
+        "code": "138875005",
+        "leaf": false
+      },
+      "additionalType": "116680003",
+      "childCt": 7,
+      "children": [
+        {
+          "id": "d045d5c1-c68c-48bb-a6cf-2b045f16d38e",
+          "confidence": 40.39002227783203,
+          "modified": "2023-09-06T01:25:50.500+00:00",
+          "created": "2023-09-06T01:25:50.500+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "concept": {
+            "id": "ae540c62-1aab-42d5-b0d5-5ca0662c4436",
+            "local": false,
+            "active": true,
+            "name": "Clinical finding",
+            "code": "404684003",
+            "leaf": false
+          },
+          "additionalType": "116680003",
+          "ancestorPath": "138875005",
+          "childCt": 4,
+          "children": [
+            {
+              "id": "19ad0f82-20b5-4fa1-9042-296c8377f7d4",
+              "confidence": 38.91081619262695,
+              "modified": "2023-09-06T01:25:50.502+00:00",
+              "created": "2023-09-06T01:25:50.502+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20230731",
+              "publisher": "SANDBOX",
+              "concept": {
+                "id": "db882dc6-f508-415e-8945-3ffdd1521208",
+                "local": false,
+                "active": true,
+                "name": "Disease",
+                "code": "64572001",
+                "leaf": false
+              },
+              "additionalType": "116680003",
+              "ancestorPath": "138875005~404684003",
+              "childCt": 5,
+              "children": [
+                {
+                  "id": "8902482a-2f68-4da6-92f6-05ba9b1f43ea",
+                  "confidence": 38.70874786376953,
+                  "modified": "2023-09-06T01:25:50.502+00:00",
+                  "created": "2023-09-06T01:25:50.502+00:00",
+                  "modifiedBy": "loader",
+                  "local": false,
+                  "active": true,
+                  "terminology": "SNOMEDCT",
+                  "version": "20230731",
+                  "publisher": "SANDBOX",
+                  "concept": {
+                    "id": "4b3558d9-7c32-4669-8de1-074faf4b3cbf",
+                    "local": false,
+                    "active": true,
+                    "name": "Disorder of body system",
+                    "code": "362965005",
+                    "leaf": false
+                  },
+                  "additionalType": "116680003",
+                  "ancestorPath": "138875005~404684003~64572001",
+                  "childCt": 3,
+                  "children": [
+                    {
+                      "id": "c3343616-8d17-4ca1-bbfe-3735c28af048",
+                      "confidence": 39.67515563964844,
+                      "modified": "2023-09-06T01:25:50.502+00:00",
+                      "created": "2023-09-06T01:25:50.502+00:00",
+                      "modifiedBy": "loader",
+                      "local": false,
+                      "active": true,
+                      "terminology": "SNOMEDCT",
+                      "version": "20230731",
+                      "publisher": "SANDBOX",
+                      "concept": {
+                        "id": "214cecaa-7860-4945-b649-50cba67590a6",
+                        "local": false,
+                        "active": true,
+                        "name": "Disorder of endocrine system",
+                        "code": "362969004",
+                        "leaf": false
+                      },
+                      "additionalType": "116680003",
+                      "ancestorPath": "138875005~404684003~64572001~362965005",
+                      "childCt": 1,
+                      "children": [
+                        {
+                          "id": "ebb6d961-6771-4cc8-861d-027398f07732",
+                          "confidence": 39.10160446166992,
+                          "modified": "2023-09-06T01:25:50.502+00:00",
+                          "created": "2023-09-06T01:25:50.502+00:00",
+                          "modifiedBy": "loader",
+                          "local": false,
+                          "active": true,
+                          "terminology": "SNOMEDCT",
+                          "version": "20230731",
+                          "publisher": "SANDBOX",
+                          "concept": {
+                            "id": "32820a45-c767-45ac-bac0-3655410af1f7",
+                            "local": false,
+                            "active": true,
+                            "name": "Diabetes mellitus",
+                            "code": "73211009",
+                            "leaf": true
+                          },
+                          "additionalType": "116680003",
+                          "ancestorPath": "138875005~404684003~64572001~362965005~362969004",
+                          "childCt": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c4deea09-6059-43bd-a248-6a3fd92bf05f",
+      "confidence": 42.02667236328125,
+      "modified": "2023-09-06T01:25:50.416+00:00",
+      "created": "2023-09-06T01:25:50.416+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "concept": {
+        "id": "7ae1a8d1-742d-43c7-9de6-2b6712bb2aa4",
+        "local": false,
+        "active": true,
+        "name": "SNOMED CT Concept",
+        "code": "138875005",
+        "leaf": false
+      },
+      "additionalType": "116680003",
+      "childCt": 7,
+      "children": [
+        {
+          "id": "d045d5c1-c68c-48bb-a6cf-2b045f16d38e",
+          "confidence": 40.39002227783203,
+          "modified": "2023-09-06T01:25:50.500+00:00",
+          "created": "2023-09-06T01:25:50.500+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "concept": {
+            "id": "ae540c62-1aab-42d5-b0d5-5ca0662c4436",
+            "local": false,
+            "active": true,
+            "name": "Clinical finding",
+            "code": "404684003",
+            "leaf": false
+          },
+          "additionalType": "116680003",
+          "ancestorPath": "138875005",
+          "childCt": 4,
+          "children": [
+            {
+              "id": "19ad0f82-20b5-4fa1-9042-296c8377f7d4",
+              "confidence": 38.91081619262695,
+              "modified": "2023-09-06T01:25:50.502+00:00",
+              "created": "2023-09-06T01:25:50.502+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20230731",
+              "publisher": "SANDBOX",
+              "concept": {
+                "id": "db882dc6-f508-415e-8945-3ffdd1521208",
+                "local": false,
+                "active": true,
+                "name": "Disease",
+                "code": "64572001",
+                "leaf": false
+              },
+              "additionalType": "116680003",
+              "ancestorPath": "138875005~404684003",
+              "childCt": 5,
+              "children": [
+                {
+                  "id": "db68a22a-410b-4edd-a50c-0721c0fe8079",
+                  "confidence": 38.70874786376953,
+                  "modified": "2023-09-06T01:25:50.502+00:00",
+                  "created": "2023-09-06T01:25:50.502+00:00",
+                  "modifiedBy": "loader",
+                  "local": false,
+                  "active": true,
+                  "terminology": "SNOMEDCT",
+                  "version": "20230731",
+                  "publisher": "SANDBOX",
+                  "concept": {
+                    "id": "4ed9893c-82ff-4e94-8d07-092010f6eb3e",
+                    "local": false,
+                    "active": true,
+                    "name": "Metabolic disease",
+                    "code": "75934005",
+                    "leaf": false
+                  },
+                  "additionalType": "116680003",
+                  "ancestorPath": "138875005~404684003~64572001",
+                  "childCt": 1,
+                  "children": [
+                    {
+                      "id": "ac80c910-2d94-4b09-835a-eb3ca508f8f4",
+                      "confidence": 39.893409729003906,
+                      "modified": "2023-09-06T01:25:50.502+00:00",
+                      "created": "2023-09-06T01:25:50.502+00:00",
+                      "modifiedBy": "loader",
+                      "local": false,
+                      "active": true,
+                      "terminology": "SNOMEDCT",
+                      "version": "20230731",
+                      "publisher": "SANDBOX",
+                      "concept": {
+                        "id": "a97b4841-5a9a-46a0-b380-f9cd0b848a0c",
+                        "local": false,
+                        "active": true,
+                        "name": "Disorder of carbohydrate metabolism",
+                        "code": "20957000",
+                        "leaf": false
+                      },
+                      "additionalType": "116680003",
+                      "ancestorPath": "138875005~404684003~64572001~75934005",
+                      "childCt": 1,
+                      "children": [
+                        {
+                          "id": "58b23376-d6c8-49c6-aed2-24ee0248f29e",
+                          "confidence": 40.7553596496582,
+                          "modified": "2023-09-06T01:25:50.502+00:00",
+                          "created": "2023-09-06T01:25:50.502+00:00",
+                          "modifiedBy": "loader",
+                          "local": false,
+                          "active": true,
+                          "terminology": "SNOMEDCT",
+                          "version": "20230731",
+                          "publisher": "SANDBOX",
+                          "concept": {
+                            "id": "23c24f49-5d2e-44fd-9bed-194b95936054",
+                            "local": false,
+                            "active": true,
+                            "name": "Disorder of glucose metabolism",
+                            "code": "126877002",
+                            "leaf": false
+                          },
+                          "additionalType": "116680003",
+                          "ancestorPath": "138875005~404684003~64572001~75934005~20957000",
+                          "childCt": 1,
+                          "children": [
+                            {
+                              "id": "698c92a4-67ba-434b-b7c3-6859eadb6dd3",
+                              "confidence": 41.699153900146484,
+                              "modified": "2023-09-06T01:25:50.502+00:00",
+                              "created": "2023-09-06T01:25:50.502+00:00",
+                              "modifiedBy": "loader",
+                              "local": false,
+                              "active": true,
+                              "terminology": "SNOMEDCT",
+                              "version": "20230731",
+                              "publisher": "SANDBOX",
+                              "concept": {
+                                "id": "32820a45-c767-45ac-bac0-3655410af1f7",
+                                "local": false,
+                                "active": true,
+                                "name": "Diabetes mellitus",
+                                "code": "73211009",
+                                "leaf": true
+                              },
+                              "additionalType": "116680003",
+                              "ancestorPath": "138875005~404684003~64572001~75934005~20957000~126877002",
+                              "childCt": 0
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
