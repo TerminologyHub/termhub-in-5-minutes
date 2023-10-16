@@ -2,6 +2,8 @@
 
 This is an easy-to-use tutorial for accessing TermHub APIs through api.terminologyhub.com.
 
+[Tutorial Training Video](https://youtu.be/Vto42DIMw2U)
+
 **Reference deployments**
 
 To test against our TermHub servers, you must first create an account by signing up at https://app.terminologyhub.com/signup.
