@@ -72,21 +72,41 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 
 <a name="get-terminology"/>
 
-### Get terminology 
+### Get terminologies for project
 
-Return a specific terminology for an abbreviation, publisher, and version.
+Return all terminologies for specific project identified by either projectId or projectLabel.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/SNOMEDCT/SANDBOX/20230731" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/project/demoProject/terminology" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
 
+
+[Back to Top](#top)
+
+### Get terminology
+Return a specific terminology by its projectId.
+
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/ICD10CM/SANDBOX/2023" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/166c6448-318e-4ddc-a6a8-374274e17e57" | jq
 ```
 
-See sample payload data from this call in [`samples/get-terminology-icd10cm.txt`](samples/get-terminology-icd10cm.txt)
+See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
+
+
+[Back to Top](#top)
+
+### Export terminology
+
+Export zip file of a terminology for a particular publisher and version.
+
+```
+curl -o ALLERGY.zip -H "Authorization: Bearer $token" "$API_URL/terminology/demoProject/ALLERGY/TERMHUB/3.0/export?format=native"
+```
+
+See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
+
 
 [Back to Top](#top)
 
@@ -97,7 +117,7 @@ See sample payload data from this call in [`samples/get-terminology-icd10cm.txt`
 Look up concept information for a given terminology and code.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/demoProject/concept/SNOMEDCT/73211009" | jq
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
@@ -113,7 +133,7 @@ relationships that originate "from" this concept code and contain information ab
 the concepts those relationships point "to" on the other side.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/relationships" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/demoProject/concept/SNOMEDCT/73211009/relationships" | jq
 ```
 See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
 
@@ -129,7 +149,7 @@ more complex poly-hierarchies you likely expect to see multiple tree positions -
 each one with a different path to the root concept.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/trees" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/project/demoProject/concept/SNOMEDCT/73211009/trees" | jq
 ```
 
 See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-concept-treepos.txt)
@@ -144,7 +164,7 @@ Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&limit=5" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&limit=5" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
@@ -164,7 +184,7 @@ concept in SNOMED).  To work properly, the expression value has to be url encode
 (See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&expression=%3C%3C64572001&limit=5" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&expression=%3C%3C64572001&offset=0&limit=10" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
