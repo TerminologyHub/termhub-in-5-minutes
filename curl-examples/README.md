@@ -86,7 +86,7 @@ See sample payload data from this call in [`samples/get-terminology-snomedct.txt
 [Back to Top](#top)
 
 ### Get terminology
-Return a specific terminology by its projectId.
+Return a specific terminology by its terminologyId.
 
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/terminology/166c6448-318e-4ddc-a6a8-374274e17e57" | jq

@@ -5,21 +5,19 @@
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;
+  --id) id="$2"; shift;;
+  --project) project="$2"; shift;;
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 3 ] || [ -z $token ]; then
-  echo "Usage: $0 [--token token] <terminology> <publisher> <version>"
-  echo "  e.g. $0 --token \$token"
-  echo "  e.g. $0 --token \$token ICD10CM SANDBOX 2023"
-  echo "  e.g. $0 --token \$token SNOMEDCT SANDBOX 20230731"
+if [ ${#arr[@]} -ne 0 ] || [ -z $token ] || \
+  ([ ! -z $id ] && [ ! -z $project  ])|| \
+  ([ -z $id ] && [ -z $project ]) ; then
+  echo "Usage: $0 [--token token] [ --id terminologyId | --project projectIdOrUrl ] "
+  echo "  e.g. $0 --token \$token --id 166c6448-318e-4ddc-a6a8-374274e17e5"
+  echo "  e.g. $0 --token \$token --project demoProject"
   exit 1
 fi
-
-terminology=${arr[0]}
-publisher=${arr[1]}
-version=${arr[2]}
-
 
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -33,9 +31,15 @@ echo ""
 
 # GET call
 echo "  Performing terminologies lookup"
-curl -v -w "\n%{http_code}" -G "$url/terminology/$terminology/$publisher/$version" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
+if [ ! -z $id ]; then
+  target_url="$url/terminology/$id"
+  curl -v -w "\n%{http_code}" -G "$target_url" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
+else
+  target_url="$url/project/$project/terminology"
+  curl -v -w "\n%{http_code}" -G "$target_url" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
+fi
 if [ $? -ne 0 ]; then
-  echo "ERROR: GET $url/terminology/$terminology/$publisher/$version failed"
+  echo "ERROR: GET $target_url failed"
   exit 1
 fi
 
@@ -43,7 +47,7 @@ fi
 status=`tail -1 /tmp/x.$$`
 if [ $status -ne 200 ]; then
   perl -pe 's/200$//' /tmp/x.$$ | jq '.' | sed 's/^/    /'
-  echo "ERROR: GET $url/terminology/$terminology/$publisher/$version returned $status, expected 200"
+  echo "ERROR: GET $target_url returned $status, expected 200"
   exit 1
 fi
 

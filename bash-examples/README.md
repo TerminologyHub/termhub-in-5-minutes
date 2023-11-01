@@ -142,14 +142,102 @@ Finished ...Mon, Sep 11, 2023  7:15:45 PM
 
 <a name="get-terminology-sh"/>
 
-### get-terminologies.sh
+### get-terminology.sh
 
-Return the specific terminology for the abbreviation, publisher, and version.
+Return all terminologies for specific project identified by either projectId or projectLabel.
 
 ```
-$ ./get-terminology.sh --token $token SNOMEDCT SANDBOX 20230731
+$ ./get-terminology.sh --token $token --project demoProject
 -----------------------------------------------------
-Starting ...Tue, Sep 12, 2023  7:39:17 PM
+Starting ...Tue Oct 31 19:27:08 CDT 2023
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+
+  Performing terminologies lookup
+    count = 5
+
+    [
+      {
+        "id": "7e8435c2-fec6-4184-8643-b108fdb0ace2",
+        "confidence": 8.573763847351074,
+        "modified": "2023-10-24T15:06:31.174+00:00",
+        "created": "2023-10-24T15:06:31.174+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "ALLERGY",
+        "name": "Simple ALLERGY terminology",
+        "version": "3.0",
+        "publisher": "TERMHUB",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2023-04-01",
+        "family": "ALLERGY",
+        "indexName": "allergy-termhub-30",
+        "attributes": {
+          "fhirUri": "https://terminologyhub.com/ALLERGY",
+          "unidirectionalRels": "true",
+          "hierarchical": "true",
+          "fhirVersion": "3.0",
+          "tree-positions": "true",
+          "ecl": "true",
+          "fhirId": "allergy_3.0"
+        },
+        "roots": [
+          "root"
+        ],
+        "conceptCt": 12,
+        "relationshipCt": 1,
+        "treePositionCt": 2
+      },
+      
+      . . .
+      
+      {
+        "id": "df04af9d-ba0e-43f0-bdc9-886174cd8f48",
+        "confidence": 5.35488748550415,
+        "modified": "2023-09-28T22:21:20.890+00:00",
+        "created": "2023-09-28T22:21:20.890+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT",
+        "name": "Systematized Nomenclature of Medicine–Clinical Terminology",
+        "version": "20230731",
+        "publisher": "NLM",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2023-07-31",
+        "family": "SNOMEDCT",
+        "indexName": "snomedct-nlm-20230731",
+        "attributes": {
+          "description-logic-profile": "EL++",
+          "polyhierarchy": "true",
+          "hierarchical": "true",
+          "description-logic-based": "true",
+          "tree-positions": "true",
+          "unidirectional-rels": "true",
+          "ecl": "true"
+        },
+        "roots": [
+          "138875005"
+        ],
+        "conceptCt": 505605,
+        "relationshipCt": 1238782,
+        "treePositionCt": 13925882
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Tue Oct 31 19:27:09 CDT 2023
+-----------------------------------------------------
+```
+Return a specific terminology by its terminology id.
+
+```
+$ ./get-terminology.sh --token $token --id 166c6448-318e-4ddc-a6a8-374274e17e57
+-----------------------------------------------------
+Starting ...Tue Oct 31 19:31:03 CDT 2023
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 
@@ -157,72 +245,53 @@ url = https://api.terminologyhub.com
     count = 20
 
     {
-      "id": "584227ae-c7cd-4847-9574-d427856c1886",
-      "confidence": 4.9812846183776855,
-      "modified": "2023-09-06T01:25:34.310+00:00",
-      "created": "2023-09-06T01:25:34.310+00:00",
+      "id": "166c6448-318e-4ddc-a6a8-374274e17e57",
+      "confidence": 0.011976190842688084,
+      "modified": "2023-09-03T03:43:18.187+00:00",
+      "created": "2023-09-03T03:43:18.187+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
       "abbreviation": "SNOMEDCT",
       "name": "Systematized Nomenclature of Medicine–Clinical Terminology",
-      "version": "20230731",
-      "publisher": "SANDBOX",
-      "latest": true,
+      "version": "20220131",
+      "publisher": "NLM",
+      "latest": false,
       "loaded": true,
+      "releaseDate": "2022-01-31",
       "family": "SNOMEDCT",
-      "releaseDate": "2023-07-31",
-      "license": "UNRESTRICTED",
+      "indexName": "snomedct-nlm-20220131",
       "attributes": {
         "tree-positions": "true"
       },
-      "conceptCt": 409,
-      "relationshipCt": 666,
-      "treePositionCt": 1997
+      "conceptCt": 490412,
+      "relationshipCt": 1184330,
+      "treePositionCt": 11574418
     }
 
 -----------------------------------------------------
-Finished ...Tue, Sep 12, 2023  7:39:18 PM
+Finished ...Tue Oct 31 19:31:03 CDT 2023
 -----------------------------------------------------
 ```
 
+[Back to Top](#top)
+
+<a name="get-terminologies-sh"/>
+
+### export-terminology.sh
+
+Exports a terminology for the given projectid, terminology, publisher and version. In this example, the exported terminology is placed in a zip file named ALLERGY-TERMHUB-3.0.zip
+
 ```
-$ ./get-terminology.sh --token $token ICD10CM SANDBOX 2023
+$ ./export-terminology.sh 1878ce91-ca3d-4c50-b7c4-bbed76261e72 ALLERGY TERMHUB 3.0
 -----------------------------------------------------
-Starting ...Tue, Sep 12, 2023  7:39:28 PM
+Starting ...Tue Oct 31 21:02:42 CDT 2023
 -----------------------------------------------------
-url = https://api.terminologyhub.com
+url = https://dev.terminologyhub.com
 
-  Performing terminologies lookup
-    count = 20
-
-    {
-      "id": "baffe020-a623-47fb-aae6-01db99aa6baf",
-      "confidence": 5.708115577697754,
-      "modified": "2023-09-06T01:28:53.560+00:00",
-      "created": "2023-09-06T01:28:53.560+00:00",
-      "modifiedBy": "loader",
-      "local": false,
-      "active": true,
-      "abbreviation": "ICD10CM",
-      "name": "International Classification of Diseases, 10th Edition, Clinical Modification, 2023",
-      "version": "2023",
-      "publisher": "SANDBOX",
-      "latest": true,
-      "loaded": true,
-      "family": "ICD10CM",
-      "releaseDate": "2022-11-07",
-      "license": "UNRESTRICTED",
-      "attributes": {
-        "tree-positions": "true"
-      },
-      "conceptCt": 6,
-      "relationshipCt": 10,
-      "treePositionCt": 6
-    }
-
+  Performing terminology export
 -----------------------------------------------------
-Finished ...Tue, Sep 12, 2023  7:39:28 PM
+Finished ...Tue Oct 31 21:02:45 CDT 2023
 -----------------------------------------------------
 ```
 
