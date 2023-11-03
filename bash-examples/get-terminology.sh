@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Script to call TermHub to get a specific terminology
-# by terminology/publisher/version.
+# by terminologyId/projectIdOrUrl.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;

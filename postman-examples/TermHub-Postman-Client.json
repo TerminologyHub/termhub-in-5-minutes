@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ec7393ff-dd1a-4fd5-a642-20ea4eeccf89",
+		"_postman_id": "a824e806-2778-4e8d-b115-38a7a45b5801",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "29740654"
 	},
 	"item": [
 		{
@@ -29,15 +29,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/SNOMEDCT/SANDBOX/20230731",
+					"raw": "{{API_URL}}/terminology/166c6448-318e-4ddc-a6a8-374274e17e57",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"SNOMEDCT",
-						"SANDBOX",
-						"20230731"
+						"166c6448-318e-4ddc-a6a8-374274e17e57"
 					]
 				}
 			},
@@ -49,15 +47,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/ICD10CM/SANDBOX/2023",
+					"raw": "{{API_URL}}/terminology/13b52fe9-3260-4115-b321-0c1d07e1677f",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"ICD10CM",
-						"SANDBOX",
-						"2023"
+						"13b52fe9-3260-4115-b321-0c1d07e1677f"
 					]
 				}
 			},
@@ -69,17 +65,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009",
+					"raw": "{{API_URL}}//project/demoProject/concept/SNOMEDCT/73211009",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"terminology",
-						"sandbox",
+						"",
+						"project",
+						"demoProject",
 						"concept",
 						"SNOMEDCT",
-						"SANDBOX",
-						"20230731",
 						"73211009"
 					]
 				}
@@ -92,17 +87,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/relationships",
+					"raw": "{{API_URL}}/project/demoProject/concept/SNOMEDCT/73211009/relationships",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"terminology",
-						"sandbox",
+						"project",
+						"demoProject",
 						"concept",
 						"SNOMEDCT",
-						"SANDBOX",
-						"20230731",
 						"73211009",
 						"relationships"
 					]
@@ -116,17 +109,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/trees",
+					"raw": "{{API_URL}}/project/demoProject/concept/SNOMEDCT/73211009/trees",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"terminology",
-						"sandbox",
+						"project",
+						"demoProject",
 						"concept",
 						"SNOMEDCT",
-						"SANDBOX",
-						"20230731",
 						"73211009",
 						"trees"
 					]
@@ -140,19 +131,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&limit=5",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"terminology",
-						"sandbox",
-						"concept",
-						"SNOMEDCT",
-						"SANDBOX",
-						"20230731"
+						"project",
+						"demoProject",
+						"concept"
 					],
 					"query": [
+						{
+							"key": "terminology",
+							"value": "SNOMEDCT"
+						},
 						{
 							"key": "query",
 							"value": "diabetes"
@@ -160,10 +152,6 @@
 						{
 							"key": "limit",
 							"value": "5"
-						},
-						{
-							"key": "resolver",
-							"value": "MIN"
 						}
 					]
 				}
@@ -176,19 +164,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&expression=%3C%3C64572001&limit=5",
+					"raw": "{{API_URL}}/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&expression=%3C%3C64572001&offset=0&limit=10",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"terminology",
-						"sandbox",
-						"concept",
-						"SNOMEDCT",
-						"SANDBOX",
-						"20230731"
+						"project",
+						"demoProject",
+						"concept"
 					],
 					"query": [
+						{
+							"key": "terminology",
+							"value": "SNOMEDCT"
+						},
 						{
 							"key": "query",
 							"value": "diabetes"
@@ -198,8 +187,12 @@
 							"value": "%3C%3C64572001"
 						},
 						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
 							"key": "limit",
-							"value": "5"
+							"value": "10"
 						}
 					]
 				}
@@ -210,6 +203,16 @@
 	"auth": {
 		"type": "oauth2",
 		"oauth2": [
+			{
+				"key": "password",
+				"value": "{{TERMHUB_PASSWORD}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{TERMHUB_USER}}",
+				"type": "string"
+			},
 			{
 				"key": "accessTokenUrl",
 				"value": "https://api.terminologyhub.com/auth/token",

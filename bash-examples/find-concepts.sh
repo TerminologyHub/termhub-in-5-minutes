@@ -13,11 +13,6 @@ while [[ "$#" -gt 0 ]]; do case $1 in
 esac; shift; done
 
 if [ ${#arr[@]} -ne 3 ]; then
-#  echo "Usage: $0 <terminology> <publisher> <version> <query> [--token token] [--expr <expression>]"
-#  echo "    [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
-#  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 diabetes --token \$token"
-#  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 system --expr '<64572001' --limit 5 --token \$token"
-
   echo "Usage: $0 <project> <terminology> <query> [--token token] [--expr <expression>]"
   echo "    [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
   echo "  e.g. $0 demoProject SNOMEDCT diabetes --token \$token"
@@ -65,16 +60,13 @@ echo "ascending = $ascending"
 echo ""
 
 if [[ -z $query ]]; then
-    #query="(terminology:$terminology AND publisher:$publisher AND version:$version)"
     query="(terminology:$terminology)"
 else
-    #query="(terminology:$terminology AND publisher:$publisher AND version:$version) AND $query"
     query="(terminology:$terminology) AND $query"
 fi
 
 # GET call
 echo "  Find concepts: $query"
-#curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
 curl -v -w "\n%{http_code}" -G "$url/project/$project/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET call failed"

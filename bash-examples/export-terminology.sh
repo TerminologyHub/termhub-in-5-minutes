@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Script to call TermHub to get a specific terminology
-# by terminology/publisher/version.
+# by projectId/terminology/publisher/version.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;
@@ -9,8 +9,6 @@ while [[ "$#" -gt 0 ]]; do case $1 in
 esac; shift; done
 
 if [ ${#arr[@]} -ne 4 ] || [ -z $token ]; then
-  #echo "Usage: $0 [--token token] <terminology> <publisher> <version>"
-  #echo "  e.g. $0 --token \$token SNOMEDCT SANDBOX 20230731"
   echo "Usage: $0 [--token token] <projectId> <terminology> <publisher> <version>"
   echo "e.g. $0 --token \$token 1878ce91-ca3d-4c50-b7c4-bbed76261e72 ALLERGY TERMHUB 3.0"
 
@@ -35,7 +33,6 @@ echo ""
 
 # GET call
 echo "  Performing terminology export"
-#curl -v -w "\n%{http_code}" -G "$url/terminology/$terminology/$publisher/$version" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
 curl -v -o $terminology-$publisher-$version.zip -w "\n%{http_code}" -G "$url/terminology/$projectId/$terminology/$publisher/$version/export?format=native" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET $url/terminology/$projectId/$terminology/$publisher/$version/export?format=native failed"

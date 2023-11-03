@@ -16,8 +16,8 @@ if [ ${#arr[@]} -ne 3 ]; then
   echo "Usage: $0 <project> <terminology> <code> [--token token] [--limit #]"
   echo "    [--offset #] [--ascending <true|false>] [--sort <sort>]"
   echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token"
-  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token" --limit 5"
-  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token" --limit 5 --sort additionalType"
+  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token --limit 5"
+  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token --limit 5 --sort additionalType"
   exit 1
 fi
 
