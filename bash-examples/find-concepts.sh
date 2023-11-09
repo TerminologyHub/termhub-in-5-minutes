@@ -12,18 +12,17 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 4 ]; then
-  echo "Usage: $0 <terminology> <publisher> <version> <query> [--token token] [--expr <expression>]"
+if [ ${#arr[@]} -ne 3 ]; then
+  echo "Usage: $0 <project> <terminology> <query> [--token token] [--expr <expression>]"
   echo "    [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
-  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 diabetes --token \$token"
-  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 system --expr '<64572001' --limit 5 --token \$token"
+  echo "  e.g. $0 demoProject SNOMEDCT diabetes --token \$token"
+  echo "  e.g. $0 demoProject SNOMEDCT system --expr '<64572001' --limit 5 --token \$token"
   exit 1
 fi
 
-terminology=${arr[0]}
-publisher=${arr[1]}
-version=${arr[2]}
-query=${arr[3]}
+project=${arr[0]}
+terminology=${arr[1]}
+query=${arr[2]}
 
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -34,8 +33,7 @@ echo "Starting ...$(/bin/date)"
 echo "-----------------------------------------------------"
 echo "url = $url"
 echo "terminology = $terminology"
-echo "publisher = $publisher"
-echo "version = $version"
+echo "project = $project"
 
 # Handle parameters
 if [[ -z $expr ]]; then
@@ -62,14 +60,14 @@ echo "ascending = $ascending"
 echo ""
 
 if [[ -z $query ]]; then
-    query="(terminology:$terminology AND publisher:$publisher AND version:$version)"
+    query="(terminology:$terminology)"
 else
-    query="(terminology:$terminology AND publisher:$publisher AND version:$version) AND $query"
+    query="(terminology:$terminology) AND $query"
 fi
 
 # GET call
 echo "  Find concepts: $query"
-curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/project/$project/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET call failed"
   exit 1
