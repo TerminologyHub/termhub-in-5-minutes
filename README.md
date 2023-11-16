@@ -54,7 +54,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 ## Resources
 
-- API Documentation - https://api.terminologyhub.com/swagger-ui.html
+- API Documentation - https://api.terminologyhub.com/terminology/doc/swagger-ui/index.html
 - [Additional Documentation](../master/doc/)
 
 
