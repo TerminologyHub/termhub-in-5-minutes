@@ -86,10 +86,13 @@ See sample payload data from this call in [`samples/get-terminology-snomedct.txt
 [Back to Top](#top)
 
 ### Get terminology
-Return a specific terminology by its terminologyId.
+Return a specific terminology by its terminologyId. The UUID below is an example
+that may or may not work.  The idea is to take one of the terminology ids returned
+by the previous call and you can then look up terminology info for specifically that
+UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/166c6448-318e-4ddc-a6a8-374274e17e57" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/573d0360-3d48-4a43-a657-31372bac2fec" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)

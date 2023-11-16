@@ -24,36 +24,18 @@
 			"response": []
 		},
 		{
-			"name": "Get terminology - SNOMEDCT",
+			"name": "Get terminology - by UUID from previous call",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/166c6448-318e-4ddc-a6a8-374274e17e57",
+					"raw": "{{API_URL}}/terminology/573d0360-3d48-4a43-a657-31372bac2fec",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"166c6448-318e-4ddc-a6a8-374274e17e57"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get terminology - ICD10CM",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/terminology/13b52fe9-3260-4115-b321-0c1d07e1677f",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"terminology",
-						"13b52fe9-3260-4115-b321-0c1d07e1677f"
+						"573d0360-3d48-4a43-a657-31372bac2fec"
 					]
 				}
 			},
