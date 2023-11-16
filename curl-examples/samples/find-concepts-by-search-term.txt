@@ -1,14 +1,14 @@
 {
   "total": 1,
   "parameters": {
-    "query": "diabetes AND terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731",
+    "query": "diabetes",
     "limit": 5,
     "offset": 0
   },
   "items": [
     {
-      "id": "32820a45-c767-45ac-bac0-3655410af1f7",
-      "confidence": 22.147571563720703,
+      "id": "918434c6-9397-4120-b252-e8abecacd3ee",
+      "confidence": 10.78994369506836,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",

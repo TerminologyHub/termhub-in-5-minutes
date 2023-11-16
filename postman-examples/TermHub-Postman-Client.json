@@ -47,14 +47,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}//project/demoProject/concept/SNOMEDCT/73211009",
+					"raw": "{{API_URL}}//project/sandbox/concept/SNOMEDCT/73211009",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"",
 						"project",
-						"demoProject",
+						"sandbox",
 						"concept",
 						"SNOMEDCT",
 						"73211009"
@@ -69,13 +69,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/project/demoProject/concept/SNOMEDCT/73211009/relationships",
+					"raw": "{{API_URL}}/project/sandbox/concept/SNOMEDCT/73211009/relationships",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"project",
-						"demoProject",
+						"sandbox",
 						"concept",
 						"SNOMEDCT",
 						"73211009",
@@ -91,13 +91,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/project/demoProject/concept/SNOMEDCT/73211009/trees",
+					"raw": "{{API_URL}}/project/sandbox/concept/SNOMEDCT/73211009/trees",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"project",
-						"demoProject",
+						"sandbox",
 						"concept",
 						"SNOMEDCT",
 						"73211009",
@@ -113,13 +113,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&limit=5",
+					"raw": "{{API_URL}}/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"project",
-						"demoProject",
+						"sandbox",
 						"concept"
 					],
 					"query": [
@@ -146,13 +146,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/project/demoProject/concept?terminology=SNOMEDCT&query=diabetes&expression=%3C%3C64572001&offset=0&limit=10",
+					"raw": "{{API_URL}}/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&expression=%3C%3C64572001&offset=0&limit=10",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"project",
-						"demoProject",
+						"sandbox",
 						"concept"
 					],
 					"query": [

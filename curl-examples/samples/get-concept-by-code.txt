@@ -1,6 +1,6 @@
 {
-  "id": "32820a45-c767-45ac-bac0-3655410af1f7",
-  "confidence": 23.335575103759766,
+  "id": "918434c6-9397-4120-b252-e8abecacd3ee",
+  "confidence": 5.953243255615234,
   "modified": "2002-01-31T00:00:00.000+00:00",
   "created": "2002-01-31T00:00:00.000+00:00",
   "modifiedBy": "loader",
@@ -13,11 +13,9 @@
   "publisher": "SANDBOX",
   "leaf": true,
   "defined": false,
-  "normName": "diabetes mellitus",
-  "stemName": "diabet mellitus",
   "terms": [
     {
-      "id": "8b5bec36-cfcd-418b-a19a-ab444ecdc208",
+      "id": "554ddced-a5b0-49c9-a895-ae103ca15c20",
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -43,7 +41,7 @@
       }
     },
     {
-      "id": "0d0d12fc-8940-4271-b7dd-ef6027773cd1",
+      "id": "56b6f00a-acd6-43d2-a3b2-329fc6239786",
       "modified": "2017-07-31T00:00:00.000+00:00",
       "created": "2017-07-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -70,7 +68,7 @@
       }
     },
     {
-      "id": "ae7c5155-19b9-4a0e-80c2-31f8523efb80",
+      "id": "c39ce2eb-fceb-4644-84d1-b06c3b38e822",
       "modified": "2017-07-31T00:00:00.000+00:00",
       "created": "2017-07-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -97,7 +95,7 @@
       }
     },
     {
-      "id": "1e371c1f-5089-4cd7-9bb1-7ce1fc618dae",
+      "id": "a3c954d0-8b2a-4e49-ab1e-a089169ebb6f",
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
