@@ -1,8 +1,8 @@
 {
-  "id": "584227ae-c7cd-4847-9574-d427856c1886",
-  "confidence": 4.9812846183776855,
-  "modified": "2023-09-06T01:25:34.310+00:00",
-  "created": "2023-09-06T01:25:34.310+00:00",
+  "id": "573d0360-3d48-4a43-a657-31372bac2fec",
+  "confidence": 4.040700912475586,
+  "modified": "2023-10-21T18:05:26.552+00:00",
+  "created": "2023-10-21T18:05:26.552+00:00",
   "modifiedBy": "loader",
   "local": false,
   "active": true,
@@ -12,12 +12,23 @@
   "publisher": "SANDBOX",
   "latest": true,
   "loaded": true,
-  "family": "SNOMEDCT",
   "releaseDate": "2023-07-31",
-  "license": "UNRESTRICTED",
+  "family": "SNOMEDCT",
   "attributes": {
-    "tree-positions": "true"
+    "description-logic-profile": "EL++",
+    "fhirUri": "http://snomed.info/sct",
+    "polyhierarchy": "true",
+    "hierarchical": "true",
+    "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20230731",
+    "description-logic-based": "true",
+    "tree-positions": "true",
+    "unidirectional-rels": "true",
+    "ecl": "true",
+    "fhirId": "snomedct_900000000000207008_20230731"
   },
+  "roots": [
+    "138875005"
+  ],
   "conceptCt": 409,
   "relationshipCt": 666,
   "treePositionCt": 1997

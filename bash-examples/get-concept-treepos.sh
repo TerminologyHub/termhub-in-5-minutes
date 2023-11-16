@@ -51,7 +51,7 @@ if [[ -z $sort ]]; then
 fi
 
 # GET call
-echo "  Get concept for $terminology $code:"
+echo "  Get concept tree positions for $terminology $code:"
 curl -v -w "\n%{http_code}" -G "$url/project/$project/concept/$terminology/$code/trees" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then

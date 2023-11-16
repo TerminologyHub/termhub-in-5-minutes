@@ -30,14 +30,15 @@ To test against our TermHub servers, you must first create an account by signing
 
 **[Back to top](#table-of-contents)**
 
-
 ## Use Cases
 
 The following cases will be used to demonstrate accessing the TermHub Terminology API
 
 - Login
 - Get terminologies
+- Get project terminologies
 - Get specific terminology
+- Export terminology
 - Get concept by code
 - Get concept relationships by code
 - Get concept tree positions
