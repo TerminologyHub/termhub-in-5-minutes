@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a824e806-2778-4e8d-b115-38a7a45b5801",
+		"_postman_id": "34422347-6fc3-444d-b14e-c1c1829003d0",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29740654"
+		"_exporter_id": "30919710"
 	},
 	"item": [
 		{
@@ -24,7 +24,26 @@
 			"response": []
 		},
 		{
-			"name": "Get terminology - by UUID from previous call",
+			"name": "Get project terminologies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/terminology",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"terminology"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific terminology - by UUID from previous call",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -42,17 +61,43 @@
 			"response": []
 		},
 		{
+			"name": "Export terminology",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/terminology/SNOMEDCT/export?format=native",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"terminology",
+						"SNOMEDCT",
+						"export"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "native"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get concept by code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}//project/sandbox/concept/SNOMEDCT/73211009",
+					"raw": "{{API_URL}}/project/sandbox/concept/SNOMEDCT/73211009",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"",
 						"project",
 						"sandbox",
 						"concept",
@@ -187,7 +232,7 @@
 		"oauth2": [
 			{
 				"key": "password",
-				"value": "{{TERMHUB_PASSWORD}}",
+				"value": "{{TERMHUB_PASS}}",
 				"type": "string"
 			},
 			{
