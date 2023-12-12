@@ -11,7 +11,7 @@ esac; shift; done
 if [ ${#arr[@]} -ne 2 ] || [ -z $token ]; then
   echo "Usage: $0 [--token token] <projectId> <terminology>"
   echo "e.g. $0 --token \$token sandbox SNOMEDCT"
-  echo "e.g. $0 --token \$token sandbox 573d0360-3d48-4a43-a657-31372bac2fec"
+  echo "e.g. $0 --token \$token sandbox e6afba85-a4d8-42d9-9712-81faebc152b8"
 
   exit 1
 fi

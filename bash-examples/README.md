@@ -274,7 +274,7 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```
-$ ./get-terminology.sh --token $token --id 573d0360-3d48-4a43-a657-31372bac2fec
+$ ./get-terminology.sh --token $token --id e6afba85-a4d8-42d9-9712-81faebc152b8
 -----------------------------------------------------
 Starting ...Thu, Nov 16, 2023  9:02:57 AM
 -----------------------------------------------------
