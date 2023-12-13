@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "34422347-6fc3-444d-b14e-c1c1829003d0",
+		"_postman_id": "db4bc78d-ac30-4e7e-b758-75bf846cfaac",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30919710"
@@ -48,13 +48,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/573d0360-3d48-4a43-a657-31372bac2fec",
+					"raw": "{{API_URL}}/terminology/e6afba85-a4d8-42d9-9712-81faebc152b8",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"573d0360-3d48-4a43-a657-31372bac2fec"
+						"e6afba85-a4d8-42d9-9712-81faebc152b8"
 					]
 				}
 			},

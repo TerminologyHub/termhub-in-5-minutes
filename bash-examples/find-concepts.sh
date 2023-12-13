@@ -67,7 +67,7 @@ fi
 
 # GET call
 echo "  Find concepts: $query"
-curl -v -w "\n%{http_code}" -G "$url/project/$project/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/project/$project/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "terminology=$terminology" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET call failed"
   exit 1
