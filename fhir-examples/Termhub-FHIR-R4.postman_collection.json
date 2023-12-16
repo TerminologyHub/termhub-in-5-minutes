@@ -1,0 +1,1073 @@
+{
+	"info": {
+		"_postman_id": "e271536e-3cb8-437c-bce8-a703b91708a9",
+		"name": "Termhub FHIR R4",
+		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11076096"
+	},
+	"item": [
+		{
+			"name": "CodeSystem",
+			"item": [
+				{
+					"name": "Get all code systems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?_id=snomedct_900000000000207008_20230731",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "snomedct_900000000000207008_20230731"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?url=http://snomed.info/sct",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems - default search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2023-07-31&name=Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-31"
+								},
+								{
+									"key": "name",
+									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+								},
+								{
+									"key": "description",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "SNOMEDCT"
+								},
+								{
+									"key": "publisher",
+									"value": "SANDBOX"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems - contains search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?name:contains=Nomenclature&title:contains=SNOMED&version:contains=20230731&publisher:contains=BOX",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "name:contains",
+									"value": "Nomenclature"
+								},
+								{
+									"key": "description:contains",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "title:contains",
+									"value": "SNOMED"
+								},
+								{
+									"key": "version:contains",
+									"value": "20230731"
+								},
+								{
+									"key": "publisher:contains",
+									"value": "BOX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems - startsWith search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2023-07-31&name=Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-31"
+								},
+								{
+									"key": "name",
+									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+								},
+								{
+									"key": "description",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "SNOMEDCT"
+								},
+								{
+									"key": "publisher",
+									"value": "SANDBOX"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems - exact search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date:exact=2023-07-31&name:exact=Systematized Nomenclature of Medicine–Clinical Terminology&title:exact=SNOMEDCT&publisher:exact=SANDBOX&version:exact=http://snomed.info/sct/900000000000207008/version/20230731",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "date:exact",
+									"value": "2023-07-31"
+								},
+								{
+									"key": "name:exact",
+									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "title:exact",
+									"value": "SNOMEDCT"
+								},
+								{
+									"key": "publisher:exact",
+									"value": "SANDBOX"
+								},
+								{
+									"key": "version:exact",
+									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup a SNOMEDCT code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem",
+								"$lookup"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "code",
+									"value": "80891009"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup a SNOMEDCT code with specific properties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009&property=effectiveTime&property=sufficientlyDefined",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"",
+								"CodeSystem",
+								"$lookup"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "code",
+									"value": "80891009"
+								},
+								{
+									"key": "property",
+									"value": "effectiveTime"
+								},
+								{
+									"key": "property",
+									"value": "sufficientlyDefined"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup a LOINC code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/lnc_274/$lookup?code=74291-6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem",
+								"lnc_274",
+								"$lookup"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "74291-6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test for SNOMEDCT concept subsumption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=80891009&codeB=113343008",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"",
+								"CodeSystem",
+								"$subsumes"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "codeA",
+									"value": "80891009"
+								},
+								{
+									"key": "codeB",
+									"value": "113343008"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate a SNOMEDCT code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$validate-code?url=http://snomed.info/sct&code=80891009",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"",
+								"CodeSystem",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "code",
+									"value": "80891009"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate a LOINC code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/lnc_274/$validate-code?code=74291-6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem",
+								"lnc_274",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "74291-6"
+								},
+								{
+									"key": "",
+									"value": "80891009",
+									"disabled": true
+								},
+								{
+									"key": "codeB",
+									"value": "113343008",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ValueSet",
+			"item": [
+				{
+					"name": "Get all value sets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find value sets by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_idicd10cm_2023_entire",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "_idicd10cm_2023_entire",
+									"value": null
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find value sets by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find value sets - default search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?date=2023-07-31&name=VS Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT-ENTIRE&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-31"
+								},
+								{
+									"key": "name",
+									"value": "VS Systematized Nomenclature of Medicine–Clinical Terminology"
+								},
+								{
+									"key": "title",
+									"value": "SNOMEDCT-ENTIRE"
+								},
+								{
+									"key": "publisher",
+									"value": "SANDBOX"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate code (versioned url)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct/900000000000207008/version/20230731?fhir_vs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "code",
+									"value": "80891009"
+								},
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct/900000000000207008/version/20230731?fhir_vs"
+								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct?fhir_vs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "code",
+									"value": "80891009"
+								},
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs"
+								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Perform a concept term search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs&count=10&offset=0&filter=heart&activeOnly=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "filter",
+									"value": "heart"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true"
+								}
+							]
+						},
+						"description": "In this case searching all of SNOMED CT for myocardial (term searching is case insensitive)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get descendants of a given code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=isa/80891009&count=10&offset=0&activeOnly=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=isa/80891009"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run an ECL query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=ecl/<<80891009&count=10&offset=0&activeOnly=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=ecl/<<80891009"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true"
+								}
+							]
+						},
+						"description": "The example ECL query is to retrieve only those concepts whose defining relationships match the given attribute value pairs:\n\n< 404684003 |clinical finding|: 116676008 |associated morphology| = *"
+					},
+					"response": []
+				},
+				{
+					"name": "Run an ECL query with term search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=ecl/<<80891009&filter=entire&count=10&offset=0&activeOnly=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=ecl/<<80891009"
+								},
+								{
+									"key": "filter",
+									"value": "entire"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Term filtering - ValueSet of all <<763158003 |Medicinal product (product)| containing the word aspirin.  This is not case sensitive."
+					},
+					"response": []
+				},        
+				{
+					"name": "Run an ECL query and include all English names",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=ecl/<<80891009&count=10&offset=0&activeOnly=true&includeDesignations=true&designation=en",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=ecl/<<80891009"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true"
+								},
+								{
+									"key": "includeDesignations",
+									"value": "true"
+								},
+								{
+									"key": "designation",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ConceptMap",
+			"item": [
+				{
+					"name": "Get all concept maps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Server capability statement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/metadata",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"r4",
+						"{{idOrUriLabel}}",
+						"fhir",
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "password",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{baseUrl}}/auth/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.terminologyhub.com"
+		},
+		{
+			"key": "idOrUriLabel",
+			"value": "sandbox",
+			"type": "string"
+		}
+	]
+}
