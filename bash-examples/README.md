@@ -274,7 +274,7 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```
-$ ./get-terminology.sh --token $token --id e6afba85-a4d8-42d9-9712-81faebc152b8
+$ ./get-terminology.sh --token $token --id 4b9c4b4f-11b4-42e6-b129-7948e9c9be60
 -----------------------------------------------------
 Starting ...Thu, Nov 16, 2023  9:02:57 AM
 -----------------------------------------------------
@@ -284,7 +284,7 @@ url = https://api.terminologyhub.com
     count = 20
 
     {
-      "id": "573d0360-3d48-4a43-a657-31372bac2fec",
+      "id": "4b9c4b4f-11b4-42e6-b129-7948e9c9be60",
       "confidence": 4.040700912475586,
       "modified": "2023-10-21T18:05:26.552+00:00",
       "created": "2023-10-21T18:05:26.552+00:00",
