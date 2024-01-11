@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e271536e-3cb8-437c-bce8-a703b91708a9",
+		"_postman_id": "a4f5adff-2227-4b1c-be50-946ae1f9829b",
 		"name": "Termhub FHIR R4",
 		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -389,11 +389,6 @@
 									"value": "http://snomed.info/sct"
 								},
 								{
-									"key": "version",
-									"value": "",
-									"disabled": true
-								},
-								{
 									"key": "codeA",
 									"value": "80891009"
 								},
@@ -432,11 +427,6 @@
 								{
 									"key": "code",
 									"value": "80891009"
-								},
-								{
-									"key": "version",
-									"value": "",
-									"disabled": true
 								}
 							]
 						}
@@ -465,16 +455,6 @@
 								{
 									"key": "code",
 									"value": "74291-6"
-								},
-								{
-									"key": "",
-									"value": "80891009",
-									"disabled": true
-								},
-								{
-									"key": "codeB",
-									"value": "113343008",
-									"disabled": true
 								}
 							]
 						}
@@ -522,13 +502,6 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"ValueSet"
-							],
-							"query": [
-								{
-									"key": "count",
-									"value": "10",
-									"disabled": true
-								}
 							]
 						},
 						"description": "List all the value sets on the server instance"
@@ -541,7 +514,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_idicd10cm_2023_entire",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_id=icd10cm_2023_entire",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -553,8 +526,8 @@
 							],
 							"query": [
 								{
-									"key": "_idicd10cm_2023_entire",
-									"value": null
+									"key": "_id",
+									"value": "icd10cm_2023_entire"
 								}
 							]
 						},
@@ -568,7 +541,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?url=http://snomed.info/sct?fhir_vs",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -580,9 +553,8 @@
 							],
 							"query": [
 								{
-									"key": "count",
-									"value": "10",
-									"disabled": true
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs"
 								}
 							]
 						},
@@ -871,7 +843,7 @@
 						"description": "Term filtering - ValueSet of all <<763158003 |Medicinal product (product)| containing the word aspirin.  This is not case sensitive."
 					},
 					"response": []
-				},        
+				},
 				{
 					"name": "Run an ECL query and include all English names",
 					"request": {
