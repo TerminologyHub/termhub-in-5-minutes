@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a4f5adff-2227-4b1c-be50-946ae1f9829b",
+		"_postman_id": "bdc5427f-9cb6-4009-b851-9f28d15c9c04",
 		"name": "Termhub FHIR R4",
 		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -36,7 +36,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?_id=snomedct_900000000000207008_20230731",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?_id=e6afba85-a4d8-42d9-9712-81faebc152b8",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -49,7 +49,7 @@
 							"query": [
 								{
 									"key": "_id",
-									"value": "snomedct_900000000000207008_20230731"
+									"value": "e6afba85-a4d8-42d9-9712-81faebc152b8"
 								}
 							]
 						}
@@ -343,7 +343,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/lnc_274/$lookup?code=74291-6",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/7021e7b1-c579-44c4-9394-fa3b40165ab9/$lookup?code=74291-6",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -352,7 +352,7 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"CodeSystem",
-								"lnc_274",
+								"7021e7b1-c579-44c4-9394-fa3b40165ab9",
 								"$lookup"
 							],
 							"query": [
@@ -439,7 +439,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/lnc_274/$validate-code?code=74291-6",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/7021e7b1-c579-44c4-9394-fa3b40165ab9/$validate-code?code=74291-6",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -448,7 +448,7 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"CodeSystem",
-								"lnc_274",
+								"7021e7b1-c579-44c4-9394-fa3b40165ab9",
 								"$validate-code"
 							],
 							"query": [
@@ -514,7 +514,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_id=icd10cm_2023_entire",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_id=13b52fe9-3260-4115-b321-0c1d07e1677f_entire",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -527,7 +527,7 @@
 							"query": [
 								{
 									"key": "_id",
-									"value": "icd10cm_2023_entire"
+									"value": "13b52fe9-3260-4115-b321-0c1d07e1677f_entire"
 								}
 							]
 						},
