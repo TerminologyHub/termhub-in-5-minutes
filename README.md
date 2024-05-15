@@ -40,10 +40,14 @@ The following cases will be used to demonstrate accessing the TermHub Terminolog
 - Get specific terminology
 - Export terminology
 - Get concept by code
+- Get concept by code with explicit include parameter
 - Get concept relationships by code
+- Get concept inverse relationships by code
 - Get concept tree positions
 - Find concepts by search term (use paging to get only first 5 results)
 - Find concepts by search term and expression
+- Find terms by search term
+
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 

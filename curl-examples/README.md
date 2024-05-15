@@ -33,7 +33,9 @@ The following examples can be types into the command line of any terminal that h
 - [Get specific terminology](#get-terminology)
 - [Export terminology](#export-terminology)
 - [Get concept by code](#get-concept-by-code)
+- [Get concept by code with explicit include parameter](#get-concept-by-code-with-include)
 - [Get concept relationships by code](#get-concept-relationships)
+- [Get concept inverse relationships by code](#get-concept-inverse-relationships)
 - [Get concept tree positions](#get-treepos)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term and expression](#find-concepts-expr)
@@ -131,18 +133,49 @@ See sample payload data from this call in [`samples/get-concept-by-code.txt`](sa
 
 [Back to Top](#top)
 
+<a name="get-concept-by-code-with-include"/>
+
+### Get concept by code with explicit include parameter
+
+Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009?include=full" | jq
+```
+
+See sample payload data from this call in [`samples/get-concept-by-code-with-include.txt`](samples/get-concept-by-code-with-include.txt)
+
+[Back to Top](#top)
+
 <a name="get-concept-relationships"/>
 
 ### Get concept relationships by code
 
 Get concept relationships for a terminology and code. In this case it resolves
 relationships that originate "from" this concept code and contain information about
-the concepts those relationships point "to" on the other side.
+the concepts those relationships point "to" on the other side. For example, a child
+concept pointing to its parent.
 
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/relationships" | jq
 ```
 See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
+
+[Back to Top](#top)
+
+<a name="get-concept-inverse-relationships"/>
+
+### Get concept inverse relationships by code
+
+Get concept inverse relationships for a terminology and code. In this case it resolves
+relationships that point "to" this concept code and contain information about concepts
+those relationships originate "from" on the other side.  For example, a parent concept
+being pointed to from a child.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/113331007/inverseRelationships" | jq
+```
+See sample payload data from this call in [`samples/get-concept-inverse-relationsihps.txt`](samples/get-concept-inverse-relationships.txt)
 
 [Back to Top](#top)
 
