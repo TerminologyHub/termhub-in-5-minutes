@@ -43,8 +43,9 @@ The following cases will be used to demonstrate accessing the TermHub Terminolog
 - Get concept by code with explicit include parameter
 - Get concept relationships by code
 - Get concept inverse relationships by code
-- Get concept tree positions
+- Get concept trees
 - Find concepts by search term (use paging to get only first 5 results)
+- Find concepts by search term with explicit include parameter
 - Find concepts by search term and expression
 - Find terms by search term
 

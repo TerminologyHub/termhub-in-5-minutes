@@ -19,7 +19,7 @@ if [ ${#arr[@]} -ne 3 ]; then
   echo "    [--offset #] [--ascending <true|false>] [--sort <sort>] [--inverse]"
   echo "  e.g. $0 sandbox SNOMEDCT 73211009 --token \$token"
   echo "  e.g. $0 sandbox SNOMEDCT 73211009 --token \$token --limit 5 --sort additionalType"
-  echo "  e.g. $0 sandbox SNOMEDCT 73211009 --inverse --token \$token"
+  echo "  e.g. $0 sandbox SNOMEDCT 113331007 --inverse --token \$token"
   exit 1
 fi
 

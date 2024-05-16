@@ -36,8 +36,9 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept by code with explicit include parameter](#get-concept-by-code-with-include)
 - [Get concept relationships by code](#get-concept-relationships)
 - [Get concept inverse relationships by code](#get-concept-inverse-relationships)
-- [Get concept tree positions](#get-treepos)
+- [Get concept trees](#get-treepos)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+- [Find concepts by search term with explicit include parameter](#find-concepts-include)
 - [Find concepts by search term and expression](#find-concepts-expr)
 
 <a name="login"/>
@@ -210,6 +211,21 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?term
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
+
+[Back to Top](#top)
+
+<a name="find-concepts"/>
+
+### Find concepts by search term with explicit include parameter
+
+This is the same as the example above but with the use of an explicit include
+parameter to show that additional data can be loaded with searches.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5&include=parents" | jq
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)
 
 [Back to Top](#top)
 
