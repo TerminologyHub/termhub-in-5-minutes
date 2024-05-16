@@ -1,7 +1,7 @@
 <a name="top" />
 
-Using the "include" parameter
-=============================
+TermHub - Using the "include" parameter
+=======================================
 
 Many of the API endpoints make use of an "include" parameter that controls
 how much data the given call should return. The include parameter values of
@@ -22,15 +22,14 @@ For API calls, the default "include" value is "minimal" if not specified.
 
 The remaining supported "include" values represent individual parts of the concept:
 
+ - **ancestors**: indicates ancestor concept references should be included
  - **attributes**: indicates attributes should be included.
- - **axioms**: indicates children should be included.
- - **children**: indicates children should be included.
+ - **children**: indicates child concepts should be included.
  - **definitions**: indicates definitions should be included.
- - **descendants**: indicates descendants should be included.
+ - **descendants**: indicates descendant concepts should be included.
  - **inverseRelationships**: indicates inverse relationships should be included.
- - **mapsets**: indicates mapsets should be included.
- - **parents**: indicates parents should be included.
- - **relationships**: indicates relationships should be included.
+ - **parents**: indicates parent concepts should be included.
+ - **relationships**: indicates concept relationships should be included.
  - **semanticTypes**: indicates semantic types should be included.
  - **subsets**: indicates subsets should be included.
  - **terms**: indicates terms should be included.

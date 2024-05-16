@@ -3,7 +3,9 @@
 # Script to call TermHub to perform concept relationships 
 # lookup for a code.
 #
+type=relationships
 while [[ "$#" -gt 0 ]]; do case $1 in
+  --inverse) inverse=1; type=inverseRelationships;;
   --token) token="$2"; shift;;
   --limit) limit="$2"; shift;;
   --offset) offset="$2"; shift;;
@@ -14,9 +16,10 @@ esac; shift; done
 
 if [ ${#arr[@]} -ne 3 ]; then
   echo "Usage: $0 <project> <terminology> <code> [--token token] [--limit #]"
-  echo "    [--offset #] [--ascending <true|false>] [--sort <sort>]"
-  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token"
-  echo "  e.g. $0 demoProject SNOMEDCT 73211009 --token \$token --limit 5 --sort additionalType"
+  echo "    [--offset #] [--ascending <true|false>] [--sort <sort>] [--inverse]"
+  echo "  e.g. $0 sandbox SNOMEDCT 73211009 --token \$token"
+  echo "  e.g. $0 sandbox SNOMEDCT 73211009 --token \$token --limit 5 --sort additionalType"
+  echo "  e.g. $0 sandbox SNOMEDCT 73211009 --inverse --token \$token"
   exit 1
 fi
 
@@ -34,11 +37,16 @@ echo "-----------------------------------------------------"
 echo "url = $url"
 echo "terminology = $terminology"
 echo "code = $code"
+if [[ $inverse -eq 1 ]]; then
+  echo "inverse = true"
+fi
+echo "code = $code"
 echo ""
 
 if [[ -z $offset ]]; then
   offset=0
 fi
+
 if [[ -z $limit ]]; then
   limit=10
 fi
@@ -51,7 +59,7 @@ fi
 
 # GET call
 echo "  Get concept relationships for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/project/$project/concept/$terminology/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/project/$project/concept/$terminology/$code/$type" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$
   echo "ERROR: GET call failed"

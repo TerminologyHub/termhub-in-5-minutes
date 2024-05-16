@@ -1,0 +1,297 @@
+{
+  "id": "2e26ced5-287a-42c4-bc5a-ffc22d6d2753",
+  "confidence": 5.801312446594238,
+  "modified": "2002-01-31T00:00:00.000+00:00",
+  "created": "2002-01-31T00:00:00.000+00:00",
+  "modifiedBy": "loader",
+  "local": false,
+  "active": true,
+  "name": "Diabetes mellitus",
+  "code": "73211009",
+  "terminology": "SNOMEDCT",
+  "version": "20230731",
+  "publisher": "SANDBOX",
+  "leaf": true,
+  "defined": false,
+  "terms": [
+    {
+      "id": "f71ec589-dc95-4d5d-9530-295ca24e08e6",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Diabetes mellitus, NOS",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "121590018",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en": false
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000020002",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "00fdb3b0-6d79-492c-a306-825cc256e7a0",
+      "modified": "2017-07-31T00:00:00.000+00:00",
+      "created": "2017-07-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus",
+      "wordCt": 2,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "121589010",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": true,
+        "en": true
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000448009",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "8c64d5f7-904a-4efb-a6a7-18a58e074108",
+      "modified": "2017-07-31T00:00:00.000+00:00",
+      "created": "2017-07-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus (disorder)",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "813575016",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": true,
+        "en": true
+      },
+      "type": "900000000000003001",
+      "attributes": {
+        "caseSignificanceId": "900000000000448009",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
+      "id": "ce690e3f-7d77-4cce-b5f0-894f8c12cd24",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "DM - Diabetes mellitus",
+      "wordCt": 3,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "502372015",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en_GB": false,
+        "en": false
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000017005",
+        "moduleId": "900000000000207008"
+      }
+    }
+  ],
+  "attributes": {
+    "definitionStatusId": "900000000000074008",
+    "moduleId": "900000000000207008"
+  },
+  "semanticTypes": [
+    "disorder"
+  ],
+  "parents": [
+    {
+      "id": "0bab9f60-70f3-491d-97c2-10862796bf72",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Disorder of endocrine system",
+      "code": "362969004",
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "leaf": false
+    },
+    {
+      "id": "fa05637d-13f1-4bf6-8cc9-96e16254a0fd",
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Disorder of glucose metabolism",
+      "code": "126877002",
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "leaf": false
+    }
+  ],
+  "relationships": [
+    {
+      "id": "ff17988d-1ea1-4852-af6e-3fd6559dca17",
+      "confidence": 5.250027179718018,
+      "modified": "2019-07-31T00:00:00.000+00:00",
+      "created": "2019-07-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "4601710026",
+      "type": "other",
+      "additionalType": "363698007",
+      "from": {
+        "id": "2e26ced5-287a-42c4-bc5a-ffc22d6d2753",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Diabetes mellitus",
+        "code": "73211009",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "to": {
+        "id": "52e1e216-f476-41dd-a533-0b36ca6528b1",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Structure of endocrine system",
+        "code": "113331007",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "hierarchical": false,
+      "asserted": true,
+      "defining": true,
+      "group": "1"
+    },
+    {
+      "id": "bb78a347-e32d-4e0c-9e72-e2a446b24abf",
+      "confidence": 5.250027179718018,
+      "modified": "2012-01-31T00:00:00.000+00:00",
+      "created": "2012-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "4601709020",
+      "type": "Is a",
+      "additionalType": "116680003",
+      "from": {
+        "id": "2e26ced5-287a-42c4-bc5a-ffc22d6d2753",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Diabetes mellitus",
+        "code": "73211009",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "to": {
+        "id": "0bab9f60-70f3-491d-97c2-10862796bf72",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Disorder of endocrine system",
+        "code": "362969004",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "hierarchical": true,
+      "asserted": true,
+      "defining": true,
+      "group": "0"
+    },
+    {
+      "id": "d165b0d0-498e-4cd0-ad90-7dda083f781c",
+      "confidence": 5.250027179718018,
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "componentId": "267149027",
+      "type": "Is a",
+      "additionalType": "116680003",
+      "from": {
+        "id": "2e26ced5-287a-42c4-bc5a-ffc22d6d2753",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Diabetes mellitus",
+        "code": "73211009",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "to": {
+        "id": "fa05637d-13f1-4bf6-8cc9-96e16254a0fd",
+        "modified": "2002-01-31T00:00:00.000+00:00",
+        "created": "2002-01-31T00:00:00.000+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "name": "Disorder of glucose metabolism",
+        "code": "126877002",
+        "terminology": "SNOMEDCT",
+        "version": "20230731",
+        "publisher": "SANDBOX",
+        "leaf": false
+      },
+      "hierarchical": true,
+      "asserted": true,
+      "defining": true,
+      "group": "0"
+    }
+  ]
+}

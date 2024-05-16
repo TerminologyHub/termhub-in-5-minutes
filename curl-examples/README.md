@@ -137,7 +137,9 @@ See sample payload data from this call in [`samples/get-concept-by-code.txt`](sa
 
 ### Get concept by code with explicit include parameter
 
-Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back
+Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back.  The include parameter has a few helpful shortcut values
+(minimal, summary, full) and also allows you to individually select parts of the full concept model
+that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009?include=full" | jq
