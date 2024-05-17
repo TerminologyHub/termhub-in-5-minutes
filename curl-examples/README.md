@@ -33,10 +33,15 @@ The following examples can be types into the command line of any terminal that h
 - [Get specific terminology](#get-terminology)
 - [Export terminology](#export-terminology)
 - [Get concept by code](#get-concept-by-code)
+- [Get concept by code with explicit include parameter](#get-concept-by-code-with-include)
 - [Get concept relationships by code](#get-concept-relationships)
-- [Get concept tree positions](#get-treepos)
+- [Get concept inverse relationships by code](#get-concept-inverse-relationships)
+- [Get concept trees](#get-treepos)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+- [Find concepts by search term with explicit include parameter](#find-concepts-include)
 - [Find concepts by search term and expression](#find-concepts-expr)
+- [Find terms by search term](#find-terms)
+- [Support autocomplete/typeahead for first few characters typed](#autocomplete)
 
 <a name="login"/>
 
@@ -82,7 +87,7 @@ Return all terminologies for specific project identified by either projectId or 
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/terminology" | jq
 ```
 
-See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
+See sample payload data from this call in [`samples/get-terminologies-sandbox.txt`](samples/get-terminologies-sandbox.txt)
 
 [Back to Top](#top)
 
@@ -95,7 +100,7 @@ by the previous call and you can then look up terminology info for specifically 
 UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/e6afba85-a4d8-42d9-9712-81faebc152b8" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/a2bc43ec-ba1b-47c0-9ff0-8379a02f8136" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
@@ -131,18 +136,53 @@ See sample payload data from this call in [`samples/get-concept-by-code.txt`](sa
 
 [Back to Top](#top)
 
+<a name="get-concept-by-code-with-include"/>
+
+### Get concept by code with explicit include parameter
+
+Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back.  The include parameter has a few helpful shortcut values
+(minimal, summary, full) and also allows you to individually select parts of the full concept model
+that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009?include=full" | jq
+```
+
+See sample payload data from this call in [`samples/get-concept-by-code-with-include.txt`](samples/get-concept-by-code-with-include.txt)
+
+[Back to Top](#top)
+
 <a name="get-concept-relationships"/>
 
 ### Get concept relationships by code
 
 Get concept relationships for a terminology and code. In this case it resolves
 relationships that originate "from" this concept code and contain information about
-the concepts those relationships point "to" on the other side.
+the concepts those relationships point "to" on the other side. For example, a child
+concept pointing to its parent.
 
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/relationships" | jq
 ```
+
 See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
+
+[Back to Top](#top)
+
+<a name="get-concept-inverse-relationships"/>
+
+### Get concept inverse relationships by code
+
+Get concept inverse relationships for a terminology and code. In this case it resolves
+relationships that point "to" this concept code and contain information about concepts
+those relationships originate "from" on the other side.  For example, a parent concept
+being pointed to from a child.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/113331007/inverseRelationships" | jq
+```
+
+See sample payload data from this call in [`samples/get-concept-inverse-relationsihps.txt`](samples/get-concept-inverse-relationships.txt)
 
 [Back to Top](#top)
 
@@ -178,6 +218,21 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 [Back to Top](#top)
 
+<a name="find-concepts"/>
+
+### Find concepts by search term with explicit include parameter
+
+This is the same as the example above but with the use of an explicit include
+parameter to show that additional data can be loaded with searches.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5&include=parents" | jq
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)
+
+[Back to Top](#top)
+
 <a name="find-concepts-expr"/>
 
 ### Find concepts by search term and expression
@@ -198,6 +253,38 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 [Back to Top](#top)
 
+<a name="find-terms"/>
 
+### Find terms by search term
+
+Find terms matching a search term within a specified terminology. This 
+example uses paging to get only the first 5 results.  While in many instances it
+is most useful to directly find concepts with matching terms, this call allows
+users to isolate exactly those terms that resolve from a search.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/term?terminology=SNOMEDCT&query=diabetes&limit=5" | jq
+```
+
+See sample payload data from this call in [`samples/find-terms-by-search-term.txt`](samples/find-terms-by-search-term.txt)
+
+[Back to Top](#top)
+
+<a name="autocomplete"/>
+
+### Support autocomplete/typeahead for first few characters typed
+
+To support an autocomplete or typeahead user interface feature for terminology
+searching, there is an autocomplete end point that supports taking a few characters
+and finding possible matches with only a few starting characters. The background
+algorithm is based on edge ngrams.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/autocomplete?terminology=SNOMEDCT&query=diab&limit=10" | jq
+```
+
+See sample payload data from this call in [`samples/autocomplete-search-term.txt`](samples/autocomplete-search-term.txt)
+
+[Back to Top](#top)
 
 
