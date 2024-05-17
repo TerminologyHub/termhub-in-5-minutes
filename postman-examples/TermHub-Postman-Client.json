@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "db4bc78d-ac30-4e7e-b758-75bf846cfaac",
+		"_postman_id": "aff649d2-24d0-4249-b737-cecf4f71625a",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30919710"
+		"_exporter_id": "11076096"
 	},
 	"item": [
 		{
@@ -48,13 +48,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/e6afba85-a4d8-42d9-9712-81faebc152b8",
+					"raw": "{{API_URL}}/terminology/a2bc43ec-ba1b-47c0-9ff0-8379a02f8136",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"e6afba85-a4d8-42d9-9712-81faebc152b8"
+						"a2bc43ec-ba1b-47c0-9ff0-8379a02f8136"
 					]
 				}
 			},
@@ -109,6 +109,33 @@
 			"response": []
 		},
 		{
+			"name": "Get concept by code with explicit include parameter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/concept/SNOMEDCT/73211009?include=parents",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"73211009"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "parents"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get concept relationships by code",
 			"request": {
 				"method": "GET",
@@ -131,7 +158,29 @@
 			"response": []
 		},
 		{
-			"name": "Get concept tree positions by code",
+			"name": "Get concept inverse relationships by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/concept/SNOMEDCT/73211009/relationships",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"73211009",
+						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept trees by code",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -186,6 +235,43 @@
 			"response": []
 		},
 		{
+			"name": "Find concepts by search term with explicit include parameter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5&include=parents",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"concept"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "SNOMEDCT"
+						},
+						{
+							"key": "query",
+							"value": "diabetes"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "include",
+							"value": "parents"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Find concepts by search term and expression",
 			"request": {
 				"method": "GET",
@@ -225,19 +311,125 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Find terms by search term",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/term?terminology=SNOMEDCT&query=diabetes&limit=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"term"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "SNOMEDCT"
+						},
+						{
+							"key": "query",
+							"value": "diabetes"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autocomplete/typeahead for first few characters typed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/autocomplete?terminology=SNOMEDCT&query=diab",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"autocomplete"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "SNOMEDCT"
+						},
+						{
+							"key": "query",
+							"value": "diab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compute new codes since prior version (slow)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/8e77ce65-9d4b-4cc1-8405-393846bfcf6f/history/20230901/concepts/new",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"8e77ce65-9d4b-4cc1-8405-393846bfcf6f",
+						"history",
+						"20230901",
+						"concepts",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compute retired codes since prior version (slow) Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/8e77ce65-9d4b-4cc1-8405-393846bfcf6f/history/20230901/concepts/retired",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"8e77ce65-9d4b-4cc1-8405-393846bfcf6f",
+						"history",
+						"20230901",
+						"concepts",
+						"retired"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
 		"type": "oauth2",
 		"oauth2": [
 			{
-				"key": "password",
-				"value": "{{TERMHUB_PASS}}",
+				"key": "username",
+				"value": "{{TERMHUB_USER}}",
 				"type": "string"
 			},
 			{
-				"key": "username",
-				"value": "{{TERMHUB_USER}}",
+				"key": "password",
+				"value": "{{TERMHUB_PASS}}",
 				"type": "string"
 			},
 			{
@@ -291,6 +483,16 @@
 		{
 			"key": "API_URL",
 			"value": "https://api.terminologyhub.com",
+			"type": "string"
+		},
+		{
+			"key": "TERMHUB_USER",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TERMHUB_PASS",
+			"value": "",
 			"type": "string"
 		}
 	]

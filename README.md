@@ -48,7 +48,8 @@ The following cases will be used to demonstrate accessing the TermHub Terminolog
 - Find concepts by search term with explicit include parameter
 - Find concepts by search term and expression
 - Find terms by search term
-
+- Support autocomplete/typeahead for first few characters typed
+- Coming Soon: compute "new" or "retired" codes across terminology versions
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 

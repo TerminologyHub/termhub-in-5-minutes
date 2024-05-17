@@ -1,21 +1,14 @@
 {
-  "id": "1ff90ce3-66c1-444e-ab67-e34ac53fc2c0",
-  "confidence": 5.673330783843994,
-  "modified": "2002-01-31T00:00:00.000+00:00",
-  "created": "2002-01-31T00:00:00.000+00:00",
-  "modifiedBy": "loader",
-  "local": false,
-  "active": true,
-  "name": "Diabetes mellitus",
-  "code": "73211009",
-  "terminology": "SNOMEDCT",
-  "version": "20240101",
-  "publisher": "SANDBOX",
-  "leaf": true,
-  "defined": false,
-  "terms": [
+  "total": 4,
+  "parameters": {
+    "query": "diabetes",
+    "limit": 5,
+    "offset": 0
+  },
+  "items": [
     {
       "id": "a4ca02f7-96d5-4984-82ab-c50932dc5c78",
+      "confidence": 9.246849060058594,
       "modified": "2017-07-31T00:00:00.000+00:00",
       "created": "2017-07-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -39,30 +32,8 @@
       }
     },
     {
-      "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
-      "modified": "2002-01-31T00:00:00.000+00:00",
-      "created": "2002-01-31T00:00:00.000+00:00",
-      "modifiedBy": "loader",
-      "local": false,
-      "active": false,
-      "name": "Diabetes mellitus, NOS",
-      "terminology": "SNOMEDCT",
-      "version": "20240101",
-      "publisher": "SANDBOX",
-      "componentId": "121590018",
-      "code": "73211009",
-      "conceptId": "73211009",
-      "localeMap": {
-        "en": false
-      },
-      "type": "900000000000013009",
-      "attributes": {
-        "caseSignificanceId": "900000000000020002",
-        "moduleId": "900000000000207008"
-      }
-    },
-    {
       "id": "d62b0b75-5588-467f-a794-1f6c0a5cfc6a",
+      "confidence": 9.246849060058594,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -86,7 +57,32 @@
       }
     },
     {
+      "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
+      "confidence": 8.964832305908203,
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Diabetes mellitus, NOS",
+      "terminology": "SNOMEDCT",
+      "version": "20240101",
+      "publisher": "SANDBOX",
+      "componentId": "121590018",
+      "code": "73211009",
+      "conceptId": "73211009",
+      "localeMap": {
+        "en": false
+      },
+      "type": "900000000000013009",
+      "attributes": {
+        "caseSignificanceId": "900000000000020002",
+        "moduleId": "900000000000207008"
+      }
+    },
+    {
       "id": "c0b184ba-bb0c-4fe7-ad9c-b1b4801543f7",
+      "confidence": 8.964832305908203,
       "modified": "2017-07-31T00:00:00.000+00:00",
       "created": "2017-07-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -109,12 +105,5 @@
         "moduleId": "900000000000207008"
       }
     }
-  ],
-  "attributes": {
-    "definitionStatusId": "900000000000074008",
-    "moduleId": "900000000000207008"
-  },
-  "semanticTypes": [
-    "disorder"
   ]
 }
