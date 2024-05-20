@@ -7,7 +7,7 @@ Prerequisites
 -------------
 * Postman must be installed (with a version capable of importing a v2.1 collection)
 * The [TermHub-Postman-Client.json](TermHub-Postman-Client.json) file must be loaded into Postman using File->Import
-* The base API_URL variable is et in the collection.  To change this, edit the collection, select the "Variables" tab, change the value, click "Update".
+* The base API_URL variable is set in the collection.  To change this, edit the collection, select the "Variables" tab, change the value, click "Update".
  - It is currently set to `https://api.terminologyhub.com`
 
 Login
