@@ -343,7 +343,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/CodeSystem/7021e7b1-c579-44c4-9394-fa3b40165ab9/$lookup?code=74291-6",
+							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/CodeSystem/d1aba666-39bf-48ea-b524-c5a47ab1dcf1/$lookup?code=74291-6",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -352,7 +352,7 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"CodeSystem",
-								"7021e7b1-c579-44c4-9394-fa3b40165ab9",
+								"d1aba666-39bf-48ea-b524-c5a47ab1dcf1",
 								"$lookup"
 							],
 							"query": [
@@ -439,7 +439,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/CodeSystem/7021e7b1-c579-44c4-9394-fa3b40165ab9/$validate-code?code=74291-6",
+							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/CodeSystem/d1aba666-39bf-48ea-b524-c5a47ab1dcf1/$validate-code?code=74291-6",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -448,7 +448,7 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"CodeSystem",
-								"7021e7b1-c579-44c4-9394-fa3b40165ab9",
+								"d1aba666-39bf-48ea-b524-c5a47ab1dcf1",
 								"$validate-code"
 							],
 							"query": [
@@ -611,7 +611,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct/900000000000207008/version/20230731?fhir_vs",
+							"raw": "{{baseUrl}}/r5/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct/900000000000207008/version/20240101?fhir_vs",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -633,7 +633,7 @@
 								},
 								{
 									"key": "url",
-									"value": "http://snomed.info/sct/900000000000207008/version/20230731?fhir_vs"
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101?fhir_vs"
 								}
 							]
 						},
