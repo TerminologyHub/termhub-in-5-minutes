@@ -890,7 +890,7 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 
 ### get-concept-treepos.sh
 
-Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you likely expect to see multiple tree positions - each one with a different path to the root concept.
+Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept.
 Return tree position information for a given terminology and code. The 
 following example finds relationships for the 73211009 | Diabetes mellitus | concept in 
 SNOMEDCT. 
