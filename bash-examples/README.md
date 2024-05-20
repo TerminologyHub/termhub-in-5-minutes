@@ -544,7 +544,7 @@ Finished ...Thu, May 16, 2024  6:34:01 PM
 ### get-concept-relationships.sh
 
 Get concept relationships for a terminology and code. In this case it resolves
-relationships that originate "from" this concept code and contain information about
+relationships that originate "from" this concept code and contains information about
 the concepts those relationships point "to" on the other side.
 
 ```
@@ -890,10 +890,11 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 
 ### get-concept-treepos.sh
 
+Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you likely expect to see multiple tree positions - each one with a different path to the root concept.
 Return tree position information for a given terminology and code. The 
 following example finds relationships for the 73211009 | Diabetes mellitus | concept in 
-SNOMEDCT.  It limits the results to 5 entries and sorts by the "additionalType"
-field.
+SNOMEDCT. 
+
 
 ```
 $ ./get-concept-treepos.sh sandbox SNOMEDCT 73211009 --token $token
@@ -1483,7 +1484,9 @@ Finished ...Thu, May 16, 2024  6:35:48 PM
 ```
 
 The find-concepts.sh script also supports use of the "include" parameter to specify the 
-amount of concept data to return. The example below performs the search from the prior
+amount of concept data to return.  The include parameter has a few helpful shortcut values (minimal, summary, full) and also allows you to individually select parts of the full concept model that you are interested in. 
+
+The example below performs the search from the prior
 example but brings back concept info plus parents.  For more information see
 [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
@@ -1716,7 +1719,7 @@ Finished ...Thu, May 16, 2024  6:36:05 PM
 
 ### find-terms.sh
 
-Used to perform text searches to find terms matching a particular terminology. This 
+Used to perform text searches to find terms matching a particular terminology.  
 While in many instances it is most useful to directly find concepts with matching 
 terms, this call allows users to isolate exactly those terms that resolve from a search.
 

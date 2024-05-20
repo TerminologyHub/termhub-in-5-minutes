@@ -3,7 +3,7 @@
 Termhub in 5 Minutes: FHIR Tutorial
 ===================================
 
-This tutorial shows how to interact with the FHIR R4 and R5 APIs through use ofa Postman collection.
+This tutorial shows how to interact with the FHIR R4 and R5 APIs through use of a Postman collection.
 
 Prerequisites
 -------------
@@ -29,7 +29,7 @@ FHIR Swagger APIs are also available for these end points.
 
 Sample FHIR Calls
 -----------------
-Once loaded in, you will see the calls divided into four sections
+Once loaded in, you will see the calls divided into four sections.
 
 - [CodeSystem](#codesystem)
 - [ValueSet](#valueset)
@@ -125,7 +125,7 @@ used to perform text searching against a code system.   The idea is to use a val
 
 *Get descendants of a given code*
 
-Returns a value set containing an expansion of all descenants of the specifed code.  This is accomplished by use of an implied value set URL that makes  use of `isa/$code` to indicate that a descendants computation should occur.
+Returns a value set containing an expansion of all descendants of the specifed code.  This is accomplished by use of an implied value set URL that makes  use of `isa/$code` to indicate that a descendants computation should occur.
 
 *Run an ECL query*
 
@@ -151,6 +151,6 @@ We are working on implementing concept maps and currently there are none loaded 
 
 ### Server capability statement
 
-This is just the FHIR metadata call that describes the capabilities of the server deployment.
+This is the FHIR metadata call that describes the capabilities of the server deployment.
 
 [Back to Top](#termhub-in-5-minutes-fhir-tutorial)
