@@ -21,21 +21,19 @@ Test Scripts
 ------------
 - [login.sh](#login-sh)
 - [get-terminologies.sh](#get-terminologies-sh)
-- [get-project-terminologies.sh](#get-terminologies-sh)
 - [get-terminology.sh](#get-terminology-sh)
 - [export-terminology.sh](#export-terminology-sh)
 - [get-concept.sh](#get-concept-sh)
 - [get-concept-relationships.sh](#get-concept-relationships-sh)
 - [get-concept-treepos.sh](#get-concept-treepos-sh)
 - [find-concepts.sh](#find-concepts-sh)
-- [find-terms.sh](#find-terms-sh)
 - [autocomplete.sh](#autocomplete-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
 ### login.sh
 
-Login to TermHub via username and password.
+Login to TermHub Via username and password.
 When finished, copy/past the "token=..." to set a local variable that
 can be easily used for further calls.
 
@@ -63,9 +61,10 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 
 <a name="get-terminologies-sh"/>
 
-### get-terminologies.sh
+### Get all terminologies in TermHub
+Via get-terminologies.sh
 
-Return all loaded terminologies currently hosted by the API.
+Return all loaded terminology/version pairs currently hosted by the API. Limit the results to the first thirty lines.
 
 ```
 $ ./get-terminologies.sh --token $token | head -30
@@ -80,7 +79,7 @@ ascending =
 
   Performing terminologies lookup
     {
-      "total": 61,
+      "total": 64,
       "parameters": {
         "query": "loaded:true",
         "limit": 10,
@@ -89,16 +88,16 @@ ascending =
       "items": [
         {
           "id": "fda9bef2-df80-40d6-b31b-6cb3a1cd38c3",
-          "confidence": 0.007272759452462196,
+          "confidence": 0.006968668662011623,
           "modified": "2024-05-11T20:13:11.499+00:00",
           "created": "2024-05-11T20:13:11.499+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "abbreviation": "SNOMEDCT_US",
+          "abbreViation": "SNOMEDCT_US",
           "name": "Systematized Nomenclature of Medicine–Clinical Terminology, US Edition",
           "version": "20230301",
-          "publisher": "NLM",...
+          "publisher": "NLM",
 ...
 -----------------------------------------------------
 Finished ...Thu, May 16, 2024  6:31:03 PM
@@ -107,11 +106,12 @@ Finished ...Thu, May 16, 2024  6:31:03 PM
 
 [Back to Top](#top)
 
-<a name="get-project-terminologies-sh"/>
+<a name="get-terminology-sh"/>
 
-### get-terminologies.sh
+### Get all terminologies (for project)
+Via get-terminology.sh
 
-Return all terminologies for specific project identified by either project id or project uriLabel.
+Return all loaded terminology/version pairs for a specific project identified by either project id or project uriLabel.
 
 ```
 $ ./get-terminology.sh --token $token --project sandbox
@@ -126,13 +126,13 @@ url = https://api.terminologyhub.com
     [
       {
         "id": "a2bc43ec-ba1b-47c0-9ff0-8379a02f8136",
-        "confidence": 6.159998893737793,
+        "confidence": 6.273220062255859,
         "modified": "2024-05-13T18:27:49.865+00:00",
         "created": "2024-05-13T18:27:49.865+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
-        "abbreviation": "SNOMEDCT",
+        "abbreViation": "SNOMEDCT",
         "name": "Mini version of SNOMEDCT For testing purposes",
         "version": "20240101",
         "publisher": "SANDBOX",
@@ -176,14 +176,154 @@ url = https://api.terminologyhub.com
       },
       ...
       {
+        "id": "34c23127-6acc-48ba-8b1e-cba378feb7cc",
+        "confidence": 7.456092834472656,
+        "modified": "2024-05-13T18:28:54.409+00:00",
+        "created": "2024-05-13T18:28:54.409+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreViation": "SNOMEDCT_US",
+        "name": "Mini version of SNOMEDCT_US For testing purposes",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2024-03-01",
+        "family": "SNOMEDCT",
+        "indexName": "snomedctus-sandbox-20240301",
+        "attributes": {
+          "autocomplete": "true",
+          "description-logic-based": "true",
+          "tree-positions": "true",
+          "unidirectional-rels": "true",
+          "has-relationship-directionality": "true",
+          "ecl": "true",
+          "description-logic-profile": "EL++",
+          "fhirUri": "http://snomed.info/sct",
+          "polyhierarchy": "true",
+          "hierarchical": "true",
+          "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
+          "fhirId": "snomedct_us_731000124108_20240301"
+        },
+        "roots": [
+          "138875005"
+        ],
+        "statistics": {
+          "parentsInactive": 0,
+          "parentsActive": 598,
+          "treePositions": 2158,
+          "termsInactive": 355,
+          "childrenInactive": 0,
+          "relationships": 749,
+          "concepts": 440,
+          "terms": 1549,
+          "conceptsInactive": 3,
+          "termsActive": 1194,
+          "definitions": 19,
+          "conceptsActive": 437,
+          "childrenActive": 598
+        }
+      },
+      {
+        "id": "b9c18dcd-8e75-44c4-ba27-d1aa1737e38b",
+        "confidence": 7.312992095947266,
+        "modified": "2024-05-13T18:29:48.953+00:00",
+        "created": "2024-05-13T18:29:48.953+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreViation": "RXNORM",
+        "name": "Mini version of RXNORM for testing purposes",
+        "version": "04012024",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2024-04-01",
+        "family": "RXNORM",
+        "indexName": "rxnorm-sandbox-04012024",
+        "attributes": {
+          "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "autocomplete": "true",
+          "fhirVersion": "04012024",
+          "ecl": "true",
+          "fhirId": "rxnorm_04012024",
+          "fhirCompositional": "false"
+        },
+        "statistics": {
+          "parentsInactive": 0,
+          "parentsActive": 0,
+          "treePositions": 0,
+          "termsInactive": 403,
+          "childrenInactive": 0,
+          "relationships": 7428,
+          "concepts": 816,
+          "terms": 1975,
+          "conceptsInactive": 198,
+          "termsActive": 1572,
+          "definitions": 0,
+          "conceptsActive": 618,
+          "childrenActive": 0
+        }
+      },
+      {
+        "id": "d1aba666-39bf-48ea-b524-c5a47ab1dcf1",
+        "confidence": 6.634233474731445,
+        "modified": "2024-05-13T18:30:45.195+00:00",
+        "created": "2024-05-13T18:30:45.195+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreViation": "LNC",
+        "name": "Mini version of LOINC for testing purposes",
+        "version": "277",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2024-05-06",
+        "family": "LOINC",
+        "indexName": "lnc-sandbox-277",
+        "attributes": {
+          "fhirUri": "http://loinc.org",
+          "origin-version": "2024AA",
+          "polyhierarchy": "true",
+          "autocomplete": "true",
+          "hierarchical": "true",
+          "fhirVersion": "277",
+          "tree-positions": "true",
+          "origin-terminology": "UMLS",
+          "ecl": "true",
+          "fhirId": "lnc_277",
+          "fhirCompositional": "false"
+        },
+        "roots": [
+          "MTHU000998",
+          "MTHU000999"
+        ],
+        "statistics": {
+          "termsInactive": 0,
+          "childrenInactive": 0,
+          "relationships": 326,
+          "concepts": 114,
+          "terms": 226,
+          "parentsInactive": 0,
+          "termsActive": 226,
+          "parentsActive": 90,
+          "definitions": 0,
+          "treePositions": 93,
+          "conceptsActive": 114,
+          "childrenActive": 90
+        }
+      },
+      {
         "id": "7ba6a4e7-8d3d-4242-a174-f9883d48a08b",
-        "confidence": 7.258610725402832,
+        "confidence": 7.004107475280762,
         "modified": "2024-05-13T18:30:55.473+00:00",
         "created": "2024-05-13T18:30:55.473+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
-        "abbreviation": "ICD10CM",
+        "abbreViation": "ICD10CM",
         "name": "Mini version of ICD10CM for testing purposes",
         "version": "2024",
         "publisher": "SANDBOX",
@@ -233,9 +373,10 @@ Finished ...Thu, May 16, 2024  6:32:03 PM
 
 <a name="get-terminology-sh"/>
 
-### get-terminology.sh
+### Get terminology (for terminology id)
+Via get-terminology.sh
 
-Return a specific terminology by its terminology id.  The UUID below is an example
+Return a specific terminology/version pair by its terminology id.  The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
 by one of the previous calls and you can then look up terminology info for specifically that
 UUID.
@@ -258,7 +399,7 @@ url = https://api.terminologyhub.com
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT",
+      "abbreViation": "SNOMEDCT",
       "name": "Mini version of SNOMEDCT For testing purposes",
       "version": "20240101",
       "publisher": "SANDBOX",
@@ -309,7 +450,8 @@ Finished ...Thu, May 16, 2024  6:33:02 PM
 
 <a name="export-terminology-sh"/>
 
-### export-terminology.sh
+### Export a terminology
+Via export-terminology.sh
 
 Exports a terminology for the given project id (or uriLabel) and terminology
 
@@ -330,9 +472,11 @@ Finished ...Thu, May 16, 2024  6:33:22 PM
 
 <a name="get-concept-sh"/>
 
-### get-concept.sh
+### Get concept summary (for concept id)
+Via get-concept.sh
 
-Return summary concept information for a given terminology and code. The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
+Return summary concept information for a given terminology and code. The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT. For more information see
+[INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
 $ ./get-concept.sh sandbox SNOMEDCT 73211009 --token $token
@@ -473,13 +617,20 @@ Finished ...Thu, May 16, 2024  6:33:37 PM
 -----------------------------------------------------
 ```
 
+[Back to Top](#top)
+
+<a name="get-concept-sh"/>
+
+### Get full concept information (for concept id)
+Via get-concept.sh
+
 The get-concept.sh script also supports use of the "include" parameter to specify the 
 amount of concept data to return. The example below performs the search from the prior
-example but brings back only concept info plus parents.  For more information see
+example but brings back full concept info.  For more information see
 [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
-$ ./get-concept.sh sandbox SNOMEDCT 73211009 --include parents --token $token
+$ ./get-concept.sh sandbox SNOMEDCT 73211009 --include full --token $token
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:34:00 PM
 -----------------------------------------------------
@@ -487,7 +638,7 @@ url = https://api.terminologyhub.com
 terminology = SNOMEDCT
 project= sandbox
 code = 73211009
-include = parents
+include = full
 
   Get concept for SNOMEDCT 73211009:
 
@@ -506,6 +657,110 @@ include = parents
       "publisher": "SANDBOX",
       "leaf": true,
       "defined": false,
+      "terms": [
+        {
+          "id": "a4ca02f7-96d5-4984-82ab-c50932dc5c78",
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "121589010",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": false,
+          "name": "Diabetes mellitus, NOS",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "121590018",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000020002",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "d62b0b75-5588-467f-a794-1f6c0a5cfc6a",
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "DM - Diabetes mellitus",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "502372015",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": false,
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000017005",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "c0b184ba-bb0c-4fe7-ad9c-b1b4801543f7",
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus (disorder)",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "813575016",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000003001",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
+        }
+      ],
+      "attributes": {
+        "definitionStatusId": "900000000000074008",
+        "moduleId": "900000000000207008"
+      },
+      "semanticTypes": [
+        "disorder"
+      ],
       "parents": [
         {
           "local": false,
@@ -529,6 +784,146 @@ include = parents
           "leaf": false,
           "defined": false
         }
+      ],
+      "relationships": [
+        {
+          "id": "eb340aa3-a5c8-4656-9ff4-767b4e2a1a55",
+          "confidence": 5.359277725219727,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "267149027",
+          "type": "Is a",
+          "additionalType": "116680003",
+          "from": {
+            "local": false,
+            "active": false,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": false,
+            "name": "Disorder of glucose metabolism",
+            "code": "126877002",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": false
+          },
+          "hierarchical": true,
+          "asserted": true,
+          "defining": true,
+          "group": "0",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "9b8d43b5-01c8-416c-9d18-3e71130cf472",
+          "confidence": 5.359277725219727,
+          "modified": "2012-01-31T00:00:00.000+00:00",
+          "created": "2012-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "4601709020",
+          "type": "Is a",
+          "additionalType": "116680003",
+          "from": {
+            "local": false,
+            "active": false,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": false,
+            "name": "Disorder of endocrine system",
+            "code": "362969004",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": true
+          },
+          "hierarchical": true,
+          "asserted": true,
+          "defining": true,
+          "group": "0",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "3b332709-c111-46bb-8922-661677a3001d",
+          "confidence": 5.359277725219727,
+          "modified": "2019-07-31T00:00:00.000+00:00",
+          "created": "2019-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "4601710026",
+          "type": "other",
+          "additionalType": "363698007",
+          "from": {
+            "local": false,
+            "active": false,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": false,
+            "name": "Structure of endocrine system",
+            "code": "113331007",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": false
+          },
+          "hierarchical": false,
+          "asserted": true,
+          "defining": true,
+          "group": "1",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        }
       ]
     }
 
@@ -541,7 +936,8 @@ Finished ...Thu, May 16, 2024  6:34:01 PM
 
 <a name="get-concept-relationships-sh"/>
 
-### get-concept-relationships.sh
+### Get concept relationship information (for concept id)
+Via get-concept-relationships.sh
 
 Get concept relationships for a terminology and code. In this case it resolves
 relationships that originate "from" this concept code and contains information about
@@ -712,6 +1108,13 @@ code = 73211009
 Finished ...Thu, May 16, 2024  6:34:15 PM
 -----------------------------------------------------
 ```
+
+[Back to Top](#top)
+
+<a name="get-concept-relationships-sh"/>
+
+### Get inverse concept relationship information (for concept id)
+Via get-concept-relationships.sh
 
 This same script can be used to get inverse concept relationships for a terminology
 and code. In this case it resolves relationships that originate "from" another
@@ -888,7 +1291,8 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 
 <a name="get-concept-treepos-sh"/>
 
-### get-concept-treepos.sh
+### Get concept tree positions (for concept id)
+Via get-concept-treepos.sh
 
 Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept.
 Return tree position information for a given terminology and code. The 
@@ -907,7 +1311,7 @@ code = 73211009
 
   Get concept tree positions for SNOMEDCT 73211009:
 
-    {
+     {
       "total": 2,
       "parameters": {
         "query": "terminology:SNOMEDCT AND concept.code:73211009 AND *",
@@ -1246,14 +1650,15 @@ Finished ...Thu, May 16, 2024  6:35:03 PM
 
 <a name="find-concepts-sh"/>
 
-### find-concepts.sh
+### Get concept summaries (search by string)
+Via find-concepts.sh
 
 Used to perform text searches to find matching concepts. The following example
 performs a text search for "diabetes mellitus" and limits search results to 5
 entries.
 
 ```
-$ ./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus"  --token $token --limit 5
+$ ./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus" --token $token --limit 5
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:35:28 PM
 -----------------------------------------------------
@@ -1365,123 +1770,12 @@ Finished ...Thu, May 16, 2024  6:35:29 PM
 -----------------------------------------------------
 ```
 
-This example performs a search that returns all descendants of the SNOMED
-64572001 | Disease | concept that contain the word "system" with a maximum
-of 5 results.
+[Back to Top](#top)
 
-```
-$ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5
------------------------------------------------------
-Starting ...Thu, May 16, 2024  6:35:47 PM
------------------------------------------------------
-url = https://api.terminologyhub.com
-terminology = SNOMEDCT
-project = sandbox
-query = system
-expr = <64572001
-offset = 0
-limit = 5
-sort =
-ascending =
+<a name="find-concepts-sh"/>
 
-  Find concepts: (terminology:SNOMEDCT) AND system
-
-    {
-      "total": 7,
-      "parameters": {
-        "query": "(terminology:SNOMEDCT) AND system",
-        "expression": "<64572001",
-        "limit": 5,
-        "offset": 0
-      },
-      "items": [
-        {
-          "id": "d3a32967-ded2-44f2-bb28-00b76aafd33b",
-          "confidence": 10.569323539733887,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of cardiovascular system",
-          "code": "49601007",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": true,
-          "defined": true
-        },
-        {
-          "id": "510b444c-1f96-4776-8be8-ceb0c4d8d83a",
-          "confidence": 10.095866203308105,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of body system",
-          "code": "362965005",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
-        },
-        {
-          "id": "2d35dd1d-fc59-449e-9bda-a74e922c2514",
-          "confidence": 10.052236557006836,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of endocrine system",
-          "code": "362969004",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
-        },
-        {
-          "id": "1ff90ce3-66c1-444e-ab67-e34ac53fc2c0",
-          "confidence": 6.616611480712891,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Diabetes mellitus",
-          "code": "73211009",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": true,
-          "defined": false
-        },
-        {
-          "id": "018d243d-3ecb-4a46-b180-73ca38191330",
-          "confidence": 6.48627233505249,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of breast",
-          "code": "79604008",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
-        }
-      ]
-    }
-
------------------------------------------------------
-Finished ...Thu, May 16, 2024  6:35:48 PM
------------------------------------------------------
-```
+### Get full concept information (search by string)
+Via find-concepts.sh
 
 The find-concepts.sh script also supports use of the "include" parameter to specify the 
 amount of concept data to return.  The include parameter has a few helpful shortcut values (minimal, summary, full) and also allows you to individually select parts of the full concept model that you are interested in. 
@@ -1491,7 +1785,8 @@ example but brings back concept info plus parents.  For more information see
 [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
-$ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5 --include parents
+
+$./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus" --token $token --limit 2 --include full
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:36:03 PM
 -----------------------------------------------------
@@ -1508,6 +1803,530 @@ ascending =
   Find concepts: (terminology:SNOMEDCT) AND system
 
     {
+      "total": 8,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT) AND diabetes mellitus",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "1ff90ce3-66c1-444e-ab67-e34ac53fc2c0",
+          "confidence": 22.559518814086914,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "code": "73211009",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false,
+          "terms": [
+            {
+              "id": "a4ca02f7-96d5-4984-82ab-c50932dc5c78",
+              "modified": "2017-07-31T00:00:00.000+00:00",
+              "created": "2017-07-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "name": "Diabetes mellitus",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "121589010",
+              "code": "73211009",
+              "conceptId": "73211009",
+              "localeMap": {
+                "en_GB": true,
+                "en": true
+              },
+              "type": "900000000000013009",
+              "attributes": {
+                "caseSignificanceId": "900000000000448009",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
+              "modified": "2002-01-31T00:00:00.000+00:00",
+              "created": "2002-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": false,
+              "name": "Diabetes mellitus, NOS",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "121590018",
+              "code": "73211009",
+              "conceptId": "73211009",
+              "localeMap": {
+                "en": false
+              },
+              "type": "900000000000013009",
+              "attributes": {
+                "caseSignificanceId": "900000000000020002",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "d62b0b75-5588-467f-a794-1f6c0a5cfc6a",
+              "modified": "2002-01-31T00:00:00.000+00:00",
+              "created": "2002-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "name": "DM - Diabetes mellitus",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "502372015",
+              "code": "73211009",
+              "conceptId": "73211009",
+              "localeMap": {
+                "en_GB": false,
+                "en": false
+              },
+              "type": "900000000000013009",
+              "attributes": {
+                "caseSignificanceId": "900000000000017005",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "c0b184ba-bb0c-4fe7-ad9c-b1b4801543f7",
+              "modified": "2017-07-31T00:00:00.000+00:00",
+              "created": "2017-07-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "name": "Diabetes mellitus (disorder)",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "813575016",
+              "code": "73211009",
+              "conceptId": "73211009",
+              "localeMap": {
+                "en_GB": true,
+                "en": true
+              },
+              "type": "900000000000003001",
+              "attributes": {
+                "caseSignificanceId": "900000000000448009",
+                "moduleId": "900000000000207008"
+              }
+            }
+          ],
+          "attributes": {
+            "definitionStatusId": "900000000000074008",
+            "moduleId": "900000000000207008"
+          },
+          "semanticTypes": [
+            "disorder"
+          ],
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Disorder of endocrine system",
+              "code": "362969004",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            },
+            {
+              "local": false,
+              "active": true,
+              "name": "Disorder of glucose metabolism",
+              "code": "126877002",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ],
+          "relationships": [
+            {
+              "id": "eb340aa3-a5c8-4656-9ff4-767b4e2a1a55",
+              "confidence": 5.359277725219727,
+              "modified": "2002-01-31T00:00:00.000+00:00",
+              "created": "2002-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "267149027",
+              "type": "Is a",
+              "additionalType": "116680003",
+              "from": {
+                "local": false,
+                "active": false,
+                "name": "Diabetes mellitus",
+                "code": "73211009",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": true,
+                "defined": false
+              },
+              "to": {
+                "local": false,
+                "active": false,
+                "name": "Disorder of glucose metabolism",
+                "code": "126877002",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": false
+              },
+              "hierarchical": true,
+              "asserted": true,
+              "defining": true,
+              "group": "0",
+              "attributes": {
+                "modifierId": "900000000000451002",
+                "characteristicTypeId": "900000000000011006",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "9b8d43b5-01c8-416c-9d18-3e71130cf472",
+              "confidence": 5.359277725219727,
+              "modified": "2012-01-31T00:00:00.000+00:00",
+              "created": "2012-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "4601709020",
+              "type": "Is a",
+              "additionalType": "116680003",
+              "from": {
+                "local": false,
+                "active": false,
+                "name": "Diabetes mellitus",
+                "code": "73211009",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": true,
+                "defined": false
+              },
+              "to": {
+                "local": false,
+                "active": false,
+                "name": "Disorder of endocrine system",
+                "code": "362969004",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": true
+              },
+              "hierarchical": true,
+              "asserted": true,
+              "defining": true,
+              "group": "0",
+              "attributes": {
+                "modifierId": "900000000000451002",
+                "characteristicTypeId": "900000000000011006",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "3b332709-c111-46bb-8922-661677a3001d",
+              "confidence": 5.359277725219727,
+              "modified": "2019-07-31T00:00:00.000+00:00",
+              "created": "2019-07-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "4601710026",
+              "type": "other",
+              "additionalType": "363698007",
+              "from": {
+                "local": false,
+                "active": false,
+                "name": "Diabetes mellitus",
+                "code": "73211009",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": true,
+                "defined": false
+              },
+              "to": {
+                "local": false,
+                "active": false,
+                "name": "Structure of endocrine system",
+                "code": "113331007",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": false
+              },
+              "hierarchical": false,
+              "asserted": true,
+              "defining": true,
+              "group": "1",
+              "attributes": {
+                "modifierId": "900000000000451002",
+                "characteristicTypeId": "900000000000011006",
+                "moduleId": "900000000000207008"
+              }
+            }
+          ]
+        },
+        {
+          "id": "3476ebc2-744b-4155-b1ee-23daf2af6283",
+          "confidence": 13.333757400512695,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of glucose metabolism",
+          "code": "126877002",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "terms": [
+            {
+              "id": "d3d321cf-a906-4d2b-89a9-e4eaceed07b4",
+              "modified": "2017-07-31T00:00:00.000+00:00",
+              "created": "2017-07-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "name": "Disorder of glucose metabolism",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "165018",
+              "code": "126877002",
+              "conceptId": "126877002",
+              "localeMap": {
+                "en_GB": true,
+                "en": true
+              },
+              "type": "900000000000013009",
+              "attributes": {
+                "caseSignificanceId": "900000000000448009",
+                "moduleId": "900000000000207008"
+              }
+            },
+            {
+              "id": "8ab76f5d-bd3a-4c11-8568-85ac5622ec13",
+              "modified": "2017-07-31T00:00:00.000+00:00",
+              "created": "2017-07-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "name": "Disorder of glucose metabolism (disorder)",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "730899016",
+              "code": "126877002",
+              "conceptId": "126877002",
+              "localeMap": {
+                "en_GB": true,
+                "en": true
+              },
+              "type": "900000000000003001",
+              "attributes": {
+                "caseSignificanceId": "900000000000448009",
+                "moduleId": "900000000000207008"
+              }
+            }
+          ],
+          "attributes": {
+            "definitionStatusId": "900000000000074008",
+            "moduleId": "900000000000207008"
+          },
+          "semanticTypes": [
+            "disorder"
+          ],
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Diabetes mellitus",
+              "code": "73211009",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": true,
+              "defined": false
+            }
+          ],
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Disorder of carbohydrate metabolism",
+              "code": "20957000",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ],
+          "relationships": [
+            {
+              "id": "f547b786-3864-4c8a-af75-610c2fd37f7d",
+              "confidence": 6.206575870513916,
+              "modified": "2002-01-31T00:00:00.000+00:00",
+              "created": "2002-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "161242021",
+              "type": "Is a",
+              "additionalType": "116680003",
+              "from": {
+                "local": false,
+                "active": false,
+                "name": "Disorder of glucose metabolism",
+                "code": "126877002",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": false
+              },
+              "to": {
+                "local": false,
+                "active": false,
+                "name": "Disorder of carbohydrate metabolism",
+                "code": "20957000",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": false
+              },
+              "hierarchical": true,
+              "asserted": true,
+              "defining": true,
+              "group": "0",
+              "attributes": {
+                "modifierId": "900000000000451002",
+                "characteristicTypeId": "900000000000011006",
+                "moduleId": "900000000000207008"
+              }
+            }
+          ],
+          "inverseRelationships": [
+            {
+              "id": "eb340aa3-a5c8-4656-9ff4-767b4e2a1a55",
+              "confidence": 6.206575870513916,
+              "modified": "2002-01-31T00:00:00.000+00:00",
+              "created": "2002-01-31T00:00:00.000+00:00",
+              "modifiedBy": "loader",
+              "local": false,
+              "active": true,
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "componentId": "267149027",
+              "type": "Is a",
+              "additionalType": "116680003",
+              "from": {
+                "local": false,
+                "active": false,
+                "name": "Diabetes mellitus",
+                "code": "73211009",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": true,
+                "defined": false
+              },
+              "to": {
+                "local": false,
+                "active": false,
+                "name": "Disorder of glucose metabolism",
+                "code": "126877002",
+                "terminology": "SNOMEDCT",
+                "version": "20240101",
+                "publisher": "SANDBOX",
+                "leaf": false,
+                "defined": false
+              },
+              "hierarchical": true,
+              "asserted": true,
+              "defining": true,
+              "group": "0",
+              "attributes": {
+                "modifierId": "900000000000451002",
+                "characteristicTypeId": "900000000000011006",
+                "moduleId": "900000000000207008"
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Thu, May 16, 2024  6:36:05 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#top)
+
+<a name="find-concepts-sh"/>
+
+### Get concept summaries including parents (search by string and ECL expression)
+Via find-concepts.sh
+
+
+This example performs a search that returns all descendants of the SNOMED
+64572001 | Disease | concept that contain the word "system" with a maximum
+of 5 results.
+
+```
+$ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5 --include parents
+-----------------------------------------------------
+Starting ...Thu, May 16, 2024  6:35:47 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+query = system
+expr = <64572001
+offset = 0
+limit = 5
+sort =
+ascending =
+
+  Find concepts: (terminology:SNOMEDCT) AND system
+
+        {
       "total": 7,
       "parameters": {
         "query": "(terminology:SNOMEDCT) AND system",
@@ -1708,23 +2527,25 @@ ascending =
       ]
     }
 
+
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:36:05 PM
+Finished ...Thu, May 16, 2024  6:35:48 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#top)
 
-<a name="find-terms-sh"/>
+<a name="find-concepts-sh"/>
 
-### find-terms.sh
+### Get concept summaries (search by ECL expression)
+Via find-concepts.sh
 
 Used to perform text searches to find terms matching a particular terminology.  
 While in many instances it is most useful to directly find concepts with matching 
 terms, this call allows users to isolate exactly those terms that resolve from a search.
 
 ```
-$ ./find-terms.sh sandbox SNOMEDCT diabetes --token $token
+$ ./find-concepts.sh sandbox SNOMEDCT "*" --expr "<64572001" --token $token --limit 5
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:36:26 PM
 -----------------------------------------------------
@@ -1858,7 +2679,8 @@ Finished ...Thu, May 16, 2024  6:36:27 PM
 
 <a name="autocomplete-sh"/>
 
-### autocomplete.sh
+### Demonstrate capabilities autocomplete, aka type-ahead
+Via autocomplete.sh
 
 This script demonstrates an autocomplete or typeahead for a user interface feature 
 to find potential search terms for a few starting characters.  By default it produces
