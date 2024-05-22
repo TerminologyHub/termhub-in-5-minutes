@@ -25,7 +25,7 @@ requires authentication, the login call must first be used to obtain an access t
 Sample cURL Calls
 -----------------
 
-The following examples can be types into the command line of any terminal that has cURL and jq installed.
+The following examples can be typed into the command line of any terminal that has cURL and jq installed.
 
 - [Login](#login)
 - [Get terminologies](#get-terminologies)
@@ -66,7 +66,7 @@ See sample payload data from this call in [`samples/login.txt`](samples/login.tx
 ### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.  This call also takes
-search parameters like query, limit, offset, sort, and ascending to allow searching
+search parameters such as query, limit, offset, sort, and ascending to allow searching
 across available terminologies.
 
 ```
@@ -81,7 +81,7 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 
 ### Get project terminologies
 
-Return all terminologies for specific project identified by either projectId or projectLabel.
+Return all terminologies for the specified project identified by either projectId or projectLabel.
 
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/terminology" | jq
@@ -96,7 +96,7 @@ See sample payload data from this call in [`samples/get-terminologies-sandbox.tx
 ### Get terminology
 Return a specific terminology by its terminologyId. The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
-by the previous call and you can then look up terminology info for specifically that
+by the previous call and you can then look up terminology info specifically for that
 UUID.
 
 ```
@@ -157,7 +157,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-with-inc
 ### Get concept relationships by code
 
 Get concept relationships for a terminology and code. In this case it resolves
-relationships that originate "from" this concept code and contain information about
+relationships that originate "from" this concept code and contains information about
 the concepts those relationships point "to" on the other side. For example, a child
 concept pointing to its parent.
 
@@ -174,7 +174,7 @@ See sample payload data from this call in [`samples/get-concept-relationsihps.tx
 ### Get concept inverse relationships by code
 
 Get concept inverse relationships for a terminology and code. In this case it resolves
-relationships that point "to" this concept code and contain information about concepts
+relationships that point "to" this concept code and contains information about concepts
 those relationships originate "from" on the other side.  For example, a parent concept
 being pointed to from a child.
 
@@ -192,7 +192,7 @@ See sample payload data from this call in [`samples/get-concept-inverse-relation
 
 Get concept tree positions for a terminology and code. For classification
 hierarchies, you would expect to see just a single tree position.  But for
-more complex poly-hierarchies you likely expect to see multiple tree positions -
+more complex poly-hierarchies you'd likely expect to see multiple tree positions -
 each one with a different path to the root concept.
 
 ```
@@ -239,7 +239,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 Find concepts matching a search term within a specified terminology and constrain
 the search results by an expression. This example uses paging to get only the first 
-5 results.
+10 results.
 
 NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Disease"
 concept in SNOMED).  To work properly, the expression value has to be url encoded 

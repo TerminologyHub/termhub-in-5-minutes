@@ -10,9 +10,9 @@ refer to features of the concept body that can be individually activated when ne
 
 ### Special Include Values
 
-The following special "include" values are for convenience
+The following special "include" values are for convenience:
 
- - **minimal**: indicates just top level concept fields like "code", "name", and "terminology" should be included.
+ - **minimal**: indicates just top level concept fields such as "code", "name", and "terminology" should be included.
  - **summary**: indicates minimal information plus "terms", "definitions", "attributes", and "semanticTypes" should be included. Equivalent to using "terms,definitions,attributes,semanticTypes" as the "include" value. 
  - **full**: indicates to return all available concept parts listed below (never a default).
 
@@ -39,11 +39,11 @@ The remaining supported "include" values represent individual parts of the conce
 
 It is possible to use multiple include values together (as a comma-separated list).  In that case, if any of the values indicate that concept features should be included in the response, then it will be included.  The information returned by "minimal" is **always** included, no matter how the parameter is specified.
 
-The typical (and most useful) scenarios for the "include" parameter are as follows.
+The typical (and most useful) scenarios for the "include" parameter are as follows:
 
-0. Default behavior (do not specify "include" value)
-0. Use "minimal", "summary", or "full"
-0. Use specifically needed features, like "terms", "mapsets"
+0. Default behavior (do not specify "include" value).
+0. Use "minimal", "summary", or "full".
+0. Use specifically needed features, such as "terms", "mapsets".
 0. Combine "summary" with one or more of the relationship type features.  
  - e.g. "summary,parents,children"
 

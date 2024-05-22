@@ -3,7 +3,7 @@
 TermHub - Using the "query" parameter
 =====================================
 
-The "find" API endpoints make use of an "query" parameter that supports
+The "find" API endpoints make use of a "query" parameter that supports
 simple search phrases as well as more complicated introspection into the domain model.
 The following searches can be performed in the "SNOMEDCT_US Latest" project by using
 "snomedct_us" as the idOrUriLabel parameter.
