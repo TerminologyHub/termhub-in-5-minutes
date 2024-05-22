@@ -1132,7 +1132,7 @@ inverse = true
 code = 113331007
 
   Get concept relationships for SNOMEDCT 113331007:
-
+  
     {
       "total": 3,
       "parameters": {
@@ -1310,7 +1310,7 @@ terminology = SNOMEDCT
 code = 73211009
 
   Get concept tree positions for SNOMEDCT 73211009:
-
+  
      {
       "total": 2,
       "parameters": {
@@ -1668,7 +1668,7 @@ project = sandbox
 query = diabetes mellitus
 expr =
 offset = 0
-limit = 5
+limit = 5~
 sort =
 ascending =
 
@@ -1793,16 +1793,16 @@ Starting ...Thu, May 16, 2024  6:36:03 PM
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
 project = sandbox
-query = system
-expr = <64572001
+query = diabetes mellitus
+expr =
 offset = 0
-limit = 5
+limit = 2
 sort =
 ascending =
 
-  Find concepts: (terminology:SNOMEDCT) AND system
-
-    {
+  Find concepts: (terminology:SNOMEDCT) AND diabetes mellitus
+  
+  {
       "total": 8,
       "parameters": {
         "query": "(terminology:SNOMEDCT) AND diabetes mellitus",
@@ -2552,120 +2552,103 @@ Starting ...Thu, May 16, 2024  6:36:26 PM
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
 project = sandbox
-query = diabetes
+query = *
+expr = <64572001
 offset = 0
-limit = 10
+limit = 5
 sort =
 ascending =
 
-  Find terms: diabetes
-
+  Find concepts: (terminology:SNOMEDCT) AND *
+  
     {
-      "total": 4,
+      "total": 22,
       "parameters": {
-        "query": "diabetes",
-        "limit": 10,
+        "query": "(terminology:SNOMEDCT) AND *",
+        "expression": "<64572001",
+        "limit": 5,
         "offset": 0
       },
       "items": [
         {
-          "id": "a4ca02f7-96d5-4984-82ab-c50932dc5c78",
-          "confidence": 9.246849060058594,
-          "modified": "2017-07-31T00:00:00.000+00:00",
-          "created": "2017-07-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Diabetes mellitus",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "componentId": "121589010",
-          "code": "73211009",
-          "conceptId": "73211009",
-          "localeMap": {
-            "en_GB": true,
-            "en": true
-          },
-          "type": "900000000000013009",
-          "attributes": {
-            "caseSignificanceId": "900000000000448009",
-            "moduleId": "900000000000207008"
-          }
-        },
-        {
-          "id": "d62b0b75-5588-467f-a794-1f6c0a5cfc6a",
-          "confidence": 9.246849060058594,
+          "id": "82e35a8c-d17c-47c0-b737-f2dd34ac3258",
+          "confidence": 5.715394020080566,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "DM - Diabetes mellitus",
+          "name": "Disorder of thorax",
+          "code": "118946009",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "componentId": "502372015",
-          "code": "73211009",
-          "conceptId": "73211009",
-          "localeMap": {
-            "en_GB": false,
-            "en": false
-          },
-          "type": "900000000000013009",
-          "attributes": {
-            "caseSignificanceId": "900000000000017005",
-            "moduleId": "900000000000207008"
-          }
+          "leaf": false,
+          "defined": true
         },
         {
-          "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
-          "confidence": 8.964832305908203,
+          "id": "0605b56f-d75f-40dc-a5a8-50d947430c9e",
+          "confidence": 5.715394020080566,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
-          "active": false,
-          "name": "Diabetes mellitus, NOS",
+          "active": true,
+          "name": "Neoplasm of trunk",
+          "code": "126637008",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "componentId": "121590018",
-          "code": "73211009",
-          "conceptId": "73211009",
-          "localeMap": {
-            "en": false
-          },
-          "type": "900000000000013009",
-          "attributes": {
-            "caseSignificanceId": "900000000000020002",
-            "moduleId": "900000000000207008"
-          }
+          "leaf": false,
+          "defined": true
         },
         {
-          "id": "c0b184ba-bb0c-4fe7-ad9c-b1b4801543f7",
-          "confidence": 8.964832305908203,
-          "modified": "2017-07-31T00:00:00.000+00:00",
-          "created": "2017-07-31T00:00:00.000+00:00",
+          "id": "3476ebc2-744b-4155-b1ee-23daf2af6283",
+          "confidence": 5.715394020080566,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Diabetes mellitus (disorder)",
+          "name": "Disorder of glucose metabolism",
+          "code": "126877002",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "componentId": "813575016",
-          "code": "73211009",
-          "conceptId": "73211009",
-          "localeMap": {
-            "en_GB": true,
-            "en": true
-          },
-          "type": "900000000000003001",
-          "attributes": {
-            "caseSignificanceId": "900000000000448009",
-            "moduleId": "900000000000207008"
-          }
+          "leaf": false,
+          "defined": false
+        },
+        {
+          "id": "e10fcd8b-483d-41e0-8bb2-91ecbc3ab052",
+          "confidence": 5.715394020080566,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Neoplasm of breast",
+          "code": "126926005",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": true
+        },
+        {
+          "id": "8426e589-67b6-4b2a-8744-823fc69d2f60",
+          "confidence": 5.715394020080566,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of trunk",
+          "code": "128121009",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
         }
       ]
     }
@@ -2698,7 +2681,7 @@ limit = 10
 
   Find terms: diab
 
-    [
+     [
       "Diabetic monitoring",
       "Diabetes mellitus",
       "DM - Diabetes mellitus",
