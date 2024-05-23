@@ -27,9 +27,12 @@ Test Scripts
 - [get-concept-relationships.sh](#get-concept-relationships-sh)
 - [get-concept-treepos.sh](#get-concept-treepos-sh)
 - [find-concepts.sh](#find-concepts-sh)
+- [find-terms.sh](#find-terms-sh)
 - [autocomplete.sh](#autocomplete-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
+
+<a name="login-sh"/>
 
 ### login.sh
 
@@ -61,14 +64,14 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 
 <a name="get-terminologies-sh"/>
 
-### Get all terminologies in TermHub
-Via get-terminologies.sh
+### Get terminologies - get-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API.  This call also takes
 search parameters such as query, limit, offset, sort, and ascending to allow searching
 across available terminologies.
+
 ```
-$ ./get-terminologies.sh --token $token | head -30
+$ ./get-terminologies.sh --token $token
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:31:02 PM
 -----------------------------------------------------
@@ -95,22 +98,17 @@ ascending =
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "abbreViation": "SNOMEDCT_US",
+          "abbreviation": "SNOMEDCT_US",
           "name": "Systematized Nomenclature of Medicine–Clinical Terminology, US Edition",
           "version": "20230301",
           "publisher": "NLM",
-...
+      ...
 -----------------------------------------------------
 Finished ...Thu, May 16, 2024  6:31:03 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-terminology-sh"/>
-
-### Get all terminologies (for project)
-Via get-terminology.sh
+### Get project terminologies - get-terminologies.sh
 
 Return all terminologies for the specified project identified by either projectId or projectLabel.
 
@@ -133,7 +131,7 @@ url = https://api.terminologyhub.com
         "modifiedBy": "loader",
         "local": false,
         "active": true,
-        "abbreViation": "SNOMEDCT",
+        "abbreviation": "SNOMEDCT",
         "name": "Mini version of SNOMEDCT For testing purposes",
         "version": "20240101",
         "publisher": "SANDBOX",
@@ -176,195 +174,8 @@ url = https://api.terminologyhub.com
         }
       },
       ...
-      {
-        "id": "34c23127-6acc-48ba-8b1e-cba378feb7cc",
-        "confidence": 7.456092834472656,
-        "modified": "2024-05-13T18:28:54.409+00:00",
-        "created": "2024-05-13T18:28:54.409+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreViation": "SNOMEDCT_US",
-        "name": "Mini version of SNOMEDCT_US For testing purposes",
-        "version": "20240301",
-        "publisher": "SANDBOX",
-        "latest": true,
-        "loaded": true,
-        "releaseDate": "2024-03-01",
-        "family": "SNOMEDCT",
-        "indexName": "snomedctus-sandbox-20240301",
-        "attributes": {
-          "autocomplete": "true",
-          "description-logic-based": "true",
-          "tree-positions": "true",
-          "unidirectional-rels": "true",
-          "has-relationship-directionality": "true",
-          "ecl": "true",
-          "description-logic-profile": "EL++",
-          "fhirUri": "http://snomed.info/sct",
-          "polyhierarchy": "true",
-          "hierarchical": "true",
-          "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
-          "fhirId": "snomedct_us_731000124108_20240301"
-        },
-        "roots": [
-          "138875005"
-        ],
-        "statistics": {
-          "parentsInactive": 0,
-          "parentsActive": 598,
-          "treePositions": 2158,
-          "termsInactive": 355,
-          "childrenInactive": 0,
-          "relationships": 749,
-          "concepts": 440,
-          "terms": 1549,
-          "conceptsInactive": 3,
-          "termsActive": 1194,
-          "definitions": 19,
-          "conceptsActive": 437,
-          "childrenActive": 598
-        }
-      },
-      {
-        "id": "b9c18dcd-8e75-44c4-ba27-d1aa1737e38b",
-        "confidence": 7.312992095947266,
-        "modified": "2024-05-13T18:29:48.953+00:00",
-        "created": "2024-05-13T18:29:48.953+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreViation": "RXNORM",
-        "name": "Mini version of RXNORM for testing purposes",
-        "version": "04012024",
-        "publisher": "SANDBOX",
-        "latest": true,
-        "loaded": true,
-        "releaseDate": "2024-04-01",
-        "family": "RXNORM",
-        "indexName": "rxnorm-sandbox-04012024",
-        "attributes": {
-          "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "autocomplete": "true",
-          "fhirVersion": "04012024",
-          "ecl": "true",
-          "fhirId": "rxnorm_04012024",
-          "fhirCompositional": "false"
-        },
-        "statistics": {
-          "parentsInactive": 0,
-          "parentsActive": 0,
-          "treePositions": 0,
-          "termsInactive": 403,
-          "childrenInactive": 0,
-          "relationships": 7428,
-          "concepts": 816,
-          "terms": 1975,
-          "conceptsInactive": 198,
-          "termsActive": 1572,
-          "definitions": 0,
-          "conceptsActive": 618,
-          "childrenActive": 0
-        }
-      },
-      {
-        "id": "d1aba666-39bf-48ea-b524-c5a47ab1dcf1",
-        "confidence": 6.634233474731445,
-        "modified": "2024-05-13T18:30:45.195+00:00",
-        "created": "2024-05-13T18:30:45.195+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreViation": "LNC",
-        "name": "Mini version of LOINC for testing purposes",
-        "version": "277",
-        "publisher": "SANDBOX",
-        "latest": true,
-        "loaded": true,
-        "releaseDate": "2024-05-06",
-        "family": "LOINC",
-        "indexName": "lnc-sandbox-277",
-        "attributes": {
-          "fhirUri": "http://loinc.org",
-          "origin-version": "2024AA",
-          "polyhierarchy": "true",
-          "autocomplete": "true",
-          "hierarchical": "true",
-          "fhirVersion": "277",
-          "tree-positions": "true",
-          "origin-terminology": "UMLS",
-          "ecl": "true",
-          "fhirId": "lnc_277",
-          "fhirCompositional": "false"
-        },
-        "roots": [
-          "MTHU000998",
-          "MTHU000999"
-        ],
-        "statistics": {
-          "termsInactive": 0,
-          "childrenInactive": 0,
-          "relationships": 326,
-          "concepts": 114,
-          "terms": 226,
-          "parentsInactive": 0,
-          "termsActive": 226,
-          "parentsActive": 90,
-          "definitions": 0,
-          "treePositions": 93,
-          "conceptsActive": 114,
-          "childrenActive": 90
-        }
-      },
-      {
-        "id": "7ba6a4e7-8d3d-4242-a174-f9883d48a08b",
-        "confidence": 7.004107475280762,
-        "modified": "2024-05-13T18:30:55.473+00:00",
-        "created": "2024-05-13T18:30:55.473+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreViation": "ICD10CM",
-        "name": "Mini version of ICD10CM for testing purposes",
-        "version": "2024",
-        "publisher": "SANDBOX",
-        "latest": true,
-        "loaded": true,
-        "releaseDate": "2024-05-06",
-        "family": "ICD10CM",
-        "indexName": "icd10cm-sandbox-2024",
-        "attributes": {
-          "fhirUri": "http://hl7.org/fhir/sid/icd-10-cm",
-          "origin-version": "2024AA",
-          "autocomplete": "true",
-          "hierarchical": "true",
-          "fhirVersion": "2024",
-          "tree-positions": "true",
-          "origin-terminology": "UMLS",
-          "ecl": "true",
-          "fhirId": "icd10cm_2024",
-          "fhirCompositional": "false"
-        },
-        "roots": [
-          "ICD-10-CM"
-        ],
-        "statistics": {
-          "termsInactive": 0,
-          "childrenInactive": 0,
-          "relationships": 12,
-          "concepts": 7,
-          "terms": 12,
-          "parentsInactive": 0,
-          "termsActive": 12,
-          "parentsActive": 6,
-          "definitions": 0,
-          "treePositions": 7,
-          "conceptsActive": 7,
-          "childrenActive": 6
-        }
-      }
     ]
-
+    
 -----------------------------------------------------
 Finished ...Thu, May 16, 2024  6:32:03 PM
 -----------------------------------------------------
@@ -374,8 +185,7 @@ Finished ...Thu, May 16, 2024  6:32:03 PM
 
 <a name="get-terminology-sh"/>
 
-### Get terminology (for terminology id)
-Via get-terminology.sh
+### Get terminology (for terminology id) - get-terminology.sh
 
 Return a specific terminology/version pair by its terminology id.  The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
@@ -400,7 +210,7 @@ url = https://api.terminologyhub.com
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreViation": "SNOMEDCT",
+      "abbreviation": "SNOMEDCT",
       "name": "Mini version of SNOMEDCT For testing purposes",
       "version": "20240101",
       "publisher": "SANDBOX",
@@ -451,8 +261,7 @@ Finished ...Thu, May 16, 2024  6:33:02 PM
 
 <a name="export-terminology-sh"/>
 
-### Export a terminology
-Via export-terminology.sh
+### Export a terminology - export-terminology.sh
 
 Export zip file of a terminology in a particular format.  Currently only format=native is
 supported.
@@ -474,8 +283,7 @@ Finished ...Thu, May 16, 2024  6:33:22 PM
 
 <a name="get-concept-sh"/>
 
-### Get concept summary (for concept id)
-Via get-concept.sh
+### Get concept by code - get-concept.sh
 
 Return summary concept information for a given terminology and code. The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT. For more information see
 [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
@@ -619,12 +427,7 @@ Finished ...Thu, May 16, 2024  6:33:37 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-concept-sh"/>
-
-### Get full concept information (for concept id)
-Via get-concept.sh
+### Get concept by code with explicit include parameter - get-concept.sh
 
 Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back.  The include parameter has a few helpful shortcut values
 (minimal, summary, full) and also allows you to individually select parts of the full concept model
@@ -937,8 +740,7 @@ Finished ...Thu, May 16, 2024  6:34:01 PM
 
 <a name="get-concept-relationships-sh"/>
 
-### Get concept relationship information (for concept id)
-Via get-concept-relationships.sh
+### Get concept relationships by code - get-concept-relationships.sh
 
 Get concept relationships for a terminology and code. In this case it resolves
 relationships that originate "from" this concept code and contains information about
@@ -1111,12 +913,7 @@ Finished ...Thu, May 16, 2024  6:34:15 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-concept-relationships-sh"/>
-
-### Get inverse concept relationship information (for concept id)
-Via get-concept-relationships.sh
+### Get concept inverse relationships by code - get-concept-relationships.sh
 
 This same script can be used to get inverse concept relationships for a terminology
 and code. In this case it resolves relationships that originate "from" another
@@ -1293,8 +1090,7 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 
 <a name="get-concept-treepos-sh"/>
 
-### Get concept tree positions (for concept id)
-Via get-concept-treepos.sh
+### Get concept trees - get-concept-treepos.sh
 
 Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept.
 
@@ -1648,8 +1444,7 @@ Finished ...Thu, May 16, 2024  6:35:03 PM
 
 <a name="find-concepts-sh"/>
 
-### Get concept summaries (search by string)
-Via find-concepts.sh
+### Find concepts by search term  - find-concepts.sh
 
 Used to perform text searches to find matching concepts. The following example
 performs a text search for "diabetes mellitus" and limits search results to 5
@@ -1768,12 +1563,7 @@ Finished ...Thu, May 16, 2024  6:35:29 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="find-concepts-sh"/>
-
-### Get full concept information (search by string)
-Via find-concepts.sh
+### Find concepts by search term with explicit include parameter - find-concepts.sh
 
 This is the same as the example above but with the use of an explicit include
 parameter to show that additional data can be loaded with searches. The include parameter 
@@ -2293,18 +2083,14 @@ Finished ...Thu, May 16, 2024  6:36:05 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="find-concepts-sh"/>
-
-### Get concept summaries including parents (search by string and ECL expression)
-Via find-concepts.sh
+### Find concepts by search term and expression - find-concepts.sh
 
 This example performs a search that returns the concept summaries including the parent information for those concepts returned from the specified ecl express contain the word "system" with a maximum of 5 results.
 
 NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Disease"
 concept in SNOMED).  To work properly, the expression value has to be url encoded 
-(See https://www.urlencoder.org/ for an online URL encoder):
+(See https://www.urlencoder.org/ for an online URL encoder).  For more information on
+ECL, see [ECL.md](../doc/ECL.md "ECL.md").
 
 ```
 $ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5 --include parents
@@ -2532,126 +2318,142 @@ Finished ...Thu, May 16, 2024  6:35:48 PM
 
 [Back to Top](#top)
 
-<a name="find-concepts-sh"/>
+<a name="find-terms-sh"/>
 
-### Get concept summaries (search by ECL expression)
-Via find-concepts.sh
+### Find terms by search term - find-terms.sh
 
 Used to perform text searches to find terms matching a particular terminology.  
 While in many instances it is most useful to directly find concepts with matching 
 terms, this call allows users to isolate exactly those terms that resolve from a search.
 
 ```
-$ ./find-concepts.sh sandbox SNOMEDCT "*" --expr "<64572001" --token $token --limit 5
+$ ./find-terms.sh sandbox SNOMEDCT diabetes --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:36:26 PM
+Starting ...Thu, May 23, 2024  3:42:06 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
 project = sandbox
-query = *
-expr = <64572001
+query = diabetes
 offset = 0
-limit = 5
+limit = 10
 sort =
 ascending =
 
-  Find concepts: (terminology:SNOMEDCT) AND *
-  
+  Find terms: diabetes
+
     {
-      "total": 22,
+      "total": 4,
       "parameters": {
-        "query": "(terminology:SNOMEDCT) AND *",
-        "expression": "<64572001",
-        "limit": 5,
+        "query": "diabetes",
+        "limit": 10,
         "offset": 0
       },
       "items": [
         {
-          "id": "82e35a8c-d17c-47c0-b737-f2dd34ac3258",
-          "confidence": 5.715394020080566,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
+          "id": "a4ca02f7-96d5-4984-82ab-c50932dc5c78",
+          "confidence": 9.246849060058594,
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Disorder of thorax",
-          "code": "118946009",
+          "name": "Diabetes mellitus",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
+          "componentId": "121589010",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
         },
         {
-          "id": "0605b56f-d75f-40dc-a5a8-50d947430c9e",
-          "confidence": 5.715394020080566,
+          "id": "d62b0b75-5588-467f-a794-1f6c0a5cfc6a",
+          "confidence": 9.246849060058594,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Neoplasm of trunk",
-          "code": "126637008",
+          "name": "DM - Diabetes mellitus",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
+          "componentId": "502372015",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": false,
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000017005",
+            "moduleId": "900000000000207008"
+          }
         },
         {
-          "id": "3476ebc2-744b-4155-b1ee-23daf2af6283",
-          "confidence": 5.715394020080566,
+          "id": "62da178f-4bb7-4a13-aa2d-e243798f8025",
+          "confidence": 8.964832305908203,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
-          "active": true,
-          "name": "Disorder of glucose metabolism",
-          "code": "126877002",
+          "active": false,
+          "name": "Diabetes mellitus, NOS",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": false
+          "componentId": "121590018",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000020002",
+            "moduleId": "900000000000207008"
+          }
         },
         {
-          "id": "e10fcd8b-483d-41e0-8bb2-91ecbc3ab052",
-          "confidence": 5.715394020080566,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
+          "id": "c0b184ba-bb0c-4fe7-ad9c-b1b4801543f7",
+          "confidence": 8.964832305908203,
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Neoplasm of breast",
-          "code": "126926005",
+          "name": "Diabetes mellitus (disorder)",
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": true,
-          "defined": true
-        },
-        {
-          "id": "8426e589-67b6-4b2a-8744-823fc69d2f60",
-          "confidence": 5.715394020080566,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of trunk",
-          "code": "128121009",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true
+          "componentId": "813575016",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000003001",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:36:27 PM
+Finished ...Thu, May 23, 2024  3:42:07 PM
 -----------------------------------------------------
 ```
 
@@ -2659,8 +2461,7 @@ Finished ...Thu, May 16, 2024  6:36:27 PM
 
 <a name="autocomplete-sh"/>
 
-### Demonstrate capabilities autocomplete, aka type-ahead
-Via autocomplete.sh
+### •Support autocomplete/typeahead for first few characters typed - autocomplete.sh
 
 This script demonstrates an autocomplete or typeahead for a user interface feature 
 to find potential search terms for a few starting characters.  By default it produces
