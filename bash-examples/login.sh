@@ -28,6 +28,7 @@ cat > /tmp/data.$$ << EOF
 { "grant_type": "username_password", "username": "$username", "password": "$password"}
 EOF
 
+tail /tmp/data.$$
 curl -v -w "\n%{http_code}" -X POST "$url/auth/token" -d "@/tmp/data.$$" -H "Content-type: application/json" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: POST /auth/token failed"
