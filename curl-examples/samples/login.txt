@@ -1,7 +1,0 @@
-{
-  "access_token": "eyJ0eXAiOiJKV1QiLC...HhGl5Cl37cOpMEIHW1I",
-  "refresh_token": "eyJ0eXAiOiJKV1QiL...8KAn1DIyOz22M5EOEeo",
-  "expires_in": 14400,
-  "expires_on": 1635278504,
-  "token_type": "Bearer"
-}

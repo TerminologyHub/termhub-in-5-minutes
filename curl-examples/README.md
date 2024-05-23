@@ -76,8 +76,6 @@ token=$(curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type:
 echo "token=$token"
 ```
 
-See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
-
 <a name="get-terminologies"/>
 
 ### Get all terminologies in TermHub
@@ -91,8 +89,6 @@ across available terminologies.
 curl -H "Authorization: Bearer $token" "$API_URL/terminology" | jq | head -20
 ```
 
-See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
-
 [Back to Top](#top)
 
 <a name="get-project-terminologies"/>
@@ -105,8 +101,6 @@ Return all terminologies for the specified project identified by either projectI
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/terminology" | jq
 ```
-
-See sample payload data from this call in [`samples/get-terminologies-sandbox.txt`](samples/get-terminologies-sandbox.txt)
 
 [Back to Top](#top)
 
@@ -123,8 +117,6 @@ UUID.
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/terminology/a2bc43ec-ba1b-47c0-9ff0-8379a02f8136" | jq
 ```
-
-See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
 
 [Back to Top](#top)
 
@@ -158,8 +150,6 @@ Look up concept information for a given terminology and code.
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
-
 [Back to Top](#top)
 
 <a name="get-concept-by-code-with-include"/>
@@ -174,8 +164,6 @@ that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUD
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009?include=full" | jq
 ```
-
-See sample payload data from this call in [`samples/get-concept-by-code-with-include.txt`](samples/get-concept-by-code-with-include.txt)
 
 [Back to Top](#top)
 
@@ -193,8 +181,6 @@ concept pointing to its parent.
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/relationships" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
-
 [Back to Top](#top)
 
 <a name="get-concept-inverse-relationships"/>
@@ -209,8 +195,6 @@ concept and point "to" this concept code. For this mode, use the `--inverse` par
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/113331007/inverseRelationships" | jq
 ```
-
-See sample payload data from this call in [`samples/get-concept-inverse-relationsihps.txt`](samples/get-concept-inverse-relationships.txt)
 
 [Back to Top](#top)
 
@@ -230,8 +214,6 @@ each one with a different path to the root concept.
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/trees" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-treepos.txt`](samples/get-concept-treepos.txt)
-
 [Back to Top](#top)
 
 <a name="find-concepts"/>
@@ -246,8 +228,6 @@ entries.
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes%20mellitus&limit=5" | jq
 ```
-
-See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
 [Back to Top](#top)
 
@@ -266,8 +246,6 @@ select parts of the full concept model that you are interested in. For more info
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes%20mellitus&limit=2&include=full" | jq
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)
-
 [Back to Top](#top)
 
 <a name="find-concepts-expr"/>
@@ -284,8 +262,6 @@ concept in SNOMED).  To work properly, the expression value has to be url encode
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=system&expression=%3C64572001&offset=0&limit=5&include=parents" | jq
 ```
-
-See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
 
 [Back to Top](#top)
 
@@ -304,8 +280,6 @@ terms, this call allows users to isolate exactly those terms that resolve from a
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=*&expression=%3C64572001&offset=0&limit=5" | jq
 ```
 
-See sample payload data from this call in [`samples/find-terms-by-search-term.txt`](samples/find-terms-by-search-term.txt)
-
 [Back to Top](#top)
 
 <a name="autocomplete"/>
@@ -320,8 +294,6 @@ to find potential search terms for a few starting characters.  By default it pro
 ```
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/autocomplete?terminology=SNOMEDCT&query=diab" | jq
 ```
-
-See sample payload data from this call in [`samples/autocomplete-search-term.txt`](samples/autocomplete-search-term.txt)
 
 [Back to Top](#top)
 
