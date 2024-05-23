@@ -2028,7 +2028,7 @@ Finished ...Thu, May 23, 2024  3:42:07 PM
 
 <a name="autocomplete-sh"/>
 
-### •Support autocomplete/typeahead for first few characters typed - autocomplete.sh
+### Support autocomplete/typeahead for first few characters typed - autocomplete.sh
 
 This script demonstrates an autocomplete or typeahead for a user interface feature 
 to find potential search terms for a few starting characters.  By default it produces
