@@ -64,8 +64,9 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 ### Get all terminologies in TermHub
 Via get-terminologies.sh
 
-Return all loaded terminology/version pairs currently hosted by the API. Limit the results to the first thirty lines.
-
+Return all loaded terminologies currently hosted by the API.  This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available terminologies.
 ```
 $ ./get-terminologies.sh --token $token | head -30
 -----------------------------------------------------
@@ -111,7 +112,7 @@ Finished ...Thu, May 16, 2024  6:31:03 PM
 ### Get all terminologies (for project)
 Via get-terminology.sh
 
-Return all loaded terminology/version pairs for a specific project identified by either project id or project uriLabel.
+Return all terminologies for the specified project identified by either projectId or projectLabel.
 
 ```
 $ ./get-terminology.sh --token $token --project sandbox
@@ -453,7 +454,8 @@ Finished ...Thu, May 16, 2024  6:33:02 PM
 ### Export a terminology
 Via export-terminology.sh
 
-Exports a terminology for the given project id (or uriLabel) and terminology
+Export zip file of a terminology in a particular format.  Currently only format=native is
+supported.
 
 ```
 $ ./export-terminology.sh --token $token sandbox SNOMEDCT
@@ -624,10 +626,9 @@ Finished ...Thu, May 16, 2024  6:33:37 PM
 ### Get full concept information (for concept id)
 Via get-concept.sh
 
-The get-concept.sh script also supports use of the "include" parameter to specify the 
-amount of concept data to return. The example below performs the search from the prior
-example but brings back full concept info.  For more information see
-[INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
+Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back.  The include parameter has a few helpful shortcut values
+(minimal, summary, full) and also allows you to individually select parts of the full concept model
+that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
 $ ./get-concept.sh sandbox SNOMEDCT 73211009 --include full --token $token
@@ -941,7 +942,8 @@ Via get-concept-relationships.sh
 
 Get concept relationships for a terminology and code. In this case it resolves
 relationships that originate "from" this concept code and contains information about
-the concepts those relationships point "to" on the other side.
+the concepts those relationships point "to" on the other side. For example, a child
+concept pointing to its parent.
 
 ```
 $ ./get-concept-relationships.sh sandbox SNOMEDCT 73211009 --token $token
@@ -1295,10 +1297,6 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 Via get-concept-treepos.sh
 
 Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept.
-Return tree position information for a given terminology and code. The 
-following example finds relationships for the 73211009 | Diabetes mellitus | concept in 
-SNOMEDCT. 
-
 
 ```
 $ ./get-concept-treepos.sh sandbox SNOMEDCT 73211009 --token $token
@@ -1777,16 +1775,14 @@ Finished ...Thu, May 16, 2024  6:35:29 PM
 ### Get full concept information (search by string)
 Via find-concepts.sh
 
-The find-concepts.sh script also supports use of the "include" parameter to specify the 
-amount of concept data to return.  The include parameter has a few helpful shortcut values (minimal, summary, full) and also allows you to individually select parts of the full concept model that you are interested in. 
-
-The example below performs the search from the prior
-example but brings back concept info plus parents.  For more information see
+This is the same as the example above but with the use of an explicit include
+parameter to show that additional data can be loaded with searches. The include parameter 
+has a few helpful shortcut values (minimal, summary, full) and also allows you to individually 
+select parts of the full concept model that you are interested in. For more information see
 [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
-
-$./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus" --token $token --limit 2 --include full
+$ ./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus" --token $token --limit 2 --include full
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:36:03 PM
 -----------------------------------------------------
@@ -2304,10 +2300,11 @@ Finished ...Thu, May 16, 2024  6:36:05 PM
 ### Get concept summaries including parents (search by string and ECL expression)
 Via find-concepts.sh
 
+This example performs a search that returns the concept summaries including the parent information for those concepts returned from the specified ecl express contain the word "system" with a maximum of 5 results.
 
-This example performs a search that returns all descendants of the SNOMED
-64572001 | Disease | concept that contain the word "system" with a maximum
-of 5 results.
+NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Disease"
+concept in SNOMED).  To work properly, the expression value has to be url encoded 
+(See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
 $ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5 --include parents
