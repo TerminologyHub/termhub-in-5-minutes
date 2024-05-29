@@ -1,0 +1,2651 @@
+---
+openapi: 3.0.1
+info:
+  title: Terminology Hub Terminology Terminology API
+  description: API documentation for the interacting with terminologies and concepts.
+    <p>For a guided tour of using this API, see our github project <a href="https://github.com/terminologyhub/termhub-in-5-minutes">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+  contact:
+    name: API Support
+    url: https://www.terminologyhub.com
+    email: info@terminologyhub.com
+  version: 1.0.0
+servers:
+  - url: "/"
+    description: Current Instance
+tags:
+  - name: terminology
+    description: Terminology service endpoints
+  - name: metadata
+    description: Terminology and project metadata endpoints
+  - name: concept
+    description: Concept endpoints
+  - name: concept by id
+    description: Concept service endpoints with "by id" parameters
+  - name: concept by code
+    description: Concept service endpoints with "by code" parameters
+  - name: term
+    description: Term endpoints
+paths:
+  "/project/{idOrUriLabel}/concept/bulk":
+    post:
+      tags:
+        - concept
+      summary: Bulk find of concepts across specified project terminologies
+      description: Bulk find of concepts matching specified search criteria.
+      operationId: lookup
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: false
+          schema:
+            type: string
+        - name: expression
+          in: query
+          description: ECL-style expression (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Limit of results to return, max is 10
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 1
+        - name: active
+          in: query
+          description: "<code>true</code> for active concepts only, <code>false</code>
+          for inactive concepts only, <code>null</code> for both"
+          required: false
+          schema:
+            type: boolean
+        - name: leaf
+          in: query
+          description: "<code>true</code> for leaf nodes only, <code>false</code> for
+          non-leaf nodes, <code>null</code> for either"
+          required: false
+          schema:
+            type: boolean
+        - name: include
+          in: query
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, axioms, attributes,
+          children, definitions, descendants, highlights, inverseRelationships, mapsets,
+          parents, relationships, semanticTypes, subsets, terms, treePositions<a href=''https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: Newline-separated lines of text, one line for each query
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: |-
+              heart
+              kidney
+              12738006
+        required: true
+      responses:
+        '200':
+          description: List of result lists of matching concepts for each query
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ResultListConcept"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/bulk/export":
+    post:
+      tags:
+        - concept
+      summary: Export bulk find of concepts across specified project terminologies
+      description: Export bulk find of concepts matching specified search criteria.
+      operationId: exportLookup
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: false
+          schema:
+            type: string
+        - name: expression
+          in: query
+          description: ECL-style expression (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Limit of results to return, max is 10
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 1
+        - name: active
+          in: query
+          description: "<code>true</code> for active concepts only, <code>false</code>
+          for inactive concepts only, <code>null</code> for both"
+          required: false
+          schema:
+            type: boolean
+        - name: leaf
+          in: query
+          description: "<code>true</code> for leaf nodes only, <code>false</code> for
+          non-leaf nodes, <code>null</code> for either"
+          required: false
+          schema:
+            type: boolean
+      requestBody:
+        description: Newline-separated lines of text, one line for each query
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: |-
+              heart
+              kidney
+              12738006
+        required: true
+      responses:
+        '200':
+          description: Tab separated values file content for matching concepts
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/terminology":
+    get:
+      tags:
+        - terminology
+      summary: Find terminologies
+      description: Finds terminologies matching specified criteria.
+      operationId: findTerminologies
+      parameters:
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 10
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Result list of matching terminologies
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListTerminology"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/terminology/{id}":
+    get:
+      tags:
+        - terminology
+      summary: Get terminology by id
+      description: Gets terminology for the specified id
+      operationId: getTerminology
+      parameters:
+        - name: id
+          in: path
+          description: Terminology id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Terminology
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Terminology"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/terminology/{id}/metadata":
+    get:
+      tags:
+        - metadata
+      summary: Get terminology metadata
+      description: Gets terminology metadata for the specified terminology id
+      operationId: getTerminologyMetadata
+      parameters:
+        - name: id
+          in: path
+          description: Terminology id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Terminology
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Metadata"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/terminology/{id}/history/{priorVersion}/concepts/retired":
+    get:
+      tags:
+        - history
+      summary: Get terminology concepts retired since older version
+      description: Gets concept code/name for concepts retired in the terminology
+        since the specified older version
+      operationId: getTerminologyHistoryRetiredConcepts
+      parameters:
+        - name: id
+          in: path
+          description: Terminology id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: priorVersion
+          in: path
+          description: Prior terminology version, e.g. "20240101"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of concept code/name that are now retired
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ConceptRef"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/terminology/{id}/history/{priorVersion}/concepts/new":
+    get:
+      tags:
+        - history
+      summary: Get terminology concepts added since older version
+      description: Gets concept code/name for new active concepts in the terminology
+        since the specified older version
+      operationId: getTerminologyHistoryNewConcepts
+      parameters:
+        - name: id
+          in: path
+          description: Terminology id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: priorVersion
+          in: path
+          description: Prior terminology version, e.g. "20240101"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of concept code/name that are new
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ConceptRef"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/terminology":
+    get:
+      tags:
+        - terminology
+      summary: Get project terminologies
+      description: Gets terminology objects used by the specified project.
+      operationId: getProjectTerminologies
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of projectterminologies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Terminology"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/terminology/{terminology}/export":
+    get:
+      tags:
+        - terminology
+      summary: Export terminology
+      description: Exports specified terminology in the specified format.
+      operationId: exportTerminology
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: Requested download format, e.g. "native"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Export terminology matching specified criteria
+          content:
+            application/zip: {}
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/term":
+    get:
+      tags:
+        - term
+      summary: Find terms across project terminologies
+      description: Finds terms matching specified search criteria.
+      operationId: findTerms
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: false
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 10
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: active
+          in: query
+          description: "<code>true</code> for active terms only, <code>false</code>
+          for inactive terms only, <code>null</code> for both"
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Result list of matching terms
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListTerm"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/metadata":
+    get:
+      tags:
+        - metadata
+      summary: Find project terminology metadata
+      description: Find metadata for the terminologies of the specified project id
+        or uri
+      operationId: findMetadata
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Matadata for the specified project and query parameters
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListMetadata"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept":
+    get:
+      tags:
+        - concept
+      summary: Find concepts across project terminologies
+      description: Finds concepts matching specified search criteria.
+      operationId: findConcepts
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: false
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: expression
+          in: query
+          description: ECL-style expression (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 10
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: active
+          in: query
+          description: "<code>true</code> for active concepts only, <code>false</code>
+          for inactive concepts only, <code>null</code> for both"
+          required: false
+          schema:
+            type: boolean
+        - name: leaf
+          in: query
+          description: "<code>true</code> for leaf nodes only, <code>false</code> for
+          non-leaf nodes, <code>null</code> for either"
+          required: false
+          schema:
+            type: boolean
+        - name: include
+          in: query
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, axioms, attributes,
+          children, definitions, descendants, highlights, inverseRelationships, mapsets,
+          parents, relationships, semanticTypes, subsets, terms, treePositions<a href=''https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concepts
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConcept"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}":
+    get:
+      tags:
+        - concept by code
+      summary: Get concept by terminology and code
+      description: Gets concept for the specified terminology and code. This call
+        will not work for projects hosting multiple versions of the same terminology.
+      operationId: getConcept
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+        - name: include
+          in: query
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, axioms, attributes,
+          children, definitions, descendants, highlights, inverseRelationships, mapsets,
+          parents, relationships, semanticTypes, subsets, terms, treePositions<a href=''https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concept matching specified terminology and code in specified
+            project
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Concept"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}/trees":
+    get:
+      tags:
+        - concept by code
+      summary: Find concept tree positions by terminology and code
+      description: Finds concept tree positions for the specified terminology and
+        code. This call will not work for projects hosting multiple versions of the
+        same terminology.
+      operationId: findTreePositions
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept tree positions
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptTreePosition"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}/trees/children":
+    get:
+      tags:
+        - concept by code
+      summary: Find concept tree position children by terminology and code
+      description: Finds concept tree position children for the specified terminology
+        and code. This call will not work for projects hosting multiple versions of
+        the same terminology.
+      operationId: findTreePositionChildren
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept tree position children
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptTreePosition"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}/relationships":
+    get:
+      tags:
+        - concept by code
+      summary: Find concept relationships by terminology and code
+      description: Finds concept relationships for the specified terminology and code.
+        This call will not work for projects hosting multiple versions of the same
+        terminology.
+      operationId: findConceptRelationships
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept relationships
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptRelationship"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}/inverseRelationships":
+    get:
+      tags:
+        - concept by code
+      summary: Find concept inverse relationships by terminology and code
+      description: Finds concept inverse relationships for the specified terminology
+        and code. This call will not work for projects hosting multiple versions of
+        the same terminology.
+      operationId: findConceptInverseRelationships
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept inverse relationships
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptRelationship"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}/{code}/diagram":
+    get:
+      tags:
+        - concept by code
+      summary: Get concept diagram by terminology and code
+      description: Gets concept diagram for the specified terminology and code.
+      operationId: getConceptDiagram
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: code
+          in: path
+          description: Terminology code, e.g. "1119", "8867-4", or "64572001"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concept diagram
+          content:
+            image/png: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json: {}
+        '403':
+          description: Forbidden
+          content:
+            application/json: {}
+        '404':
+          description: Not found
+          content:
+            application/json: {}
+        '417':
+          description: Not found
+          content:
+            application/json: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json: {}
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{terminology}":
+    get:
+      tags:
+        - concept by code
+      summary: Get concepts by terminology and list of codes
+      description: Gets concepts for the specified terminology and list of codes.
+        This call will not work for projects hosting multiple versions of the same
+        terminology.
+      operationId: getConceptCodes
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: path
+          description: Terminology id or abbreviation. e.g. "uuid1" or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: codes
+          in: query
+          description: Comma-separated list of terminology codes, e.g. "1119,1149" or
+            "64572001,22298006 "
+          required: true
+          schema:
+            type: string
+        - name: include
+          in: query
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, axioms, attributes,
+          children, definitions, descendants, highlights, inverseRelationships, mapsets,
+          parents, relationships, semanticTypes, subsets, terms, treePositions<a href=''https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concepts mathcing code list in the specified project
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Concept"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}/trees":
+    get:
+      tags:
+        - concept by id
+      summary: Find concept tree positions
+      description: Finds concept tree positions for the specified concept id.
+      operationId: findTreePositions_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept tree positions
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptTreePosition"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}/trees/children":
+    get:
+      tags:
+        - concept by id
+      summary: Find concept tree position children
+      description: Finds concept tree position children for the specified concept
+        id.
+      operationId: findTreePositionChildren_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept tree position children
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptTreePosition"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}/relationships":
+    get:
+      tags:
+        - concept by id
+      summary: Find concept relationships
+      description: Finds concept relationships for the specified concept id.
+      operationId: findConceptRelationships_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept relationships
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptRelationship"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}/inverseRelationships":
+    get:
+      tags:
+        - concept by id
+      summary: Find concept inverse relationships
+      description: Finds concept inverse relationships for the specified concept id.
+      operationId: findConceptInverseRelationships_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Start index for search results
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          example: 0
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          example: 10
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Result list of matching concept inverse relationships
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResultListConceptRelationship"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}/diagram":
+    get:
+      tags:
+        - concept by id
+      summary: Get concept diagram
+      description: Gets concept diagram for the specified concept.
+      operationId: getConceptDiagram_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concept diagram
+          content:
+            image/png: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json: {}
+        '403':
+          description: Forbidden
+          content:
+            application/json: {}
+        '404':
+          description: Not found
+          content:
+            application/json: {}
+        '417':
+          description: Not found
+          content:
+            application/json: {}
+        '500':
+          description: Internal server error
+          content:
+            application/json: {}
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/{conceptId}":
+    get:
+      tags:
+        - concept by id
+      summary: Get concept by id
+      description: Gets concept for the specified id
+      operationId: getConcept_1
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel, e.g. "sandbox"
+          required: true
+          schema:
+            type: string
+        - name: conceptId
+          in: path
+          description: concept id, e.g. "uuid"
+          required: true
+          schema:
+            type: string
+        - name: include
+          in: query
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, axioms, attributes,
+          children, definitions, descendants, highlights, inverseRelationships, mapsets,
+          parents, relationships, semanticTypes, subsets, terms, treePositions<a href=''https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concept matching specified id in specified project
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Concept"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/concept/export":
+    get:
+      tags:
+        - concept
+      summary: Export concepts across all project terminologies
+      description: Export concepts matching specified search criteria.
+      operationId: exportConcepts
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: expression
+          in: query
+          description: ECL-style expression (<a href="https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md">See
+            here for more info</a>)
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Comma-separated list of fields to sort on
+          required: false
+          schema:
+            type: string
+        - name: ascending
+          in: query
+          description: "<code>true</code> for ascending, <code>false</code> for descending,
+          <code>null</code> for unspecified"
+          required: false
+          schema:
+            type: boolean
+        - name: active
+          in: query
+          description: "<code>true</code> for active concepts only, <code>false</code>
+          for inactive concepts only, <code>null</code> for both"
+          required: false
+          schema:
+            type: boolean
+        - name: leaf
+          in: query
+          description: "<code>true</code> for leaf nodes only, <code>false</code> for
+          non-leaf nodes, <code>null</code> for either"
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Tab separated values file content for matching concepts
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+  "/project/{idOrUriLabel}/autocomplete":
+    get:
+      tags:
+        - term
+      summary: Suggest autocompletions for text while searching
+      description: Finds top ten strings matching input query.
+      operationId: autocomplete
+      parameters:
+        - name: idOrUriLabel
+          in: path
+          description: Project id or uriLabel
+          required: true
+          schema:
+            type: string
+        - name: terminology
+          in: query
+          description: Comma-separated list of terminology ids or abbreviations (or
+            null for all terminologies). e.g. "uuid1,uuid2", "SNOMEDCT,RXNORM", or "ICD10CM".
+          required: false
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: Search text
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Limit of results to return (hard limit of 1000 regardless of
+            value)
+          required: false
+          schema:
+            type: integer
+            format: int32
+          example: 10
+      responses:
+        '200':
+          description: List of top ten matching strings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '417':
+          description: Expectation failed
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    Axiom:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        value:
+          type: string
+          description: Axiom expressed in OwL Manchester syntax (https://www.w3.org/TR/owl2-manchester-syntax/)
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+      description: Represents an OWL/RDF axiom for the concept
+    Concept:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        name:
+          type: string
+          description: Preferred name of the concept
+        code:
+          type: string
+          description: Terminology code, typically representing a unit of meaning
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        leaf:
+          type: boolean
+          description: Indicates whether or not this concept is a leaf node in its
+            hierarchy
+        defined:
+          type: boolean
+          description: Indicates whether or not this concept has a logical definition
+            with necessary and sufficient conditions
+        terms:
+          type: array
+          description: Terms associated with the concept
+          items:
+            "$ref": "#/components/schemas/Term"
+        indexTerms:
+          type: array
+          description: Index terms associated with the concept (these exist for searchability
+            but are not strictly content from the publisher)
+          items:
+            type: string
+            description: Index terms associated with the concept (these exist for
+              searchability but are not strictly content from the publisher)
+        definitions:
+          type: array
+          description: Textual definitions associated with the concept
+          items:
+            "$ref": "#/components/schemas/Definition"
+        axioms:
+          type: array
+          description: OwL/RDF axioms that express the logical definition
+          items:
+            "$ref": "#/components/schemas/Axiom"
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Attribute key/value pairs associated with the concept
+          description: Attribute key/value pairs associated with the concept
+        semanticTypes:
+          uniqueItems: true
+          type: array
+          description: High level semantic types associated with the concept
+          items:
+            type: string
+            description: High level semantic types associated with the concept
+        labels:
+          uniqueItems: true
+          type: array
+          description: Labels associated with the concept
+          items:
+            type: string
+            description: Labels associated with the concept
+        children:
+          type: array
+          description: Children of the concept in the hierarchy
+          items:
+            "$ref": "#/components/schemas/ConceptRef"
+        parents:
+          type: array
+          description: Parents of the concept in the hierarchy
+          items:
+            "$ref": "#/components/schemas/ConceptRef"
+        descendants:
+          type: array
+          description: Descendants of the concept in the hierarchy
+          items:
+            "$ref": "#/components/schemas/ConceptRef"
+        ancestors:
+          type: array
+          description: Ancestors of the concept in the hierarchy
+          items:
+            "$ref": "#/components/schemas/ConceptRef"
+        relationships:
+          type: array
+          description: Relationships from this concept to other concepts
+          items:
+            "$ref": "#/components/schemas/ConceptRelationship"
+        inverseRelationships:
+          type: array
+          description: Relationships from other concepts to this concept
+          items:
+            "$ref": "#/components/schemas/ConceptRelationship"
+        treePositions:
+          type: array
+          description: Tree positions of the concept in the hierarchy
+          items:
+            "$ref": "#/components/schemas/ConceptTreePosition"
+      description: Represents a concept in a terminology
+    ConceptRef:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        name:
+          type: string
+        code:
+          type: string
+          description: Terminology code, typically representing a unit of meaning
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        leaf:
+          type: boolean
+          description: Indicates whether or not this concept is a leaf node in its
+            hierarchy
+        defined:
+          type: boolean
+          description: Indicates whether or not this concept has a logical definition
+            with necessary and sufficient conditions
+      description: Represents enough information to uniquely reference a concept in
+        a terminology
+    ConceptRelationship:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        componentId:
+          type: string
+          description: Identifier for this object in the published source terminology
+        type:
+          type: string
+          description: Type of relationship in a broad sense, e.g. "other", "broader",
+            "narrower".  Inspired by the REL field in the UMLS MRREL.RRF file, this
+            field will typically have a Termhub-computed value for the high-level
+            relationship type
+        additionalType:
+          type: string
+          description: Type of relationship in a more specific sense, e.g. "member_of",
+            "has_finding_site", "363698007".  Typically this fieldwill be used for
+            the primary relationship type asserted in thepublished source data
+        from:
+          "$ref": "#/components/schemas/ConceptRef"
+        to:
+          "$ref": "#/components/schemas/ConceptRef"
+        toValue:
+          type: string
+          description: Literal value on the other side of the relationship (either
+            "to" or "toValue" will be used but not both)
+        hierarchical:
+          type: boolean
+          description: Indicates whether this relationship represents a hierarchical
+            or parent/child type of connection
+        historical:
+          type: boolean
+          description: Indicates whether this relationship represents a historical
+            type of connection from a retired concept to an active concept
+        asserted:
+          type: boolean
+          description: Indicates whether or not this relationship is in the direction
+            asserted by the terminology.
+        defining:
+          type: boolean
+          description: Indicates whether or not this relationship is part of the logical
+            definition of the from concept
+        group:
+          type: string
+          description: Represents a value used to group relationships whose semantics
+            are bound together.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Key/value pairs associated with this object
+          description: Key/value pairs associated with this object
+      description: Represents a relationship between two concepts in a terminology
+    ConceptTreePosition:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        concept:
+          "$ref": "#/components/schemas/ConceptRef"
+        additionalType:
+          type: string
+          description: Type of relationship in a more specific sense, e.g. "is_a",
+            "116680003".  Typically this fieldwill be used for the hierarchical relationship
+            type asserted in thepublished source data
+        ancestorPath:
+          type: string
+          description: Dot-separated chain of codes from the root of the tree to the
+            parent code of this node
+        childCt:
+          type: integer
+          description: Count of child nodes
+          format: int32
+        level:
+          type: integer
+          description: Level of depth in the hierarchy
+          format: int32
+        children:
+          type: array
+          description: Child tree position nodes
+          items:
+            "$ref": "#/components/schemas/ConceptTreePosition"
+      description: Represents a tree position in the terminology hierarchy for a concept
+    Definition:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        definition:
+          type: string
+          description: Text of the definition
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        componentId:
+          type: string
+          description: Identifier for this object in the published source terminology
+        localeMap:
+          type: object
+          additionalProperties:
+            type: boolean
+            description: Map of language (optionally with locale) to true/false indicating
+              whether this definition is the preferred definition in that language
+              or not.  An entrywith true indicates that it is preferred in that language.
+              An entry with false indicates that it is valid for that language but
+              not preferred.
+          description: Map of language (optionally with locale) to true/false indicating
+            whether this definition is the preferred definition in that language or
+            not.  An entrywith true indicates that it is preferred in that language.
+            An entry with false indicates that it is valid for that language but not
+            preferred.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Key/value pairs associated with this object
+          description: Key/value pairs associated with this object
+      description: Represents a textual definition of concept in a terminology
+    ResultListConcept:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/Concept"
+      description: Represents a list of concepts returned from a find call
+    SearchParameters:
+      type: object
+      properties:
+        terminology:
+          type: string
+          description: Terminology filter, e.g. 'SNOMEDCT'
+        query:
+          type: string
+          description: Search query, e.g. 'aspirin'
+        expression:
+          type: string
+          description: Search expression, e.g. '<< 404684003'
+        filters:
+          type: object
+          additionalProperties:
+            type: string
+            description: Additional field level filters (to specify that certain fields
+              must have certain values)
+          description: Additional field level filters (to specify that certain fields
+            must have certain values)
+        limit:
+          type: integer
+          description: Limit on number of results, e.g. 10
+          format: int32
+        offset:
+          type: integer
+          description: Starting index for results, e.g. 0
+          format: int32
+        active:
+          type: boolean
+          description: Specifically search for 'active only' or 'inactive only'
+        sort:
+          type: array
+          description: Field of the data model being searched to sort by
+          items:
+            type: string
+            description: Field of the data model being searched to sort by
+        ascending:
+          type: boolean
+          description: Used with 'sort' to indicate ascending or descending
+        leaf:
+          type: boolean
+          description: Specifically search for 'leaf only' or 'leaf only'
+      description: Represents parameters for a 'find' call.
+    Term:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        name:
+          type: string
+          description: Name associated with this term
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        componentId:
+          type: string
+          description: Identifier for this object in the published source terminology
+        code:
+          type: string
+          description: Code of the concept containing this term
+        conceptId:
+          type: string
+          description: Concept id of the concept containing this term (typically this
+            is the same as the code, but may be different for some terminologies)
+        descriptorId:
+          type: string
+          description: Descriptor id of the concept containing this term (only relevant
+            for termionlogies that define descriptor codes)
+        localeMap:
+          type: object
+          additionalProperties:
+            type: boolean
+            description: Map of language (optionally with locale) to true/false indicating
+              whether this term is the preferred term in that language or not.  An
+              entrywith true indicates that it is preferred in that language. An entry
+              with false indicates that it is valid for that language but not preferred.
+          description: Map of language (optionally with locale) to true/false indicating
+            whether this term is the preferred term in that language or not.  An entrywith
+            true indicates that it is preferred in that language. An entry with false
+            indicates that it is valid for that language but not preferred.
+        type:
+          type: string
+          description: Term type, e.g. "PT" or "900000000000013009"
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Key/value pairs associated with this object
+          description: Key/value pairs associated with this object
+      description: Represents a name of a concept in a terminology with associated
+        information
+    ResultListTerminology:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/Terminology"
+      description: Represents a list of terminologies returned from a find call
+    Terminology:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        abbreviation:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        name:
+          type: string
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        latest:
+          type: boolean
+          description: Indicates whether this is the latest version of the terminology
+        loaded:
+          type: boolean
+          description: Indicates whether this is the version of the terminology is
+            loaded
+        releaseDate:
+          type: string
+          description: YYYY-MM-DD rendering of the release date
+        family:
+          type: string
+          description: Family of related terminologies this one belongs to
+        uri:
+          type: string
+          description: Uri for downloading the terminology
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Key/value pairs associated with this object
+          description: Key/value pairs associated with this object
+        roots:
+          type: array
+          description: Root codes in the hierarchy
+          items:
+            type: string
+            description: Root codes in the hierarchy
+        conceptCt:
+          type: integer
+          description: Count of number of concepts in the terminology
+          format: int64
+        relationshipCt:
+          type: integer
+          description: Count of number of concept relationships in the terminology
+          format: int64
+        treePositionCt:
+          type: integer
+          description: Count of number of concept tree positions in the terminology
+          format: int64
+        statistics:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+      description: Represents a terminology abbreviation and associated metadata
+    Metadata:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          format: uuid
+        confidence:
+          type: number
+          description: Confidence value (for use with search results)
+          format: double
+        modified:
+          type: string
+          description: Last modified date
+          format: date-time
+        created:
+          type: string
+          description: Created date
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Last modified by
+        local:
+          type: boolean
+          description: Indicates whether this data element is locally created
+        active:
+          type: boolean
+          description: Indicates whether or not the component is active
+        terminology:
+          type: string
+          description: Terminology abbreviation, e.g. "SNOMEDCT"
+        version:
+          type: string
+          description: Terminology version, e.g. "20230901"
+        publisher:
+          type: string
+          description: Terminology publisher, e.g. "SNOMEDCT"
+        model:
+          type: string
+          description: Model object that this applies to
+          enum:
+            - concept
+            - term
+            - indexTerm
+            - definition
+            - relationship
+            - treePosition
+            - mapping
+            - subset
+            - mapset
+            - semanticType
+            - subsetMember
+            - axiom
+            - inactiveConcept
+            - inactiveTerm
+        field:
+          type: string
+          description: Field of model object that this applies to
+          enum:
+            - language
+            - type
+            - additionalType
+            - attribute
+            - semanticType
+            - precedence
+            - category
+            - entityType
+            - uiLabel
+            - other
+        code:
+          type: string
+          description: Abbreviated code for a metadata item that has a longer name,
+            e.g. "PT" for "Preferred term"
+        name:
+          type: string
+          description: Longer name of a metadata item
+        rank:
+          type: integer
+          description: Rank of this relative to other similar kinds of metadata (primarily
+            used for term type ranking)
+          format: int32
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+            description: Attribute key/value pairs associated with the concept
+          description: Attribute key/value pairs associated with the concept
+      description: Represents metadata about a terminology component
+    ResultListTerm:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/Term"
+      description: Represents a list of terms returned from a find call
+    ResultListMetadata:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/Metadata"
+      description: Represents a list of metadata objects returned from a find call
+    ResultListConceptTreePosition:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/ConceptTreePosition"
+      description: Represents a list of concept tree positions returned from a find
+        call
+    ResultListConceptRelationship:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results (often this list represents just a
+            single page)
+          format: int64
+        parameters:
+          "$ref": "#/components/schemas/SearchParameters"
+        items:
+          type: array
+          description: items of the result list
+          items:
+            "$ref": "#/components/schemas/ConceptRelationship"
+      description: Represents a list of concept relationships returned from a find
+        call
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: JWT authentication with bearer token
+      scheme: bearer
+      bearerFormat: Bearer [token]

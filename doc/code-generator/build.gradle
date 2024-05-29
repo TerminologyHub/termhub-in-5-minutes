@@ -1,0 +1,138 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+  id 'java'
+  id 'org.openapi.generator'
+  id 'maven-publish'
+}
+
+group = "com.wci.termhub"
+version = "1.0.0-SNAPSHOT"
+
+// Input Specification locations. When using the inputFile, make sure you've updated
+// the doc with the changes you want to generate
+def inputURL = 'https://api.terminologyhub.com/terminology/doc/v3/api-docs'
+def inputFile = '$projectDir/src/th-swagger.yaml'
+
+repositories {
+  mavenCentral()
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+test {
+  useJUnitPlatform()
+}
+
+/**
+ * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+*/
+//tasks.register('buildJavaSdk', GenerateTask) {
+//  generatorName.set("java")
+//  remoteInputSpec.set(inputURL)
+//  outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
+//  apiPackage.set("com.wci.termhub.api")
+//  invokerPackage.set("com.wci.termhub.api.invoker")
+//  modelPackage.set("com.wci.termhub.api.model")
+//  configOptions.set([
+//      "dateLibrary": "java8",
+//      "library": "restclient",
+//      "serializationLibrary": "jackson",
+//      "hideGenerationTimestamp": "false"
+//  ])
+//}
+
+/**
+ * Build a python client by default: https://openapi-generator.tech/docs/generators/python/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+ */
+tasks.register('buildPythonSdk', GenerateTask) {
+  generatorName.set("python")
+  remoteInputSpec.set(inputURL)
+  outputDir.set(layout.buildDirectory.dir("python").get().getAsFile().getAbsolutePath())
+  apiPackage.set("com.wci.termhub.api")
+  invokerPackage.set("com.wci.termhub.api.invoker")
+  modelPackage.set("com.wci.termhub.api.models")
+  configOptions.set([
+      "packageName": "python-examples",
+      "hideGenerationTimestamp": "false",
+  ])
+}
+
+/**
+ * Build a Go client by default: https://openapi-generator.tech/docs/generators/go/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+ */
+//tasks.register('buildGoSdk', GenerateTask) {
+//  generatorName.set("go")
+//  remoteInputSpec.set(inputURL)
+//  outputDir.set("$buildDir/go")
+//  apiPackage.set("com.wci.termhub.api")
+//  invokerPackage.set("com.wci.termhub.api.invoker")
+//  modelPackage.set("com.wci.termhub.api.models")
+//  configOptions.set([
+//      "packageName": "go-examples",
+//      "hideGenerationTimestamp": "false",
+//  ])
+//}
+
+/**
+ * Build a JS client by default: https://openapi-generator.tech/docs/generators/javascript/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+ */
+//tasks.register('buildJavascriptSdk', GenerateTask) {
+//  generatorName.set("javascript")
+//  remoteInputSpec.set(inputURL)
+//  outputDir.set("$buildDir/javascript")
+//  apiPackage.set("com.wci.termhub.api")
+//  invokerPackage.set("com.wci.termhub.api.invoker")
+//  modelPackage.set("com.wci.termhub.api.models")
+//  configOptions.set([
+//      "packageName": "javascript-examples",
+//      "hideGenerationTimestamp": "false",
+//  ])
+//}
+
+/**
+ * Build a bash client by default: https://openapi-generator.tech/docs/generators/bash/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+ */
+//tasks.register('buildBashSdk', GenerateTask) {
+//  generatorName.set("bash")
+//  remoteInputSpec.set(inputURL)
+//  outputDir.set("$buildDir/bash")
+//  apiPackage.set("com.wci.termhub.api")
+//  invokerPackage.set("com.wci.termhub.api.invoker")
+//  modelPackage.set("com.wci.termhub.api.models")
+//  configOptions.set([
+//      "packageName": "bash-examples",
+//      "hideGenerationTimestamp": false,
+//      "generateBashCompletion": true,
+//      "generateZshCompletion": true,
+//      "hostEnvironmentVariable":HOST='TODO',
+//  ])
+//}
+
+/** Runs all code-gen tasks for each language to generate the clients */
+tasks.register("buildClients") {
+  dependsOn("buildJavaSdk",
+      "buildPythonSdk",
+//            "buildGoSdk",
+//            "buildBashSdk",
+//            "buildJavascriptSdk"
+  )
+  doLast {
+    println 'All client sdk generated. They can be found in the code-gen/build folder.'
+  }
+}
+
+compileJava.dependsOn tasks.named("buildClients")
+build.dependsOn("buildClients")
+publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+                                 "buildPythonSdk",
+//                                 "buildGoSdk",
+//                                 "buildBashSdk",
+//                                 "buildJavascriptSdk"
+]
