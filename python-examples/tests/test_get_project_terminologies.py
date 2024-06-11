@@ -8,6 +8,9 @@ import requests
 
 
 class TestGetProjectTerminologies(unittest.TestCase):
+    """
+    Test case to get project terminologies. Make sure you have your authorization token by running test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -18,6 +21,10 @@ class TestGetProjectTerminologies(unittest.TestCase):
     logging.basicConfig(level=logging.INFO)
 
     def test_get_project_terminologies(self):
+        """
+        Test the get project terminologies endpoint in the sandbox project. This will call the termhub api and return
+        the results of the call
+        """
         # SETUP
         # Define the URL, token, and id
         api_url = self.config.get("default", "url")

@@ -8,6 +8,10 @@ import requests
 
 
 class TestGetConceptRelationshipByCode(unittest.TestCase):
+    """
+    Test case to get a concept's relationships by code. Make sure you have your authorization token by running
+    test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -18,6 +22,10 @@ class TestGetConceptRelationshipByCode(unittest.TestCase):
     logging.basicConfig(level=logging.INFO)
 
     def test_get_concept_relationships_by_code(self):
+        """
+        Test the get concept relationships by code endpoint with SNOMEDCT terminology and a code for diabetes in
+        the sandbox project. This will call the termhub api and return the results
+        """
         # SETUP
         api_url = self.config.get("default", "url")
         token = os.getenv("TOKEN")

@@ -10,6 +10,9 @@ import requests
 
 # Test GET Terminologies returns all terminologies
 class TestGetTerminologies(unittest.TestCase):
+    """
+    Test case to get all terminologies. Make sure you have your authorization token by running test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -20,27 +23,21 @@ class TestGetTerminologies(unittest.TestCase):
     logging.basicConfig(level=logging.INFO)
 
     def test_get_terminologies(self):
+        """
+        Test the get terminology endpoint with no project and params using default settings. This will call the
+        termhub api and return the results
+        """
         # SETUP
         # Define the URL, token, and id
         url = self.config.get("default", "url")
         token = os.getenv("TOKEN")
-        limit = 10
-        offset = 0
-        ascending = False
-        sort = None
-        # Set up the params
-        params = {
-            "limit": limit,
-            "offset": offset,
-            "ascending": ascending,
-            "sort": sort
-        }
+
 
         # ACT & ASSERT
         # Send a GET request to the url
         self.logger.info("  Performing terminologies lookup...")
         headers = {"Authorization": f"Bearer {token}"}
-        response = requests.get(f"{url}/terminology", headers=headers, params=params)
+        response = requests.get(f"{url}/terminology", headers=headers)
 
         # Check the status code of the response
         self.assertEqual(response.status_code, 200,

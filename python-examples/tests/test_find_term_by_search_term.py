@@ -8,6 +8,9 @@ import requests
 
 
 class TestFindTermBySearchTerm(unittest.TestCase):
+    """
+    Test case to find a term by search term. Make sure you have your authorization token by running test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -18,6 +21,10 @@ class TestFindTermBySearchTerm(unittest.TestCase):
     logging.basicConfig(level=logging.INFO)
 
     def test_something(self):
+        """
+        Test the find term by search term endpoint with SNOMEDCT terminology and a query for diabetes in the sandbox
+        project. This will call the termhub api and return the results
+        """
         # SETUP
         api_url = self.config.get("default", "url")
         token = os.getenv("TOKEN")
@@ -31,7 +38,7 @@ class TestFindTermBySearchTerm(unittest.TestCase):
         }
 
         # ACT
-        self.logger.info(f"  Getting {term} term for {query}...")
+        self.logger.info(f"  Finding {term} term for {query}...")
         headers = {"Authorization": f"Bearer {token}"}
         response = requests.get(f"{api_url}/project/{project_id}/term",
                                 headers=headers, params=params)
@@ -41,7 +48,7 @@ class TestFindTermBySearchTerm(unittest.TestCase):
                          f"ERROR: GET call returned {response.status_code}, expected 200")
         self.assertIsNotNone(response, "ERROR: Response is None")
 
-        self.logger.info(f"Term from search for {query} : " + json.dumps(response.json(), indent=2))
+        self.logger.info(f"Found term from search for {query} : " + json.dumps(response.json(), indent=2))
 
 
 if __name__ == '__main__':

@@ -8,6 +8,10 @@ import requests
 
 
 class TestFindConceptBySearchTermAndExpression(unittest.TestCase):
+    """
+    Test case to find a concept by search term and expression. Make sure you have your authorization token by running
+    test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -16,7 +20,13 @@ class TestFindConceptBySearchTermAndExpression(unittest.TestCase):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     logging.basicConfig(level=logging.INFO)
+
     def test_get_concept_from_query_and_expression(self):
+        """
+        Test the find concept by search term and expression endpoint with SNOMEDCT terminology, a query for diabetes,
+        and an expression for diabetes mellitus in the sandbox project. This will call the termhub api and return the
+        results of the search
+        """
         # SETUP
         api_url = self.config.get("default", "url")
         token = os.getenv("TOKEN")

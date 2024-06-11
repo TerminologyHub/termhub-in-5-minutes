@@ -8,6 +8,10 @@ import requests
 
 
 class TestFindConceptBySearchTerm(unittest.TestCase):
+    """
+    Class to test the find concept by search term endpoint. Make sure you have your authorization token by running
+    test_login.py
+    """
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
@@ -18,6 +22,10 @@ class TestFindConceptBySearchTerm(unittest.TestCase):
     logging.basicConfig(level=logging.INFO)
 
     def test_get_concept_by_search_term(self):
+        """
+        Test the find concept by search term endpoint with SNOMEDCT terminology, a query for diabetes, in the sandbox
+        project. This will call the termhub api and return the results of the search
+        """
         # SETUP
         api_url = self.config.get("default", "url")
         token = os.getenv("TOKEN")
