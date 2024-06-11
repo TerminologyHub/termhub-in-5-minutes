@@ -1,20 +1,29 @@
+import logging
 import os
 import unittest
+from datetime import datetime
 import requests
 import json
 import configparser
 
 
+# This test is to get the authToken
 class TestLogin(unittest.TestCase):
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
-    config.read('../config.ini')
+    config.read("../config.ini")
 
+    # Create a logger
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logging.basicConfig(level=logging.INFO)
+
+    # This tests your login credentials and return an access token in the console
     def test_login(self):
         # Define the URL, username, and password
-        url = self.config.get('default', 'url')
-        username = os.getenv('USERNAME')
-        password = os.getenv('PASSWORD')
+        url = self.config.get("default", "url")
+        username = os.getenv("USERNAME")
+        password = os.getenv("PASSWORD")
 
         # Create a dictionary for the payload
         payload = {
@@ -29,13 +38,15 @@ class TestLogin(unittest.TestCase):
 
         # Check the status code of the response
         self.assertEqual(response.status_code, 200,
-                         f"ERROR: POST /auth/token returned {response.status_code}, expected 200")
+                         f"ERROR: POST call returned {response.status_code}, expected 200")
 
         # If the status code is 200, extract the access token from the response
-        access_token = response.json().get('access_token')
+        access_token = response.json().get("access_token")
 
         # Check if the access token is not None
         self.assertTrue(access_token is not None, "ERROR: Access token is None")
+        self.logger.info("authorization token = " + (str(access_token)) + '\n')
+
 
 
 if __name__ == '__main__':
