@@ -49,7 +49,7 @@ Replace <username> with your username and <password> with your password.
 The commands below will set a `token` variable equal to the access token.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_login.TestLogin.test_login
 ```
 
 <a name="get-terminologies"/>
@@ -61,7 +61,7 @@ search parameters such as query, limit, offset, sort, and ascending to allow sea
 across available terminologies.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_terminologies.TestGetTerminologies.test_get_terminologies
 
 ```
 
@@ -74,7 +74,7 @@ TOOD:ADD CODE
 Return all terminologies for the specified project identified by either projectId or projectLabel.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_project_terminologies.TestGetProjectTerminologies.test_get_project_terminologies
 ```
 
 [Back to Top](#top)
@@ -88,7 +88,7 @@ by the previous call and you can then look up terminology info specifically for 
 UUID.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_specific_terminology.TestGetSpecificTerminology.test_get_specific_terminology
 ```
 
 [Back to Top](#top)
@@ -101,7 +101,7 @@ Export zip file of a terminology in a particular format.  Currently only format=
 supported.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_export_terminology.TestExportTerminology.test_export_terminology
 ```
 
 [Back to Top](#top)
@@ -113,7 +113,7 @@ TOOD:ADD CODE
 Look up concept information for a given terminology and code.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_by_code.TestGetConceptByCode.test_get_concept_by_code
 ```
 
 [Back to Top](#top)
@@ -127,7 +127,7 @@ Look up concept information for a given terminology and code and use an explicit
 that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_by_code_with_explicit_include_param.TestGetConceptWithIncludeParam.test_get_concept_by_code_with_include
 ```
 
 [Back to Top](#top)
@@ -142,7 +142,7 @@ the concepts those relationships point "to" on the other side. For example, a ch
 concept pointing to its parent.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_relationships_by_code.TestGetConceptRelationshipsByCode.test_get_concept_relationships_by_code
 ```
 
 [Back to Top](#top)
@@ -157,7 +157,7 @@ those relationships originate "from" on the other side.  For example, a parent c
 being pointed to from a child.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_inverse_relationships_by_code.TestGetConceptInverseRelationshipsByCode.test_get_concept_inverse_relationships_by_code
 ```
 
 [Back to Top](#top)
@@ -172,7 +172,7 @@ more complex poly-hierarchies you'd likely expect to see multiple tree positions
 each one with a different path to the root concept.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_trees.TestGetConceptTrees.test_get_concept_trees
 ```
 
 [Back to Top](#top)
@@ -185,7 +185,8 @@ Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_get_concept_by_search_term.TestFindConceptBySearchTerm.test_get_concept_by_search_term
+
 ```
 
 [Back to Top](#top)
@@ -198,7 +199,7 @@ This is the same as the example above but with the use of an explicit include
 parameter to show that additional data can be loaded with searches.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_find_concepts_by_search_term_with_include_param.TestFindConceptsByTermWithIncludeParam.test_get_concept_by_query_and_include_param
 ```
 
 [Back to Top](#top)
@@ -212,11 +213,10 @@ the search results by an expression. This example uses paging to get only the fi
 10 results.
 
 NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Disease"
-concept in SNOMED).  To work properly, the expression value has to be url encoded
-(See https://www.urlencoder.org/ for an online URL encoder):
+concept in SNOMED).
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_find_concepts_by_search_term_and_expression.TestFindConceptBySearchTermAndExpression.test_get_concept_from_query_and_expression
 ```
 
 [Back to Top](#top)
@@ -231,7 +231,7 @@ is most useful to directly find concepts with matching terms, this call allows
 users to isolate exactly those terms that resolve from a search.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_find_term_by_search_term.TestFindTermBySearchTerm.test_find_terms_by_search_term
 ```
 
 [Back to Top](#top)
@@ -246,7 +246,7 @@ and finding possible matches with only a few starting characters. The background
 algorithm is based on edge ngrams.
 
 ```
-TOOD:ADD CODE
+python -m unittest tests/test_autocomplete_typeahead.TestAutocompletedTypeahead.test_autocomplete_and_typeahead
 ```
 
 [Back to Top](#top)

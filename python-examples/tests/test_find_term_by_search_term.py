@@ -20,7 +20,7 @@ class TestFindTermBySearchTerm(unittest.TestCase):
     logger.setLevel(logging.INFO)
     logging.basicConfig(level=logging.INFO)
 
-    def test_something(self):
+    def test_find_terms_by_search_term(self):
         """
         Test the find term by search term endpoint with SNOMEDCT terminology and a query for diabetes in the sandbox
         project. This will call the termhub api and return the results
