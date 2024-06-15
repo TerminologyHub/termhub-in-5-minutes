@@ -1,7 +1,5 @@
-<a name="top"/>
-
 Termhub in 5 Minutes: bash Tutorial
-===================================================
+===================================
 
 This tutorial shows how to use bash scripts to access content from the TermHub Terminology API.
 
@@ -59,7 +57,7 @@ Finished ...Thu, May 16, 2024 10:22:50 AM
 
 From the output, paste the "token=..." into your shell to set it as a variable for the following calls.
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-terminologies-sh"/>
 
@@ -105,7 +103,7 @@ Finished ...Thu, May 16, 2024  6:31:03 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-project-terminologies-sh"/>
 
@@ -229,7 +227,7 @@ Finished ...Thu, May 16, 2024  6:32:03 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-terminology-sh"/>
 
@@ -305,7 +303,7 @@ Finished ...Thu, May 16, 2024  6:33:02 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="export-terminology-sh"/>
 
@@ -326,7 +324,7 @@ Finished ...Thu, May 16, 2024  6:33:22 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-concept-sh"/>
 
@@ -537,7 +535,7 @@ Finished ...Thu, May 16, 2024  6:34:01 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-concept-relationships-sh"/>
 
@@ -884,7 +882,7 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="get-concept-treepos-sh"/>
 
@@ -1242,7 +1240,7 @@ Finished ...Thu, May 16, 2024  6:35:03 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="find-concepts-sh"/>
 
@@ -1713,7 +1711,7 @@ Finished ...Thu, May 16, 2024  6:36:05 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="find-terms-sh"/>
 
@@ -1854,7 +1852,7 @@ Finished ...Thu, May 16, 2024  6:36:27 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
 <a name="autocomplete-sh"/>
 
@@ -1891,4 +1889,4 @@ Finished ...Thu, May 16, 2024  4:01:56 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
