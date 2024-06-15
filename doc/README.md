@@ -1,7 +1,5 @@
-<a name="top" />
-
 TermHub - Additional Documentation
-====================================================================
+==================================
 
 This page has additional documentation for TermHub:
 

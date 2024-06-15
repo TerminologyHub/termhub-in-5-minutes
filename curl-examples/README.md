@@ -1,7 +1,5 @@
-<a name="top" />
-
 Termhub in 5 Minutes: Curl Tutorial
-===================================================
+===================================
 
 
 This tutorial shows how to use raw cURL commands to access content from the TermHub Terminology API.
@@ -33,17 +31,15 @@ The following examples can be typed into the command line of any terminal that h
 - [Get specific terminology](#get-terminology)
 - [Export terminology](#export-terminology)
 - [Get concept by code](#get-concept-by-code)
-- [Get concept by code with explicit include parameter](#get-concept-by-code-with-include)
-- [Get concept relationships by code](#get-concept-relationships)
-- [Get concept inverse relationships by code](#get-concept-inverse-relationships)
-- [Get concept trees](#get-treepos)
-- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
-- [Find concepts by search term with explicit include parameter](#find-concepts-include)
-- [Find concepts by search term and expression](#find-concepts-expr)
-- [Find terms by search term](#find-terms)
-- [Support autocomplete/typeahead for first few characters typed](#autocomplete)
-
-<a name="login"/>
+- [Get concept by code with explicit include parameter](#get-concept-by-code-with-explicit-include-parameter)
+- [Get concept relationships by code](#get-concept-relationships-by-code)
+- [Get concept inverse relationships by code](#get-concept-inverse-relationships-by-code)
+- [Get concept trees](#get-concept-trees)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term with explicit include parameter](#find-concepts-by-search-term-with-explicit-include-parameter)
+- [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
+- [Find terms by search term](#find-terms-by-search-term)
+- [Support autocomplete/typeahead for first few characters typed](#support-autocomplete-typeahead-for-first-few-characters-typed)
 
 ### Login
 
@@ -61,8 +57,6 @@ token=`curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: 
 
 See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
 
-<a name="get-terminologies"/>
-
 ### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.  This call also takes
@@ -75,9 +69,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology" | jq
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
-[Back to Top](#top)
-
-<a name="get-project-terminologies"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get project terminologies
 
@@ -89,9 +81,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/terminology" | 
 
 See sample payload data from this call in [`samples/get-terminologies-sandbox.txt`](samples/get-terminologies-sandbox.txt)
 
-[Back to Top](#top)
-
-<a name="get-terminology"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get terminology
 Return a specific terminology by its terminologyId. The UUID below is an example
@@ -105,9 +95,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/a2bc43ec-ba1b-47c0-
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
 
-[Back to Top](#top)
-
-<a name="export-terminology"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Export terminology
 
@@ -120,9 +108,7 @@ curl -o SNOMEDCT.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox
 
 No payload sample as the output is a .zip file.
 
-[Back to Top](#top)
-
-<a name="get-concept-by-code"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get concept by code
 
@@ -134,9 +120,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOM
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-by-code-with-include"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get concept by code with explicit include parameter
 
@@ -150,9 +134,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOM
 
 See sample payload data from this call in [`samples/get-concept-by-code-with-include.txt`](samples/get-concept-by-code-with-include.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-relationships"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get concept relationships by code
 
@@ -167,9 +149,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOM
 
 See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-inverse-relationships"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get concept inverse relationships by code
 
@@ -184,11 +164,9 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOM
 
 See sample payload data from this call in [`samples/get-concept-inverse-relationsihps.txt`](samples/get-concept-inverse-relationships.txt)
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
-<a name="get-treepos"/>
-
-### Get concept tree positions
+### Get concept trees
 
 Get concept tree positions for a terminology and code. For classification
 hierarchies, you would expect to see just a single tree position.  But for
@@ -201,9 +179,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDC
 
 See sample payload data from this call in [`samples/get-concept-treepos.txt`](samples/get-concept-treepos.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Find concepts by search term
 
@@ -216,9 +192,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?term
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Find concepts by search term with explicit include parameter
 
@@ -231,9 +205,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?term
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-expr"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Find concepts by search term and expression
 
@@ -251,9 +223,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?termino
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
 
-[Back to Top](#top)
-
-<a name="find-terms"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Find terms by search term
 
@@ -268,9 +238,7 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/term?termino
 
 See sample payload data from this call in [`samples/find-terms-by-search-term.txt`](samples/find-terms-by-search-term.txt)
 
-[Back to Top](#top)
-
-<a name="autocomplete"/>
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Support autocomplete/typeahead for first few characters typed
 
@@ -285,6 +253,5 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/autocomplete
 
 See sample payload data from this call in [`samples/autocomplete-search-term.txt`](samples/autocomplete-search-term.txt)
 
-[Back to Top](#top)
-
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 

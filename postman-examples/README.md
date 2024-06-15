@@ -1,5 +1,5 @@
 Termhub in 5 Minutes: Postman Tutorial
-======================================================
+======================================
 
 This tutorial shows how to use Postman access content from the TermHub Terminology API.
 

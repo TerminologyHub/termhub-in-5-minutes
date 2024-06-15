@@ -1,5 +1,3 @@
-<a name="top"/>
-
 Termhub in 5 Minutes: FHIR Tutorial
 ===================================
 
