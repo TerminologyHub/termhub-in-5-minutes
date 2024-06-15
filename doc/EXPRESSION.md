@@ -1,5 +1,3 @@
-<a name="top" />
-
 TermHub - Using the "expression" parameter
 ==========================================
 

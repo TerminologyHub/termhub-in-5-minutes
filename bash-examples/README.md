@@ -59,8 +59,6 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-<a name="get-terminologies-sh"/>
-
 ### get-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API.
@@ -104,8 +102,6 @@ Finished ...Thu, May 16, 2024  6:31:03 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="get-project-terminologies-sh"/>
 
 ### get-terminologies.sh
 
@@ -229,8 +225,6 @@ Finished ...Thu, May 16, 2024  6:32:03 PM
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-<a name="get-terminology-sh"/>
-
 ### get-terminology.sh
 
 Return a specific terminology by its terminology id.  The UUID below is an example
@@ -305,8 +299,6 @@ Finished ...Thu, May 16, 2024  6:33:02 PM
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-<a name="export-terminology-sh"/>
-
 ### export-terminology.sh
 
 Exports a terminology for the given project id (or uriLabel) and terminology
@@ -325,8 +317,6 @@ Finished ...Thu, May 16, 2024  6:33:22 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="get-concept-sh"/>
 
 ### get-concept.sh
 
@@ -536,8 +526,6 @@ Finished ...Thu, May 16, 2024  6:34:01 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="get-concept-relationships-sh"/>
 
 ### get-concept-relationships.sh
 
@@ -883,8 +871,6 @@ Finished ...Thu, May 16, 2024  6:34:34 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="get-concept-treepos-sh"/>
 
 ### get-concept-treepos.sh
 
@@ -1241,8 +1227,6 @@ Finished ...Thu, May 16, 2024  6:35:03 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="find-concepts-sh"/>
 
 ### find-concepts.sh
 
@@ -1713,8 +1697,6 @@ Finished ...Thu, May 16, 2024  6:36:05 PM
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-<a name="find-terms-sh"/>
-
 ### find-terms.sh
 
 Used to perform text searches to find terms matching a particular terminology.  
@@ -1853,8 +1835,6 @@ Finished ...Thu, May 16, 2024  6:36:27 PM
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-
-<a name="autocomplete-sh"/>
 
 ### autocomplete.sh
 
