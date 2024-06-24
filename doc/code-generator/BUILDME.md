@@ -7,7 +7,6 @@ This is a how-to guide for rebuilding openapi generated code as updates to the s
 ## Requirements
 
 1. Java 17+
-2. Gradle 8.2+
 
 ## How to Build a Single Client
 
