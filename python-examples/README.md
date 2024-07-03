@@ -56,7 +56,7 @@ python -m unittest tests/test_login.TestLogin.test_login
 
 ### Get terminologies
 
-Return all loaded terminologies currently hosted by the API.  This call also takes
+Return all loaded terminologies currently hosted by the API. This call also takes
 search parameters such as query, limit, offset, sort, and ascending to allow searching
 across available terminologies.
 
@@ -81,8 +81,9 @@ python -m unittest tests/test_get_project_terminologies.TestGetProjectTerminolog
 <a name="get-terminology"/>
 
 ### Get terminology
+
 Return a specific terminology by its terminologyId. The UUID below is an example
-that may or may not work.  The idea is to take one of the terminology ids returned
+that may or may not work. The idea is to take one of the terminology ids returned
 by the previous call and you can then look up terminology info specifically for that
 UUID.
 
@@ -96,7 +97,7 @@ python -m unittest tests/test_get_specific_terminology.TestGetSpecificTerminolog
 
 ### Export terminology
 
-Export zip file of a terminology in a particular format.  Currently only format=native is
+Export zip file of a terminology in a particular format. Currently only format=native is
 supported.
 
 ```
@@ -121,9 +122,10 @@ python -m unittest tests/test_get_concept_by_code.TestGetConceptByCode.test_get_
 
 ### Get concept by code with explicit include parameter
 
-Look up concept information for a given terminology and code and use an explicit include parameter to control how much data to send back.  The include parameter has a few helpful shortcut values
+Look up concept information for a given terminology and code and use an explicit include parameter to control how much
+data to send back. The include parameter has a few helpful shortcut values
 (minimal, summary, full) and also allows you to individually select parts of the full concept model
-that you are interested in.  For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
+that you are interested in. For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
 python -m unittest tests/test_get_concept_by_code_with_explicit_include_param.TestGetConceptWithIncludeParam.test_get_concept_by_code_with_include
@@ -152,7 +154,7 @@ python -m unittest tests/test_get_concept_relationships_by_code.TestGetConceptRe
 
 Get concept inverse relationships for a terminology and code. In this case it resolves
 relationships that point "to" this concept code and contains information about concepts
-those relationships originate "from" on the other side.  For example, a parent concept
+those relationships originate "from" on the other side. For example, a parent concept
 being pointed to from a child.
 
 ```
@@ -166,7 +168,7 @@ python -m unittest tests/test_get_concept_inverse_relationships_by_code.TestGetC
 ### Get concept tree positions
 
 Get concept tree positions for a terminology and code. For classification
-hierarchies, you would expect to see just a single tree position.  But for
+hierarchies, you would expect to see just a single tree position. But for
 more complex poly-hierarchies you'd likely expect to see multiple tree positions -
 each one with a different path to the root concept.
 
@@ -225,7 +227,7 @@ python -m unittest tests/test_find_concepts_by_search_term_and_expression.TestFi
 ### Find terms by search term
 
 Find terms matching a search term within a specified terminology. This
-example uses paging to get only the first 5 results.  While in many instances it
+example uses paging to get only the first 5 results. While in many instances it
 is most useful to directly find concepts with matching terms, this call allows
 users to isolate exactly those terms that resolve from a search.
 
