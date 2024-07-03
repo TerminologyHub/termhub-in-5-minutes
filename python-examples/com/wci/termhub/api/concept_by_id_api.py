@@ -20,9 +20,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from models.concept import Concept
-from models.result_list_concept_relationship import ResultListConceptRelationship
-from models.result_list_concept_tree_position import ResultListConceptTreePosition
+from .models.concept import Concept
+from .models.result_list_concept_relationship import ResultListConceptRelationship
+from .models.result_list_concept_tree_position import ResultListConceptTreePosition
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

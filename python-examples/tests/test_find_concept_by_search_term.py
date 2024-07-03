@@ -15,11 +15,9 @@ class TestFindConceptBySearchTerm(unittest.TestCase):
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
-
-    # Create a logger
+    
+    # Create logger from pytest.ini settings
     logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    logging.basicConfig(level=logging.INFO)
 
     def test_get_concept_by_search_term(self):
         """

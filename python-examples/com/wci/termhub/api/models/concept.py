@@ -21,12 +21,12 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from axiom import Axiom
-from concept_ref import ConceptRef
-from concept_relationship import ConceptRelationship
-from concept_tree_position import ConceptTreePosition
-from definition import Definition
-from term import Term
+from .axiom import Axiom
+from .concept_ref import ConceptRef
+from .concept_relationship import ConceptRelationship
+from .concept_tree_position import ConceptTreePosition
+from .definition import Definition
+from .term import Term
 from typing import Optional, Set
 from typing_extensions import Self
 

@@ -20,8 +20,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from models.result_list_terminology import ResultListTerminology
-from models.terminology import Terminology
+from .models.result_list_terminology import ResultListTerminology
+from .models.terminology import Terminology
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

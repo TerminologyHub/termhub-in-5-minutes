@@ -20,7 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from models.result_list_concept import ResultListConcept
+from .models.result_list_concept import ResultListConcept
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

@@ -13,8 +13,8 @@
 """  # noqa: E501
 
 
+import parse
 import datetime
-from dateutil.parser import parse
 from enum import Enum
 import json
 import mimetypes
@@ -26,11 +26,10 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from python-examples.configuration import Configuration
-from python-examples.api_response import ApiResponse, T as ApiResponseT
-import python-examples.com.wci.termhub.api.models
-from python-examples import rest
-from python-examples.exceptions import (
+from configuration import Configuration
+from api_response import ApiResponse, T as ApiResponseT
+import rest
+from exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,

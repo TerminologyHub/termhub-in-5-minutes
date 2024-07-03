@@ -14,11 +14,9 @@ class TestGetSpecificTerminology(unittest.TestCase):
     # Create a ConfigParser object & read the file
     config = configparser.ConfigParser()
     config.read("../config.ini")
-
-    # Create a logger
+    
+    # Create logger from pytest.ini settings
     logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    logging.basicConfig(level=logging.INFO)
 
     # Test getting a terminology from a term id. NOTE: MAKE SURE TO UPDATE YOUR AUTH TOKE BY RUNNING `test_login.py`
     def test_get_specific_terminology(self):

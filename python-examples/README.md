@@ -62,7 +62,6 @@ across available terminologies.
 
 ```
 python -m unittest tests/test_get_terminologies.TestGetTerminologies.test_get_terminologies
-
 ```
 
 [Back to Top](#top)

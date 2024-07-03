@@ -27,30 +27,30 @@ from com.wci.termhub.api.term_api import TermApi
 from com.wci.termhub.api.terminology_api import TerminologyApi
 
 # import ApiClient
-from python-examples.api_response import ApiResponse
-from python-examples.api_client import ApiClient
-from python-examples.configuration import Configuration
-from python-examples.exceptions import OpenApiException
-from python-examples.exceptions import ApiTypeError
-from python-examples.exceptions import ApiValueError
-from python-examples.exceptions import ApiKeyError
-from python-examples.exceptions import ApiAttributeError
-from python-examples.exceptions import ApiException
+from api_response import ApiResponse
+from api_client import ApiClient
+from configuration import Configuration
+from exceptions import OpenApiException
+from exceptions import ApiTypeError
+from exceptions import ApiValueError
+from exceptions import ApiKeyError
+from exceptions import ApiAttributeError
+from exceptions import ApiException
 
 # import models into sdk package
-from python-examples.com.wci.termhub.api.models.axiom import Axiom
-from python-examples.com.wci.termhub.api.models.concept import Concept
-from python-examples.com.wci.termhub.api.models.concept_ref import ConceptRef
-from python-examples.com.wci.termhub.api.models.concept_relationship import ConceptRelationship
-from python-examples.com.wci.termhub.api.models.concept_tree_position import ConceptTreePosition
-from python-examples.com.wci.termhub.api.models.definition import Definition
-from python-examples.com.wci.termhub.api.models.metadata import Metadata
-from python-examples.com.wci.termhub.api.models.result_list_concept import ResultListConcept
-from python-examples.com.wci.termhub.api.models.result_list_concept_relationship import ResultListConceptRelationship
-from python-examples.com.wci.termhub.api.models.result_list_concept_tree_position import ResultListConceptTreePosition
-from python-examples.com.wci.termhub.api.models.result_list_metadata import ResultListMetadata
-from python-examples.com.wci.termhub.api.models.result_list_term import ResultListTerm
-from python-examples.com.wci.termhub.api.models.result_list_terminology import ResultListTerminology
-from python-examples.com.wci.termhub.api.models.search_parameters import SearchParameters
-from python-examples.com.wci.termhub.api.models.term import Term
-from python-examples.com.wci.termhub.api.models.terminology import Terminology
+from com.wci.termhub.api.models.axiom import Axiom
+from com.wci.termhub.api.models.concept import Concept
+from com.wci.termhub.api.models.concept_ref import ConceptRef
+from com.wci.termhub.api.models.concept_relationship import ConceptRelationship
+from com.wci.termhub.api.models.concept_tree_position import ConceptTreePosition
+from com.wci.termhub.api.models.definition import Definition
+from com.wci.termhub.api.models.metadata import Metadata
+from com.wci.termhub.api.models.result_list_concept import ResultListConcept
+from com.wci.termhub.api.models.result_list_concept_relationship import ResultListConceptRelationship
+from com.wci.termhub.api.models.result_list_concept_tree_position import ResultListConceptTreePosition
+from com.wci.termhub.api.models.result_list_metadata import ResultListMetadata
+from com.wci.termhub.api.models.result_list_term import ResultListTerm
+from com.wci.termhub.api.models.result_list_terminology import ResultListTerminology
+from com.wci.termhub.api.models.search_parameters import SearchParameters
+from com.wci.termhub.api.models.term import Term
+from com.wci.termhub.api.models.terminology import Terminology

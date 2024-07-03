@@ -24,6 +24,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Axiom(BaseModel):
     """
     Represents an OWL/RDF axiom for the concept

@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from concept_relationship import ConceptRelationship
-from search_parameters import SearchParameters
+from .concept_relationship import ConceptRelationship
+from .search_parameters import SearchParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
