@@ -35,7 +35,7 @@ extension-pkg-whitelist = "pydantic"
 [tool.mypy]
 files = [
   "python-examples",
-  #"test",  # auto-generated tests
+  #"tests",  # auto-generated tests
   "tests", # hand-written tests
 ]
 # TODO: enable "strict" once all these individual checks are passing

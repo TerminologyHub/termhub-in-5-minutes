@@ -12,10 +12,8 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
-from typing_extensions import Annotated
+from pydantic import validate_call, StrictFloat
+from typing import Any, Dict, Tuple, Union
 
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
@@ -23,9 +21,9 @@ from typing_extensions import Annotated
 from .models.result_list_terminology import ResultListTerminology
 from .models.terminology import Terminology
 
-from api_client import ApiClient, RequestSerialized
-from api_response import ApiResponse
-from rest import RESTResponseType
+from com.wci.termhub.api_client import ApiClient, RequestSerialized
+from com.wci.termhub.api_response import ApiResponse
+from com.wci.termhub.rest import RESTResponseType
 
 
 class TerminologyApi:

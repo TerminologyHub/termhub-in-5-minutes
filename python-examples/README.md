@@ -20,6 +20,8 @@ Prerequisites
 The various scripts make use of the `python-examples/config.ini` file to load necessary information that is uniform
 across all tests.
 
+When running the tests, make sure you are on the root folder.
+
 Sample Python Calls
 -----------------
 
@@ -42,15 +44,17 @@ All commands to run these tests should be run from that directory.
 - [Find terms by search term](#find-terms)
 - [Support autocomplete/typeahead for first few characters typed](#autocomplete)
 
-### Login
+### Login [MUST BE RUN FIRST]
 
 Login and acquire an access token for a username and password.  
-Replace <username> with your username and <password> with your password.  
-The commands below will set a `token` variable equal to the access token.
+You will need to set your environment variable for `USER_NAME` and `PASSWORD`.  
+The commands below will set a `token` variable equal to the access token. This token is used for the remaining tests.
 
 ```
-python -m unittest tests/test_login.TestLogin.test_login
+pytest tests/test_login.py::TestLogin::test_login
 ```
+
+Copy the `TOKEN` value and set this as an environment variable to run the remaining tests
 
 <a name="get-terminologies"/>
 
@@ -61,7 +65,7 @@ search parameters such as query, limit, offset, sort, and ascending to allow sea
 across available terminologies.
 
 ```
-python -m unittest tests/test_get_terminologies.TestGetTerminologies.test_get_terminologies
+pytest tests/test_get_terminologies.py::TestGetTerminologies::test_get_terminologies
 ```
 
 [Back to Top](#top)
@@ -73,7 +77,7 @@ python -m unittest tests/test_get_terminologies.TestGetTerminologies.test_get_te
 Return all terminologies for the specified project identified by either projectId or projectLabel.
 
 ```
-python -m unittest tests/test_get_project_terminologies.TestGetProjectTerminologies.test_get_project_terminologies
+pytest tests/test_get_project_terminologies.py::TestGetProjectTerminologies::test_get_project_terminologies
 ```
 
 [Back to Top](#top)
@@ -88,7 +92,7 @@ by the previous call and you can then look up terminology info specifically for 
 UUID.
 
 ```
-python -m unittest tests/test_get_specific_terminology.TestGetSpecificTerminology.test_get_specific_terminology
+pytest tests/test_get_specific_terminology.py::TestGetSpecificTerminology::test_get_specific_terminology
 ```
 
 [Back to Top](#top)
@@ -101,7 +105,7 @@ Export zip file of a terminology in a particular format. Currently only format=n
 supported.
 
 ```
-python -m unittest tests/test_export_terminology.TestExportTerminology.test_export_terminology
+pytest tests/test_export_terminology.py::TestExportTerminologies::test_export_terminologies
 ```
 
 [Back to Top](#top)
@@ -113,7 +117,7 @@ python -m unittest tests/test_export_terminology.TestExportTerminology.test_expo
 Look up concept information for a given terminology and code.
 
 ```
-python -m unittest tests/test_get_concept_by_code.TestGetConceptByCode.test_get_concept_by_code
+pytest tests/test_get_concept_by_code.py::TestGetConceptByCode::test_get_concept_by_code
 ```
 
 [Back to Top](#top)
@@ -128,7 +132,7 @@ data to send back. The include parameter has a few helpful shortcut values
 that you are interested in. For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
-python -m unittest tests/test_get_concept_by_code_with_explicit_include_param.TestGetConceptWithIncludeParam.test_get_concept_by_code_with_include
+pytest tests/test_get_concept_by_code_with_explicit_include_param.py::TestGetConceptWithIncludeParam::test_get_concept_by_code_with_include_param
 ```
 
 [Back to Top](#top)
@@ -143,7 +147,7 @@ the concepts those relationships point "to" on the other side. For example, a ch
 concept pointing to its parent.
 
 ```
-python -m unittest tests/test_get_concept_relationships_by_code.TestGetConceptRelationshipsByCode.test_get_concept_relationships_by_code
+pytest tests/test_get_concept_relationships_by_code.py::TestGetConceptRelationshipByCode::test_get_concept_relationships_by_code
 ```
 
 [Back to Top](#top)
@@ -158,7 +162,7 @@ those relationships originate "from" on the other side. For example, a parent co
 being pointed to from a child.
 
 ```
-python -m unittest tests/test_get_concept_inverse_relationships_by_code.TestGetConceptInverseRelationshipsByCode.test_get_concept_inverse_relationships_by_code
+pytest tests/test_get_concept_inverse_relationships_by_code.py::TestGetConceptInverseRelationshipsByCode::test_get_concept_inverse_relationships_by_code
 ```
 
 [Back to Top](#top)
@@ -173,7 +177,7 @@ more complex poly-hierarchies you'd likely expect to see multiple tree positions
 each one with a different path to the root concept.
 
 ```
-python -m unittest tests/test_get_concept_trees.TestGetConceptTrees.test_get_concept_trees
+pytest tests/test_get_concept_trees.py::TestGetConceptTrees::test_get_concept_trees
 ```
 
 [Back to Top](#top)
@@ -186,8 +190,7 @@ Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
-python -m unittest tests/test_get_concept_by_search_term.TestFindConceptBySearchTerm.test_get_concept_by_search_term
-
+pytest tests/test_find_concept_by_search_term.py::TestFindConceptBySearchTerm::test_get_concept_by_search_term
 ```
 
 [Back to Top](#top)
@@ -200,7 +203,7 @@ This is the same as the example above but with the use of an explicit include
 parameter to show that additional data can be loaded with searches.
 
 ```
-python -m unittest tests/test_find_concepts_by_search_term_with_include_param.TestFindConceptsByTermWithIncludeParam.test_get_concept_by_query_and_include_param
+pytest tests/test_find_concepts_by_search_term_with_include_param.py::TestFindConceptsByTermWithIncludeParam::test_get_concept_by_query_and_include_param
 ```
 
 [Back to Top](#top)
@@ -217,7 +220,7 @@ NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Dis
 concept in SNOMED).
 
 ```
-python -m unittest tests/test_find_concepts_by_search_term_and_expression.TestFindConceptBySearchTermAndExpression.test_get_concept_from_query_and_expression
+pytest tests/test_find_concepts_by_search_term_and_expression.py::TestFindConceptBySearchTermAndExpression::test_get_concept_from_query_and_expression
 ```
 
 [Back to Top](#top)
@@ -232,7 +235,7 @@ is most useful to directly find concepts with matching terms, this call allows
 users to isolate exactly those terms that resolve from a search.
 
 ```
-python -m unittest tests/test_find_term_by_search_term.TestFindTermBySearchTerm.test_find_terms_by_search_term
+pytest tests/test_find_term_by_search_term.py::TestFindTermBySearchTerm::test_find_terms_by_search_term
 ```
 
 [Back to Top](#top)
@@ -247,7 +250,7 @@ and finding possible matches with only a few starting characters. The background
 algorithm is based on edge ngrams.
 
 ```
-python -m unittest tests/test_autocomplete_typeahead.TestAutocompletedTypeahead.test_autocomplete_and_typeahead
+pytest tests/test_autocomplete_typeahead.py::TestAutocompletedTypeahead::test_autocomplete_and_typeahead
 ```
 
 [Back to Top](#top)

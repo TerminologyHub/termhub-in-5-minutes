@@ -5,13 +5,13 @@
 # ref: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
 
 stages:
-  - test
+  - tests
 
 .pytest:
-  stage: test
+  stage: tests
   script:
    - pip install -r requirements.txt
-   - pip install -r test-requirements.txt
+   - pip install -r tests-requirements.txt
    - pytest --cov=python-examples
 
 pytest-3.7:

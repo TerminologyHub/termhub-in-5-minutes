@@ -40,7 +40,7 @@ setup(
     url="",
     keywords=["OpenAPI", "OpenAPI-Generator", "Terminology Hub Terminology Terminology API"],
     install_requires=REQUIRES,
-    packages=find_packages(exclude=["test", "tests"]),
+    packages=find_packages(exclude=["tests", "tests"]),
     include_package_data=True,
     long_description_content_type='text/markdown',
     long_description="""\
