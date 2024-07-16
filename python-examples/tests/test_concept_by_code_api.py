@@ -1,13 +1,8 @@
-import json
-import requests
 import os
-import configparser
 import logging
-
 import pytest
-from requests import Response
 
-from termhub import ConceptByCodeApi
+from termhub import Concept, ConceptByCodeApi, ResultListConceptRelationship, ResultListConceptTreePosition
 
 
 @pytest.fixture(scope="module")
@@ -24,6 +19,9 @@ class TestConceptByCodeApi:
     """
     # Create logger from pytest.ini settings
     logger = logging.getLogger(__name__)
+    terminology: str = "SNOMEDCT"
+    project_id: str = "sandbox"
+    token: str = os.getenv("TOKEN")
     
     def test_get_concept_trees(self, concept_by_code_api):
         """
@@ -31,23 +29,20 @@ class TestConceptByCodeApi:
         project. This will call the termhub api and return the results
         """
         # SETUP
-        api_url: str = concept_by_code_api.get("default", "url")
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         code: str = "73211009"
-        project_id: str = "sandbox"
         
         # ACT
-        self.logger.info(f"  Getting {terminology} concept trees for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/concept/{terminology}/{code}/trees",
-                                   headers=headers)
+        self.logger.info(f"  Getting {self.terminology} concept trees for {code}...")
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: ResultListConceptTreePosition = concept_by_code_api.find_tree_positions(self.project_id,
+                                                                                          self.terminology, code, None,
+                                                                                          None, None, None, None,
+                                                                                          _headers=headers)
         
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
         
-        self.logger.info(f"Concepts Trees: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Concepts Trees: {response}")
     
     def test_get_concept_by_code(self, concept_by_code_api):
         """
@@ -55,23 +50,18 @@ class TestConceptByCodeApi:
         project. This will call the termhub api and return the results
         """
         # SETUP
-        api_url: str = concept_by_code_api.get("default", "url")
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         code: str = "73211009"
-        project_id: str = "sandbox"
         
         # ACT
-        self.logger.info(f"  Getting {terminology} concept for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/concept/{terminology}/{code}",
-                                          headers=headers)
+        self.logger.info(f"  Getting {self.terminology} concept for {code}...")
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: Concept = concept_by_code_api.get_concept(self.project_id, self.terminology, code, None,
+                                                            _headers=headers)
         
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
         
-        self.logger.info(f"Concept: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Concept: {response} ")
     
     def test_get_concept_by_code_with_include_param(self, concept_by_code_api):
         """
@@ -79,24 +69,19 @@ class TestConceptByCodeApi:
         project and an include parameter passed. This will call the termhub api and return the results
         """
         # SETUP
-        api_url: str = concept_by_code_api.get("default", "url")
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         code: str = "73211009"
-        project_id: str = "sandbox"
-        params: dict[str, str] = {"inclue": "full"}
+        include: str = "full"
         
         # ACT
         self.logger.info(f"  Getting concept for {code} with full include...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/concept/{terminology}/{code}",
-                                          headers=headers, params=params)
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: Concept = concept_by_code_api.get_concept(self.project_id, self.terminology, code, include,
+                                                            _headers=headers)
         
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
         
-        self.logger.info(f"Concept with include set to full: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Concept with include set to full: {response}")
     
     def test_get_concept_inverse_relationships_by_code(self, concept_by_code_api):
         """
@@ -104,23 +89,21 @@ class TestConceptByCodeApi:
         the sandbox project. This will call the termhub api and return the results
         """
         # SETUP
-        api_url: str = concept_by_code_api.get('default', 'url')
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         code: str = "113331007"
-        project_id: str = "sandbox"
         
         # ACT
-        self.logger.info(f"  Getting {terminology} concept inverse relationships for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/concept/{terminology}"
-                                          f"/{code}/inverseRelationships", headers=headers)
+        self.logger.info(f"  Getting {self.terminology} concept inverse relationships for {code}...")
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: ResultListConceptRelationship = concept_by_code_api.find_concept_inverse_relationships(
+            self.project_id,
+            self.terminology, code, None,
+            None, None, None, None,
+            _headers=headers)
         
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
         
-        self.logger.info(f"Concepts Inverse Relationships: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Concepts Inverse Relationships: {response}")
     
     def test_get_concept_relationships_by_code(self, concept_by_code_api):
         """
@@ -128,19 +111,15 @@ class TestConceptByCodeApi:
         the sandbox project. This will call the termhub api and return the results
         """
         # SETUP
-        api_url: str = concept_by_code_api.get("default", "url")
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         code: str = "73211009"
-        project_id: str = "sandbox"
         
         # ACT
-        self.logger.info(f"  Getting {terminology} concept relationships for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/concept/{terminology}/{code}/relationships",
-                                          headers=headers)
+        self.logger.info(f"  Getting {self.terminology} concept relationships for {code}...")
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: ResultListConceptRelationship = concept_by_code_api.find_concept_relationships(self.project_id, self.terminology, code,
+                                                                            None, None, None, None, None,
+                                                                            _headers=headers)
         
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
-        self.logger.info(f"Concept Relationships: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Concept Relationships: ")

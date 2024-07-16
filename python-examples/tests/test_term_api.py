@@ -1,12 +1,8 @@
-import configparser
 import pytest
-import json
 import logging
 import os
-import requests
-from requests import Response
 
-from termhub import TermApi
+from termhub import ResultListTerm, TermApi
 
 
 @pytest.fixture
@@ -23,6 +19,29 @@ class TestAutocompletedTypeahead:
     """
     # Create logger from pytest.ini settings
     logger = logging.getLogger(__name__)
+    token: str = os.getenv("TOKEN")
+    term: str = "SNOMEDCT"
+    query: str = "diabetes"
+    project_id: str = "sandbox"
+    
+    def test_find_terms_by_search_term(self, term_api):
+        """
+        Test the find term by search term endpoint with SNOMEDCT terminology and a query for diabetes in the sandbox
+        project. This will call the termhub api and return the results
+        """
+        # SETUP - Using global vars unless otherwise listed below
+        limit: int = 5
+        
+        # ACT
+        self.logger.info(f"  Finding {self.term} term for {self.query}...")
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: ResultListTerm = term_api.find_terms(self.project_id, self.term, self.query, None, limit, None, None,
+                                                   None,
+                                       _headers=headers)
+        
+        # ASSERT
+        assert response is not None
+        self.logger.info(f"Found term from search for {self.query}: {response}")
     
     def test_autocomplete_and_typeahead(self, term_api):
         """
@@ -30,23 +49,23 @@ class TestAutocompletedTypeahead:
         sandbox project. This will call the termhub api and return the results of the search
         """
         # SETUP
-        api_url: str = term_api.get("default", "url")
-        token: str = os.getenv("TOKEN")
-        terminology: str = "SNOMEDCT"
         query: str = "diab"
-        project_id: str = "sandbox"
-        params: dict[str, int | str] = {
-            "terminology": terminology,
-            "query": query,
-            "limit": 10,
-        }
+        limit: int = 10
+        expected_result: str = "Diabetes"
+        contains_expected: bool = False
         
         # ACT
         self.logger.info(f"  Submitting autocomplete search...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
-        response: Response = requests.get(f"{api_url}/project/{project_id}/autocomplete",
-                                          headers=headers, params=params)
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+        response: [str] = term_api.autocomplete(self.project_id, query, self.term, limit, _headers=headers)
+        
         # ASSERT
-        assert response.status_code == 200, f"ERROR: GET call returned {response.status_code}, expected 200"
         assert response is not None, "ERROR: Response is None"
-        self.logger.info(f"Autocomplete Results: {json.dumps(response.json(), indent=2)}")
+        for term in response:
+            assert term is not None
+            if term.__contains__(expected_result):
+                contains_expected = True
+                break
+        assert contains_expected is True
+        
+        self.logger.info(f"Autocomplete Results: {response}")
