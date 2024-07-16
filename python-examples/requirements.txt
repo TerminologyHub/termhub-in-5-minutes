@@ -1,0 +1,11 @@
+python_dateutil >= 2.5.3
+setuptools >= 21.0.0
+urllib3 >= 1.25.3, < 2.1.0
+pydantic >= 2
+typing-extensions >= 4.7.1
+requests~=2.32.3
+configparser~=7.0.0
+pytest~=8.2.2
+typing_extensions~=4.12.0
+python-dateutil~=2.9.0.post0
+pytest
