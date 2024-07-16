@@ -70,7 +70,7 @@ class TestConceptApi:
         
         self.logger.info(f"Concept from search for {self.query}: {response}")
     
-    def test_get_concept_by_term_and_include_param(self, concept_api):
+    def test_get_concept_by_query_and_include_param(self, concept_api):
         """
         Test the find concept by search term endpoint with SNOMEDCT terminology, a query for diabetes,
         and the include parameter set to parents in the sandbox project. This will call the termhub api and return

@@ -13,7 +13,7 @@ def term_api():
     return TermApi()
 
 
-class TestAutocompletedTypeahead:
+class TestTermApi:
     """
     Class to tests the autocomplete endpoint. Make sure you have your authorization token by running test_login.py
     """

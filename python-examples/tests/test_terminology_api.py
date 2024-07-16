@@ -1,8 +1,5 @@
-import configparser
-import json
 import logging
 import os
-import requests
 import pytest
 
 from termhub import ResultListTerminology, Terminology, TerminologyApi
@@ -62,7 +59,7 @@ class TestTerminologyApi:
         # ASSERT
         assert response is not None, "ERROR: Response is None"
         
-        self.logger.info(f"Terminology results for {term_id}: {json.dumps(response.json(), indent=2)}")
+        self.logger.info(f"Terminology results for {term_id}: {response}")
     
     def test_get_project_terminologies(self, terminology_api):
         """
@@ -91,12 +88,12 @@ class TestTerminologyApi:
         # SETUP
         terminology: str = "SNOMEDCT"
         project_id: str = "sandbox"
-        format: str = "native"
+        format_type: str = "native"
         
         # ACT
         self.logger.info(f"  Exporting terminology {terminology}...")
         headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
-        terminology_api.export_terminology(project_id, terminology, format, _headers=headers)
+        terminology_api.export_terminology(project_id, terminology, format_type, _headers=headers)
         
         # ASSERT
         self.logger.info("Export completed successfully!")
