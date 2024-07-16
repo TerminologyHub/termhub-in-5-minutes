@@ -32,10 +32,11 @@ test {
 //  generatorName.set("java")
 //  remoteInputSpec.set(inputURL)
 //  outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
-//  apiPackage.set("com.wci.termhub.api")
-//  invokerPackage.set("com.wci.termhub.api.invoker")
-//  modelPackage.set("com.wci.termhub.api.model")
+//  apiPackage.set("api")
+//  invokerPackage.set("api.invoker")
+//  modelPackage.set("api.model")
 //  configOptions.set([
+//      "packageName": "termhub",
 //      "dateLibrary": "java8",
 //      "library": "restclient",
 //      "serializationLibrary": "jackson",
@@ -51,11 +52,11 @@ tasks.register('buildPythonSdk', GenerateTask) {
   generatorName.set("python")
   remoteInputSpec.set(inputURL)
   outputDir.set(layout.buildDirectory.dir("python").get().getAsFile().getAbsolutePath())
-  apiPackage.set("com.wci.termhub.api")
-  invokerPackage.set("com.wci.termhub.api.invoker")
-  modelPackage.set("com.wci.termhub.api.models")
+  apiPackage.set("api")
+  modelPackage.set("models")
   configOptions.set([
-      "hideGenerationTimestamp": "false",
+          "packageName": "termhub",
+          "hideGenerationTimestamp": "false",
   ])
 }
 

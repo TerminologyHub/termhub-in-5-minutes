@@ -58,17 +58,19 @@ corresponding `[language]-examples` directory
 
 1. To generate the client code for python, run `./gradlew buildPythonSdk`
 2. Find the generated client in `build/python`
-3. Copy the new files generated from the `build/python/python-examples/` folder to the `python-examples` folder. It's
+3. Copy the new files generated from the `build/python/termhub/` folder to the `python-examples` folder. It's
    recommended to only copy the files updated to avoid excessive refactoring (see step 4)
-    1. 🚫🚫 **DO NOT** replace `__init__.py`, instead add the new file path to the list in this file.
-    2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
-4. ⚠️⚠️ Make sure to update the imports. The files are generated with poorly structured import names. Opening the file
-   in your IDE that supports python should underline the invalid
-   imports. The path may include parts that aren't necssary.
-    1. For example `from python-examples.models.application_version import ApplicationVersion` should be updated to one
-       of the following based on where the file is
-        1. `from .application_version import ApplicationVersion` if you're in the models directory
-        2. `from .models.application_version import ApplicationVersion` if you're in the api directory
+    1. 🚫🚫 **DO NOT** replace `api_client.py`,
+        1. `python-examples` uses `config.ini` to set the basePath url in `api_client.py`. The url should be updated in
+           the `config.ini` files only. Compare the generated `api_client.py` with the already existing one to determine
+           if anything is missing. Add sections as needed.
+    2. 🚫🚫 **DO NOT** replace `requirements.txt`, or `test-requirements.txt`.
+        1. We have additional requirements added that aren't part of the generated requirements files. Compare the
+           generated `requirements.txt` and `test-requirements.txt` to the existing ones and add new reqs as needed
+4. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
+5. ⚠️⚠️ Update imports for `.__init__.py` to add `termhub.` as a prefix in the `from` statement. The
+   generated code doesn't include the root package in the imports in these files which will cause the tests to fail.
+6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
 
 **[Back to top](#evsrestapi-generate-client-code)**
 
