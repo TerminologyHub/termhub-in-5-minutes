@@ -39,7 +39,7 @@ The following examples can be typed into the command line of any terminal that h
 - [Find concepts by search term with explicit include parameter](#find-concepts-by-search-term-with-explicit-include-parameter)
 - [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
 - [Find terms by search term](#find-terms-by-search-term)
-- [Support autocomplete/typeahead for first few characters typed](#support-autocomplete-typeahead-for-first-few-characters-typed)
+- [Support autocomplete/typeahead for first few characters typed](#support-autocompletetypeahead-for-first-few-characters-typed)
 
 ### Login
 
