@@ -30,10 +30,10 @@ class TestConceptByCodeApi:
         """
         # SETUP
         code: str = "73211009"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.terminology} concept trees for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListConceptTreePosition = concept_by_code_api.find_tree_positions(self.project_id,
                                                                                           self.terminology, code, None,
                                                                                           None, None, None, None,
@@ -51,10 +51,10 @@ class TestConceptByCodeApi:
         """
         # SETUP
         code: str = "73211009"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.terminology} concept for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: Concept = concept_by_code_api.get_concept(self.project_id, self.terminology, code, None,
                                                             _headers=headers)
         
@@ -71,10 +71,10 @@ class TestConceptByCodeApi:
         # SETUP
         code: str = "73211009"
         include: str = "full"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting concept for {code} with full include...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: Concept = concept_by_code_api.get_concept(self.project_id, self.terminology, code, include,
                                                             _headers=headers)
         
@@ -90,10 +90,10 @@ class TestConceptByCodeApi:
         """
         # SETUP
         code: str = "113331007"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.terminology} concept inverse relationships for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListConceptRelationship = concept_by_code_api.find_concept_inverse_relationships(
             self.project_id,
             self.terminology, code, None,
@@ -112,10 +112,10 @@ class TestConceptByCodeApi:
         """
         # SETUP
         code: str = "73211009"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.terminology} concept relationships for {code}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListConceptRelationship = concept_by_code_api.find_concept_relationships(self.project_id, self.terminology, code,
                                                                             None, None, None, None, None,
                                                                             _headers=headers)

@@ -98,9 +98,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }
@@ -173,9 +173,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }
@@ -248,9 +248,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }
@@ -383,9 +383,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }
@@ -458,9 +458,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }
@@ -533,9 +533,9 @@ class HistoryApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
             '200': "List[ConceptRef]",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
         }

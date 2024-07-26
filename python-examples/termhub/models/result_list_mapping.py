@@ -18,28 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
+from termhub.models.mapping import Mapping
+from termhub.models.search_parameters import SearchParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Axiom(BaseModel):
+class ResultListMapping(BaseModel):
     """
-    Represents an OWL/RDF axiom for the concept
+    Represents a list of mappings returned from a find call
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
-    confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
-    modified: Optional[datetime] = Field(default=None, description="Last modified date")
-    created: Optional[datetime] = Field(default=None, description="Created date")
-    modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
-    local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
-    active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    value: Optional[StrictStr] = Field(default=None, description="Axiom expressed in OwL Manchester syntax (https://www.w3.org/TR/owl2-manchester-syntax/)")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
-    version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
-    publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "value", "terminology", "version", "publisher"]
+    total: Optional[StrictInt] = Field(default=None, description="Total number of results (often this list represents just a single page)")
+    parameters: Optional[SearchParameters] = None
+    items: Optional[List[Mapping]] = Field(default=None, description="items of the result list")
+    __properties: ClassVar[List[str]] = ["total", "parameters", "items"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +52,7 @@ class Axiom(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Axiom from a JSON string"""
+        """Create an instance of ResultListMapping from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,11 +73,21 @@ class Axiom(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of parameters
+        if self.parameters:
+            _dict['parameters'] = self.parameters.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
+        _items = []
+        if self.items:
+            for _item in self.items:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['items'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Axiom from a dict"""
+        """Create an instance of ResultListMapping from a dict"""
         if obj is None:
             return None
 
@@ -92,17 +95,9 @@ class Axiom(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "confidence": obj.get("confidence"),
-            "modified": obj.get("modified"),
-            "created": obj.get("created"),
-            "modifiedBy": obj.get("modifiedBy"),
-            "local": obj.get("local"),
-            "active": obj.get("active"),
-            "value": obj.get("value"),
-            "terminology": obj.get("terminology"),
-            "version": obj.get("version"),
-            "publisher": obj.get("publisher")
+            "total": obj.get("total"),
+            "parameters": SearchParameters.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
+            "items": [Mapping.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

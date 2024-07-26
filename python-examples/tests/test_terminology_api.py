@@ -22,18 +22,20 @@ class TestTerminologyApi:
     logger = logging.getLogger(__name__)
     
     token: str = os.getenv("TOKEN")
+    project_id: str = "sandbox"
     
     def test_get_terminologies(self, terminology_api):
         """
         Test the get terminology endpoint with no project and params using default settings. This will call the
         termhub api and return the results
         """
-        # SETUP
+        # SETUP - using global variable unless otherwise stated below
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info("  Performing terminologies lookup...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
-        response: ResultListTerminology = terminology_api.find_terminologies(None, None, None, None, None, _headers=headers)
+        response: ResultListTerminology = terminology_api.find_terminologies(None, None, None, None, None,
+                                                                             _headers=headers)
         
         # ASSERT
         assert response is not None, "ERROR: Response is None"
@@ -44,16 +46,16 @@ class TestTerminologyApi:
     # Test getting a terminology from a term id. NOTE: MAKE SURE TO UPDATE YOUR AUTH TOKE BY RUNNING `test_login.py`
     def test_get_specific_terminology(self, terminology_api):
         """
-        Test the get specific terminology endpoint in the sandbox project. This will call the termhub api and return
-        the results
+        Test the get specific terminology endpoint in the sandbox project. The term_id below is an example that may or
+        may not work. The idea is to take one of the terminology ids returned by the previous call and you can then
+        look up terminology info specifically for that UUID.
         """
-        # SETUP
-        # Define the URL, token, and id
+        # SETUP - using global variable unless otherwise stated below
         term_id: str = "a2bc43ec-ba1b-47c0-9ff0-8379a02f8136"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT & ASSERT
         self.logger.info(f"  Performing terminology lookup for {term_id}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: Terminology = terminology_api.get_terminology(term_id, _headers=headers)
         
         # ASSERT
@@ -66,14 +68,12 @@ class TestTerminologyApi:
         Test the get project terminologies endpoint in the sandbox project. This will call the termhub api and return
         the results of the call
         """
-        # SETUP
-        # Define the URL, token, and id
-        project_id: str = "sandbox"
+        # SETUP - using global variable unless otherwise stated below
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info("  Performing project terminologies lookup...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
-        response: [Terminology] = terminology_api.get_project_terminologies(project_id, _headers=headers)
+        response: [Terminology] = terminology_api.get_project_terminologies(self.project_id, _headers=headers)
         
         # ASSERT
         assert response is not None, "ERROR: Response is None"
@@ -83,17 +83,16 @@ class TestTerminologyApi:
     def test_export_terminologies(self, terminology_api):
         """
         Test the export terminologies endpoint with SNOMEDCT terminology in the sandbox project. This will call the
-        termhub api and return a HTTP code.
+        termhub api and return an HTTP code.
         """
         # SETUP
         terminology: str = "SNOMEDCT"
-        project_id: str = "sandbox"
         format_type: str = "native"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}", "Accept": "application/zip"}
         
         # ACT
         self.logger.info(f"  Exporting terminology {terminology}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
-        terminology_api.export_terminology(project_id, terminology, format_type, _headers=headers)
+        terminology_api.export_terminology(self.project_id, terminology, format_type, _headers=headers)
         
         # ASSERT
         self.logger.info("Export completed successfully!")

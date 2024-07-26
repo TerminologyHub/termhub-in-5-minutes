@@ -24,29 +24,36 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Term(BaseModel):
+class Mapset(BaseModel):
     """
-    Represents a name of a concept in a terminology with associated information
+    Represents an explicit collection of mappings from one terminology to another
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
+    id: StrictStr = Field(description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
     modified: Optional[datetime] = Field(default=None, description="Last modified date")
     created: Optional[datetime] = Field(default=None, description="Created date")
     modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
     local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    name: Optional[StrictStr] = Field(default=None, description="Name associated with this term")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    abbreviation: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
-    component_id: Optional[StrictStr] = Field(default=None, description="Identifier for this object in the published source terminology", alias="componentId")
-    code: Optional[StrictStr] = Field(default=None, description="Code of the concept containing this term")
-    concept_id: Optional[StrictStr] = Field(default=None, description="Concept id of the concept containing this term (typically this is the same as the code, but may be different for some terminologies)", alias="conceptId")
-    descriptor_id: Optional[StrictStr] = Field(default=None, description="Descriptor id of the concept containing this term (only relevant for termionlogies that define descriptor codes)", alias="descriptorId")
-    locale_map: Optional[Dict[str, StrictBool]] = Field(default=None, description="Map of language (optionally with locale) to true/false indicating whether this term is the preferred term in that language or not.  An entrywith true indicates that it is preferred in that language. An entry with false indicates that it is valid for that language but not preferred.", alias="localeMap")
-    type: Optional[StrictStr] = Field(default=None, description="Term type, e.g. \"PT\" or \"900000000000013009\"")
+    latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
+    loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the version of the terminology is loaded")
+    code: Optional[StrictStr] = Field(default=None, description="Mapset code")
+    from_publisher: Optional[StrictStr] = Field(default=None, alias="fromPublisher")
+    from_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that maps in this set are mapped from, e.g. \"SNOMEDCT\"", alias="fromTerminology")
+    from_version: Optional[StrictStr] = Field(default=None, description="Terminology version that maps in this set are mapped from, e.g. \"20230901\"", alias="fromVersion")
+    to_publisher: Optional[StrictStr] = Field(default=None, alias="toPublisher")
+    to_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that maps in this set are mapped to, e.g. \"SNOMEDCT\"", alias="toTerminology")
+    to_version: Optional[StrictStr] = Field(default=None, description="Terminology version that maps in this set are mapped to, e.g. \"20230901\"", alias="toVersion")
+    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    description: Optional[StrictStr] = Field(default=None, description="Description of the mapset")
+    release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
     attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "terminology", "version", "publisher", "componentId", "code", "conceptId", "descriptorId", "localeMap", "type", "attributes"]
+    statistics: Optional[Dict[str, StrictInt]] = None
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "toPublisher", "toTerminology", "toVersion", "terminology", "description", "releaseDate", "attributes", "statistics"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,7 +73,7 @@ class Term(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Term from a JSON string"""
+        """Create an instance of Mapset from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -91,7 +98,7 @@ class Term(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Term from a dict"""
+        """Create an instance of Mapset from a dict"""
         if obj is None:
             return None
 
@@ -106,17 +113,24 @@ class Term(BaseModel):
             "modifiedBy": obj.get("modifiedBy"),
             "local": obj.get("local"),
             "active": obj.get("active"),
+            "abbreviation": obj.get("abbreviation"),
             "name": obj.get("name"),
-            "terminology": obj.get("terminology"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
-            "componentId": obj.get("componentId"),
+            "latest": obj.get("latest"),
+            "loaded": obj.get("loaded"),
             "code": obj.get("code"),
-            "conceptId": obj.get("conceptId"),
-            "descriptorId": obj.get("descriptorId"),
-            "localeMap": obj.get("localeMap"),
-            "type": obj.get("type"),
-            "attributes": obj.get("attributes")
+            "fromPublisher": obj.get("fromPublisher"),
+            "fromTerminology": obj.get("fromTerminology"),
+            "fromVersion": obj.get("fromVersion"),
+            "toPublisher": obj.get("toPublisher"),
+            "toTerminology": obj.get("toTerminology"),
+            "toVersion": obj.get("toVersion"),
+            "terminology": obj.get("terminology"),
+            "description": obj.get("description"),
+            "releaseDate": obj.get("releaseDate"),
+            "attributes": obj.get("attributes"),
+            "statistics": obj.get("statistics")
         })
         return _obj
 

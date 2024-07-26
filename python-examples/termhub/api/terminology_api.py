@@ -103,10 +103,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -181,10 +181,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -259,10 +259,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -410,11 +410,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '200': "ResultListTerminology",
             '417': None,
+            '401': None,
+            '200': "ResultListTerminology",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -497,11 +497,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '200': "ResultListTerminology",
             '417': None,
+            '401': None,
+            '200': "ResultListTerminology",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -584,11 +584,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '200': "ResultListTerminology",
             '417': None,
+            '401': None,
+            '200': "ResultListTerminology",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -734,11 +734,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "List[Terminology]",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -805,11 +805,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "List[Terminology]",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -876,11 +876,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "List[Terminology]",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1004,11 +1004,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '200': "Terminology",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
-            '200': "Terminology",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1075,11 +1075,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '200': "Terminology",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
-            '200': "Terminology",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1146,11 +1146,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '200': "Terminology",
             '401': None,
+            '500': None,
             '403': None,
             '404': None,
-            '200': "Terminology",
         }
         response_data = self.api_client.call_api(
             *_param,

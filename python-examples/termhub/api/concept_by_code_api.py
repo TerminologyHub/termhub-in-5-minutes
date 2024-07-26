@@ -21,6 +21,7 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from termhub.models.concept import Concept
+from termhub.models.mapping import Mapping
 from termhub.models.result_list_concept_relationship import ResultListConceptRelationship
 from termhub.models.result_list_concept_tree_position import ResultListConceptTreePosition
 
@@ -124,12 +125,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptRelationship",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptRelationship",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -224,12 +225,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptRelationship",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptRelationship",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -324,12 +325,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptRelationship",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptRelationship",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -513,11 +514,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -613,11 +614,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -713,11 +714,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -900,12 +901,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1000,12 +1001,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1100,12 +1101,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1288,12 +1289,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1388,12 +1389,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1488,12 +1489,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConceptTreePosition",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1660,12 +1661,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "Concept",
             '417': None,
+            '200': "Concept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1744,12 +1745,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "Concept",
             '417': None,
+            '200': "Concept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1828,12 +1829,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "Concept",
             '417': None,
+            '200': "Concept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1980,12 +1981,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "List[Concept]",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Concept]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2064,12 +2065,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "List[Concept]",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Concept]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2148,12 +2149,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "List[Concept]",
             '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Concept]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2298,12 +2299,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '500': None,
+            '200': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2378,12 +2379,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '500': None,
+            '200': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2458,12 +2459,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '500': None,
+            '200': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2511,8 +2512,8 @@ class ConceptByCodeApi:
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'image/png', 
-                'application/json'
+                'application/json', 
+                'image/png'
             ]
         )
 
@@ -2525,6 +2526,612 @@ class ConceptByCodeApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/project/{idOrUriLabel}/concept/{terminology}/{code}/diagram',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_concept_inverse_mappings(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[Mapping]:
+        """Get mappings to concept by terminology and code
+
+        Gets mappings tothe concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_inverse_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
+            '200': "List[Mapping]",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_concept_inverse_mappings_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[Mapping]]:
+        """Get mappings to concept by terminology and code
+
+        Gets mappings tothe concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_inverse_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
+            '200': "List[Mapping]",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_concept_inverse_mappings_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get mappings to concept by terminology and code
+
+        Gets mappings tothe concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_inverse_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
+            '200': "List[Mapping]",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_concept_inverse_mappings_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        code,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        if terminology is not None:
+            _path_params['terminology'] = terminology
+        if code is not None:
+            _path_params['code'] = code
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/concept/{terminology}/{code}/inverseMappings',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_concept_mappings(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[Mapping]:
+        """Get mappings from concept by terminology and code
+
+        Gets mappings from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
+            '403': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_concept_mappings_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[Mapping]]:
+        """Get mappings from concept by terminology and code
+
+        Gets mappings from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
+            '403': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_concept_mappings_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get mappings from concept by terminology and code
+
+        Gets mappings from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_mappings_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '401': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
+            '403': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_concept_mappings_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        code,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        if terminology is not None:
+            _path_params['terminology'] = terminology
+        if code is not None:
+            _path_params['code'] = code
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/concept/{terminology}/{code}/mappings',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

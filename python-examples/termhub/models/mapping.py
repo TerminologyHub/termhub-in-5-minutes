@@ -21,12 +21,14 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from termhub.models.concept_ref import ConceptRef
+from termhub.models.mapset_ref import MapsetRef
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Term(BaseModel):
+class Mapping(BaseModel):
     """
-    Represents a name of a concept in a terminology with associated information
+    Represents a mapping between a code in one terminology and code in another terminology
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
@@ -35,18 +37,20 @@ class Term(BaseModel):
     modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
     local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    name: Optional[StrictStr] = Field(default=None, description="Name associated with this term")
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
     component_id: Optional[StrictStr] = Field(default=None, description="Identifier for this object in the published source terminology", alias="componentId")
-    code: Optional[StrictStr] = Field(default=None, description="Code of the concept containing this term")
-    concept_id: Optional[StrictStr] = Field(default=None, description="Concept id of the concept containing this term (typically this is the same as the code, but may be different for some terminologies)", alias="conceptId")
-    descriptor_id: Optional[StrictStr] = Field(default=None, description="Descriptor id of the concept containing this term (only relevant for termionlogies that define descriptor codes)", alias="descriptorId")
-    locale_map: Optional[Dict[str, StrictBool]] = Field(default=None, description="Map of language (optionally with locale) to true/false indicating whether this term is the preferred term in that language or not.  An entrywith true indicates that it is preferred in that language. An entry with false indicates that it is valid for that language but not preferred.", alias="localeMap")
-    type: Optional[StrictStr] = Field(default=None, description="Term type, e.g. \"PT\" or \"900000000000013009\"")
+    mapset: Optional[MapsetRef] = None
+    var_from: Optional[ConceptRef] = Field(default=None, alias="from")
+    to: Optional[ConceptRef] = None
+    group: Optional[StrictStr] = Field(default=None, description="Grouping mechanism for a set of maps")
+    priority: Optional[StrictStr] = Field(default=None, description="Priority indicator within a map group")
+    rule: Optional[StrictStr] = Field(default=None, description="Machine-readable rule for when the map should be applied")
+    advice: Optional[List[StrictStr]] = Field(default=None, description="Human-readable advice for how to use the map")
+    type: Optional[StrictStr] = Field(default=None, description="Type of mapping between the \"from\" and \"to\" concepts. Often this is something like \"equivalent\", \"broader\", or \"narrower\"")
     attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "terminology", "version", "publisher", "componentId", "code", "conceptId", "descriptorId", "localeMap", "type", "attributes"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "terminology", "version", "publisher", "componentId", "mapset", "from", "to", "group", "priority", "rule", "advice", "type", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,7 +70,7 @@ class Term(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Term from a JSON string"""
+        """Create an instance of Mapping from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -87,11 +91,20 @@ class Term(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of mapset
+        if self.mapset:
+            _dict['mapset'] = self.mapset.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of var_from
+        if self.var_from:
+            _dict['from'] = self.var_from.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of to
+        if self.to:
+            _dict['to'] = self.to.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Term from a dict"""
+        """Create an instance of Mapping from a dict"""
         if obj is None:
             return None
 
@@ -106,15 +119,17 @@ class Term(BaseModel):
             "modifiedBy": obj.get("modifiedBy"),
             "local": obj.get("local"),
             "active": obj.get("active"),
-            "name": obj.get("name"),
             "terminology": obj.get("terminology"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
             "componentId": obj.get("componentId"),
-            "code": obj.get("code"),
-            "conceptId": obj.get("conceptId"),
-            "descriptorId": obj.get("descriptorId"),
-            "localeMap": obj.get("localeMap"),
+            "mapset": MapsetRef.from_dict(obj["mapset"]) if obj.get("mapset") is not None else None,
+            "from": ConceptRef.from_dict(obj["from"]) if obj.get("from") is not None else None,
+            "to": ConceptRef.from_dict(obj["to"]) if obj.get("to") is not None else None,
+            "group": obj.get("group"),
+            "priority": obj.get("priority"),
+            "rule": obj.get("rule"),
+            "advice": obj.get("advice"),
             "type": obj.get("type"),
             "attributes": obj.get("attributes")
         })

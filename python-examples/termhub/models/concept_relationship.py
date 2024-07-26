@@ -29,7 +29,7 @@ class ConceptRelationship(BaseModel):
     """
     Represents a relationship between two concepts in a terminology
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique identifier")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
     modified: Optional[datetime] = Field(default=None, description="Last modified date")
     created: Optional[datetime] = Field(default=None, description="Created date")

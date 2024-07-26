@@ -22,6 +22,7 @@ from termhub.api.concept_api import ConceptApi
 from termhub.api.concept_by_code_api import ConceptByCodeApi
 from termhub.api.concept_by_id_api import ConceptByIdApi
 from termhub.api.history_api import HistoryApi
+from termhub.api.mapset_api import MapsetApi
 from termhub.api.metadata_api import MetadataApi
 from termhub.api.term_api import TermApi
 from termhub.api.terminology_api import TerminologyApi
@@ -44,10 +45,15 @@ from termhub.models.concept_ref import ConceptRef
 from termhub.models.concept_relationship import ConceptRelationship
 from termhub.models.concept_tree_position import ConceptTreePosition
 from termhub.models.definition import Definition
+from termhub.models.mapping import Mapping
+from termhub.models.mapset import Mapset
+from termhub.models.mapset_ref import MapsetRef
 from termhub.models.metadata import Metadata
 from termhub.models.result_list_concept import ResultListConcept
 from termhub.models.result_list_concept_relationship import ResultListConceptRelationship
 from termhub.models.result_list_concept_tree_position import ResultListConceptTreePosition
+from termhub.models.result_list_mapping import ResultListMapping
+from termhub.models.result_list_mapset import ResultListMapset
 from termhub.models.result_list_metadata import ResultListMetadata
 from termhub.models.result_list_term import ResultListTerm
 from termhub.models.result_list_terminology import ResultListTerminology

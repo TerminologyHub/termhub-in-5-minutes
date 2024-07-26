@@ -18,8 +18,6 @@ Prerequisites
 The various scripts make use of the `python-examples/config.ini` file to load necessary information that is uniform
 across all tests.
 
-When running the tests, make sure you are on the root folder.
-
 Sample Python Calls
 -----------------
 
@@ -52,7 +50,11 @@ The commands below will set a `token` variable equal to the access token. This t
 pytest tests/test_login.py::TestLogin::test_login
 ```
 
-Copy the `TOKEN` value and set this as an environment variable to run the remaining tests
+Copy the `TOKEN` value and set this as an environment variable to run the remaining tests.
+
+```
+export TOKEN=generatedTokenValueHere
+```
 
 <a name="get-terminologies"/>
 
@@ -84,10 +86,7 @@ pytest tests/test_terminology_api.py::TestTerminologyApi::test_get_project_termi
 
 ### Get terminology
 
-Return a specific terminology by its terminologyId. The UUID below is an example
-that may or may not work. The idea is to take one of the terminology ids returned
-by the previous call and you can then look up terminology info specifically for that
-UUID.
+Return a specific terminology by its terminologyId. 
 
 ```
 pytest tests/test_terminology_api.py::TestTerminologyApi::test_get_specific_terminology

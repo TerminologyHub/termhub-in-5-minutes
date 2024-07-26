@@ -29,7 +29,7 @@ class ConceptTreePosition(BaseModel):
     """
     Represents a tree position in the terminology hierarchy for a concept
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique identifier")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
     modified: Optional[datetime] = Field(default=None, description="Last modified date")
     created: Optional[datetime] = Field(default=None, description="Created date")

@@ -31,10 +31,10 @@ class TestTermApi:
         """
         # SETUP - Using global vars unless otherwise listed below
         limit: int = 5
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Finding {self.term} term for {self.query}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListTerm = term_api.find_terms(self.project_id, self.term, self.query, None, limit, None, None,
                                                    None,
                                        _headers=headers)
@@ -53,10 +53,10 @@ class TestTermApi:
         limit: int = 10
         expected_result: str = "Diabetes"
         contains_expected: bool = False
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Submitting autocomplete search...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: [str] = term_api.autocomplete(self.project_id, query, self.term, limit, _headers=headers)
         
         # ASSERT

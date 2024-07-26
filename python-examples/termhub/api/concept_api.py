@@ -122,12 +122,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '403': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -222,12 +222,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '403': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -322,12 +322,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '403': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -510,12 +510,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': "str",
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -606,12 +606,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': "str",
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -702,12 +702,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
             '200': "str",
-            '404': None,
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -912,12 +912,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConcept",
             '417': None,
+            '200': "ResultListConcept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1024,12 +1024,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConcept",
             '417': None,
+            '200': "ResultListConcept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1136,12 +1136,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
-            '401': None,
-            '403': None,
-            '404': None,
-            '200': "ResultListConcept",
             '417': None,
+            '200': "ResultListConcept",
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1343,12 +1343,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '417': None,
             '401': None,
-            '403': None,
+            '500': None,
             '404': None,
             '200': "List[ResultListConcept]",
-            '417': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1443,12 +1443,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '417': None,
             '401': None,
-            '403': None,
+            '500': None,
             '404': None,
             '200': "List[ResultListConcept]",
-            '417': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1543,12 +1543,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '500': None,
+            '417': None,
             '401': None,
-            '403': None,
+            '500': None,
             '404': None,
             '200': "List[ResultListConcept]",
-            '417': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,

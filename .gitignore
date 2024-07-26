@@ -132,7 +132,7 @@ typings/
 .env
 
 # End of https://www.gitignore.io/api/osx,git
-/.gradle/
+*/.gradle/
 
 # IntelliJ
 .idea

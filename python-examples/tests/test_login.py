@@ -38,6 +38,7 @@ class TestLogin:
         url: str = load_config.get("default", "url")
         username: str = os.getenv("USER_NAME")
         password: str = os.getenv("PASSWORD")
+        headers: dict[str, str] = {"Content-type": "application/json"}
         
         self.logger.info(f"username = {username}")
         self.logger.info(f"password = {password}")
@@ -50,8 +51,7 @@ class TestLogin:
         }
         
         # Send a POST request to the URL with the payload
-        response: Response = requests.post(url + "/auth/token", data=json.dumps(payload),
-                                 headers={"Content-type": "application/json"})
+        response: Response = requests.post(url + "/auth/token", data=json.dumps(payload), headers=headers)
         
         # Check the status code of the response
         assert response.status_code == 200, f"ERROR: POST call returned {response.status_code}, expected 200"

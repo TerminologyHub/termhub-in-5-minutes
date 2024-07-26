@@ -32,10 +32,10 @@ class TestConceptApi:
         """
         # SETUP - Using global vars unless otherwise listed below
         limit: int = 5
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, None, None,
                                                                 limit,
                                                                 None, None,
@@ -57,10 +57,10 @@ class TestConceptApi:
         expression: str = "<<64572001"
         offset: int = 0
         limit: int = 10
+        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query} and {expression}...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {token}"}
         response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, expression,
                                                                 offset, limit, None, None, None, None, None,
                                                                 _headers=headers)
@@ -79,10 +79,10 @@ class TestConceptApi:
         # SETUP - Using global vars unless otherwise listed below
         limit: int = 5
         include: str = "parents"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query} with include params...")
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, None, None,
                                                                 limit, None, None, None, None, include,
                                                                 _headers=headers)
