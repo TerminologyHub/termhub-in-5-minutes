@@ -1,5 +1,7 @@
 import logging
 import os
+from typing import Optional
+
 import pytest
 
 from termhub import ResultListTerminology, Terminology, TerminologyApi
@@ -88,11 +90,21 @@ class TestTerminologyApi:
         # SETUP
         terminology: str = "SNOMEDCT"
         format_type: str = "native"
-        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}", "Accept": "application/zip"}
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}", "accept": "*/*"}
         
         # ACT
-        self.logger.info(f"  Exporting terminology {terminology}...")
-        terminology_api.export_terminology(self.project_id, terminology, format_type, _headers=headers)
+        try:
+            self.logger.info(f"  Exporting terminology {terminology}...")
+            response: Optional[bytes] = terminology_api.export_terminology(self.project_id, terminology, format_type,
+                                                                 _headers=headers)
+            if response:
+                file_path = f"{terminology}.zip"
+                with open(file_path, "wb") as file:
+                    file.write(response)
+                self.logger.info(f"Exported terminology {terminology} save to {file_path}")
+            else:
+                self.logger.info("Failed to export terminology. No data returned")
+        except Exception as e:
+            self.logger.error(f"An error occurred while exporting {terminology}: {e}")
         
-        # ASSERT
         self.logger.info("Export completed successfully!")

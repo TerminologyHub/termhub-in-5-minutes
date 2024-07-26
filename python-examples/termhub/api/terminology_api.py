@@ -59,7 +59,7 @@ class TerminologyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+    ) -> Optional[bytes]:
         """Export terminology
 
         Exports specified terminology in the specified format.
@@ -113,10 +113,9 @@ class TerminologyApi:
             _request_timeout=_request_timeout
         )
         response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
+        if response_data.status == 200:
+            return response_data.data
+        return None
 
 
     @validate_call
