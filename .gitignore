@@ -140,3 +140,5 @@ typings/
 
 out/
 *.zip
+
+ doc/code-generator/.gradle/*

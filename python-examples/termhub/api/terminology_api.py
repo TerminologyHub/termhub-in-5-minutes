@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictInt, StrictStr
-from typing import List, Optional
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
+from typing import List, Optional, Union
 from typing_extensions import Annotated
 from termhub.models.result_list_terminology import ResultListTerminology
 from termhub.models.terminology import Terminology
@@ -59,7 +59,7 @@ class TerminologyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Optional[bytes]:
+    ) -> bytearray:
         """Export terminology
 
         Exports specified terminology in the specified format.
@@ -103,19 +103,20 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
-            '500': None,
             '403': None,
+            '500': None,
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
-        if response_data.status == 200:
-            return response_data.data
-        return None
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
 
 
     @validate_call
@@ -136,7 +137,7 @@ class TerminologyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+    ) -> ApiResponse[bytearray]:
         """Export terminology
 
         Exports specified terminology in the specified format.
@@ -180,10 +181,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
-            '500': None,
             '403': None,
+            '500': None,
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -258,10 +259,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
             '401': None,
-            '500': None,
             '403': None,
+            '500': None,
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -311,7 +312,7 @@ class TerminologyApi:
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'application/zip'
+                'application/octet-stream'
             ]
         )
 
@@ -410,10 +411,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': None,
-            '401': None,
             '200': "ResultListTerminology",
-            '500': None,
+            '401': None,
             '403': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -497,10 +498,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': None,
-            '401': None,
             '200': "ResultListTerminology",
-            '500': None,
+            '401': None,
             '403': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -584,10 +585,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': None,
-            '401': None,
             '200': "ResultListTerminology",
-            '500': None,
+            '401': None,
             '403': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -735,9 +736,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Terminology]",
             '401': None,
+            '403': None,
             '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -806,9 +807,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Terminology]",
             '401': None,
+            '403': None,
             '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -877,9 +878,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Terminology]",
             '401': None,
+            '403': None,
             '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1005,9 +1006,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Terminology",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1076,9 +1077,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Terminology",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1147,9 +1148,9 @@ class TerminologyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Terminology",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,

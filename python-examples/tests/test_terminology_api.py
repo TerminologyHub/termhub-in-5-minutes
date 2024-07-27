@@ -101,10 +101,10 @@ class TestTerminologyApi:
                 file_path = f"{terminology}.zip"
                 with open(file_path, "wb") as file:
                     file.write(response)
-                self.logger.info(f"Exported terminology {terminology} save to {file_path}")
+                self.logger.info(f"  Exported terminology {terminology} save to {file_path}")
             else:
-                self.logger.info("Failed to export terminology. No data returned")
+                self.logger.info("  Failed to export terminology. No data returned")
         except Exception as e:
             self.logger.error(f"An error occurred while exporting {terminology}: {e}")
         
-        self.logger.info("Export completed successfully!")
+        self.logger.info("  Export completed successfully!")
