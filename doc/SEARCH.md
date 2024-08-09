@@ -11,7 +11,7 @@ The following searches can be performed in the "SNOMEDCT_US Latest" project by u
 ### Simple keyword searching
 
 query=diabetes
-query=diabetes mellitus
+query=diabetes mellitus 
 query="diabetes mellitus"
 
 ### Searching only concept preferred names
