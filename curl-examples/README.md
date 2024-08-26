@@ -40,6 +40,12 @@ The following examples can be typed into the command line of any terminal that h
 - [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
 - [Find terms by search term](#find-terms-by-search-term)
 - [Support autocomplete/typeahead for first few characters typed](#support-autocompletetypeahead-for-first-few-characters-typed)
+- [Get mapsets](#get-mapsets)
+- [Get project mapsets](#get-project-mapsets)
+- [Get specific mapset](#get-mapset)
+- [Get mappings for concept by code](#get-mappings-for-concept-by-code)
+- [Find project mappings for mapset](#find-project-mapset-mappings)
+- [Find project mappings](#find-project-mappings)
 
 ### Login
 
@@ -83,7 +89,8 @@ See sample payload data from this call in [`samples/get-terminologies-sandbox.tx
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
-### Get terminology
+### 
+
 Return a specific terminology by its terminologyId. The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
 by the previous call and you can then look up terminology info specifically for that
@@ -147,7 +154,7 @@ concept pointing to its parent.
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/relationships" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
+See sample payload data from this call in [`samples/get-concept-relationships.txt`](samples/get-concept-relationships.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
@@ -162,7 +169,7 @@ being pointed to from a child.
 curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/113331007/inverseRelationships" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-inverse-relationsihps.txt`](samples/get-concept-inverse-relationships.txt)
+See sample payload data from this call in [`samples/get-concept-inverse-relationships.txt`](samples/get-concept-inverse-relationships.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
@@ -255,3 +262,84 @@ See sample payload data from this call in [`samples/autocomplete-search-term.txt
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
+### Get mapsets
+
+Return all loaded mapsets currently hosted by the API.  This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available mapsets.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/mapset" | jq
+```
+
+See sample payload data from this call in [`samples/get-mapsets.txt`](samples/get-mapsets.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Get project mapsets
+
+Return all mapsets for the specified project identified by either projectId or projectLabel.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset" | jq
+```
+
+See sample payload data from this call in [`samples/get-mapsets-sandbox.txt`](samples/get-mapsets-sandbox.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+### Get mapset
+
+Return a specific mapset by its id. The UUID below is an example
+that may or may not work.  The idea is to take one of the mapset ids returned
+by the previous call and you can then look up mapset info specifically for that
+UUID.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/mapset/2a545e12-04eb-48ee-b988-c17346b4e05f" | jq
+```
+
+See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10cm.txt`](samples/get-mapset-snomedct_us-icd10cm.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Get mappings for concept by code
+
+Get concept mappings for a terminology and code. In this case it resolves
+mappings that originate "from" this concept code and contains information about
+the concepts those mappings point "to" on the other side.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT_US/73211009/mappings" | jq
+```
+
+See sample payload data from this call in [`samples/get-concept-mappings.txt`](samples/get-concept-mappings.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Find project mappings for mapset
+
+Find mappings matching a query within a specified project and specified mapset. This 
+example uses paging to get only the first 5 results.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/mappings?query=to.name:diabetes&limit=5" | jq
+```
+
+See sample payload data from this call in [`samples/find-mapset-mappings-by-query.txt`](samples/find-mapset-mappings-by-query.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Find project mappings
+
+Find mappings matching a query within a specified project across all mapsets. This 
+example uses paging to get only the first 5 results.
+
+```
+curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapping?query=to.name:diabetes&limit=5" | jq
+```
+
+See sample payload data from this call in [`samples/find-mappings-by-query.txt`](samples/find-mappings-by-query.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)

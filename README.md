@@ -50,6 +50,12 @@ The following cases will be used to demonstrate accessing the TermHub Terminolog
 - Find terms by search term
 - Support autocomplete/typeahead for first few characters typed
 - Coming Soon: compute "new" or "retired" codes across terminology versions
+- Get mapsets
+- Get project mapsets
+- Get specific mapset
+- Get mappings for concept
+- Find project mappings for mapset
+- Find project mappings
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 

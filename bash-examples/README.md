@@ -28,6 +28,8 @@ Test Scripts
 - [find-concepts.sh](#find-concepts-sh)
 - [find-terms.sh](#find-terms-sh)
 - [autocomplete.sh](#autocomplete-sh)
+- [get-mapsets.sh](#get-mapsets-sh)
+- [find-mappings.sh](#find-mappings-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -64,7 +66,7 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 Return all loaded terminologies currently hosted by the API.
 
 ```
-$ ./get-terminologies.sh --token $token | head -30
+$ ./get-terminologies.sh --token $token
 -----------------------------------------------------
 Starting ...Thu, May 16, 2024  6:31:02 PM
 -----------------------------------------------------
@@ -1866,6 +1868,50 @@ limit = 10
 
 -----------------------------------------------------
 Finished ...Thu, May 16, 2024  4:01:56 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### get-mapsets.sh
+
+Return all loaded mapsets currently hosted by the API.
+
+```
+$ ./get-mapsets.sh --token $token 
+-----------------------------------------------------
+Starting ...Thu, May 16, 2024  6:31:02 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+offset = 0
+limit = 10
+sort =
+ascending =
+
+  Performing terminologies lookup
+    {
+      "total": 61,
+      "parameters": {
+        "query": "loaded:true",
+        "limit": 10,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "fda9bef2-df80-40d6-b31b-6cb3a1cd38c3",
+          "confidence": 0.007272759452462196,
+          "modified": "2024-05-11T20:13:11.499+00:00",
+          "created": "2024-05-11T20:13:11.499+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "SNOMEDCT_US",
+          "name": "Systematized Nomenclature of Medicine–Clinical Terminology, US Edition",
+          "version": "20230301",
+          "publisher": "NLM",...
+...
+-----------------------------------------------------
+Finished ...Thu, May 16, 2024  6:31:03 PM
 -----------------------------------------------------
 ```
 
