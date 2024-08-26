@@ -38,13 +38,19 @@ echo "-----------------------------------------------------"
 echo "Starting ...$(/bin/date)"
 echo "-----------------------------------------------------"
 echo "url = $url"
+if [ -z $project ]; then
 echo "query = $query"
 echo "offset = $offset"
 echo "limit = $limit"
 echo "sort = $sort"
 echo "ascending = $ascending"
-echo "id = $id"
-echo "project = $project"
+fi
+if [ ! -z $id ]; then
+  echo "id = $id"
+fi
+if [ ! -z $project ]; then
+  echo "project = $project"
+fi
 echo ""
 
 # GET call

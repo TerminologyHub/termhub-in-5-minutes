@@ -17,9 +17,29 @@ token. All scripts accept a --help flag with additional examples.
 
 Test Scripts
 ------------
-- [Login](#login-loginsh)
-- [Get terminologies](#get-terminologies-get-terminologies-sh)
-- [Get project terminologies](#get-project-terminologies-get-terminologies-sh)
+- [Login](#login)
+- [Get terminologies](#get-terminologies)
+- [Get project terminologies](#get-project-terminologies)
+- [Get specific terminology](#get-terminology)
+- [Export terminology](#export-terminology)
+- [Get concept by code](#get-concept-by-code)
+- [Get concept by code with explicit include parameter](#get-concept-by-code-with-explicit-include-parameter)
+- [Get concept relationships by code](#get-concept-relationships-by-code)
+- [Get concept inverse relationships by code](#get-concept-inverse-relationships-by-code)
+- [Get concept trees](#get-concept-trees)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term with explicit include parameter](#find-concepts-by-search-term-with-explicit-include-parameter)
+- [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
+- [Find terms by search term](#find-terms-by-search-term)
+- [Support autocomplete/typeahead for first few characters typed](#support-autocompletetypeahead-for-first-few-characters-typed)
+- [Get mapsets](#get-mapsets)
+- [Get project mapsets](#get-project-mapsets)
+- [Get specific mapset](#get-mapset)
+- [Export mapset](#export-mapset)
+- [Get mappings for concept by code](#get-mappings-for-concept-by-code)
+- [Find project mappings for mapset](#find-project-mapset-mappings)
+- [Find project mappings](#find-project-mappings)
+
 - [Get specific terminology](#get-terminology-get-terminology-sh)
 - [export-terminology.sh](#export-terminology-sh)
 - [get-concept.sh](#get-concept-sh)
@@ -34,7 +54,8 @@ Test Scripts
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
-### Login - login.sh
+
+### <a id="login" />Login - login.sh
 
 Login to TermHub via username and password.
 When finished, copy/past the "token=..." to set a local variable that
@@ -45,16 +66,16 @@ NOTE: for instances of the server that have login disabled, simply use "guest" a
 ```
 ./login.sh bcarlsen@westcoastinformatics.com *********
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024 10:22:49 AM
+Starting ...Mon, Aug 26, 2024  4:32:17 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 username = bcarlsen@westcoastinformatics.com
 password = ************
 
-  token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz...8UbB49vRoFOEXqUBIa8-0
+  token=eyJ0eX...O8XA-k1SXI9
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024 10:22:50 AM
+Finished ...Mon, Aug 26, 2024  4:32:17 PM
 -----------------------------------------------------
 ```
 
@@ -62,16 +83,17 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### Get terminology - get-terminologies.sh
+### <a id="get-terminologies" />Get terminologies - find-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API.
 
 ```
-$ ./get-terminologies.sh --token $token
+$ ./find-terminologies.sh --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:31:02 PM
+Starting ...Mon, Aug 26, 2024  3:05:19 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
+query =
 offset = 0
 limit = 10
 sort =
@@ -79,7 +101,7 @@ ascending =
 
   Performing terminologies lookup
     {
-      "total": 61,
+      "total": 88,
       "parameters": {
         "query": "loaded:true",
         "limit": 10,
@@ -88,117 +110,62 @@ ascending =
       "items": [
         {
           "id": "fda9bef2-df80-40d6-b31b-6cb3a1cd38c3",
-          "confidence": 0.007272759452462196,
+          "confidence": 0.00501254154369235,
           "modified": "2024-05-11T20:13:11.499+00:00",
           "created": "2024-05-11T20:13:11.499+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
           "abbreviation": "SNOMEDCT_US",
-          "name": "Systematized Nomenclature of Medicine–Clinical Terminology, US Edition",
-          "version": "20230301",
-          "publisher": "NLM",...
 ...
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:31:03 PM
+Finished ...Mon, Aug 26, 2024  3:05:19 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-terminologies.sh
+### <a id="get-project-terminologies" />Get project terminologies - find-terminologies.sh
 
 Return all terminologies for specific project identified by either project id or project uriLabel.
 
 ```
-$ ./get-terminology.sh --token $token --project sandbox
+$ ./find-terminologies.sh --token $token --project sandbox
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:32:02 PM
+Starting ...Mon, Aug 26, 2024  4:33:01 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
+project = sandbox
 
   Performing terminologies lookup
-    count = 5
-
     [
       {
-        "id": "a2bc43ec-ba1b-47c0-9ff0-8379a02f8136",
-        "confidence": 6.159998893737793,
-        "modified": "2024-05-13T18:27:49.865+00:00",
-        "created": "2024-05-13T18:27:49.865+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreviation": "SNOMEDCT",
-        "name": "Mini version of SNOMEDCT For testing purposes",
-        "version": "20240101",
-        "publisher": "SANDBOX",
-        "latest": true,
-        "loaded": true,
-        "releaseDate": "2024-01-01",
-        "family": "SNOMEDCT",
-        "indexName": "snomedct-sandbox-20240101",
-        "attributes": {
-          "autocomplete": "true",
-          "description-logic-based": "true",
-          "tree-positions": "true",
-          "unidirectional-rels": "true",
-          "has-relationship-directionality": "true",
-          "ecl": "true",
-          "description-logic-profile": "EL++",
-          "fhirUri": "http://snomed.info/sct",
-          "polyhierarchy": "true",
-          "hierarchical": "true",
-          "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
-          "fhirId": "snomedct_900000000000207008_20240101"
-        },
-        "roots": [
-          "138875005"
-        ],
-        "statistics": {
-          "parentsInactive": 0,
-          "parentsActive": 592,
-          "treePositions": 2152,
-          "termsInactive": 353,
-          "childrenInactive": 0,
-          "relationships": 743,
-          "concepts": 434,
-          "terms": 1534,
-          "conceptsInactive": 3,
-          "termsActive": 1181,
-          "definitions": 19,
-          "conceptsActive": 431,
-          "childrenActive": 592
-        }
-      },
-      ...
-      {
-        "id": "7ba6a4e7-8d3d-4242-a174-f9883d48a08b",
-        "confidence": 7.258610725402832,
-        "modified": "2024-05-13T18:30:55.473+00:00",
-        "created": "2024-05-13T18:30:55.473+00:00",
+        "id": "177f2263-fe04-4f1f-b0e6-9b351ab8baa9",
+        "confidence": 7.666106700897217,
+        "modified": "2024-08-23T02:03:54.059+00:00",
+        "created": "2024-08-23T02:03:54.059+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
         "abbreviation": "ICD10CM",
         "name": "Mini version of ICD10CM for testing purposes",
-        "version": "2024",
+        "version": "2023",
         "publisher": "SANDBOX",
-        "latest": true,
+        "latest": false,
         "loaded": true,
-        "releaseDate": "2024-05-06",
+        "releaseDate": "2023-05-01",
         "family": "ICD10CM",
-        "indexName": "icd10cm-sandbox-2024",
+        "indexName": "icd10cm-sandbox-2023",
         "attributes": {
           "fhirUri": "http://hl7.org/fhir/sid/icd-10-cm",
-          "origin-version": "2024AA",
+          "origin-version": "2023AA",
           "autocomplete": "true",
           "hierarchical": "true",
-          "fhirVersion": "2024",
+          "fhirVersion": "2023",
           "tree-positions": "true",
           "origin-terminology": "UMLS",
           "ecl": "true",
-          "fhirId": "icd10cm_2024",
+          "fhirId": "icd10cm_2023",
           "fhirCompositional": "false"
         },
         "roots": [
@@ -207,28 +174,78 @@ url = https://api.terminologyhub.com
         "statistics": {
           "termsInactive": 0,
           "childrenInactive": 0,
-          "relationships": 12,
-          "concepts": 7,
-          "terms": 12,
+          "relationships": 18,
+          "concepts": 10,
+          "terms": 22,
           "parentsInactive": 0,
-          "termsActive": 12,
-          "parentsActive": 6,
+          "termsActive": 22,
+          "parentsActive": 9,
           "definitions": 0,
-          "treePositions": 7,
-          "conceptsActive": 7,
-          "childrenActive": 6
+          "treePositions": 10,
+          "conceptsActive": 10,
+          "childrenActive": 9
+        }
+      },
+      ...
+      {
+        "id": "d1aba666-39bf-48ea-b524-c5a47ab1dcf1",
+        "confidence": 8.621618270874023,
+        "modified": "2024-05-13T18:30:45.195+00:00",
+        "created": "2024-05-13T18:30:45.195+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "LNC",
+        "name": "Mini version of LOINC for testing purposes",
+        "version": "277",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2024-05-06",
+        "family": "LOINC",
+        "indexName": "lnc-sandbox-277",
+        "attributes": {
+          "fhirUri": "http://loinc.org",
+          "origin-version": "2024AA",
+          "polyhierarchy": "true",
+          "autocomplete": "true",
+          "hierarchical": "true",
+          "fhirVersion": "277",
+          "tree-positions": "true",
+          "origin-terminology": "UMLS",
+          "ecl": "true",
+          "fhirId": "lnc_277",
+          "fhirCompositional": "false"
+        },
+        "roots": [
+          "MTHU000998",
+          "MTHU000999"
+        ],
+        "statistics": {
+          "termsInactive": 0,
+          "childrenInactive": 0,
+          "relationships": 326,
+          "concepts": 114,
+          "terms": 226,
+          "parentsInactive": 0,
+          "termsActive": 226,
+          "parentsActive": 90,
+          "definitions": 0,
+          "treePositions": 93,
+          "conceptsActive": 114,
+          "childrenActive": 90
         }
       }
     ]
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:32:03 PM
+Finished ...Mon, Aug 26, 2024  4:33:02 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-terminology.sh
+### <a id="get-terminology" />Get terminology - find-terminologies.sh
 
 Return a specific terminology by its terminology id.  The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
@@ -236,30 +253,34 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```
-$ ./get-terminology.sh --token $token --id a2bc43ec-ba1b-47c0-9ff0-8379a02f8136
+$ ./find-terminologies.sh --token $token --id 1e523c73-dfe8-4299-92ee-b7a8ece57769
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:33:00 PM
+Starting ...Mon, Aug 26, 2024  4:35:02 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
+query =
+offset = 0
+limit = 10
+sort =
+ascending =
+id = 1e523c73-dfe8-4299-92ee-b7a8ece57769
 
   Performing terminologies lookup
-    count = 18
-
     {
-      "id": "a2bc43ec-ba1b-47c0-9ff0-8379a02f8136",
-      "confidence": 6.93645715713501,
-      "modified": "2024-05-13T18:27:49.865+00:00",
-      "created": "2024-05-13T18:27:49.865+00:00",
+      "id": "1e523c73-dfe8-4299-92ee-b7a8ece57769",
+      "confidence": 7.352961540222168,
+      "modified": "2024-08-23T02:06:30.814+00:00",
+      "created": "2024-08-23T02:06:30.814+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT",
-      "name": "Mini version of SNOMEDCT For testing purposes",
-      "version": "20240101",
+      "abbreviation": "SNOMEDCT_US",
+      "name": "Mini version of SNOMEDCT_US For testing purposes",
+      "version": "20240301",
       "publisher": "SANDBOX",
       "latest": true,
       "loaded": true,
-      "releaseDate": "2024-01-01",
+      "releaseDate": "2024-03-01",
       "family": "SNOMEDCT",
       "attributes": {
         "autocomplete": "true",
@@ -270,33 +291,34 @@ url = https://api.terminologyhub.com
         "ecl": "true",
         "description-logic-profile": "EL++",
         "fhirUri": "http://snomed.info/sct",
+        "show-sty": "true",
         "polyhierarchy": "true",
         "hierarchical": "true",
-        "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
-        "fhirId": "snomedct_900000000000207008_20240101"
+        "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
+        "fhirId": "snomedct_us_731000124108_20240301"
       },
       "roots": [
         "138875005"
       ],
       "statistics": {
         "parentsInactive": 0,
-        "parentsActive": 592,
-        "treePositions": 2152,
-        "termsInactive": 353,
+        "parentsActive": 598,
+        "treePositions": 2158,
+        "termsInactive": 355,
         "childrenInactive": 0,
-        "relationships": 743,
-        "concepts": 434,
-        "terms": 1534,
+        "relationships": 749,
+        "concepts": 440,
+        "terms": 1549,
         "conceptsInactive": 3,
-        "termsActive": 1181,
+        "termsActive": 1194,
         "definitions": 19,
-        "conceptsActive": 431,
-        "childrenActive": 592
+        "conceptsActive": 437,
+        "childrenActive": 611
       }
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:33:02 PM
+Finished ...Mon, Aug 26, 2024  4:35:02 PM
 -----------------------------------------------------
 ```
 
