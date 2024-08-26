@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to call TermHub to get all terminologies
+# Script to call TermHub to get all mapsets
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;
@@ -45,10 +45,10 @@ echo "ascending = $ascending"
 echo ""
 
 # GET call
-echo "  Performing terminologies lookup"
-curl -v -w "\n%{http_code}" -G "$url/terminology" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
+echo "  Performing mapsets lookup"
+curl -v -w "\n%{http_code}" -G "$url/mapset" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
-  echo "ERROR: GET $url/terminology failed"
+  echo "ERROR: GET $url/mapset failed"
   exit 1
 fi
 
@@ -56,7 +56,7 @@ fi
 status=`tail -1 /tmp/x.$$`
 if [ $status -ne 200 ]; then
   perl -pe 's/200$//' /tmp/x.$$ | jq '.' | sed 's/^/    /'
-  echo "ERROR: GET $url/terminology returned $status, expected 200"
+  echo "ERROR: GET $url/mapset returned $status, expected 200"
   exit 1
 fi
 

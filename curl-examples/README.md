@@ -43,6 +43,7 @@ The following examples can be typed into the command line of any terminal that h
 - [Get mapsets](#get-mapsets)
 - [Get project mapsets](#get-project-mapsets)
 - [Get specific mapset](#get-mapset)
+- [Export mapset](#export-mapset)
 - [Get mappings for concept by code](#get-mappings-for-concept-by-code)
 - [Find project mappings for mapset](#find-project-mapset-mappings)
 - [Find project mappings](#find-project-mappings)
@@ -288,6 +289,19 @@ See sample payload data from this call in [`samples/get-mapsets-sandbox.txt`](sa
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
+
+### Export mapset
+
+Export zip file of a mapset in a particular format.  Currently only format=native is
+supported.
+
+```
+curl -o SNOMEDCT_US-ICD10CM.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/export?format=native"
+```
+
+No payload sample as the output is a .zip file.
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 ### Get mapset
 

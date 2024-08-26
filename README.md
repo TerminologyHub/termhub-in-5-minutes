@@ -53,6 +53,7 @@ The following cases will be used to demonstrate accessing the TermHub Terminolog
 - Get mapsets
 - Get project mapsets
 - Get specific mapset
+- Export mapset
 - Get mappings for concept
 - Find project mappings for mapset
 - Find project mappings

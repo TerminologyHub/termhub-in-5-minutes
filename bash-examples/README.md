@@ -17,10 +17,10 @@ token. All scripts accept a --help flag with additional examples.
 
 Test Scripts
 ------------
-- [login.sh](#login-sh)
-- [get-terminologies.sh](#get-terminologies-sh)
-- [get-project-terminologies.sh](#get-terminologies-sh)
-- [get-terminology.sh](#get-terminology-sh)
+- [Login](#login-login-sh)
+- [Get terminologies](#get-terminologies-get-terminologies-sh)
+- [Get project terminologies](#get-project-terminologies-get-terminologies-sh)
+- [Get specific terminology](#get-terminology-get-terminology-sh)
 - [export-terminology.sh](#export-terminology-sh)
 - [get-concept.sh](#get-concept-sh)
 - [get-concept-relationships.sh](#get-concept-relationships-sh)
@@ -29,11 +29,12 @@ Test Scripts
 - [find-terms.sh](#find-terms-sh)
 - [autocomplete.sh](#autocomplete-sh)
 - [get-mapsets.sh](#get-mapsets-sh)
+- [export-mapset.sh](#export-mapset-sh)
 - [find-mappings.sh](#find-mappings-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
-### login.sh
+### Login - login.sh
 
 Login to TermHub via username and password.
 When finished, copy/past the "token=..." to set a local variable that
@@ -61,7 +62,7 @@ From the output, paste the "token=..." into your shell to set it as a variable f
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-terminologies.sh
+### Get terminology - get-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API.
 
@@ -1875,43 +1876,237 @@ Finished ...Thu, May 16, 2024  4:01:56 PM
 
 ### get-mapsets.sh
 
-Return all loaded mapsets currently hosted by the API.
+Return all loaded mapsets currently hosted by the API. This supports offset, limit,
+sort, and ascending parameters to control amount and order of mapset information.
 
 ```
-$ ./get-mapsets.sh --token $token 
+$ ./get-mapsets.sh  --token $token --limit 1
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:31:02 PM
+Starting ...Mon, Aug 26, 2024 12:01:46 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 offset = 0
-limit = 10
+limit = 1
 sort =
 ascending =
 
-  Performing terminologies lookup
+  Performing mapsets lookup
     {
-      "total": 61,
+      "total": 11,
       "parameters": {
         "query": "loaded:true",
-        "limit": 10,
+        "limit": 1,
         "offset": 0
       },
       "items": [
         {
-          "id": "fda9bef2-df80-40d6-b31b-6cb3a1cd38c3",
-          "confidence": 0.007272759452462196,
-          "modified": "2024-05-11T20:13:11.499+00:00",
-          "created": "2024-05-11T20:13:11.499+00:00",
+          "id": "0280502a-7fe2-49f5-a1bb-2fb7e030c3c5",
+          "confidence": 0.03922070935368538,
+          "modified": "2024-08-21T17:28:00.583+00:00",
+          "created": "2024-08-21T17:28:00.583+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "abbreviation": "SNOMEDCT_US",
-          "name": "Systematized Nomenclature of Medicine–Clinical Terminology, US Edition",
-          "version": "20230301",
-          "publisher": "NLM",...
-...
+          "abbreviation": "NDC-CVX",
+          "name": "Mapset from NDC 20240704 to CVX 20240806",
+          "version": "20240806",
+          "publisher": "CDC",
+          "latest": true,
+          "loaded": true,
+          "code": "NDC-CVX",
+          "fromPublisher": "FDA",
+          "fromTerminology": "NDC",
+          "fromVersion": "20240704",
+          "toPublisher": "CDC",
+          "toTerminology": "CVX",
+          "toVersion": "20240806",
+          "terminology": "CVX",
+          "description": "Mapset from NDC 20240704 to CVX 20240806",
+          "releaseDate": "2024-08-06",
+          "attributes": {
+            "complexity": "simple",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=NDC-CVX",
+            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+            "origin-version": "20240806",
+            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+            "fhirToTerminologyVersion": "20240806",
+            "fhirVersion": "20240806",
+            "fhirFromTerminologyVersion": "20240704",
+            "origin-terminology": "CVX",
+            "cardinality": "N-1",
+            "fhirId": "cdc_ndc-cvx_20240806"
+          },
+          "statistics": {
+            "mappings": 169,
+            "uniqueFromCodes": 169,
+            "mappingsEmptyTarget": 0,
+            "mappingsActive": 169,
+            "uniqueToCodes": 85
+          }
+        }
+      ]
+    }
+
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:31:03 PM
+Finished ...Mon, Aug 26, 2024 12:01:47 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### export-terminology.sh
+
+Exports a terminology for the given project id (or uriLabel) and terminology
+
+```
+$ ./export-terminology.sh --token $token sandbox SNOMEDCT
+-----------------------------------------------------
+Starting ...Thu, May 16, 2024  6:33:19 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+
+  Performing terminology export to file SNOMEDCT.zip
+-----------------------------------------------------
+Finished ...Thu, May 16, 2024  6:33:22 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+### find-mappings.sh
+
+Used to perform text searches to find matching mappings. The following example
+performs a text search in the "to" concept name for "diabetes" and limits search results to 5
+entries.  It searches across all mapsets in the project.
+
+```
+$ ./find-mappings.sh sandbox "to.name:diabetes"  --token $token --limit 5
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024 12:10:05 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+project = sandbox
+mapset =
+query = to.name:diabetes
+offset = 0
+limit = 5
+sort =
+ascending =
+
+  Find mappings: to.name:diabetes
+
+    {
+      "total": 2,
+      "parameters": {
+        "query": "to.name:diabetes",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "f012f377-2d76-408e-a107-66378e26fc46",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.845+00:00",
+          "created": "2024-08-23T18:59:26.845+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "48160c75-415b-5ead-8160-f215b8274218",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 1 diabetes mellitus without complications",
+            "code": "E10.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "1",
+          "rule": "IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years",
+          "advice": [
+            "IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED",
+            "MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT"
+          ]
+        },
+        {
+          "id": "8e05c2bd-7f77-4cd1-9edd-1c4185d2e818",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.844+00:00",
+          "created": "2024-08-23T18:59:26.844+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "e32ce76e-74df-504f-9a21-03e528c5e7d7",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 2 diabetes mellitus without complications",
+            "code": "E11.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "2",
+          "rule": "OTHERWISE TRUE",
+          "advice": [
+            "ALWAYS E11.9",
+            "CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED"
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024 12:10:07 PM
 -----------------------------------------------------
 ```
 
