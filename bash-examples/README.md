@@ -17,7 +17,7 @@ token. All scripts accept a --help flag with additional examples.
 
 Test Scripts
 ------------
-- [Login](#login-login-sh)
+- [Login](#login-loginsh)
 - [Get terminologies](#get-terminologies-get-terminologies-sh)
 - [Get project terminologies](#get-project-terminologies-get-terminologies-sh)
 - [Get specific terminology](#get-terminology-get-terminology-sh)

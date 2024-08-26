@@ -26,7 +26,7 @@ if [ ${#arr[@]} -ne 0 ] || [ -z $token ]; then
   echo "  e.g. $0 --token \$token --limit 100"
   echo "  e.g. $0 --token \$token --limit 5 --sort abbreviation"
   echo "  e.g. $0 --token \$token --query SNOMEDCT_US"
-  echo "  e.g. $0 --token \$token --id 166c6448-318e-4ddc-a6a8-374274e17e5"
+  echo "  e.g. $0 --token \$token --id 1e523c73-dfe8-4299-92ee-b7a8ece57769"
   echo "  e.g. $0 --token \$token --project sandbox"
   exit 1
 fi
@@ -52,7 +52,7 @@ echo "  Performing terminologies lookup"
 if [ ! -z $id ]; then
   target_url="$url/terminology/$id"
   curl -v -w "\n%{http_code}" -G "$target_url" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
-else
+elif [ ! -z $project ]; then
   target_url="$url/project/$project/terminology"
   curl -v -w "\n%{http_code}" -G "$target_url" -H "Authorization: Bearer $token" 2> /dev/null > /tmp/x.$$
 else
