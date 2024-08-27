@@ -290,19 +290,6 @@ See sample payload data from this call in [`samples/get-mapsets-sandbox.txt`](sa
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 
-### Export mapset
-
-Export zip file of a mapset in a particular format.  Currently only format=native is
-supported.
-
-```
-curl -o SNOMEDCT_US-ICD10CM.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/export?format=native"
-```
-
-No payload sample as the output is a .zip file.
-
-[Back to Top](#termhub-in-5-minutes-curl-tutorial)
-
 ### Get mapset
 
 Return a specific mapset by its id. The UUID below is an example
@@ -315,6 +302,19 @@ curl -H "Authorization: Bearer $token" "$API_URL/mapset/2a545e12-04eb-48ee-b988-
 ```
 
 See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10cm.txt`](samples/get-mapset-snomedct_us-icd10cm.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Export mapset
+
+Export zip file of a mapset in a particular format.  Currently only format=native is
+supported.
+
+```
+curl -o SNOMEDCT_US-ICD10CM.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/export?format=native"
+```
+
+No payload sample as the output is a .zip file.
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
