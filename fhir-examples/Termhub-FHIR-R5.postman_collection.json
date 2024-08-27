@@ -1132,7 +1132,7 @@
 					"response": []
 				},
 				{
-					"name": "Translate code by system+code for a specific mapset Copy",
+					"name": "Translate source code for a specific concept map",
 					"request": {
 						"method": "GET",
 						"header": [],
