@@ -36,21 +36,9 @@ Test Scripts
 - [Get project mapsets](#get-project-mapsets)
 - [Get specific mapset](#get-mapset)
 - [Export mapset](#export-mapset)
-- [Get mappings for concept by code](#get-mappings-for-concept-by-code)
+- [Get concept mappings by code](#get-concept-mappings-by-code)
 - [Find project mappings for mapset](#find-project-mapset-mappings)
 - [Find project mappings](#find-project-mappings)
-
-- [Get specific terminology](#get-terminology-get-terminology-sh)
-- [export-terminology.sh](#export-terminology-sh)
-- [get-concept.sh](#get-concept-sh)
-- [get-concept-relationships.sh](#get-concept-relationships-sh)
-- [get-concept-treepos.sh](#get-concept-treepos-sh)
-- [find-concepts.sh](#find-concepts-sh)
-- [find-terms.sh](#find-terms-sh)
-- [autocomplete.sh](#autocomplete-sh)
-- [get-mapsets.sh](#get-mapsets-sh)
-- [export-mapset.sh](#export-mapset-sh)
-- [find-mappings.sh](#find-mappings-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -245,7 +233,7 @@ Finished ...Mon, Aug 26, 2024  4:33:02 PM
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### <a id="get-terminology" />Get terminology - find-terminologies.sh
+### <a id="get-terminology" />Get specific terminology - find-terminologies.sh
 
 Return a specific terminology by its terminology id.  The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
@@ -324,33 +312,34 @@ Finished ...Mon, Aug 26, 2024  4:35:02 PM
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### export-terminology.sh
+### <a id="export-terminology" />Export terminology - export-terminology.sh
 
-Exports a terminology for the given project id (or uriLabel) and terminology
+Export terminology for the given project id (or uriLabel) and terminology
 
 ```
 $ ./export-terminology.sh --token $token sandbox SNOMEDCT
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:33:19 PM
+Starting ...Mon, Aug 26, 2024  4:42:51 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 
   Performing terminology export to file SNOMEDCT.zip
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:33:22 PM
+Finished ...Mon, Aug 26, 2024  4:42:54 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-concept.sh
+### <a id="get-concept-by-code" />Get concept by code - get-concept.sh
 
-Return summary concept information for a given terminology and code. The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
+Return summary concept information for a given terminology and code. 
+The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
 
 ```
 $ ./get-concept.sh sandbox SNOMEDCT 73211009 --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:33:36 PM
+Starting ...Mon, Aug 26, 2024  4:43:47 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -482,19 +471,24 @@ include = summary
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:33:37 PM
+Finished ...Mon, Aug 26, 2024  4:43:47 PM
 -----------------------------------------------------
 ```
 
-The get-concept.sh script also supports use of the "include" parameter to specify the 
-amount of concept data to return. The example below performs the search from the prior
-example but brings back only concept info plus parents.  For more information see
-[INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-concept-by-code-with-explicit-include-parameter" />Get concept by code with explicit include parameter - get-concept.sh
+
+Return summary concept information for a given terminology and code and use --include to
+specify exactly which parts of the concept to return.
+The following example gets the 73211009 | Diabetes mellitus | concept in SNOMEDCT with "parents".
+
+For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
 
 ```
 $ ./get-concept.sh sandbox SNOMEDCT 73211009 --include parents --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:34:00 PM
+Starting ...Mon, Aug 26, 2024  4:45:15 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -546,22 +540,23 @@ include = parents
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:34:01 PM
+Finished ...Mon, Aug 26, 2024  4:45:15 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-concept-relationships.sh
+### <a id="get-concept-relationships-by-code" />Get concept relationships by code - get-concept-relationships.sh
 
-Get concept relationships for a terminology and code. In this case it resolves
+Return concept relationships for a given terminology and code.  This resolves
 relationships that originate "from" this concept code and contains information about
-the concepts those relationships point "to" on the other side.
+the concepts those relationships point "to" on the other side.  The following example gets
+relationships for the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
 
 ```
 $ ./get-concept-relationships.sh sandbox SNOMEDCT 73211009 --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:34:14 PM
+Starting ...Mon, Aug 26, 2024  4:46:23 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -720,18 +715,22 @@ code = 73211009
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:34:15 PM
+Finished ...Mon, Aug 26, 2024  4:46:23 PM
 -----------------------------------------------------
 ```
 
-This same script can be used to get inverse concept relationships for a terminology
-and code. In this case it resolves relationships that originate "from" another
-concept and point "to" this concept code. For this mode, use the `--inverse` parameter.
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-concept-inverse-relationships-by-code" />Get concept inverse relationships by code - get-concept-relationships.sh
+
+Return inverse concept relationships for a given terminology and code.  This resolves
+relationships that point "to" this concept code and contains information about
+the concepts those relationships originate "from" on the other side.  The following example gets
+inverse relationships for the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
 
 ```
-$ ./get-concept-relationships.sh sandbox SNOMEDCT 113331007 --inverse --token $token
------------------------------------------------------
-Starting ...Thu, May 16, 2024  6:34:33 PM
+$ -----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  4:47:40 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -891,24 +890,19 @@ code = 113331007
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:34:34 PM
+Finished ...Mon, Aug 26, 2024  4:47:40 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-concept-treepos.sh
+### <a id="get-concept-trees" />Get concept trees - get-concept-treepos.sh
 
-Get concept tree positions for a terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept.
-Return tree position information for a given terminology and code. The 
-following example finds relationships for the 73211009 | Diabetes mellitus | concept in 
-SNOMEDCT. 
-
+Return concept tree positions for a given terminology and code. For classification hierarchies, you would expect to see just a single tree position. But for more complex poly-hierarchies you'd likely expect to see multiple tree positions - each one with a different path to the root concept. The  following example finds tree positions for the 73211009 | Diabetes mellitus | concept in SNOMEDCT. 
 
 ```
-$ ./get-concept-treepos.sh sandbox SNOMEDCT 73211009 --token $token
------------------------------------------------------
-Starting ...Thu, May 16, 2024  6:35:02 PM
+$ -----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  4:49:24 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -1247,22 +1241,22 @@ code = 73211009
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:35:03 PM
+Finished ...Mon, Aug 26, 2024  4:49:25 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### find-concepts.sh
+### <a id="find-concepts-by-search-term" />Find concepts by search term (use paging to get only first 5 results - find-concepts.sh
 
-Used to perform text searches to find matching concepts. The following example
-performs a text search for "diabetes mellitus" and limits search results to 5
+Return concepts matching a given text search for a given terminology. The following example
+performs a text search for "diabetes mellitus" in SNOMEDCT and limits search results to 5
 entries.
 
 ```
 $ ./find-concepts.sh sandbox SNOMEDCT "diabetes mellitus"  --token $token --limit 5
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:35:28 PM
+Starting ...Mon, Aug 26, 2024  4:50:57 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -1368,18 +1362,236 @@ ascending =
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:35:29 PM
+Finished ...Mon, Aug 26, 2024  4:50:57 PM
 -----------------------------------------------------
 ```
 
-This example performs a search that returns all descendants of the SNOMED
-64572001 | Disease | concept that contain the word "system" with a maximum
-of 5 results.
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-concepts-by-search-term-with-explicit-include-parameter" />Find concepts by search term with explicit include parameter - find-concepts.sh
+
+Return concepts matching a given text search for a given terminology and use --include to
+specify exactly which parts of the concept to return. The following example
+performs a text search for "diabetes mellitus" in SNOMEDCT and limits search results to 5
+entries and includes information about "parent" concepts.
+
+For more information see [INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
+
+```
+$ ./find-concepts.sh sandbox SNOMEDCT "system" --token $token --limit 5 --include parents
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:22:02 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+query = system
+expr =
+offset = 0
+limit = 5
+sort =
+ascending =
+
+  Find concepts: (terminology:SNOMEDCT) AND system
+
+    {
+      "total": 133,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT) AND system",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "d3a32967-ded2-44f2-bb28-00b76aafd33b",
+          "confidence": 5.855079650878906,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of cardiovascular system",
+          "code": "49601007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": true,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Disorder of body system",
+              "code": "362965005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            },
+            {
+              "local": false,
+              "active": true,
+              "name": "Cardiovascular finding",
+              "code": "106063007",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            }
+          ]
+        },
+        {
+          "id": "817af3af-8008-4566-8b9a-75c6ee125749",
+          "confidence": 5.840748310089111,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Structure of cardiovascular system",
+          "code": "113257007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Body system structure",
+              "code": "91689009",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "fa06a994-af25-4656-9a59-1e74758c900d",
+          "confidence": 5.827065944671631,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Entire cardiovascular system",
+          "code": "278198007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Structure of cardiovascular system",
+              "code": "113257007",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            },
+            {
+              "local": false,
+              "active": true,
+              "name": "Entire body system",
+              "code": "278195005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "5d18a92d-b2bc-4d03-a6df-423a9c9dcb26",
+          "confidence": 5.664218425750732,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Structure of endocrine system",
+          "code": "113331007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Structure of breast and/or endocrine system",
+              "code": "305072005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "8c2c7c69-d19d-4d20-adf9-80b13ec6d6e2",
+          "confidence": 5.627072334289551,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Procedure on body system",
+          "code": "118664000",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Procedure by site",
+              "code": "362958002",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            }
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  5:22:03 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-concepts-by-search-term-and-expression" />Find concepts by search term and expression - find-concepts.sh
+
+Return concepts matching a given text search for a given terminology and only match concepts
+that resolve for a given ECL expression. The following example
+performs a text search for "diabetes mellitus" in SNOMEDCT for the ECL expression "<64572001" 
+and limits search results to 5 entries.
+
+For more information see [ECL.md](../doc/ECL.md "ECL.md").
 
 ```
 $ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:35:47 PM
+Starting ...Mon, Aug 26, 2024  5:19:29 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -1486,252 +1698,24 @@ ascending =
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:35:48 PM
------------------------------------------------------
-```
-
-The find-concepts.sh script also supports use of the "include" parameter to specify the 
-amount of concept data to return.  The include parameter has a few helpful shortcut values (minimal, summary, full) and also allows you to individually select parts of the full concept model that you are interested in. 
-
-The example below performs the search from the prior
-example but brings back concept info plus parents.  For more information see
-[INCLUDE.md](../doc/INCLUDE.md "INCLUDE.md").
-
-```
-$ ./find-concepts.sh sandbox SNOMEDCT "system" --expr "<64572001" --token $token --limit 5 --include parents
------------------------------------------------------
-Starting ...Thu, May 16, 2024  6:36:03 PM
------------------------------------------------------
-url = https://api.terminologyhub.com
-terminology = SNOMEDCT
-project = sandbox
-query = system
-expr = <64572001
-offset = 0
-limit = 5
-sort =
-ascending =
-
-  Find concepts: (terminology:SNOMEDCT) AND system
-
-    {
-      "total": 7,
-      "parameters": {
-        "query": "(terminology:SNOMEDCT) AND system",
-        "expression": "<64572001",
-        "limit": 5,
-        "offset": 0
-      },
-      "items": [
-        {
-          "id": "d3a32967-ded2-44f2-bb28-00b76aafd33b",
-          "confidence": 10.569323539733887,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of cardiovascular system",
-          "code": "49601007",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": true,
-          "defined": true,
-          "parents": [
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of body system",
-              "code": "362965005",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            },
-            {
-              "local": false,
-              "active": true,
-              "name": "Cardiovascular finding",
-              "code": "106063007",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            }
-          ]
-        },
-        {
-          "id": "510b444c-1f96-4776-8be8-ceb0c4d8d83a",
-          "confidence": 10.095866203308105,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of body system",
-          "code": "362965005",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true,
-          "parents": [
-            {
-              "local": false,
-              "active": true,
-              "name": "Disease",
-              "code": "64572001",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": false
-            }
-          ]
-        },
-        {
-          "id": "2d35dd1d-fc59-449e-9bda-a74e922c2514",
-          "confidence": 10.052236557006836,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of endocrine system",
-          "code": "362969004",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true,
-          "parents": [
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of body system",
-              "code": "362965005",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            }
-          ]
-        },
-        {
-          "id": "1ff90ce3-66c1-444e-ab67-e34ac53fc2c0",
-          "confidence": 6.616611480712891,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Diabetes mellitus",
-          "code": "73211009",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": true,
-          "defined": false,
-          "parents": [
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of endocrine system",
-              "code": "362969004",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            },
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of glucose metabolism",
-              "code": "126877002",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": false
-            }
-          ]
-        },
-        {
-          "id": "018d243d-3ecb-4a46-b180-73ca38191330",
-          "confidence": 6.48627233505249,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Disorder of breast",
-          "code": "79604008",
-          "terminology": "SNOMEDCT",
-          "version": "20240101",
-          "publisher": "SANDBOX",
-          "leaf": false,
-          "defined": true,
-          "parents": [
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of body system",
-              "code": "362965005",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            },
-            {
-              "local": false,
-              "active": true,
-              "name": "Disorder of thorax",
-              "code": "118946009",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            },
-            {
-              "local": false,
-              "active": true,
-              "name": "Breast finding",
-              "code": "116339002",
-              "terminology": "SNOMEDCT",
-              "version": "20240101",
-              "publisher": "SANDBOX",
-              "leaf": false,
-              "defined": true
-            }
-          ]
-        }
-      ]
-    }
-
------------------------------------------------------
-Finished ...Thu, May 16, 2024  6:36:05 PM
+Finished ...Mon, Aug 26, 2024  5:19:30 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### find-terms.sh
+### <a id="find-terms-by-search-term" />Find terms by search term - find-terms.sh
 
-Used to perform text searches to find terms matching a particular terminology.  
+Return terms matching a given text search for a given terminology.  
 While in many instances it is most useful to directly find concepts with matching 
 terms, this call allows users to isolate exactly those terms that resolve from a search.
+
+The following example performs a text search for "diabetes" in SNOMEDCT.
 
 ```
 $ ./find-terms.sh sandbox SNOMEDCT diabetes --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:36:26 PM
+Starting ...Mon, Aug 26, 2024  4:55:14 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -1855,22 +1839,23 @@ ascending =
     }
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:36:27 PM
+Finished ...Mon, Aug 26, 2024  4:55:14 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### autocomplete.sh
+### <a id="support-autocompletetypeahead-for-first-few-characters-typed" />Support autocomplete/typeahead for first few characters typed - autocomplete.sh
 
-This script demonstrates an autocomplete or typeahead for a user interface feature 
-to find potential search terms for a few starting characters.  By default it produces
-10 results.
+Return autocompletions or typeaheads given a partial text string for a given terminology.
+This is primarily intended to support a user interface completion feature and identify 
+to potential search terms based on a few starting characters.  The following example yields 
+potentially matching strings in SNOMEDCT for the string "diab".
 
 ```
 $ ./autocomplete.sh sandbox SNOMEDCT diab --token $token
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  4:01:54 PM
+Starting ...Mon, Aug 26, 2024  4:56:14 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -1890,25 +1875,26 @@ limit = 10
     ]
 
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  4:01:56 PM
+Finished ...Mon, Aug 26, 2024  4:56:14 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### get-mapsets.sh
+### <a id="get-mapsets" />Get mapsets - find-mapsets.sh
 
-Return all loaded mapsets currently hosted by the API. This supports offset, limit,
+Return all loaded mapsets currently hosted by the API (limited to 2 entries). This supports offset, limit,
 sort, and ascending parameters to control amount and order of mapset information.
 
 ```
-$ ./get-mapsets.sh  --token $token --limit 1
+$ ./find-mapsets.sh  --token $token --limit 2
 -----------------------------------------------------
-Starting ...Mon, Aug 26, 2024 12:01:46 PM
+Starting ...Mon, Aug 26, 2024  4:57:40 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
+query =
 offset = 0
-limit = 1
+limit = 2
 sort =
 ascending =
 
@@ -1917,7 +1903,7 @@ ascending =
       "total": 11,
       "parameters": {
         "query": "loaded:true",
-        "limit": 1,
+        "limit": 2,
         "offset": 0
       },
       "items": [
@@ -1965,45 +1951,361 @@ ascending =
             "mappingsActive": 169,
             "uniqueToCodes": 85
           }
+        },
+        {
+          "id": "145e8ada-d079-420f-af9d-783a9b3a5c29",
+          "confidence": 0.03922070935368538,
+          "modified": "2024-08-21T17:26:41.670+00:00",
+          "created": "2024-08-21T17:26:41.670+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "NDC-CVX",
+          "name": "Mapset from NDC 20240704 to CVX 20240729",
+          "version": "20240729",
+          "publisher": "CDC",
+          "latest": false,
+          "loaded": true,
+          "code": "NDC-CVX",
+          "fromPublisher": "FDA",
+          "fromTerminology": "NDC",
+          "fromVersion": "20240704",
+          "toPublisher": "CDC",
+          "toTerminology": "CVX",
+          "toVersion": "20240729",
+          "terminology": "CVX",
+          "description": "Mapset from NDC 20240704 to CVX 20240729",
+          "releaseDate": "2024-07-29",
+          "attributes": {
+            "complexity": "simple",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=NDC-CVX",
+            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+            "origin-version": "20240729",
+            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+            "fhirToTerminologyVersion": "20240729",
+            "fhirVersion": "20240729",
+            "fhirFromTerminologyVersion": "20240704",
+            "origin-terminology": "CVX",
+            "cardinality": "N-1",
+            "fhirId": "cdc_ndc-cvx_20240729"
+          },
+          "statistics": {
+            "mappings": 169,
+            "uniqueFromCodes": 169,
+            "mappingsEmptyTarget": 0,
+            "mappingsActive": 169,
+            "uniqueToCodes": 85
+          }
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Mon, Aug 26, 2024 12:01:47 PM
+Finished ...Mon, Aug 26, 2024  4:57:40 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### export-terminology.sh
+### <a id="get-project-mapsets" />Get project mapsets - find-mapsets.sh
 
-Exports a terminology for the given project id (or uriLabel) and terminology
+Return all mapsets for specific project identified by either project id or project uriLabel.
 
 ```
-$ ./export-terminology.sh --token $token sandbox SNOMEDCT
+$ ./find-mapsets.sh --token $token --project sandbox
 -----------------------------------------------------
-Starting ...Thu, May 16, 2024  6:33:19 PM
+Starting ...Mon, Aug 26, 2024  4:58:47 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+project = sandbox
+
+  Performing mapsets lookup
+    [
+      {
+        "id": "2a545e12-04eb-48ee-b988-c17346b4e05f",
+        "confidence": 4.5325422286987305,
+        "modified": "2024-08-23T18:59:26.487+00:00",
+        "created": "2024-08-23T18:59:26.487+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-ICD10CM",
+        "name": "Mapset from SNOMEDCT_US 20240301 to ICD10CM 2023",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "code": "6011000124106",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "toPublisher": "SANDBOX",
+        "toTerminology": "ICD10CM",
+        "toVersion": "2023",
+        "terminology": "SNOMEDCT_US",
+        "description": "ICD-10-CM complex map reference set",
+        "releaseDate": "2024-03-01",
+        "attributes": {
+          "complexity": "complex",
+          "fhirUri": "http://snomed.info/sct?fhir_cm=6011000124106",
+          "fhirFromTerminologyUri": "http://snomed.info/sct",
+          "origin-version": "20240301",
+          "fhirToTerminologyUri": "http://hl7.org/fhir/sid/icd-10-cm",
+          "fhirToTerminologyVersion": "2023",
+          "fhirVersion": "20240301",
+          "fhirFromTerminologyVersion": "20240301",
+          "origin-terminology": "SNOMEDCT_US",
+          "cardinality": "N-N",
+          "fhirId": "sandbox_snomedct_us-icd10cm_20240301"
+        },
+        "statistics": {
+          "mappings": 64,
+          "uniqueFromCodes": 41,
+          "mappingsEmptyTarget": 15,
+          "mappingsActive": 64,
+          "uniqueToCodes": 35
+        }
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  4:58:47 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-mapset" />Get specific mapset - find-mapsets.sh
+
+Return a specific mapset by its mapset id.  The UUID below is an example
+that may or may not work.  The idea is to take one of the mapset ids returned
+by one of the previous calls and you can then look up mapset info for specifically that
+UUID.
+
+```
+$ ./find-mapsets.sh --token $token --id 2a545e12-04eb-48ee-b988-c17346b4e05f
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:00:13 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+query =
+offset = 0
+limit = 10
+sort =
+ascending =
+id = 2a545e12-04eb-48ee-b988-c17346b4e05f
+
+  Performing mapsets lookup
+    {
+      "id": "2a545e12-04eb-48ee-b988-c17346b4e05f",
+      "confidence": 3.220355987548828,
+      "modified": "2024-08-23T18:59:26.487+00:00",
+      "created": "2024-08-23T18:59:26.487+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "SNOMEDCT_US-ICD10CM",
+      "name": "Mapset from SNOMEDCT_US 20240301 to ICD10CM 2023",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "latest": true,
+      "loaded": true,
+      "code": "6011000124106",
+      "fromPublisher": "SANDBOX",
+      "fromTerminology": "SNOMEDCT_US",
+      "fromVersion": "20240301",
+      "toPublisher": "SANDBOX",
+      "toTerminology": "ICD10CM",
+      "toVersion": "2023",
+      "terminology": "SNOMEDCT_US",
+      "description": "ICD-10-CM complex map reference set",
+      "releaseDate": "2024-03-01",
+      "attributes": {
+        "complexity": "complex",
+        "fhirUri": "http://snomed.info/sct?fhir_cm=6011000124106",
+        "fhirFromTerminologyUri": "http://snomed.info/sct",
+        "origin-version": "20240301",
+        "fhirToTerminologyUri": "http://hl7.org/fhir/sid/icd-10-cm",
+        "fhirToTerminologyVersion": "2023",
+        "fhirVersion": "20240301",
+        "fhirFromTerminologyVersion": "20240301",
+        "origin-terminology": "SNOMEDCT_US",
+        "cardinality": "N-N",
+        "fhirId": "sandbox_snomedct_us-icd10cm_20240301"
+      },
+      "statistics": {
+        "mappings": 64,
+        "uniqueFromCodes": 41,
+        "mappingsEmptyTarget": 15,
+        "mappingsActive": 64,
+        "uniqueToCodes": 35
+      }
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  5:00:14 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="export-mapset" />Export mapset - export-mapsets.sh
+
+Export a mapset for the given project id (or uriLabel) and mapset abbreviation or id.
+
+```
+$ ./export-mapset.sh --token $token sandbox SNOMEDCT_US-ICD10CM
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:01:21 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 
-  Performing terminology export to file SNOMEDCT.zip
+  Performing mapset export to file SNOMEDCT_US-ICD10CM.zip
 -----------------------------------------------------
-Finished ...Thu, May 16, 2024  6:33:22 PM
+Finished ...Mon, Aug 26, 2024  5:01:24 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
-### find-mappings.sh
 
-Used to perform text searches to find matching mappings. The following example
+### <a id="get-concept-mappings-by-code" />Get concept mappings by code - find-mappings.sh
+
+Return concept mappings for a given terminology and code.  This resolves
+mappings that originate "from" this concept code and contains information about
+the concepts those mappings point "to" on the other side.  The following example gets
+mappings for the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
+
+```
+$ ./get-concept-mappings.sh sandbox SNOMEDCT_US 73211009 --token $token
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:34:01 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT_US
+code = 73211009
+
+  Get concept mappings for SNOMEDCT_US 73211009:
+
+    [
+      {
+        "id": "f012f377-2d76-408e-a107-66378e26fc46",
+        "confidence": 29.986011505126953,
+        "modified": "2024-08-23T18:59:26.845+00:00",
+        "created": "2024-08-23T18:59:26.845+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "terminology": "SNOMEDCT_US",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "componentId": "48160c75-415b-5ead-8160-f215b8274218",
+        "mapset": {
+          "local": false,
+          "active": true,
+          "abbreviation": "SNOMEDCT_US-ICD10CM",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "code": "6011000124106"
+        },
+        "from": {
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "code": "73211009",
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false
+        },
+        "to": {
+          "local": false,
+          "active": true,
+          "name": "Type 1 diabetes mellitus without complications",
+          "code": "E10.9",
+          "terminology": "ICD10CM",
+          "version": "2023",
+          "publisher": "SANDBOX",
+          "leaf": true
+        },
+        "group": "1",
+        "priority": "1",
+        "rule": "IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years",
+        "advice": [
+          "IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9",
+          "DESCENDANTS NOT EXHAUSTIVELY MAPPED",
+          "MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT"
+        ]
+      },
+      {
+        "id": "8e05c2bd-7f77-4cd1-9edd-1c4185d2e818",
+        "confidence": 29.986011505126953,
+        "modified": "2024-08-23T18:59:26.844+00:00",
+        "created": "2024-08-23T18:59:26.844+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "terminology": "SNOMEDCT_US",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "componentId": "e32ce76e-74df-504f-9a21-03e528c5e7d7",
+        "mapset": {
+          "local": false,
+          "active": true,
+          "abbreviation": "SNOMEDCT_US-ICD10CM",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "code": "6011000124106"
+        },
+        "from": {
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "code": "73211009",
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false
+        },
+        "to": {
+          "local": false,
+          "active": true,
+          "name": "Type 2 diabetes mellitus without complications",
+          "code": "E11.9",
+          "terminology": "ICD10CM",
+          "version": "2023",
+          "publisher": "SANDBOX",
+          "leaf": true
+        },
+        "group": "1",
+        "priority": "2",
+        "rule": "OTHERWISE TRUE",
+        "advice": [
+          "ALWAYS E11.9",
+          "CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE",
+          "DESCENDANTS NOT EXHAUSTIVELY MAPPED"
+        ]
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  5:34:02 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-project-mapset-mappings" />Find project mappings for mapset - find-mappings.sh
+
+Return mappings matching a given text search. The following example
 performs a text search in the "to" concept name for "diabetes" and limits search results to 5
 entries.  It searches across all mapsets in the project.
 
 ```
 $ ./find-mappings.sh sandbox "to.name:diabetes"  --token $token --limit 5
 -----------------------------------------------------
-Starting ...Mon, Aug 26, 2024 12:10:05 PM
+Starting ...Mon, Aug 26, 2024  5:04:33 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 project = sandbox
@@ -2128,7 +2430,288 @@ ascending =
     }
 
 -----------------------------------------------------
-Finished ...Mon, Aug 26, 2024 12:10:07 PM
+Finished ...Mon, Aug 26, 2024  5:04:33 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-project-mapset-mappings" />Find project mappings for mapset - find-mappings.sh
+
+Return mappings matching a given text search for a given mapset. The following example
+performs a text search in the "to" concept name for "diabetes" and limits search results to 5
+entries.  It searches only within the SNOMEDCT_US-ICD10CM mapset in the specified project.
+
+```
+$ ./find-mappings.sh sandbox to.name:diabetes --mapset SNOMEDCT_US-ICD10CM --token $token
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:08:10 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+project = sandbox
+mapset = SNOMEDCT_US-ICD10CM
+query = to.name:diabetes
+offset = 0
+limit = 10
+sort =
+ascending =
+
+  Find mappings: to.name:diabetes
+
+    {
+      "total": 2,
+      "parameters": {
+        "query": "to.name:diabetes",
+        "limit": 10,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "f012f377-2d76-408e-a107-66378e26fc46",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.845+00:00",
+          "created": "2024-08-23T18:59:26.845+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "48160c75-415b-5ead-8160-f215b8274218",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 1 diabetes mellitus without complications",
+            "code": "E10.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "1",
+          "rule": "IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years",
+          "advice": [
+            "IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED",
+            "MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT"
+          ]
+        },
+        {
+          "id": "8e05c2bd-7f77-4cd1-9edd-1c4185d2e818",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.844+00:00",
+          "created": "2024-08-23T18:59:26.844+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "e32ce76e-74df-504f-9a21-03e528c5e7d7",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 2 diabetes mellitus without complications",
+            "code": "E11.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "2",
+          "rule": "OTHERWISE TRUE",
+          "advice": [
+            "ALWAYS E11.9",
+            "CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED"
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  5:08:10 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-project-mappings" />Find project mappings - find-mappings.sh
+
+Return mappings matching a given text search for a given mapset. The following example
+performs a text search in the "to" concept name for "diabetes" and limits search results to 5
+entries. It searches across all mapsets in the project.  It produces the same results as
+the previous call because this is the only mapset configured in the sandbox project.
+
+```
+$ ./find-mappings.sh sandbox "to.name:diabetes"  --token $token --limit 5
+-----------------------------------------------------
+Starting ...Mon, Aug 26, 2024  5:08:41 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+project = sandbox
+mapset =
+query = to.name:diabetes
+offset = 0
+limit = 5
+sort =
+ascending =
+
+  Find mappings: to.name:diabetes
+
+    {
+      "total": 2,
+      "parameters": {
+        "query": "to.name:diabetes",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "f012f377-2d76-408e-a107-66378e26fc46",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.845+00:00",
+          "created": "2024-08-23T18:59:26.845+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "48160c75-415b-5ead-8160-f215b8274218",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 1 diabetes mellitus without complications",
+            "code": "E10.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "1",
+          "rule": "IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years",
+          "advice": [
+            "IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED",
+            "MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT"
+          ]
+        },
+        {
+          "id": "8e05c2bd-7f77-4cd1-9edd-1c4185d2e818",
+          "confidence": 14.933408737182617,
+          "modified": "2024-08-23T18:59:26.844+00:00",
+          "created": "2024-08-23T18:59:26.844+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "e32ce76e-74df-504f-9a21-03e528c5e7d7",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 2 diabetes mellitus without complications",
+            "code": "E11.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "2",
+          "rule": "OTHERWISE TRUE",
+          "advice": [
+            "ALWAYS E11.9",
+            "CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED"
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Aug 26, 2024  5:08:41 PM
 -----------------------------------------------------
 ```
 

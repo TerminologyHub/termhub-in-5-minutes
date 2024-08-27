@@ -44,8 +44,8 @@ The following examples can be typed into the command line of any terminal that h
 - [Get project mapsets](#get-project-mapsets)
 - [Get specific mapset](#get-mapset)
 - [Export mapset](#export-mapset)
-- [Get mappings for concept by code](#get-mappings-for-concept-by-code)
-- [Find project mappings for mapset](#find-project-mapset-mappings)
+- [Get concept mappings by code](#get-concept-mappings-by-code)
+- [Find project mappings for mapset](#find-project-mappings-for-mapset)
 - [Find project mappings](#find-project-mappings)
 
 ### Login
@@ -90,7 +90,7 @@ See sample payload data from this call in [`samples/get-terminologies-sandbox.tx
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
-### 
+### Get terminology
 
 Return a specific terminology by its terminologyId. The UUID below is an example
 that may or may not work.  The idea is to take one of the terminology ids returned
@@ -318,7 +318,7 @@ See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
-### Get mappings for concept by code
+### Get concept mappings by code
 
 Get concept mappings for a terminology and code. In this case it resolves
 mappings that originate "from" this concept code and contains information about
