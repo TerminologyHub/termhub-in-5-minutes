@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bdc5427f-9cb6-4009-b851-9f28d15c9c04",
+		"_postman_id": "47514762-5d6c-41c1-a69d-6bda234ceeb4",
 		"name": "Termhub FHIR R4",
 		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -25,6 +25,27 @@
 								"{{idOrUriLabel}}",
 								"fhir",
 								"CodeSystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get code system by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/177f2263-fe04-4f1f-b0e6-9b351ab8baa9",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"CodeSystem",
+								"177f2263-fe04-4f1f-b0e6-9b351ab8baa9"
 							]
 						}
 					},
@@ -509,12 +530,34 @@
 					"response": []
 				},
 				{
+					"name": "Get value set by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/177f2263-fe04-4f1f-b0e6-9b351ab8baa9_entire",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"177f2263-fe04-4f1f-b0e6-9b351ab8baa9_entire"
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
 					"name": "Find value sets by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_id=13b52fe9-3260-4115-b321-0c1d07e1677f_entire",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?_id=177f2263-fe04-4f1f-b0e6-9b351ab8baa9_entire",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -527,7 +570,7 @@
 							"query": [
 								{
 									"key": "_id",
-									"value": "13b52fe9-3260-4115-b321-0c1d07e1677f_entire"
+									"value": "177f2263-fe04-4f1f-b0e6-9b351ab8baa9_entire"
 								}
 							]
 						},
@@ -936,6 +979,238 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get concept map by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap/2a545e12-04eb-48ee-b988-c17346b4e05f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap",
+								"2a545e12-04eb-48ee-b988-c17346b4e05f"
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find concept map by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap?_id=2a545e12-04eb-48ee-b988-c17346b4e05f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "2a545e12-04eb-48ee-b988-c17346b4e05f"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find concept map by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap?url=http://snomed.info/sct?fhir_cm=6011000124106",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_cm=6011000124106"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find concept maps - default search by fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap?name=Mapset from SNOMEDCT_US 20240301 to ICD10CM 2023&title=SNOMEDCT_US-ICD10CM&publisher=SANDBOX&version=20240301",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Mapset from SNOMEDCT_US 20240301 to ICD10CM 2023"
+								},
+								{
+									"key": "title",
+									"value": "SNOMEDCT_US-ICD10CM"
+								},
+								{
+									"key": "publisher",
+									"value": "SANDBOX"
+								},
+								{
+									"key": "version",
+									"value": "20240301"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Translate code by system+code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap/$translate?system=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20240301&code=73211009",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/731000124108/version/20240301"
+								},
+								{
+									"key": "code",
+									"value": "73211009"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Translate code by system+code for a specific mapset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap/$translate?system=http://snomed.info/sct&version=http://snomed.info/sct/731000124108/version/20240301&code=73211009&url=http://snomed.info/sct?fhir_cm=6011000124106",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://snomed.info/sct"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/731000124108/version/20240301"
+								},
+								{
+									"key": "code",
+									"value": "73211009"
+								},
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_cm=6011000124106"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Reverse translate code by targetSystem+code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ConceptMap/$translate?targetSystem=http://hl7.org/fhir/sid/icd-10-cm&code=E11.9&reverse=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ConceptMap",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "targetSystem",
+									"value": "http://hl7.org/fhir/sid/icd-10-cm"
+								},
+								{
+									"key": "code",
+									"value": "E11.9"
+								},
+								{
+									"key": "version",
+									"value": "not needed",
+									"disabled": true
+								},
+								{
+									"key": "reverse",
+									"value": "true"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
 				}
 			],
 			"description": "Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server",
@@ -986,12 +1261,12 @@
 		"oauth2": [
 			{
 				"key": "password",
-				"value": "",
+				"value": "{{TERMHUB_PASSWORD}}",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "",
+				"value": "{{TERMHUB_USER}}",
 				"type": "string"
 			},
 			{
@@ -1039,6 +1314,16 @@
 		{
 			"key": "idOrUriLabel",
 			"value": "sandbox",
+			"type": "string"
+		},
+		{
+			"key": "TERMHUB_USER",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TERMHUB_PASSWORD",
+			"value": "",
 			"type": "string"
 		}
 	]

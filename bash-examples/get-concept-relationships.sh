@@ -40,7 +40,6 @@ echo "code = $code"
 if [[ $inverse -eq 1 ]]; then
   echo "inverse = true"
 fi
-echo "code = $code"
 echo ""
 
 if [[ -z $offset ]]; then
