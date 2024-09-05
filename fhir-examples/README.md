@@ -40,6 +40,10 @@ Once loaded in, you will see the calls divided into four sections.
 
 Returns a bundle of all code systems for the specified proejct.
 
+*Get code system by id*
+
+Returns the code system for the specified `_id` parameter.\
+
 *Find code systems by id*
 
 Returns a bundle containing the code system for the specified `_id` parameter.
@@ -96,6 +100,10 @@ Same as the prior call but for a LOINC code.
 
 Returns a bundle of all value sets for the specified project.  TermHub always returns value sets in this call that represent all of the codes of the terminology.  Thus, there will always be at least one value set for each code system in the project.
 
+*Get value set by id*
+
+Returns the value set for the specified `_id` parameter.
+
 *Find value sets by id*
 
 Returns a bundle containing the value set for the specified `_id` parameter.
@@ -143,7 +151,37 @@ Returns a value set containing an expansion of performing an ECL query against S
 
 *Get all concept maps*
 
-We are working on implementing concept maps and currently there are none loaded for testing.
+Returns a bundle of all concept maps for the specified project.
+
+*Get concept map by id*
+
+Returns the concept map for the specified `_id` parameter.
+
+*Find concept maps by id*
+
+Returns a bundle containing the concept map for the specified `_id` parameter.
+
+*Find concept maps by url*
+
+Returns a bundle containing the concept map for the specified `url` parameter.
+
+*Find concept maps - default search by fields*
+
+Returns a bundle containing the concept maps matching the various search fields.  This is provided as an example of "default" search of a number of different fields.  The combination of parameters finds exactly one value set in the sandbox project.  Additional examples for "contains", "startsWith", and "exact" search are not provided here, but the examples in the code system section should provide a basis for how to do similar things.
+
+*Translate code by system+code (or Translate source code)
+
+Returns matching target codes for the specified source system and code across all concept maps in the project.
+This call makes use of the "version" parameter because the project contains both SNOMEDCT and SNOMEDCT_US which
+share the same FHIR code system URI. Thus, the version parameter is necessary to differentiate between them.
+
+*Translate code by system+code (or Translate source code) for a specified concept map
+
+Returns matching target codes for the specified source system and code for the specified concept map in the project.
+
+*Translate code by targetSystem+code (or Translate targetcode)
+
+Returns matching source codes for the specified target system and code across all concept maps in the project.
 
 [Back to Top](#termhub-in-5-minutes-fhir-tutorial)
 
