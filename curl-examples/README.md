@@ -39,7 +39,7 @@ The following examples can be typed into the command line of any terminal that h
 - [Find concepts by search term with explicit include parameter](#find-concepts-by-search-term-with-explicit-include-parameter)
 - [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
 - [Find terms by search term](#find-terms-by-search-term)
-- [Support autocomplete/typeahead for first few characters typed](#support-autocompletetypeahead-for-first-few-characters-typed)
+- [Support autocomplete/typeahead for first few characters typed](#support-autocomplete-typeahead-for-first-few-characters-typed)
 - [Get mapsets](#get-mapsets)
 - [Get project mapsets](#get-project-mapsets)
 - [Get specific mapset](#get-mapset)
@@ -98,7 +98,7 @@ by the previous call and you can then look up terminology info specifically for 
 UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/a2bc43ec-ba1b-47c0-9ff0-8379a02f8136" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/165cdb81-81d7-4878-a799-ee7575c7bbf7" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
