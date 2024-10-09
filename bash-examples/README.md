@@ -241,7 +241,7 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```
-$ ./find-terminologies.sh --token $token --id 1e523c73-dfe8-4299-92ee-b7a8ece57769
+$ ./find-terminologies.sh --token $token --id 04193786-499f-4ff6-a281-cecfa0bdfc3a
 -----------------------------------------------------
 Starting ...Mon, Aug 26, 2024  4:35:02 PM
 -----------------------------------------------------
@@ -251,58 +251,58 @@ offset = 0
 limit = 10
 sort =
 ascending =
-id = 1e523c73-dfe8-4299-92ee-b7a8ece57769
+id = 04193786-499f-4ff6-a281-cecfa0bdfc3a
 
   Performing terminologies lookup
     {
-      "id": "1e523c73-dfe8-4299-92ee-b7a8ece57769",
-      "confidence": 7.352961540222168,
-      "modified": "2024-08-23T02:06:30.814+00:00",
-      "created": "2024-08-23T02:06:30.814+00:00",
-      "modifiedBy": "loader",
-      "local": false,
-      "active": true,
-      "abbreviation": "SNOMEDCT_US",
-      "name": "Mini version of SNOMEDCT_US For testing purposes",
-      "version": "20240301",
-      "publisher": "SANDBOX",
-      "latest": true,
-      "loaded": true,
-      "releaseDate": "2024-03-01",
-      "family": "SNOMEDCT",
-      "attributes": {
-        "autocomplete": "true",
-        "description-logic-based": "true",
-        "tree-positions": "true",
-        "unidirectional-rels": "true",
-        "has-relationship-directionality": "true",
-        "ecl": "true",
-        "description-logic-profile": "EL++",
-        "fhirUri": "http://snomed.info/sct",
-        "show-sty": "true",
-        "polyhierarchy": "true",
-        "hierarchical": "true",
-        "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
-        "fhirId": "snomedct_us_731000124108_20240301"
-      },
-      "roots": [
-        "138875005"
-      ],
-      "statistics": {
-        "parentsInactive": 0,
-        "parentsActive": 598,
-        "treePositions": 2158,
-        "termsInactive": 355,
-        "childrenInactive": 0,
-        "relationships": 749,
-        "concepts": 440,
-        "terms": 1549,
-        "conceptsInactive": 3,
-        "termsActive": 1194,
-        "definitions": 19,
-        "conceptsActive": 437,
-        "childrenActive": 611
-      }
+        "id": "04193786-499f-4ff6-a281-cecfa0bdfc3a",
+        "confidence": 7.064806938171387,
+        "modified": "2024-08-28T01:27:47.844+00:00",
+        "created": "2024-08-28T01:27:47.844+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT",
+        "name": "Mini version of SNOMEDCT For testing purposes",
+        "version": "20240101",
+        "publisher": "SANDBOX",
+        "latest": true,
+        "loaded": true,
+        "releaseDate": "2024-01-01",
+        "family": "SNOMEDCT",
+        "attributes": {
+            "autocomplete": "true",
+            "description-logic-based": "true",
+            "tree-positions": "true",
+            "unidirectional-rels": "true",
+            "has-relationship-directionality": "true",
+            "ecl": "true",
+            "description-logic-profile": "EL++",
+            "fhirUri": "http://snomed.info/sct",
+            "show-sty": "true",
+            "polyhierarchy": "true",
+            "hierarchical": "true",
+            "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
+            "fhirId": "snomedct_900000000000207008_20240101"
+        },
+        "roots": [
+            "138875005"
+        ],
+        "statistics": {
+            "parentsInactive": 0,
+            "parentsActive": 592,
+            "treePositions": 2152,
+            "termsInactive": 353,
+            "childrenInactive": 0,
+            "relationships": 743,
+            "concepts": 434,
+            "terms": 1534,
+            "conceptsInactive": 3,
+            "termsActive": 1181,
+            "definitions": 19,
+            "conceptsActive": 431,
+            "childrenActive": 592
+        }
     }
 
 -----------------------------------------------------

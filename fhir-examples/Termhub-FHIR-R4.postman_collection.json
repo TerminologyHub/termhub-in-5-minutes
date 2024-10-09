@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47514762-5d6c-41c1-a69d-6bda234ceeb4",
+		"_postman_id": "6a8ea9c6-dc08-4850-8a06-d6073c36038e",
 		"name": "Termhub FHIR R4",
 		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -57,7 +57,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?_id=e6afba85-a4d8-42d9-9712-81faebc152b8",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?_id=177f2263-fe04-4f1f-b0e6-9b351ab8baa9",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -70,7 +70,7 @@
 							"query": [
 								{
 									"key": "_id",
-									"value": "e6afba85-a4d8-42d9-9712-81faebc152b8"
+									"value": "177f2263-fe04-4f1f-b0e6-9b351ab8baa9"
 								}
 							]
 						}
@@ -109,7 +109,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2023-07-31&name=Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2024-01-01&name=Mini version of SNOMEDCT For testing purposes&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -122,15 +122,15 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2023-07-31"
+									"value": "2024-01-01"
 								},
 								{
 									"key": "name",
-									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+									"value": "Mini version of SNOMEDCT For testing purposes"
 								},
 								{
 									"key": "description",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
@@ -143,7 +143,7 @@
 								},
 								{
 									"key": "version",
-									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -156,7 +156,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?name:contains=Nomenclature&title:contains=SNOMED&version:contains=20230731&publisher:contains=BOX",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?name:contains=SNOMED&title:contains=SNOMED&version:contains=20240101&publisher:contains=BOX",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -169,7 +169,7 @@
 							"query": [
 								{
 									"key": "name:contains",
-									"value": "Nomenclature"
+									"value": "SNOMED"
 								},
 								{
 									"key": "description:contains",
@@ -182,7 +182,7 @@
 								},
 								{
 									"key": "version:contains",
-									"value": "20230731"
+									"value": "20240101"
 								},
 								{
 									"key": "publisher:contains",
@@ -199,7 +199,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2023-07-31&name=Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date=2024-01-01&name=Mini&title=SNOMEDCT&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -212,15 +212,15 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2023-07-31"
+									"value": "2024-01-01"
 								},
 								{
 									"key": "name",
-									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+									"value": "Mini"
 								},
 								{
 									"key": "description",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
@@ -233,7 +233,7 @@
 								},
 								{
 									"key": "version",
-									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -246,7 +246,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date:exact=2023-07-31&name:exact=Systematized Nomenclature of Medicine–Clinical Terminology&title:exact=SNOMEDCT&publisher:exact=SANDBOX&version:exact=http://snomed.info/sct/900000000000207008/version/20230731",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem?date:exact=2024-01-01&name:exact=Mini version of SNOMEDCT For testing purposes&title:exact=SNOMEDCT&publisher:exact=SANDBOX&version:exact=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -259,11 +259,11 @@
 							"query": [
 								{
 									"key": "date:exact",
-									"value": "2023-07-31"
+									"value": "2024-01-01"
 								},
 								{
 									"key": "name:exact",
-									"value": "Systematized Nomenclature of Medicine–Clinical Terminology"
+									"value": "Mini version of SNOMEDCT For testing purposes"
 								},
 								{
 									"key": "description",
@@ -280,7 +280,7 @@
 								},
 								{
 									"key": "version:exact",
-									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -293,7 +293,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -312,6 +312,10 @@
 								{
 									"key": "code",
 									"value": "80891009"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -324,7 +328,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009&property=effectiveTime&property=sufficientlyDefined",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$lookup?system=http://snomed.info/sct&code=80891009&property=effectiveTime&property=sufficientlyDefined&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -352,6 +356,10 @@
 								{
 									"key": "property",
 									"value": "sufficientlyDefined"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -359,7 +367,7 @@
 					"response": []
 				},
 				{
-					"name": "Lookup a LOINC code",
+					"name": "Lookup a LOINC code (using code system id)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -392,7 +400,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=80891009&codeB=113343008",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=80891009&codeB=113343008&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -416,6 +424,10 @@
 								{
 									"key": "codeB",
 									"value": "113343008"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -428,7 +440,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$validate-code?url=http://snomed.info/sct&code=80891009",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir//CodeSystem/$validate-code?url=http://snomed.info/sct&code=80891009&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -448,6 +460,10 @@
 								{
 									"key": "code",
 									"value": "80891009"
+								},
+								{
+									"key": "version",
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						}
@@ -611,7 +627,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?date=2023-07-31&name=VS Systematized Nomenclature of Medicine–Clinical Terminology&title=SNOMEDCT-ENTIRE&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20230731",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?date=2024-01-01&name=VS Mini version of SNOMEDCT For testing purposes&title=SNOMEDCT-ENTIRE&publisher=SANDBOX&version=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -624,11 +640,11 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2023-07-31"
+									"value": "2024-01-01"
 								},
 								{
 									"key": "name",
-									"value": "VS Systematized Nomenclature of Medicine–Clinical Terminology"
+									"value": "VS Mini version of SNOMEDCT For testing purposes"
 								},
 								{
 									"key": "title",
@@ -640,7 +656,7 @@
 								},
 								{
 									"key": "version",
-									"value": "http://snomed.info/sct/900000000000207008/version/20230731"
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						},

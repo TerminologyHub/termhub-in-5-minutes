@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "00939eab-abe2-476f-9b05-c2be710c2b14",
+		"_postman_id": "89c11b00-0c9e-4b0e-8a01-e49130a5abd5",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11076096"
@@ -48,13 +48,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/a2bc43ec-ba1b-47c0-9ff0-8379a02f8136",
+					"raw": "{{API_URL}}/terminology/04193786-499f-4ff6-a281-cecfa0bdfc3a",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"a2bc43ec-ba1b-47c0-9ff0-8379a02f8136"
+						"04193786-499f-4ff6-a281-cecfa0bdfc3a"
 					]
 				}
 			},
@@ -543,13 +543,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/8e77ce65-9d4b-4cc1-8405-393846bfcf6f/history/20230901/concepts/new",
+					"raw": "{{API_URL}}/terminology/165cdb81-81d7-4878-a799-ee7575c7bbf7/history/20230901/concepts/new",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"8e77ce65-9d4b-4cc1-8405-393846bfcf6f",
+						"165cdb81-81d7-4878-a799-ee7575c7bbf7",
 						"history",
 						"20230901",
 						"concepts",
@@ -565,13 +565,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/8e77ce65-9d4b-4cc1-8405-393846bfcf6f/history/20230901/concepts/retired",
+					"raw": "{{API_URL}}/terminology/165cdb81-81d7-4878-a799-ee7575c7bbf7/history/20230901/concepts/retired",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
-						"8e77ce65-9d4b-4cc1-8405-393846bfcf6f",
+						"165cdb81-81d7-4878-a799-ee7575c7bbf7",
 						"history",
 						"20230901",
 						"concepts",
