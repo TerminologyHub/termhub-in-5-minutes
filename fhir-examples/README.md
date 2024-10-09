@@ -6,8 +6,8 @@ This tutorial shows how to interact with the FHIR R4 and R5 APIs through use of 
 Prerequisites
 -------------
 * Postman must be installed (with a version capable of importing a v2.1 collection)
-* The [Termhub-FHIR-R4.postman_collection.json](Termhub-FHIR-R4.postman_collection.json) file must be loaded into Postman using File->Iimport to access the R4 FHIR APIs
-* The [Termhub-FHIR-R5.postman_collection.json](Termhub-FHIR-R5.postman_collection.json) file must be loaded into Postman using File->Iimport to access the R5 FHIR APIs
+* The [Termhub-FHIR-R4.postman_collection.json](Termhub-FHIR-R4.postman_collection.json) file must be loaded into Postman using File->Import to access the R4 FHIR APIs
+* The [Termhub-FHIR-R5.postman_collection.json](Termhub-FHIR-R5.postman_collection.json) file must be loaded into Postman using File->Import to access the R5 FHIR APIs
 
 Using the Postman Files
 -----------------------
