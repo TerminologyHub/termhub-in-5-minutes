@@ -1,12 +1,15 @@
 # Termhub in 5 Minutes Tutorial
 
 This is an easy-to-use tutorial for accessing TermHub APIs through api.terminologyhub.com.
+[TermHub](https://www.terminologyhub.com) is a cloud healthcare terminology server offering 
+access to a large library of code systems, value sets, and concept mappings along with standard 
+developer-friendly mechansims for interacting with that content.
 
 [Tutorial Training Video](https://youtu.be/Vto42DIMw2U)
 
 **Reference deployments**
 
-To test against our TermHub servers, you must first create an account by signing up at https://app.terminologyhub.com/signup.
+To test against our TermHub terminology servers, you must first create an account by signing up at https://app.terminologyhub.com/signup.
 
 ## Table of Contents
 
@@ -32,7 +35,8 @@ To test against our TermHub servers, you must first create an account by signing
 
 ## Use Cases
 
-The following cases will be used to demonstrate accessing the TermHub Terminology API
+The following cases will be used to demonstrate accessing the TermHub Terminology API.  These are
+the standard kinds of questions that a terminology server supports for interacting with code systems.
 
 - Login
 - Get terminologies
