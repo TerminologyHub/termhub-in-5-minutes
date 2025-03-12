@@ -32,22 +32,22 @@ def get_auth_token():
     return response.json().get("access_token")
     
 
-def execute_curl(command):
+def execute_curl(command, endpoint):
     """Runs a curl command and returns the raw output."""
     try:
         result = subprocess.run(command, shell = True, capture_output = True, text = True)
         if result.returncode == 0:
             # regex to extract the endpoint from the curl command
-            healthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
+            healthy_endpoints.append(endpoint)
             return result.stdout
         else:
             print(f"Error executing: {command}", file = sys.stderr)
             print(f"Curl error: {result.stderr}", file = sys.stderr)
-            unhealthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
+            unhealthy_endpoints.append(re.searchendpoint)
             return None
     except Exception as e:
         print(f"Exception running curl: {e}", file = sys.stderr)
-        unhealthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
+        unhealthy_endpoints.append(endpoint)
         return None
 
 def process_markdown(token):
@@ -107,8 +107,9 @@ def run_sections(sections):
         print(f"Processing section with {len(section['curls'])} curl commands and {len(section['files'])} sample files.")
         file_index = 0
         for curl_cmd in section["curls"]:
-            print(f"Running: {curl_cmd}")
-            response = execute_curl(curl_cmd)
+            endpoint = re.search(r'\"(https://[^\"]+)\"', curl_cmd).group(1)
+            print(f"Running: {endpoint}")
+            response = execute_curl(curl_cmd, endpoint)
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
                 try:
@@ -124,11 +125,11 @@ def run_sections(sections):
                 file_index += 1
 
 def report_endpoints():
-    print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints)))
+    print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints))) if healthy_endpoints else print("\nNo healthy endpoints found.")
     for endpoint in healthy_endpoints:
         print(endpoint)
     
-    print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints)))
+    print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints))) if unhealthy_endpoints else print("\nNo unhealthy endpoints found.")
     for endpoint in unhealthy_endpoints:
         print(endpoint)
 
