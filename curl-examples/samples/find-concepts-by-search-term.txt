@@ -7,7 +7,7 @@
   },
   "items": [
     {
-      "id": "1ff90ce3-66c1-444e-ab67-e34ac53fc2c0",
+      "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
       "confidence": 11.279184341430664,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -19,14 +19,14 @@
       "terminology": "SNOMEDCT",
       "version": "20240101",
       "publisher": "SANDBOX",
-      "leaf": true,
+      "leaf": false,
       "defined": false,
       "highlights": {
         "Diabetes mellitus": "<em>Diabetes</em> mellitus"
       }
     },
     {
-      "id": "3476ebc2-744b-4155-b1ee-23daf2af6283",
+      "id": "cdf340b2-f397-4bf7-823f-a30b2a998dec",
       "confidence": 6.666303634643555,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -42,7 +42,7 @@
       "defined": false
     },
     {
-      "id": "2d35dd1d-fc59-449e-9bda-a74e922c2514",
+      "id": "b511b7f6-0887-4ac9-a63b-027248284dd0",
       "confidence": 6.666303634643555,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -58,8 +58,8 @@
       "defined": true
     },
     {
-      "id": "c37c396d-5afe-4749-a71b-7aa90af7d540",
-      "confidence": 5.626720428466797,
+      "id": "fb50514d-d99c-42fc-a72a-5be2d1a61b30",
+      "confidence": 5.631630897521973,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -74,8 +74,8 @@
       "defined": false
     },
     {
-      "id": "fd3e144a-ca04-470e-8fa6-f55071faa104",
-      "confidence": 5.3129425048828125,
+      "id": "f8517b56-ac3a-4f4e-a8e5-fc970b1a2ab8",
+      "confidence": 5.317342758178711,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
       "modifiedBy": "loader",
@@ -91,3 +91,4 @@
     }
   ]
 }
+
