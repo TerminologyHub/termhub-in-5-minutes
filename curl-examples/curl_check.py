@@ -6,6 +6,8 @@ import sys
 
 # Define API_URL as a global variable
 API_URL = "https://api.terminologyhub.com"
+healthy_endpoints = []
+unhealthy_endpoints = []
 
 def check_jq():
     """Checks if jq is installed."""
@@ -35,13 +37,17 @@ def execute_curl(command):
     try:
         result = subprocess.run(command, shell = True, capture_output = True, text = True)
         if result.returncode == 0:
+            # regex to extract the endpoint from the curl command
+            healthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
             return result.stdout
         else:
             print(f"Error executing: {command}", file = sys.stderr)
             print(f"Curl error: {result.stderr}", file = sys.stderr)
+            unhealthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
             return None
     except Exception as e:
         print(f"Exception running curl: {e}", file = sys.stderr)
+        unhealthy_endpoints.append(re.search(r'\"(https://[^\"]+)\"', command).group(1))
         return None
 
 def process_markdown(token):
@@ -117,6 +123,15 @@ def run_sections(sections):
                 print(f"Updated: {section['files'][file_index]}")
                 file_index += 1
 
+def report_endpoints():
+    print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints)))
+    for endpoint in healthy_endpoints:
+        print(endpoint)
+    
+    print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints)))
+    for endpoint in unhealthy_endpoints:
+        print(endpoint)
+
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
         print("This script requires a termhub username/password. Usage: python curl_check.py termhubUsername termhubPassword")
@@ -125,3 +140,4 @@ if __name__ == "__main__":
     token = get_auth_token()
     sections = process_markdown(token)
     run_sections(sections)
+    report_endpoints()
