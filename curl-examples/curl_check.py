@@ -138,7 +138,8 @@ def report_endpoints():
 
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
-        print("This script requires a termhub username/password. Usage: python curl_check.py termhubUsername termhubPassword")
+        print("This script requires a termhub username/password.")
+        print("\nUsage: python curl_check.py <username> <password>")
         sys.exit(1)
     check_jq()
     token = get_auth_token()
