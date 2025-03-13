@@ -125,13 +125,16 @@ def run_sections(sections):
                 file_index += 1
 
 def report_endpoints():
-    print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints))) if healthy_endpoints else print("\nNo healthy endpoints found.")
-    for endpoint in healthy_endpoints:
-        print(endpoint)
-    
-    print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints))) if unhealthy_endpoints else print("\nNo unhealthy endpoints found.")
-    for endpoint in unhealthy_endpoints:
-        print(endpoint)
+    if unhealthy_endpoints:
+      print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints))) if healthy_endpoints else print("\nNo healthy endpoints found.")
+      for endpoint in healthy_endpoints:
+          print(endpoint)
+      
+      print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints)))
+      for endpoint in unhealthy_endpoints:
+          print(endpoint)
+    else:
+      print("\nAll endpoints are healthy.")
 
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
