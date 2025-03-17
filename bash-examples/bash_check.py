@@ -1,7 +1,6 @@
 import os
 import re
 import requests
-import shlex
 import subprocess
 import sys
 
@@ -33,19 +32,20 @@ def get_auth_token():
         raise Exception("No token found in {API_URL}/auth/token response")
     return response.json().get("access_token")
 
-def execute_bash(command):
+def execute_bash(command, token):
     """Runs a bash command and returns the raw output."""
     try:
         print(f"Running: {command}")
         # process bash command
         if("(username)" in command and "(password)" in command):
             command = command.replace("(username)", sys.argv[1]).replace("(password)", sys.argv[2])
-        result = subprocess.run(f"bash -c \"{command.replace("$token", token)}\"", shell=True, capture_output=True, text=True)
+        result = subprocess.run(f"bash -c \"{command.replace("$token", token).replace('"', r'\"')}\"", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             healthy_scripts.append(command)
             return result.stdout
         else:
             unhealthy_scripts.append(command)
+            print(f"bash -c \"{command.replace("$token", token).replace('"', r'\"')}\"")
             print(f"Error executing: {command}", file=sys.stderr)
             print(f"bash error: {result.stderr}", file=sys.stderr)
             return None
@@ -97,12 +97,12 @@ def process_markdown(token):
     
     return sections
 
-def run_sections(sections):
+def run_sections(sections, token):
     """Executes bash commands and updates corresponding sample files."""
     for section in sections:
         file_index = 0
         for bash_cmd in section["bashs"]:
-            response = execute_bash(bash_cmd)
+            response = execute_bash(bash_cmd, token)
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
                 with open(section["files"][file_index], 'w', encoding='utf-8') as f:
@@ -125,6 +125,6 @@ if __name__ == "__main__":
     check_bash_installation()
     token = get_auth_token()
     sections = process_markdown(token)
-    run_sections(sections)
+    run_sections(sections, token)
     report_script_health()
     
