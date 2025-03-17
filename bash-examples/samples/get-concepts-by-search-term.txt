@@ -1,0 +1,110 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:56:28 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+query = diabetes mellitus
+expr = 
+offset = 0
+limit = 5
+sort = 
+ascending = 
+
+  Find concepts: (terminology:SNOMEDCT) AND diabetes mellitus
+
+    {
+      "total": 8,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT) AND diabetes mellitus",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+          "confidence": 22.559518814086914,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "code": "73211009",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        },
+        {
+          "id": "cdf340b2-f397-4bf7-823f-a30b2a998dec",
+          "confidence": 13.333757400512695,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of glucose metabolism",
+          "code": "126877002",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        },
+        {
+          "id": "b511b7f6-0887-4ac9-a63b-027248284dd0",
+          "confidence": 13.333757400512695,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of endocrine system",
+          "code": "362969004",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        },
+        {
+          "id": "fb50514d-d99c-42fc-a72a-5be2d1a61b30",
+          "confidence": 11.264411926269531,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of carbohydrate metabolism",
+          "code": "20957000",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        },
+        {
+          "id": "f8517b56-ac3a-4f4e-a8e5-fc970b1a2ab8",
+          "confidence": 10.635835647583008,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Metabolic disease",
+          "code": "75934005",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:56:29 PM
+-----------------------------------------------------
+
