@@ -1,0 +1,129 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:35 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+project = sandbox
+mapset = SNOMEDCT_US-ICD10CM
+query = to.name:diabetes
+offset = 0
+limit = 10
+sort = 
+ascending = 
+
+  Find mappings: to.name:diabetes
+
+    {
+      "total": 2,
+      "parameters": {
+        "query": "to.name:diabetes",
+        "limit": 10,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "f012f377-2d76-408e-a107-66378e26fc46",
+          "confidence": 23.090965270996094,
+          "modified": "2024-08-23T18:59:26.845+00:00",
+          "created": "2024-08-23T18:59:26.845+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "48160c75-415b-5ead-8160-f215b8274218",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 1 diabetes mellitus without complications",
+            "code": "E10.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "1",
+          "rule": "IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years",
+          "advice": [
+            "IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED",
+            "MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT"
+          ]
+        },
+        {
+          "id": "8e05c2bd-7f77-4cd1-9edd-1c4185d2e818",
+          "confidence": 23.090965270996094,
+          "modified": "2024-08-23T18:59:26.844+00:00",
+          "created": "2024-08-23T18:59:26.844+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "componentId": "e32ce76e-74df-504f-9a21-03e528c5e7d7",
+          "mapset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-ICD10CM",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "6011000124106"
+          },
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT_US",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Type 2 diabetes mellitus without complications",
+            "code": "E11.9",
+            "terminology": "ICD10CM",
+            "version": "2023",
+            "publisher": "SANDBOX",
+            "leaf": true
+          },
+          "group": "1",
+          "priority": "2",
+          "rule": "OTHERWISE TRUE",
+          "advice": [
+            "ALWAYS E11.9",
+            "CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE",
+            "DESCENDANTS NOT EXHAUSTIVELY MAPPED"
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:35 PM
+-----------------------------------------------------
+

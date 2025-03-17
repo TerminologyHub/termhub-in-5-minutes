@@ -1,0 +1,197 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:29 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+query = system
+expr = 
+offset = 0
+limit = 5
+sort = 
+ascending = 
+
+  Find concepts: (terminology:SNOMEDCT) AND system
+
+    {
+      "total": 133,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT) AND system",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "a5795a20-baf4-41e4-835e-a26a16a00bc7",
+          "confidence": 5.855079650878906,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of cardiovascular system",
+          "code": "49601007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Disorder of body system",
+              "code": "362965005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            },
+            {
+              "local": false,
+              "active": true,
+              "name": "Cardiovascular finding",
+              "code": "106063007",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            }
+          ]
+        },
+        {
+          "id": "b21100dc-1da9-4194-adcd-4890f72a0495",
+          "confidence": 5.840748310089111,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Structure of cardiovascular system",
+          "code": "113257007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Body system structure",
+              "code": "91689009",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "e47085dc-980b-4769-a51e-353ddf0f6153",
+          "confidence": 5.827065944671631,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Entire cardiovascular system",
+          "code": "278198007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Structure of cardiovascular system",
+              "code": "113257007",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            },
+            {
+              "local": false,
+              "active": true,
+              "name": "Entire body system",
+              "code": "278195005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "7f29c0c5-1c8e-4b7f-9449-6834ff515ec5",
+          "confidence": 5.664218425750732,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Structure of endocrine system",
+          "code": "113331007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Structure of breast and/or endocrine system",
+              "code": "305072005",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": false
+            }
+          ]
+        },
+        {
+          "id": "aefc302b-5a02-47d7-8f3d-70948c1cadf5",
+          "confidence": 5.627072334289551,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Procedure on body system",
+          "code": "118664000",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true,
+          "parents": [
+            {
+              "local": false,
+              "active": true,
+              "name": "Procedure by site",
+              "code": "362958002",
+              "terminology": "SNOMEDCT",
+              "version": "20240101",
+              "publisher": "SANDBOX",
+              "leaf": false,
+              "defined": true
+            }
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:29 PM
+-----------------------------------------------------
+

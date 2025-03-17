@@ -1,0 +1,67 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:23 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+query = 
+offset = 0
+limit = 10
+sort = 
+ascending = 
+id = 04193786-499f-4ff6-a281-cecfa0bdfc3a
+
+  Performing terminologies lookup
+    {
+      "id": "04193786-499f-4ff6-a281-cecfa0bdfc3a",
+      "confidence": 7.064806938171387,
+      "modified": "2024-08-28T01:27:47.844+00:00",
+      "created": "2024-08-28T01:27:47.844+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "SNOMEDCT",
+      "name": "Mini version of SNOMEDCT For testing purposes",
+      "version": "20240101",
+      "publisher": "SANDBOX",
+      "latest": true,
+      "loaded": true,
+      "releaseDate": "2024-01-01",
+      "family": "SNOMEDCT",
+      "attributes": {
+        "autocomplete": "true",
+        "description-logic-based": "true",
+        "tree-positions": "true",
+        "unidirectional-rels": "true",
+        "has-relationship-directionality": "true",
+        "ecl": "true",
+        "description-logic-profile": "EL++",
+        "fhirUri": "http://snomed.info/sct",
+        "show-sty": "true",
+        "polyhierarchy": "true",
+        "hierarchical": "true",
+        "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
+        "fhirId": "snomedct_900000000000207008_20240101"
+      },
+      "roots": [
+        "138875005"
+      ],
+      "statistics": {
+        "parentsInactive": 0,
+        "parentsActive": 592,
+        "treePositions": 2152,
+        "termsInactive": 353,
+        "childrenInactive": 0,
+        "relationships": 743,
+        "concepts": 434,
+        "terms": 1534,
+        "conceptsInactive": 3,
+        "termsActive": 1181,
+        "definitions": 19,
+        "conceptsActive": 431,
+        "childrenActive": 592
+      }
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:23 PM
+-----------------------------------------------------
+

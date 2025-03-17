@@ -1,0 +1,136 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:27 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project= sandbox
+code = 73211009
+include = summary
+
+  Get concept for SNOMEDCT 73211009:
+
+    {
+      "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+      "confidence": 5.673330783843994,
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus",
+      "code": "73211009",
+      "terminology": "SNOMEDCT",
+      "version": "20240101",
+      "publisher": "SANDBOX",
+      "leaf": false,
+      "defined": false,
+      "terms": [
+        {
+          "id": "2269ca77-844f-4168-85ea-60339d6d110a",
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "121589010",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "7e9eed7f-338e-436d-b7eb-ca6128e5a61e",
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": false,
+          "name": "Diabetes mellitus, NOS",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "121590018",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000020002",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "60a6030e-c888-4894-b2f8-bf705cc900a9",
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "DM - Diabetes mellitus",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "502372015",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": false,
+            "en": false
+          },
+          "type": "900000000000013009",
+          "attributes": {
+            "caseSignificanceId": "900000000000017005",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "de28c7f0-4021-47ea-9021-4f6854dd7742",
+          "modified": "2017-07-31T00:00:00.000+00:00",
+          "created": "2017-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus (disorder)",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "813575016",
+          "code": "73211009",
+          "conceptId": "73211009",
+          "localeMap": {
+            "en_GB": true,
+            "en": true
+          },
+          "type": "900000000000003001",
+          "attributes": {
+            "caseSignificanceId": "900000000000448009",
+            "moduleId": "900000000000207008"
+          }
+        }
+      ],
+      "attributes": {
+        "definitionStatusId": "900000000000074008",
+        "moduleId": "900000000000207008"
+      },
+      "semanticTypes": [
+        "disorder"
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:27 PM
+-----------------------------------------------------
+
