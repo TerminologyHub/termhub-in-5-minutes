@@ -4,7 +4,7 @@ import requests
 import subprocess
 import sys
 
-"""This script reads the README.md file, extracts bash commands and corresponding sample files, executes the bash commands, checks that said commands run properly, and updates the sample files with the output."""
+"""This script reads the README.md file, extracts bash commands and corresponding sample files, executes the bash commands, checks that said commands run properly, and updates the sample files with the output. The use of f-strings in processing the commands requires Python 3.6 or later."""
 
 API_URL = "https://api.terminologyhub.com"
 healthy_scripts = []
@@ -39,7 +39,7 @@ def execute_bash(command, token):
         # process bash command
         if("(username)" in command and "(password)" in command):
             command = command.replace("(username)", sys.argv[1]).replace("(password)", sys.argv[2])
-        result = subprocess.run(f"bash -c \"{command.replace("$token", token).replace('"', r'\"')}\"", shell=True, capture_output=True, text=True)
+        result = subprocess.run(f'bash -c \'{command.replace("$token", token)}\'', shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             healthy_scripts.append(command)
             return result.stdout
