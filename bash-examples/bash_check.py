@@ -1,6 +1,7 @@
 import os
 import re
 import requests
+import shlex
 import subprocess
 import sys
 
@@ -121,8 +122,6 @@ def report_script_health():
         print("\nAll scripts executed successfully.")
 
 if __name__ == "__main__":
-    if(len(sys.argv) > 1):
-        print("This script ignores any command line arguments. Usage: python bash_check.py")
     check_bash_installation()
     token = get_auth_token()
     sections = process_markdown(token)
