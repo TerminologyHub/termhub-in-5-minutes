@@ -1,0 +1,56 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:27 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project= sandbox
+code = 73211009
+include = parents
+
+  Get concept for SNOMEDCT 73211009:
+
+    {
+      "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+      "confidence": 5.673330783843994,
+      "modified": "2002-01-31T00:00:00.000+00:00",
+      "created": "2002-01-31T00:00:00.000+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Diabetes mellitus",
+      "code": "73211009",
+      "terminology": "SNOMEDCT",
+      "version": "20240101",
+      "publisher": "SANDBOX",
+      "leaf": false,
+      "defined": false,
+      "parents": [
+        {
+          "local": false,
+          "active": true,
+          "name": "Disorder of endocrine system",
+          "code": "362969004",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        },
+        {
+          "local": false,
+          "active": true,
+          "name": "Disorder of glucose metabolism",
+          "code": "126877002",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:27 PM
+-----------------------------------------------------
+

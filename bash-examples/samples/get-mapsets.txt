@@ -1,0 +1,116 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:30 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+query = 
+offset = 0
+limit = 2
+sort = 
+ascending = 
+
+  Performing mapsets lookup
+    {
+      "total": 58,
+      "parameters": {
+        "query": "loaded:true",
+        "limit": 2,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "145e8ada-d079-420f-af9d-783a9b3a5c29",
+          "confidence": 0.0076045989990234375,
+          "modified": "2024-08-21T17:26:41.670+00:00",
+          "created": "2024-08-21T17:26:41.670+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "NDC-CVX",
+          "name": "Mapset from NDC 20240704 to CVX 20240729",
+          "version": "20240729",
+          "publisher": "CDC",
+          "latest": false,
+          "loaded": true,
+          "code": "NDC-CVX",
+          "fromPublisher": "FDA",
+          "fromTerminology": "NDC",
+          "fromVersion": "20240704",
+          "toPublisher": "CDC",
+          "toTerminology": "CVX",
+          "toVersion": "20240729",
+          "terminology": "CVX",
+          "description": "Mapset from NDC 20240704 to CVX 20240729",
+          "releaseDate": "2024-07-29",
+          "attributes": {
+            "complexity": "simple",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=NDC-CVX",
+            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+            "origin-version": "20240729",
+            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+            "fhirToTerminologyVersion": "20240729",
+            "fhirVersion": "20240729",
+            "fhirFromTerminologyVersion": "20240704",
+            "origin-terminology": "CVX",
+            "cardinality": "N-1",
+            "fhirId": "cdc_ndc-cvx_20240729"
+          },
+          "statistics": {
+            "mappings": 169,
+            "uniqueFromCodes": 169,
+            "mappingsEmptyTarget": 0,
+            "mappingsActive": 169,
+            "uniqueToCodes": 85
+          }
+        },
+        {
+          "id": "58445968-9abf-459a-9e4d-d1b5518dc4fe",
+          "confidence": 0.0076045989990234375,
+          "modified": "2024-08-21T17:26:41.670+00:00",
+          "created": "2024-08-21T17:26:41.670+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "CVX-NDC",
+          "name": "Mapset from CVX 20240729 to NDC 20240704",
+          "version": "20240729",
+          "publisher": "CDC",
+          "latest": false,
+          "loaded": true,
+          "code": "CVX-NDC",
+          "fromPublisher": "CDC",
+          "fromTerminology": "CVX",
+          "fromVersion": "20240729",
+          "toPublisher": "FDA",
+          "toTerminology": "NDC",
+          "toVersion": "20240704",
+          "terminology": "CVX",
+          "description": "Mapset from CVX 20240729 to NDC 20240704",
+          "releaseDate": "2024-07-29",
+          "attributes": {
+            "complexity": "simple",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC",
+            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+            "origin-version": "20240729",
+            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+            "fhirToTerminologyVersion": "20240704",
+            "fhirVersion": "20240729",
+            "fhirFromTerminologyVersion": "20240729",
+            "origin-terminology": "CVX",
+            "cardinality": "1-N",
+            "fhirId": "cdc_cvx-ndc_20240729"
+          },
+          "statistics": {
+            "mappings": 169,
+            "uniqueFromCodes": 85,
+            "mappingsEmptyTarget": 0,
+            "mappingsActive": 169,
+            "uniqueToCodes": 169
+          }
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:30 PM
+-----------------------------------------------------
+
