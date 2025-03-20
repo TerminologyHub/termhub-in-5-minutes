@@ -7,7 +7,7 @@
   },
   "items": [
     {
-      "id": "eb340aa3-a5c8-4656-9ff4-767b4e2a1a55",
+      "id": "67b703a6-85af-4c98-acab-8f7f30b30995",
       "confidence": 6.359950065612793,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -22,7 +22,7 @@
       "additionalType": "116680003",
       "from": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Diabetes mellitus",
         "code": "73211009",
         "terminology": "SNOMEDCT",
@@ -33,7 +33,7 @@
       },
       "to": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Disorder of glucose metabolism",
         "code": "126877002",
         "terminology": "SNOMEDCT",
@@ -53,7 +53,7 @@
       }
     },
     {
-      "id": "9b8d43b5-01c8-416c-9d18-3e71130cf472",
+      "id": "9c336eb3-7c7e-497c-9e94-124cc3d584f1",
       "confidence": 6.359950065612793,
       "modified": "2012-01-31T00:00:00.000+00:00",
       "created": "2012-01-31T00:00:00.000+00:00",
@@ -68,7 +68,7 @@
       "additionalType": "116680003",
       "from": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Diabetes mellitus",
         "code": "73211009",
         "terminology": "SNOMEDCT",
@@ -79,7 +79,7 @@
       },
       "to": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Disorder of endocrine system",
         "code": "362969004",
         "terminology": "SNOMEDCT",
@@ -99,7 +99,7 @@
       }
     },
     {
-      "id": "3b332709-c111-46bb-8922-661677a3001d",
+      "id": "4507b36f-18f7-4c4a-8382-9778fc7518b4",
       "confidence": 6.359950065612793,
       "modified": "2019-07-31T00:00:00.000+00:00",
       "created": "2019-07-31T00:00:00.000+00:00",
@@ -114,7 +114,7 @@
       "additionalType": "363698007",
       "from": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Diabetes mellitus",
         "code": "73211009",
         "terminology": "SNOMEDCT",
@@ -125,7 +125,7 @@
       },
       "to": {
         "local": false,
-        "active": false,
+        "active": true,
         "name": "Structure of endocrine system",
         "code": "113331007",
         "terminology": "SNOMEDCT",
@@ -146,3 +146,4 @@
     }
   ]
 }
+
