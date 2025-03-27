@@ -45,8 +45,9 @@ def execute_bash(command, token):
             return result.stdout
         else:
             unhealthy_scripts.append(command)
-            print(f"bash -c \"{command.replace("$token", token).replace('"', r'\"')}\"")
-            print(f"Error executing: {command}", file=sys.stderr)
+            escaped_command = command.replace("$token", token).replace('"', r'\"')
+            print(f'bash -c "{escaped_command}"')
+            print(f"Error executing: {escaped_command}", file=sys.stderr)
             print(f"bash error: {result.stderr}", file=sys.stderr)
             return None
     except Exception as e:

@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:23 PM
+Starting ...Thu, Mar 27, 2025  4:03:31 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 query = 
@@ -7,24 +7,24 @@ offset = 0
 limit = 10
 sort = 
 ascending = 
-id = 04193786-499f-4ff6-a281-cecfa0bdfc3a
+id = a1d1e426-26a6-4326-b18b-c54c154079b5
 
   Performing terminologies lookup
     {
-      "id": "04193786-499f-4ff6-a281-cecfa0bdfc3a",
-      "confidence": 7.064806938171387,
-      "modified": "2024-08-28T01:27:47.844+00:00",
-      "created": "2024-08-28T01:27:47.844+00:00",
+      "id": "a1d1e426-26a6-4326-b18b-c54c154079b5",
+      "confidence": 8.573064804077148,
+      "modified": "2025-03-27T15:09:32.887+00:00",
+      "created": "2025-03-27T15:09:32.887+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT",
-      "name": "Mini version of SNOMEDCT For testing purposes",
-      "version": "20240101",
+      "abbreviation": "SNOMEDCT_US",
+      "name": "Mini version of SNOMEDCT_US For testing purposes",
+      "version": "20240301",
       "publisher": "SANDBOX",
       "latest": true,
       "loaded": true,
-      "releaseDate": "2024-01-01",
+      "releaseDate": "2024-03-01",
       "family": "SNOMEDCT",
       "attributes": {
         "autocomplete": "true",
@@ -38,30 +38,30 @@ id = 04193786-499f-4ff6-a281-cecfa0bdfc3a
         "show-sty": "true",
         "polyhierarchy": "true",
         "hierarchical": "true",
-        "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
-        "fhirId": "snomedct_900000000000207008_20240101"
+        "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
+        "fhirId": "snomedct_us_731000124108_20240301"
       },
       "roots": [
         "138875005"
       ],
       "statistics": {
         "parentsInactive": 0,
-        "parentsActive": 592,
-        "treePositions": 2152,
-        "termsInactive": 353,
+        "parentsActive": 598,
+        "treePositions": 2158,
+        "termsInactive": 355,
         "childrenInactive": 0,
-        "relationships": 743,
-        "concepts": 434,
-        "terms": 1534,
+        "relationships": 749,
+        "concepts": 440,
+        "terms": 1549,
         "conceptsInactive": 3,
-        "termsActive": 1181,
+        "termsActive": 1194,
         "definitions": 19,
-        "conceptsActive": 431,
-        "childrenActive": 592
+        "conceptsActive": 437,
+        "childrenActive": 598
       }
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:23 PM
+Finished ...Thu, Mar 27, 2025  4:03:31 PM
 -----------------------------------------------------
 

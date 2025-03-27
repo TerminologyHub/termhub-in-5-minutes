@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:27 PM
+Starting ...Thu, Mar 27, 2025  4:03:34 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -10,7 +10,7 @@ include = summary
   Get concept for SNOMEDCT 73211009:
 
     {
-      "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+      "id": "ff74189a-22bc-4b08-aa5e-78ee43ed16b2",
       "confidence": 5.673330783843994,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -22,11 +22,11 @@ include = summary
       "terminology": "SNOMEDCT",
       "version": "20240101",
       "publisher": "SANDBOX",
-      "leaf": false,
+      "leaf": true,
       "defined": false,
       "terms": [
         {
-          "id": "2269ca77-844f-4168-85ea-60339d6d110a",
+          "id": "9854500b-dec0-4ede-9b0b-6cc4f9f1df3d",
           "modified": "2017-07-31T00:00:00.000+00:00",
           "created": "2017-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -50,7 +50,7 @@ include = summary
           }
         },
         {
-          "id": "7e9eed7f-338e-436d-b7eb-ca6128e5a61e",
+          "id": "1b3d9685-f8f3-49ac-8995-4369e5732835",
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -73,7 +73,7 @@ include = summary
           }
         },
         {
-          "id": "60a6030e-c888-4894-b2f8-bf705cc900a9",
+          "id": "107bbc60-0f41-43a1-9951-cb4910058499",
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -97,7 +97,7 @@ include = summary
           }
         },
         {
-          "id": "de28c7f0-4021-47ea-9021-4f6854dd7742",
+          "id": "44afa8c2-22ae-468f-91b7-8b0208e2abcd",
           "modified": "2017-07-31T00:00:00.000+00:00",
           "created": "2017-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -121,6 +121,12 @@ include = summary
           }
         }
       ],
+      "identifiers": [
+        {
+          "id": "201820",
+          "label": "OMOP"
+        }
+      ],
       "attributes": {
         "definitionStatusId": "900000000000074008",
         "moduleId": "900000000000207008"
@@ -131,6 +137,6 @@ include = summary
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:27 PM
+Finished ...Thu, Mar 27, 2025  4:03:35 PM
 -----------------------------------------------------
 

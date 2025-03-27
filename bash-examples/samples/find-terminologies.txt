@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:22 PM
+Starting ...Thu, Mar 27, 2025  4:03:30 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 query = 
@@ -10,7 +10,7 @@ ascending =
 
   Performing terminologies lookup
     {
-      "total": 140,
+      "total": 141,
       "parameters": {
         "query": "loaded:true",
         "limit": 10,
@@ -18,60 +18,8 @@ ascending =
       },
       "items": [
         {
-          "id": "fda9bef2-df80-40d6-b31b-6cb3a1cd38c3",
-          "confidence": 0.0032948958687484264,
-          "modified": "2024-05-11T20:13:11.499+00:00",
-          "created": "2024-05-11T20:13:11.499+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "abbreviation": "SNOMEDCT_US",
-          "name": "Systematized Nomenclature of Medicineâ€“Clinical Terminology, US Edition",
-          "version": "20230301",
-          "publisher": "NLM",
-          "latest": false,
-          "loaded": true,
-          "releaseDate": "2023-03-01",
-          "family": "SNOMEDCT",
-          "attributes": {
-            "autocomplete": "true",
-            "description-logic-based": "true",
-            "tree-positions": "true",
-            "unidirectional-rels": "true",
-            "has-relationship-directionality": "true",
-            "ecl": "true",
-            "description-logic-profile": "EL++",
-            "fhirUri": "http://snomed.info/sct",
-            "polyhierarchy": "true",
-            "hierarchical": "true",
-            "fhirVersion": "http://snomed.info/sct/731000124108/version/20230301",
-            "region-us": "true",
-            "label-clinical": "true",
-            "label-uscdi": "true",
-            "fhirId": "snomedct_us_731000124108_20230301"
-          },
-          "roots": [
-            "138875005"
-          ],
-          "statistics": {
-            "parentsInactive": 0,
-            "parentsActive": 594291,
-            "treePositions": 14017697,
-            "termsInactive": 287598,
-            "childrenInactive": 0,
-            "relationships": 1435294,
-            "concepts": 508540,
-            "terms": 1608100,
-            "conceptsInactive": 140840,
-            "termsActive": 1320502,
-            "definitions": 10335,
-            "childrenActive": 594291,
-            "conceptsActive": 367700
-          }
-        },
-        {
           "id": "e04c9251-e493-4b5a-b500-f36163625d1f",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-05-11T04:07:44.624+00:00",
           "created": "2024-05-11T04:07:44.624+00:00",
           "modifiedBy": "loader",
@@ -120,7 +68,7 @@ ascending =
         },
         {
           "id": "8f038f6e-775f-4573-a139-5174daabbd82",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-05-11T15:47:02.406+00:00",
           "created": "2024-05-11T15:47:02.406+00:00",
           "modifiedBy": "loader",
@@ -163,7 +111,7 @@ ascending =
         },
         {
           "id": "b9c18dcd-8e75-44c4-ba27-d1aa1737e38b",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-05-13T18:29:48.953+00:00",
           "created": "2024-05-13T18:29:48.953+00:00",
           "modifiedBy": "loader",
@@ -203,7 +151,7 @@ ascending =
         },
         {
           "id": "135ee0de-10eb-43ed-9d31-f4f8fef8cba0",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-06-10T02:40:46.951+00:00",
           "created": "2024-06-10T02:40:46.951+00:00",
           "modifiedBy": "loader",
@@ -254,7 +202,7 @@ ascending =
         },
         {
           "id": "de16927d-72c1-47c1-9e1b-b8fb68a391cb",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-06-10T02:57:17.255+00:00",
           "created": "2024-06-10T02:57:17.255+00:00",
           "modifiedBy": "loader",
@@ -320,7 +268,7 @@ ascending =
         },
         {
           "id": "0694c32c-804b-4c44-baa9-c52fd66d88e6",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-08-11T02:09:58.173+00:00",
           "created": "2024-08-11T02:09:58.173+00:00",
           "modifiedBy": "loader",
@@ -369,7 +317,7 @@ ascending =
         },
         {
           "id": "62230403-6310-4da3-a92d-75aea9806e2f",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-06-06T17:49:01.976+00:00",
           "created": "2024-06-06T17:49:01.976+00:00",
           "modifiedBy": "loader",
@@ -412,7 +360,7 @@ ascending =
         },
         {
           "id": "16aa9ba2-1f65-4349-ae82-617e6eda0cea",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-08-12T17:18:48.813+00:00",
           "created": "2024-08-12T17:18:48.813+00:00",
           "modifiedBy": "loader",
@@ -462,7 +410,7 @@ ascending =
         },
         {
           "id": "9dab8933-0c67-4ac3-aac9-9d2857d16a24",
-          "confidence": 0.0032948958687484264,
+          "confidence": 0.003149608848616481,
           "modified": "2024-08-13T01:53:32.295+00:00",
           "created": "2024-08-13T01:53:32.295+00:00",
           "modifiedBy": "loader",
@@ -509,11 +457,61 @@ ascending =
             "conceptsActive": 280,
             "childrenActive": 304
           }
+        },
+        {
+          "id": "9e3e3452-cf9c-42fa-ac0f-39aabeeff06a",
+          "confidence": 0.003149608848616481,
+          "modified": "2024-08-13T02:10:33.705+00:00",
+          "created": "2024-08-13T02:10:33.705+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "CVX",
+          "name": "CVX - Vaccines Administered",
+          "version": "20240515",
+          "publisher": "CDC",
+          "latest": false,
+          "loaded": true,
+          "releaseDate": "2024-05-15",
+          "family": "CVX",
+          "attributes": {
+            "copyright": "Center for Disease Control and Prevention",
+            "autocomplete": "true",
+            "unidirectionalRels": "true",
+            "tree-positions": "true",
+            "ecl": "true",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx",
+            "polyhierarchy": "true",
+            "hierarchical": "true",
+            "fhirVersion": "20240515",
+            "region-us": "true",
+            "label-clinical": "true",
+            "label-uscdi": "true",
+            "fhirId": "cvx_20240515",
+            "fhirCompositional": "false"
+          },
+          "roots": [
+            "root"
+          ],
+          "statistics": {
+            "termsInactive": 0,
+            "childrenInactive": 0,
+            "relationships": 299,
+            "concepts": 275,
+            "terms": 1423,
+            "parentsInactive": 0,
+            "termsActive": 1423,
+            "parentsActive": 299,
+            "definitions": 0,
+            "treePositions": 300,
+            "conceptsActive": 275,
+            "childrenActive": 299
+          }
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:23 PM
+Finished ...Thu, Mar 27, 2025  4:03:31 PM
 -----------------------------------------------------
 
