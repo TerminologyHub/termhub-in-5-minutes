@@ -162,7 +162,7 @@ the concepts those relationships originate "from" on the other side.  The follow
 inverse relationships for the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
 
 ```bash
-$ ./get-concept-relationships.sh sandbox SNOMEDCT 73211009 --inverse --token $token
+$ ./get-concept-relationships.sh sandbox SNOMEDCT 113331007 --inverse --token $token
 ```
 
 See sample payload data from this call in [`samples/get-concept-inverse-relationships-by-code.txt`](samples/get-concept-inverse-relationships-by-code.txt)

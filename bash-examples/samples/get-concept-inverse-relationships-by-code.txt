@@ -1,0 +1,163 @@
+-----------------------------------------------------
+Starting ...Thu, Mar 27, 2025  4:00:31 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+code = 113331007
+inverse = true
+
+  Get concept relationships for SNOMEDCT 113331007:
+
+    {
+      "total": 3,
+      "parameters": {
+        "query": "terminology:SNOMEDCT AND to.code:113331007 AND *",
+        "limit": 10,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "624caca0-d875-4ff1-9924-bdde8b85851f",
+          "confidence": 6.359950065612793,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "97229020",
+          "type": "Is a",
+          "additionalType": "116680003",
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Entire endocrine system",
+            "code": "278876000",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Structure of endocrine system",
+            "code": "113331007",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": false
+          },
+          "hierarchical": true,
+          "asserted": true,
+          "defining": true,
+          "group": "0",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "ffa28585-ecd9-4d9e-8109-ffb9f3142466",
+          "confidence": 6.359950065612793,
+          "modified": "2019-07-31T00:00:00.000+00:00",
+          "created": "2019-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "933154024",
+          "type": "other",
+          "additionalType": "363698007",
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Disorder of endocrine system",
+            "code": "362969004",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": true
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Structure of endocrine system",
+            "code": "113331007",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": false
+          },
+          "hierarchical": false,
+          "asserted": true,
+          "defining": true,
+          "group": "1",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        },
+        {
+          "id": "dd9c4edc-c246-41b7-81e1-88373739f511",
+          "confidence": 6.359950065612793,
+          "modified": "2019-07-31T00:00:00.000+00:00",
+          "created": "2019-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "componentId": "4601710026",
+          "type": "other",
+          "additionalType": "363698007",
+          "from": {
+            "local": false,
+            "active": true,
+            "name": "Diabetes mellitus",
+            "code": "73211009",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": true,
+            "defined": false
+          },
+          "to": {
+            "local": false,
+            "active": true,
+            "name": "Structure of endocrine system",
+            "code": "113331007",
+            "terminology": "SNOMEDCT",
+            "version": "20240101",
+            "publisher": "SANDBOX",
+            "leaf": false,
+            "defined": false
+          },
+          "hierarchical": false,
+          "asserted": true,
+          "defining": true,
+          "group": "1",
+          "attributes": {
+            "modifierId": "900000000000451002",
+            "characteristicTypeId": "900000000000011006",
+            "moduleId": "900000000000207008"
+          }
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Thu, Mar 27, 2025  4:00:31 PM
+-----------------------------------------------------
+
