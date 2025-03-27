@@ -1,18 +1,18 @@
 {
-  "id": "04193786-499f-4ff6-a281-cecfa0bdfc3a36",
-  "confidence": 6.93645715713501,
-  "modified": "2024-05-13T18:27:49.865+00:00",
-  "created": "2024-05-13T18:27:49.865+00:00",
+  "id": "165cdb81-81d7-4878-a799-ee7575c7bbf7",
+  "confidence": 7.296356201171875,
+  "modified": "2024-08-28T01:27:08.489+00:00",
+  "created": "2024-08-28T01:27:08.489+00:00",
   "modifiedBy": "loader",
   "local": false,
   "active": true,
-  "abbreviation": "SNOMEDCT",
-  "name": "Mini version of SNOMEDCT For testing purposes",
-  "version": "20240101",
+  "abbreviation": "SNOMEDCT_US",
+  "name": "Mini version of SNOMEDCT_US For testing purposes",
+  "version": "20240301",
   "publisher": "SANDBOX",
   "latest": true,
   "loaded": true,
-  "releaseDate": "2024-01-01",
+  "releaseDate": "2024-03-01",
   "family": "SNOMEDCT",
   "attributes": {
     "autocomplete": "true",
@@ -23,27 +23,29 @@
     "ecl": "true",
     "description-logic-profile": "EL++",
     "fhirUri": "http://snomed.info/sct",
+    "show-sty": "true",
     "polyhierarchy": "true",
     "hierarchical": "true",
-    "fhirVersion": "http://snomed.info/sct/900000000000207008/version/20240101",
-    "fhirId": "snomedct_900000000000207008_20240101"
+    "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
+    "fhirId": "snomedct_us_731000124108_20240301"
   },
   "roots": [
     "138875005"
   ],
   "statistics": {
     "parentsInactive": 0,
-    "parentsActive": 592,
-    "treePositions": 2152,
-    "termsInactive": 353,
+    "parentsActive": 598,
+    "treePositions": 2158,
+    "termsInactive": 355,
     "childrenInactive": 0,
-    "relationships": 743,
-    "concepts": 434,
-    "terms": 1534,
+    "relationships": 749,
+    "concepts": 440,
+    "terms": 1549,
     "conceptsInactive": 3,
-    "termsActive": 1181,
+    "termsActive": 1194,
     "definitions": 19,
-    "conceptsActive": 431,
-    "childrenActive": 592
+    "conceptsActive": 437,
+    "childrenActive": 598
   }
 }
+
