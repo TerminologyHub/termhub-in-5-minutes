@@ -1,0 +1,111 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025  2:35:06 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+query = system
+expr = <64572001
+offset = 0
+limit = 5
+sort = 
+ascending = 
+
+  Find concepts: (terminology:SNOMEDCT) AND system
+
+    {
+      "total": 7,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT) AND system",
+        "expression": "<64572001",
+        "limit": 5,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "a5795a20-baf4-41e4-835e-a26a16a00bc7",
+          "confidence": 10.569323539733887,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of cardiovascular system",
+          "code": "49601007",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        },
+        {
+          "id": "52a1b7a5-78ac-481b-a85d-69687fe4cac2",
+          "confidence": 10.095866203308105,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of body system",
+          "code": "362965005",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        },
+        {
+          "id": "b511b7f6-0887-4ac9-a63b-027248284dd0",
+          "confidence": 10.052236557006836,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of endocrine system",
+          "code": "362969004",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        },
+        {
+          "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+          "confidence": 6.616611480712891,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Diabetes mellitus",
+          "code": "73211009",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
+        },
+        {
+          "id": "151ee928-8af7-4f73-8bd1-39e26c96bf6f",
+          "confidence": 6.48627233505249,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Disorder of breast",
+          "code": "79604008",
+          "terminology": "SNOMEDCT",
+          "version": "20240101",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": true
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025  2:35:06 PM
+-----------------------------------------------------
+

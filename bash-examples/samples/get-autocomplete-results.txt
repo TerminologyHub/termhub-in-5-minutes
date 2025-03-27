@@ -1,0 +1,24 @@
+-----------------------------------------------------
+Starting ...Mon, Mar 17, 2025 12:14:29 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+terminology = SNOMEDCT
+project = sandbox
+limit = 10
+
+  Find terms: diab
+
+    [
+      "Diabetic monitoring",
+      "Diabetes mellitus",
+      "DM - Diabetes mellitus",
+      "Diabetic monitoring (procedure)",
+      "Diabetes mellitus, NOS",
+      "Diabetes mellitus (disorder)",
+      "Diabetic monitoring (regime/therapy)"
+    ]
+
+-----------------------------------------------------
+Finished ...Mon, Mar 17, 2025 12:14:30 PM
+-----------------------------------------------------
+
