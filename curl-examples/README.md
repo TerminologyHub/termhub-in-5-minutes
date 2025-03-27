@@ -98,7 +98,7 @@ by the previous call and you can then look up terminology info specifically for 
 UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/165cdb81-81d7-4878-a799-ee7575c7bbf7" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/a1d1e426-26a6-4326-b18b-c54c154079b5" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
