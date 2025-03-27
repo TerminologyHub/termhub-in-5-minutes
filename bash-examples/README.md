@@ -91,7 +91,7 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```bash
-$ ./find-terminologies.sh --token $token --id 04193786-499f-4ff6-a281-cecfa0bdfc3a
+$ ./find-terminologies.sh --token $token --id a1d1e426-26a6-4326-b18b-c54c154079b5
 ```
 
 See sample payload data from this call in [`samples/find-terminologies-by-id.txt`](samples/find-terminologies-by-id.txt)
