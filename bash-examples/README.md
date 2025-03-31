@@ -91,7 +91,7 @@ by one of the previous calls and you can then look up terminology info for speci
 UUID.
 
 ```bash
-$ ./find-terminologies.sh --token $token --id 04193786-499f-4ff6-a281-cecfa0bdfc3a
+$ ./find-terminologies.sh --token $token --id a1d1e426-26a6-4326-b18b-c54c154079b5
 ```
 
 See sample payload data from this call in [`samples/find-terminologies-by-id.txt`](samples/find-terminologies-by-id.txt)
@@ -162,7 +162,7 @@ the concepts those relationships originate "from" on the other side.  The follow
 inverse relationships for the 73211009 | Diabetes mellitus | concept in SNOMEDCT.
 
 ```bash
-$ $ ./get-concept-relationships.sh sandbox SNOMEDCT 73211009 --inverse --token $token
+$ ./get-concept-relationships.sh sandbox SNOMEDCT 113331007 --inverse --token $token
 ```
 
 See sample payload data from this call in [`samples/get-concept-inverse-relationships-by-code.txt`](samples/get-concept-inverse-relationships-by-code.txt)
