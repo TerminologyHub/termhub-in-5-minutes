@@ -105,7 +105,7 @@ public class AuthApi {
     localVarFormParams.put("password", password);
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
-    String localVarContentType = apiClient.selectHeaderContentType("application/x-www-form-urlencoded", "application/json");
+    String localVarContentType = "application/x-www-form-urlencoded";
     GenericType<AuthResponse> localVarReturnType = new GenericType<AuthResponse>() {};
     return apiClient.invokeAPI("AuthApi.auth", "/auth/token", "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,

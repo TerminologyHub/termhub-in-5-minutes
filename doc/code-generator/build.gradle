@@ -11,8 +11,8 @@ version = "1.0.0-SNAPSHOT"
 
 // Input Specification locations. When using the inputFile, make sure you've updated
 // the doc with the changes you want to generate
-//def inputURL = 'https://api.terminologyhub.com/terminology/doc/v3/api-docs'
-def inputURL = 'https://dev.terminologyhub.com/terminology/doc/v3/api-docs'
+def inputURL = 'https://api.terminologyhub.com/terminology/doc/v3/api-docs'
+//def inputURL = 'https://dev.terminologyhub.com/terminology/doc/v3/api-docs'
 
 repositories {
   mavenCentral()

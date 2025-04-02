@@ -76,13 +76,13 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected Map<String, String> defaultHeaderMap = new HashMap<>();
   protected Map<String, String> defaultCookieMap = new HashMap<>();
-  protected String basePath = "https://dev.terminologyhub.com";
+  protected String basePath = "https://api.terminologyhub.com";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<>(Arrays.asList(
           new ServerConfiguration(
-                  "https://dev.terminologyhub.com",
+                  "https://api.terminologyhub.com",
                   "Current Instance",
                   new LinkedHashMap<>()
           )

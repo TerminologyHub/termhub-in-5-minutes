@@ -61,3 +61,13 @@ The following examples can be typed into the command line of any terminal that h
 - [Get concept mappings by code](#get-concept-mappings-by-code)
 - [Find project mappings for mapset](#find-project-mappings-for-mapset)
 - [Find project mappings](#find-project-mappings)
+
+### Login
+
+Login and acquire an access token for a username and password.  
+Replace <username> with your username and <password> with your password.  
+The commands below will set a `token` variable equal to the access token.
+
+```
+./gradlew test --tests api.AuthApiTest.authTest -Pusername=<username> -Ppassword=<password>
+```

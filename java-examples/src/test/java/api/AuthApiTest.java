@@ -18,6 +18,7 @@ import api.invoker.auth.*;
 import api.model.AuthResponse;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,12 +42,19 @@ public class AuthApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void authTest() throws ApiException {
-        //String grantType = null;
-        //String username = null;
-        //String password = null;
-        //AuthResponse response = api.auth(grantType, username, password);
-        // TODO: test validations
+    public void authTest() throws Exception {
+        String grantType = "username_password";
+        String username = System.getProperty("username");
+        String password = System.getProperty("password");
+
+        try {
+            AuthResponse response = api.auth(grantType, username, password);
+            assertNotNull(response);
+            assertNotNull(response.getAccessToken());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
 }
