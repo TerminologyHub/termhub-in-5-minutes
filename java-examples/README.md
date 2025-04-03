@@ -34,7 +34,29 @@ If you only want to build (for example to run the tests separately) then run:
 
 This will build the model objects and clients, while not running the tests.
 
-Sample Java tests
+### Authentication
+
+IMPORTANT: Termhub API requires a Bearer Token authentication, which you have two ways of setting up:
+
+1. At the end of each `./gradlew test` run, add these two parameters `-Pusername=<username> -Ppassword=<password>`, where your termhub account username replaces <username> and your termhub account password replaces <password>.
+2. In `java-examples/build.gradle`, find the test section:
+```
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+    systemProperty 'username', project.findProperty('username') ?: 'defaultUsername'
+    systemProperty 'password', project.findProperty('password') ?: 'defaultPassword'
+}
+```
+Replace 'defaultUsername` with your username, and 'defaultPassword' with your password.
+
+
+Note that failure to properly set up this authentication <b>will result in all calls to the Termhub API failing with a 403 error.</b>
+
+### Sample Java tests
 -----------------
 
 The following examples can be typed into the command line of any terminal that has cURL and jq installed.
