@@ -34,6 +34,23 @@ public class MetadataApiTest {
 
     private final MetadataApi api = new MetadataApi();
 
+    @BeforeEach
+    public void setUp() {
+        // Set up the API client with authentication
+        String grantType = "username_password";
+        String username = System.getProperty("username");
+        String password = System.getProperty("password");
+        String accessToken = null;
+        try {
+            AuthResponse response = new AuthApi().auth(grantType, username, password);
+            accessToken = response.getAccessToken();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to authenticate: " + e.getMessage());
+        }
+        api.getApiClient().setAccessToken(accessToken);
+    }
+
     /**
      * Find project terminology metadata
      *

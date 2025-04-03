@@ -33,6 +33,23 @@ public class TermApiTest {
 
     private final TermApi api = new TermApi();
 
+    @BeforeEach
+    public void setUp() {
+        // Set up the API client with authentication
+        String grantType = "username_password";
+        String username = System.getProperty("username");
+        String password = System.getProperty("password");
+        String accessToken = null;
+        try {
+            AuthResponse response = new AuthApi().auth(grantType, username, password);
+            accessToken = response.getAccessToken();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to authenticate: " + e.getMessage());
+        }
+        api.getApiClient().setAccessToken(accessToken);
+    }
+
     /**
      * Suggest autocompletions for text while searching
      *
