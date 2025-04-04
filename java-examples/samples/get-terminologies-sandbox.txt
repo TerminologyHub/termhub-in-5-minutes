@@ -1,20 +1,6 @@
-> Task :compileJava UP-TO-DATE
-> Task :processResources NO-SOURCE
-> Task :classes UP-TO-DATE
-> Task :compileTestJava UP-TO-DATE
-> Task :processTestResources NO-SOURCE
-> Task :testClasses UP-TO-DATE
-
-> Task :test
-
-Gradle Test Executor 80 STANDARD_ERROR
-    Apr 04, 2025 3:46:25 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 3 tests were Method or class mismatch
-
-TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
-    Response: [class Terminology {
+Response: [class Terminology {
         id: 177f2263-fe04-4f1f-b0e6-9b351ab8baa9
-        confidence: 9.470311164855957
+        confidence: 9.488221168518066
         modified: 2024-08-23T02:03:54.059Z
         created: 2024-08-23T02:03:54.059Z
         modifiedBy: loader
@@ -37,7 +23,7 @@ TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
         statistics: {termsInactive=0, childrenInactive=0, relationships=18, concepts=10, terms=22, parentsInactive=0, termsActive=22, parentsActive=9, definitions=0, treePositions=10, conceptsActive=10, childrenActive=9}
     }, class Terminology {
         id: 3e8e4d7c-7d3a-4682-a1e4-c5db5bc33d4b
-        confidence: 8.786079406738281
+        confidence: 8.80398941040039
         modified: 2025-03-27T15:03:43.252Z
         created: 2025-03-27T15:03:43.252Z
         modifiedBy: loader
@@ -60,7 +46,7 @@ TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
         statistics: {parentsInactive=0, parentsActive=592, treePositions=2152, termsInactive=353, childrenInactive=0, relationships=743, concepts=434, terms=1534, conceptsInactive=3, termsActive=1181, definitions=19, conceptsActive=431, childrenActive=592}
     }, class Terminology {
         id: a1d1e426-26a6-4326-b18b-c54c154079b5
-        confidence: 9.26749038696289
+        confidence: 9.285401344299316
         modified: 2025-03-27T15:09:32.887Z
         created: 2025-03-27T15:09:32.887Z
         modifiedBy: loader
@@ -83,7 +69,7 @@ TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
         statistics: {parentsInactive=0, parentsActive=598, treePositions=2158, termsInactive=355, childrenInactive=0, relationships=749, concepts=440, terms=1549, conceptsInactive=3, termsActive=1194, definitions=19, conceptsActive=437, childrenActive=598}
     }, class Terminology {
         id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
-        confidence: 9.277199745178223
+        confidence: 9.295109748840332
         modified: 2024-05-13T18:29:48.953Z
         created: 2024-05-13T18:29:48.953Z
         modifiedBy: loader
@@ -106,7 +92,7 @@ TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
         statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
     }, class Terminology {
         id: d1aba666-39bf-48ea-b524-c5a47ab1dcf1
-        confidence: 10.15755844116211
+        confidence: 10.175468444824219
         modified: 2024-05-13T18:30:45.195Z
         created: 2024-05-13T18:30:45.195Z
         modifiedBy: loader
@@ -129,14 +115,4 @@ TerminologyApiTest > getProjectTerminologiesTest() STANDARD_OUT
         statistics: {termsInactive=0, childrenInactive=0, relationships=326, concepts=114, terms=226, parentsInactive=0, termsActive=226, parentsActive=90, definitions=0, treePositions=93, conceptsActive=114, childrenActive=90}
     }]
 
-TerminologyApiTest > getProjectTerminologiesTest() PASSED
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD SUCCESSFUL in 1s
-3 actionable tasks: 1 executed, 2 up-to-date
-
+TerminologyApiTest > getProjectTerminologiesTest()

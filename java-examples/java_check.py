@@ -75,6 +75,10 @@ def process_markdown():
     
     return sections
 
+def extract_test_stdout(output):
+    blocks = re.findall(r"STANDARD_OUT\s+(.*?)\s+PASSED", output, re.DOTALL)
+    return "\n".join(block.strip() for block in blocks)
+
 def run_sections(sections):
     """Executes java commands and updates corresponding sample files."""
     for section in sections:
@@ -85,7 +89,7 @@ def run_sections(sections):
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
                 with open(section["files"][file_index], 'w', encoding='utf-8') as f:
-                   f.write(response + "\n")
+                   f.write(extract_test_stdout(response))
                 print(f"Updated: {section['files'][file_index]}")
                 file_index += 1
 

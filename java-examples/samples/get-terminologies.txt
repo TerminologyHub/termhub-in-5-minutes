@@ -1,19 +1,5 @@
-> Task :compileJava UP-TO-DATE
-> Task :processResources NO-SOURCE
-> Task :classes UP-TO-DATE
-> Task :compileTestJava UP-TO-DATE
-> Task :processTestResources NO-SOURCE
-> Task :testClasses UP-TO-DATE
-
-> Task :test
-
-Gradle Test Executor 79 STANDARD_ERROR
-    Apr 04, 2025 3:46:23 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 3 tests were Method or class mismatch
-
-TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
-    Response: class ResultListTerminology {
-        total: 142
+Response: class ResultListTerminology {
+        total: 143
         parameters: class SearchParameters {
             terminology: null
             query: loaded:true
@@ -28,7 +14,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
         }
         items: [class Terminology {
             id: e04c9251-e493-4b5a-b500-f36163625d1f
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-05-11T04:07:44.624Z
             created: 2024-05-11T04:07:44.624Z
             modifiedBy: loader
@@ -51,7 +37,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=191692, concepts=95847, terms=204093, parentsInactive=0, termsActive=204093, parentsActive=95846, definitions=0, treePositions=95847, conceptsActive=95847, childrenActive=95846}
         }, class Terminology {
             id: 8f038f6e-775f-4573-a139-5174daabbd82
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-05-11T15:47:02.406Z
             created: 2024-05-11T15:47:02.406Z
             modifiedBy: loader
@@ -74,7 +60,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=143330, childrenInactive=0, relationships=1634722, concepts=221584, terms=348885, conceptsInactive=95454, termsActive=205555, definitions=0, conceptsActive=126130, childrenActive=0}
         }, class Terminology {
             id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-05-13T18:29:48.953Z
             created: 2024-05-13T18:29:48.953Z
             modifiedBy: loader
@@ -97,7 +83,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
         }, class Terminology {
             id: 135ee0de-10eb-43ed-9d31-f4f8fef8cba0
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-06-10T02:40:46.951Z
             created: 2024-06-10T02:40:46.951Z
             modifiedBy: loader
@@ -120,7 +106,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=81782, concepts=14844, terms=64725, parentsInactive=0, termsActive=64725, parentsActive=14854, definitions=0, treePositions=14855, conceptsActive=14844, childrenActive=14854}
         }, class Terminology {
             id: de16927d-72c1-47c1-9e1b-b8fb68a391cb
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-06-10T02:57:17.255Z
             created: 2024-06-10T02:57:17.255Z
             modifiedBy: loader
@@ -143,7 +129,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=2266336, concepts=170946, terms=422517, parentsInactive=0, termsActive=422517, parentsActive=196504, definitions=137609, treePositions=725261, conceptsActive=170946, childrenActive=196504}
         }, class Terminology {
             id: 0694c32c-804b-4c44-baa9-c52fd66d88e6
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-08-11T02:09:58.173Z
             created: 2024-08-11T02:09:58.173Z
             modifiedBy: loader
@@ -166,7 +152,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=1562, concepts=1563, terms=10675, parentsInactive=0, termsActive=10675, parentsActive=1562, definitions=120, treePositions=1563, conceptsActive=1563, childrenActive=1562}
         }, class Terminology {
             id: 62230403-6310-4da3-a92d-75aea9806e2f
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-06-06T17:49:01.976Z
             created: 2024-06-06T17:49:01.976Z
             modifiedBy: loader
@@ -189,7 +175,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=143513, childrenInactive=0, relationships=1639482, concepts=222199, terms=350085, conceptsInactive=95550, termsActive=206572, definitions=0, conceptsActive=126649, childrenActive=0}
         }, class Terminology {
             id: 3a2b01bf-9dc2-4611-befb-1eeae8802f3f
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-08-12T17:22:29.100Z
             created: 2024-08-12T17:22:29.100Z
             modifiedBy: loader
@@ -212,7 +198,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=964, concepts=966, terms=1932, parentsInactive=0, termsActive=1932, parentsActive=964, definitions=0, treePositions=967, conceptsActive=966, childrenActive=964}
         }, class Terminology {
             id: 3a1c1cbb-f4ac-43bb-ae1b-5c0a2593612a
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-06-08T23:29:13.398Z
             created: 2024-06-08T23:29:13.398Z
             modifiedBy: loader
@@ -235,7 +221,7 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
             statistics: {termsInactive=0, childrenInactive=0, relationships=383058, concepts=191546, terms=271054, parentsInactive=0, termsActive=271054, parentsActive=191529, definitions=0, treePositions=191547, conceptsActive=191546, childrenActive=191529}
         }, class Terminology {
             id: 94aea2aa-1abc-4fff-81e8-52558d6850a6
-            confidence: 0.0031897954177111387
+            confidence: 0.0031695745419710875
             modified: 2024-06-08T23:59:39.728Z
             created: 2024-06-08T23:59:39.728Z
             modifiedBy: loader
@@ -259,14 +245,4 @@ TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
         }]
     }
 
-TerminologyApiTest > findTerminologiesTest() PASSED
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD SUCCESSFUL in 1s
-3 actionable tasks: 1 executed, 2 up-to-date
-
+TerminologyApiTest > findTerminologiesTest()

@@ -1,18 +1,4 @@
-> Task :compileJava UP-TO-DATE
-> Task :processResources NO-SOURCE
-> Task :classes UP-TO-DATE
-> Task :compileTestJava UP-TO-DATE
-> Task :processTestResources NO-SOURCE
-> Task :testClasses UP-TO-DATE
-
-> Task :test
-
-Gradle Test Executor 87 STANDARD_ERROR
-    Apr 04, 2025 3:46:45 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 9 tests were Method or class mismatch
-
-ConceptByCodeApiTest > findTreePositionsTest() STANDARD_OUT
-    Response: class ResultListConceptTreePosition {
+Response: class ResultListConceptTreePosition {
         total: 2
         parameters: class SearchParameters {
             terminology: null
@@ -471,14 +457,4 @@ ConceptByCodeApiTest > findTreePositionsTest() STANDARD_OUT
         }]
     }
 
-ConceptByCodeApiTest > findTreePositionsTest() PASSED
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD SUCCESSFUL in 1s
-3 actionable tasks: 1 executed, 2 up-to-date
-
+ConceptByCodeApiTest > findTreePositionsTest()
