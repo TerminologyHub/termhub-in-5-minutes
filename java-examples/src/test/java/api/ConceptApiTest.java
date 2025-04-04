@@ -117,7 +117,7 @@ public class ConceptApiTest {
         Boolean ascending = null;
         Boolean active = null;
         Boolean leaf = null;
-        String include = null;
+        String include = "summary";
         ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
         assertNotNull(response);
         assertTrue(response.getItems().size() <= 5);
