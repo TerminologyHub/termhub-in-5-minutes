@@ -15,6 +15,7 @@ package api;
 
 import api.invoker.*;
 import api.invoker.auth.*;
+import api.model.Concept;
 import api.model.ResultListConcept;
 import api.model.AuthResponse;
 import api.model.ResultListTerminology;
@@ -106,19 +107,26 @@ public class ConceptApiTest {
      */
     @Test
     public void findConceptsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String query = null;
-        //String expression = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //Boolean leaf = null;
-        //String include = null;
-        //ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String query = "diabetes";
+        String expression = null;
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        Boolean leaf = null;
+        String include = null;
+        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        assertNotNull(response);
+        assertEquals(5, response.getTotal());
+        assertTrue(response.getItems().size() <= 5);
+        for (Concept concept : response.getItems()) {
+            assertNotNull(concept.getId());
+            assertNotNull(concept.getName());
+            assertNotNull(concept.getTerminology());
+        }
     }
 
     /**

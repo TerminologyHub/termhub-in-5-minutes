@@ -16,6 +16,8 @@ package api;
 import api.invoker.*;
 import api.invoker.auth.*;
 import api.model.Concept;
+import api.model.ConceptRelationship;
+import api.model.ConceptTreePosition;
 import api.model.Mapping;
 import api.model.ResultListConceptRelationship;
 import api.model.ResultListConceptTreePosition;
@@ -69,16 +71,29 @@ public class ConceptByCodeApiTest {
      */
     @Test
     public void findConceptInverseRelationshipsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //Boolean ascending = null;
-        //String sort = null;
-        //ResultListConceptRelationship response = api.findConceptInverseRelationships(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "113331007";
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        Boolean ascending = null;
+        String sort = null;
+        ResultListConceptRelationship response = api.findConceptInverseRelationships(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
+
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        assertFalse(response.getItems().isEmpty());
+        for (ConceptRelationship item : response.getItems()) {
+            assertNotNull(item.getTerminology());
+            assertEquals(terminology, item.getTerminology());
+            assertNotNull(item.getPublisher());
+            assertEquals(idOrUriLabel, item.getPublisher().toLowerCase());
+            assertNotNull(item.getFrom());
+            assertNotNull(item.getTo());
+            assertEquals(item.getTo().getCode(), code);
+            assertEquals(item.getTo().getTerminology(), terminology);
+        }
     }
 
     /**
@@ -90,16 +105,30 @@ public class ConceptByCodeApiTest {
      */
     @Test
     public void findConceptRelationshipsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //Boolean ascending = null;
-        //String sort = null;
-        //ResultListConceptRelationship response = api.findConceptRelationships(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "73211009";
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        Boolean ascending = null;
+        String sort = null;
+        ResultListConceptRelationship response = api.findConceptRelationships(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
+
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        assertFalse(response.getItems().isEmpty());
+        for (ConceptRelationship item : response.getItems()) {
+          System.out.println("Item: " + item);
+            assertNotNull(item.getTerminology());
+            assertEquals(terminology, item.getTerminology());
+            assertNotNull(item.getPublisher());
+            assertEquals(idOrUriLabel, item.getPublisher().toLowerCase());
+            assertNotNull(item.getFrom());
+            assertNotNull(item.getTo());
+            assertEquals(item.getFrom().getCode(), code);
+            assertEquals(item.getFrom().getTerminology(), terminology);
+        }
     }
 
     /**
@@ -111,16 +140,25 @@ public class ConceptByCodeApiTest {
      */
     @Test
     public void findTreePositionChildrenTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //Boolean ascending = null;
-        //String sort = null;
-        //ResultListConceptTreePosition response = api.findTreePositionChildren(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "73211009";
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        Boolean ascending = null;
+        String sort = null;
+        ResultListConceptTreePosition response = api.findTreePositionChildren(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        for (ConceptTreePosition item : response.getItems()) {
+            assertNotNull(item.getTerminology());
+            assertEquals(terminology, item.getTerminology());
+            assertNotNull(item.getPublisher());
+            assertEquals(idOrUriLabel, item.getPublisher().toLowerCase());
+            assertNotNull(item.getChildren());
+            assertFalse(item.getChildren().isEmpty());
+        }
     }
 
     /**
@@ -132,16 +170,39 @@ public class ConceptByCodeApiTest {
      */
     @Test
     public void findTreePositionsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //Boolean ascending = null;
-        //String sort = null;
-        //ResultListConceptTreePosition response = api.findTreePositions(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "73211009";
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        Boolean ascending = null;
+        String sort = null;
+        ResultListConceptTreePosition response = api.findTreePositions(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        for (ConceptTreePosition item : response.getItems()) {
+            assertNotNull(item.getTerminology());
+            assertEquals(terminology, item.getTerminology());
+            assertNotNull(item.getPublisher());
+            assertEquals(idOrUriLabel, item.getPublisher().toLowerCase());
+            assertNotNull(item.getChildren());
+            assertFalse(item.getChildren().isEmpty());
+            assertTrue(containsCode(item, code), "Code not found in ConceptTreePosition tree");
+        }
+    }
+
+    // helper function to make sure the target code is in the tree
+    private boolean containsCode(ConceptTreePosition node, String targetCode) {
+      if (node.getConcept().getCode().equals(targetCode)) {
+          return true;
+      }
+      for (ConceptTreePosition child : node.getChildren()) {
+          if (containsCode(child, targetCode)) {
+              return true;
+          }
+      }
+      return false;
     }
 
     /**
@@ -183,13 +244,13 @@ public class ConceptByCodeApiTest {
         String include = "full";
         Concept response = api.getConcept(idOrUriLabel, terminology, code, include);
         System.out.println("Response: " + response);
-        /*assertNotNull(response);
+        assertNotNull(response);
         assertNotNull(response.getId());
         assertNotNull(response.getName());
         assertNotNull(response.getCode());
         assertEquals(code, response.getCode());
         assertNotNull(response.getTerminology());
-        assertEquals(terminology, response.getTerminology());*/
+        assertEquals(terminology, response.getTerminology());
     }
 
     /**

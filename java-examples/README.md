@@ -178,7 +178,7 @@ the concepts those relationships point "to" on the other side. For example, a ch
 concept pointing to its parent.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/relationships" | jq
+./gradlew test --tests api.ConceptByCodeApiTest.findConceptRelationshipsTest
 ```
 
 See sample payload data from this call in [`samples/get-concept-relationships.txt`](samples/get-concept-relationships.txt)
@@ -193,7 +193,7 @@ those relationships originate "from" on the other side.  For example, a parent c
 being pointed to from a child.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/113331007/inverseRelationships" | jq
+./gradlew test --tests api.ConceptByCodeApiTest.findConceptInverseRelationshipsTest
 ```
 
 See sample payload data from this call in [`samples/get-concept-inverse-relationships.txt`](samples/get-concept-inverse-relationships.txt)
@@ -208,7 +208,7 @@ more complex poly-hierarchies you'd likely expect to see multiple tree positions
 each one with a different path to the root concept.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT/73211009/trees" | jq
+./gradlew test --tests api.ConceptByCodeApiTest.findTreePositionsTest
 ```
 
 See sample payload data from this call in [`samples/get-concept-treepos.txt`](samples/get-concept-treepos.txt)
@@ -221,7 +221,7 @@ Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5" | jq
+./gradlew test --tests api.ConceptApiTest.findConceptsTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
