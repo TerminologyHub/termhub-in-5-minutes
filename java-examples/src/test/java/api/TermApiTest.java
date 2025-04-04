@@ -99,7 +99,6 @@ public class TermApiTest {
         Boolean active = null;
         ResultListTerm response = api.findTerms(idOrUriLabel, terminology, query, offset, limit, sort, ascending, active);
         assertNotNull(response);
-        assertFalase(response.isEmpty());
         assertFalse(response.getItems().isEmpty());
         System.out.println("Response: " + response);
         for (Term term : response.getItems()) {

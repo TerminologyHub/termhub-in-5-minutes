@@ -296,7 +296,7 @@ search parameters such as query, limit, offset, sort, and ascending to allow sea
 across available mapsets.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/mapset" | jq
+./gradlew test --tests api.MapsetApiTest.findMapsetsTest
 ```
 
 See sample payload data from this call in [`samples/get-mapsets.txt`](samples/get-mapsets.txt)
@@ -308,7 +308,7 @@ See sample payload data from this call in [`samples/get-mapsets.txt`](samples/ge
 Return all mapsets for the specified project identified by either projectId or projectLabel.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset" | jq
+./gradlew test --tests api.MapsetApiTest.getProjectMapsetsTest
 ```
 
 See sample payload data from this call in [`samples/get-mapsets-sandbox.txt`](samples/get-mapsets-sandbox.txt)
@@ -324,7 +324,7 @@ by the previous call and you can then look up mapset info specifically for that
 UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/mapset/2a545e12-04eb-48ee-b988-c17346b4e05f" | jq
+./gradlew test --tests api.MapsetApiTest.getMapsetTest
 ```
 
 See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10cm.txt`](samples/get-mapset-snomedct_us-icd10cm.txt)
@@ -337,7 +337,7 @@ Export zip file of a mapset in a particular format.  Currently only format=nativ
 supported.
 
 ```
-curl -o SNOMEDCT_US-ICD10CM.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/export?format=native"
+./gradlew test --tests api.MapsetApiTest.exportMapsetTest
 ```
 
 No payload sample as the output is a .zip file.

@@ -16,6 +16,9 @@ package api;
 import api.invoker.*;
 import api.invoker.auth.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import api.model.Mapset;
 import api.model.ResultListMapping;
 import api.model.ResultListMapset;
@@ -69,11 +72,28 @@ public class MapsetApiTest {
      */
     @Test
     public void exportMapsetTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String mapset = null;
-        //String format = null;
-        //byte[] response = api.exportMapset(idOrUriLabel, mapset, format);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String mapset = "SNOMEDCT_US-ICD10CM";
+        String format = "native";
+        byte[] response = api.exportMapset(idOrUriLabel, mapset, format);
+        assertNotNull(response);
+        assertTrue(response.length > 0);
+        // write the response to a file
+        try {
+            FileOutputStream fos = new FileOutputStream("SNOMEDCT_US-ICD10CM.zip");
+            fos.write(response);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to write file: " + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to write file: " + e.getMessage());
+        }
+        // Verify the file was created
+        File file = new File("SNOMEDCT_US-ICD10CM.zip");
+        assertTrue(file.exists(), "File should exist");
+        assertTrue(file.length() > 0, "File should not be empty");
     }
 
     /**
@@ -147,13 +167,21 @@ public class MapsetApiTest {
      */
     @Test
     public void findMapsetsTest() throws ApiException {
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //ResultListMapset response = api.findMapsets(query, offset, limit, sort, ascending);
-        // TODO: test validations
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        Boolean ascending = null;
+        ResultListMapset response = api.findMapsets(query, offset, limit, sort, ascending);
+        assertNotNull(response);
+        assertNotNull(response.getTotal());
+        System.out.println("Response: " + response);
+        assertTrue(response.getTotal() > 0);
+        assertNotNull(response.getItems());
+        assertFalse(response.getItems().isEmpty());
+        for (Object item : response.getItems()) {
+            assertTrue(item instanceof Mapset);
+        }
     }
 
     /**
@@ -165,9 +193,12 @@ public class MapsetApiTest {
      */
     @Test
     public void getMapsetTest() throws ApiException {
-        //String id = null;
-        //Mapset response = api.getMapset(id);
-        // TODO: test validations
+        String id = "2a545e12-04eb-48ee-b988-c17346b4e05f";
+        Mapset response = api.getMapset(id);
+        assertNotNull(response);
+        System.out.println("Response: " + response);
+        assertEquals(id, response.getId().toString());
+
     }
 
     /**
@@ -179,9 +210,15 @@ public class MapsetApiTest {
      */
     @Test
     public void getProjectMapsetsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //List<Mapset> response = api.getProjectMapsets(idOrUriLabel);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        List<Mapset> response = api.getProjectMapsets(idOrUriLabel);
+        assertNotNull(response);
+        assertFalse(response.isEmpty());
+        System.out.println("Response: " + response);
+        for (Object item : response) {
+            assertTrue(item instanceof Mapset);
+            assertEquals("sandbox", ((Mapset) item).getPublisher().toLowerCase());
+        }
     }
 
 }

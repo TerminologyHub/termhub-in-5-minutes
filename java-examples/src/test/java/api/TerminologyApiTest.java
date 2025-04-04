@@ -90,6 +90,10 @@ public class TerminologyApiTest {
             e.printStackTrace();
             Assertions.fail("IO Exception: " + e.getMessage());
         }
+        // Verify the file was created
+        File file = new File("SNOMEDCT.zip");
+        assertTrue(file.exists(), "File should exist");
+        assertTrue(file.length() > 0, "File should not be empty");
     }
 
     /**
