@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import api.invoker.JSON;
 
@@ -35,10 +34,10 @@ import api.invoker.JSON;
   IdentifierRef.JSON_PROPERTY_CONFIDENCE,
   IdentifierRef.JSON_PROPERTY_LABEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:36:52.969136900-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class IdentifierRef {
   public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  private String id;
 
   public static final String JSON_PROPERTY_CONFIDENCE = "confidence";
   private Double confidence;
@@ -49,7 +48,7 @@ public class IdentifierRef {
   public IdentifierRef() { 
   }
 
-  public IdentifierRef id(UUID id) {
+  public IdentifierRef id(String id) {
     this.id = id;
     return this;
   }
@@ -62,14 +61,14 @@ public class IdentifierRef {
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -105,7 +104,7 @@ public class IdentifierRef {
   }
 
    /**
-   * Identifier label, e.g. \&quot;OHDSI\&quot;
+   * Identifier label, e.g. \&quot;OMOP\&quot;
    * @return label
   **/
   @jakarta.annotation.Nullable

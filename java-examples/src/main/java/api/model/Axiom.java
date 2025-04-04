@@ -44,7 +44,7 @@ import api.invoker.JSON;
   Axiom.JSON_PROPERTY_VERSION,
   Axiom.JSON_PROPERTY_PUBLISHER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:36:52.969136900-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Axiom {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
