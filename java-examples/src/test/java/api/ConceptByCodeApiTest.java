@@ -315,11 +315,23 @@ public class ConceptByCodeApiTest {
      */
     @Test
     public void getConceptMappingsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //List<Mapping> response = api.getConceptMappings(idOrUriLabel, terminology, code);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT_US";
+        String code = "73211009";
+        List<Mapping> response = api.getConceptMappings(idOrUriLabel, terminology, code);
+        assertNotNull(response);
+        assertFalse(response.isEmpty());
+        System.out.println("Response: " + response);
+        for (Mapping item : response) {
+            assertNotNull(item.getTerminology());
+            assertEquals(terminology, item.getTerminology());
+            assertNotNull(item.getPublisher());
+            assertEquals(idOrUriLabel, item.getPublisher().toLowerCase());
+            assertNotNull(item.getFrom());
+            assertNotNull(item.getTo());
+            assertEquals(item.getFrom().getCode(), code);
+            assertEquals(item.getFrom().getTerminology(), terminology);
+        }
     }
 
 }

@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import api.model.Mapping;
 import api.model.Mapset;
 import api.model.ResultListMapping;
 import api.model.ResultListMapset;
@@ -123,17 +124,33 @@ public class MapsetApiTest {
      */
     @Test
     public void findMappingsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String mapset = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //Boolean leaf = null;
-        //ResultListMapping response = api.findMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String mapset = null;
+        String query = "to.name:diabetes";
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        Boolean leaf = null;
+        ResultListMapping response = api.findMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
+
+        assertNotNull(response);
+        assertNotNull(response.getTotal());
+        System.out.println("Response: " + response);
+        assertTrue(response.getTotal() > 0);
+        assertNotNull(response.getItems());
+        assertFalse(response.getItems().isEmpty());
+
+        for (Mapping item : response.getItems()) {
+            assertEquals("sandbox", item.getPublisher().toLowerCase());
+
+            assertNotNull(item.getFrom());
+
+            assertNotNull(item.getTo());
+            assertEquals("ICD10CM", item.getTo().getTerminology());
+            assertTrue(item.getTo().getName().toLowerCase().contains("diabetes"));
+        }
     }
 
     /**
@@ -145,17 +162,36 @@ public class MapsetApiTest {
      */
     @Test
     public void findMapsetMappingsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String mapset = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //Boolean leaf = null;
-        //ResultListMapping response = api.findMapsetMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String mapset = "SNOMEDCT_US-ICD10CM";
+        String query = "to.name:diabetes";
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        Boolean leaf = null;
+        ResultListMapping response = api.findMapsetMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
+
+        assertNotNull(response);
+        assertNotNull(response.getTotal());
+        System.out.println("Response: " + response);
+        assertTrue(response.getTotal() > 0);
+        assertNotNull(response.getItems());
+        assertFalse(response.getItems().isEmpty());
+
+        for (Mapping item : response.getItems()) {
+          assertEquals("SNOMEDCT_US", item.getTerminology());
+          assertEquals("SNOMEDCT_US-ICD10CM", item.getMapset().getAbbreviation());
+          assertEquals("sandbox", item.getPublisher().toLowerCase());
+
+          assertNotNull(item.getFrom());
+          assertEquals("SNOMEDCT_US", item.getFrom().getTerminology());
+
+          assertNotNull(item.getTo());
+          assertEquals("ICD10CM", item.getTo().getTerminology());
+          assertTrue(item.getTo().getName().toLowerCase().contains("diabetes"));
+        }
     }
 
     /**
@@ -173,9 +209,11 @@ public class MapsetApiTest {
         String sort = null;
         Boolean ascending = null;
         ResultListMapset response = api.findMapsets(query, offset, limit, sort, ascending);
+
         assertNotNull(response);
         assertNotNull(response.getTotal());
         System.out.println("Response: " + response);
+
         assertTrue(response.getTotal() > 0);
         assertNotNull(response.getItems());
         assertFalse(response.getItems().isEmpty());
@@ -195,6 +233,7 @@ public class MapsetApiTest {
     public void getMapsetTest() throws ApiException {
         String id = "2a545e12-04eb-48ee-b988-c17346b4e05f";
         Mapset response = api.getMapset(id);
+        
         assertNotNull(response);
         System.out.println("Response: " + response);
         assertEquals(id, response.getId().toString());
@@ -212,9 +251,11 @@ public class MapsetApiTest {
     public void getProjectMapsetsTest() throws ApiException {
         String idOrUriLabel = "sandbox";
         List<Mapset> response = api.getProjectMapsets(idOrUriLabel);
+
         assertNotNull(response);
         assertFalse(response.isEmpty());
         System.out.println("Response: " + response);
+        
         for (Object item : response) {
             assertTrue(item instanceof Mapset);
             assertEquals("sandbox", ((Mapset) item).getPublisher().toLowerCase());

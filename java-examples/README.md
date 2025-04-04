@@ -1,4 +1,4 @@
-# Termhub client SDK: Java Tutorial
+# Termhub in 5 minutes: Java Tutorial
 
 This tutorial shows how to use a locally defined Java client to interact with the EVSREST API.
 
@@ -91,6 +91,10 @@ Login and acquire an access token for a username and password.
 ```
 ./gradlew test --tests api.AuthApiTest.authTest
 ```
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.  This call also takes
 search parameters such as query, limit, offset, sort, and ascending to allow searching
@@ -351,7 +355,7 @@ mappings that originate "from" this concept code and contains information about
 the concepts those mappings point "to" on the other side.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept/SNOMEDCT_US/73211009/mappings" | jq
+./gradlew test --tests api.ConceptByCodeApiTest.getConceptMappingsTest
 ```
 
 See sample payload data from this call in [`samples/get-concept-mappings.txt`](samples/get-concept-mappings.txt)
@@ -364,7 +368,7 @@ Find mappings matching a query within a specified project and specified mapset. 
 example uses paging to get only the first 5 results.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapset/SNOMEDCT_US-ICD10CM/mappings?query=to.name:diabetes&limit=5" | jq
+./gradlew test --tests api.MapsetApiTest.findMapsetMappingsTest
 ```
 
 See sample payload data from this call in [`samples/find-mapset-mappings-by-query.txt`](samples/find-mapset-mappings-by-query.txt)
@@ -377,7 +381,7 @@ Find mappings matching a query within a specified project across all mapsets. Th
 example uses paging to get only the first 5 results.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapping?query=to.name:diabetes&limit=5" | jq
+./gradlew test --tests api.MapsetApiTest.findMappingsTest
 ```
 
 See sample payload data from this call in [`samples/find-mappings-by-query.txt`](samples/find-mappings-by-query.txt)
