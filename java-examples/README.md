@@ -234,7 +234,7 @@ This is the same as the example above but with the use of an explicit include
 parameter to show that additional data can be loaded with searches.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&limit=5&include=parents" | jq
+./gradlew test --tests api.ConceptApiTest.findConceptsIncludeParentsTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)

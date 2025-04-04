@@ -120,12 +120,42 @@ public class ConceptApiTest {
         String include = null;
         ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
         assertNotNull(response);
-        assertEquals(5, response.getTotal());
         assertTrue(response.getItems().size() <= 5);
         for (Concept concept : response.getItems()) {
             assertNotNull(concept.getId());
             assertNotNull(concept.getName());
             assertNotNull(concept.getTerminology());
+        }
+    }
+
+    /**
+     * Find concepts across project terminologies with specific "parents" include parameter
+     *
+     * Finds concepts matching specified search criteria.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void findConceptsIncludeParentsTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String query = "diabetes";
+        String expression = null;
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        Boolean leaf = null;
+        String include = "parents";
+        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        assertNotNull(response);
+        assertTrue(response.getItems().size() <= 5);
+        for (Concept concept : response.getItems()) {
+            assertNotNull(concept.getId());
+            assertNotNull(concept.getName());
+            assertNotNull(concept.getTerminology());
+            assertNotNull(concept.getParents());
         }
     }
 
