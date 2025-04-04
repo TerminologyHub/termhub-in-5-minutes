@@ -1,0 +1,194 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 98 STANDARD_ERROR
+    Apr 04, 2025 3:47:15 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 6 tests were Method or class mismatch
+
+MapsetApiTest > findMapsetMappingsTest() STANDARD_OUT
+    Response: class ResultListMapping {
+        total: 2
+        parameters: class SearchParameters {
+            terminology: null
+            query: to.name:diabetes
+            expression: null
+            filters: {}
+            limit: 5
+            offset: 0
+            active: null
+            sort: []
+            ascending: null
+            leaf: null
+        }
+        items: [class Mapping {
+            id: f012f377-2d76-408e-a107-66378e26fc46
+            confidence: 22.766639709472656
+            modified: 2024-08-23T18:59:26.845Z
+            created: 2024-08-23T18:59:26.845Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT_US
+            version: 20240301
+            publisher: SANDBOX
+            componentId: 48160c75-415b-5ead-8160-f215b8274218
+            mapset: class MapsetRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                abbreviation: SNOMEDCT_US-ICD10CM
+                name: null
+                version: 20240301
+                publisher: SANDBOX
+                latest: null
+                loaded: null
+                code: 6011000124106
+                fromPublisher: null
+                fromTerminology: null
+                fromVersion: null
+                toPublisher: null
+                toTerminology: null
+                toVersion: null
+            }
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT_US
+                version: 20240301
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Type 1 diabetes mellitus without complications
+                code: E10.9
+                terminology: ICD10CM
+                version: 2023
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: null
+                level: null
+            }
+            group: 1
+            priority: 1
+            rule: IFA 445518008 | Age at onset of clinical finding (observable entity) | >= 1.0 year AND IFA 445518008 | Age at onset of clinical finding (observable entity) | < 18.0 years
+            advice: [IF AGE AT ONSET OF CLINICAL FINDING ON OR AFTER 1.0 YEAR AND IF AGE AT ONSET OF CLINICAL FINDING BEFORE 18.0 YEARS CHOOSE E10.9, DESCENDANTS NOT EXHAUSTIVELY MAPPED, MAP OF SOURCE CONCEPT IS CONTEXT DEPENDENT]
+            type: null
+            attributes: {}
+        }, class Mapping {
+            id: 8e05c2bd-7f77-4cd1-9edd-1c4185d2e818
+            confidence: 22.766639709472656
+            modified: 2024-08-23T18:59:26.844Z
+            created: 2024-08-23T18:59:26.844Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT_US
+            version: 20240301
+            publisher: SANDBOX
+            componentId: e32ce76e-74df-504f-9a21-03e528c5e7d7
+            mapset: class MapsetRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                abbreviation: SNOMEDCT_US-ICD10CM
+                name: null
+                version: 20240301
+                publisher: SANDBOX
+                latest: null
+                loaded: null
+                code: 6011000124106
+                fromPublisher: null
+                fromTerminology: null
+                fromVersion: null
+                toPublisher: null
+                toTerminology: null
+                toVersion: null
+            }
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT_US
+                version: 20240301
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Type 2 diabetes mellitus without complications
+                code: E11.9
+                terminology: ICD10CM
+                version: 2023
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: null
+                level: null
+            }
+            group: 1
+            priority: 2
+            rule: OTHERWISE TRUE
+            advice: [ALWAYS E11.9, CONSIDER ADDITIONAL CODE TO IDENTIFY SPECIFIC CONDITION OR DISEASE, DESCENDANTS NOT EXHAUSTIVELY MAPPED]
+            type: null
+            attributes: {}
+        }]
+    }
+
+MapsetApiTest > findMapsetMappingsTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 5s
+3 actionable tasks: 1 executed, 2 up-to-date
+

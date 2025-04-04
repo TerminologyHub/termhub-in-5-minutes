@@ -1,0 +1,213 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 86 STANDARD_ERROR
+    Apr 04, 2025 3:46:43 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 9 tests were Method or class mismatch
+
+ConceptByCodeApiTest > findConceptInverseRelationshipsTest() STANDARD_OUT
+    Response: class ResultListConceptRelationship {
+        total: 3
+        parameters: class SearchParameters {
+            terminology: null
+            query: terminology:SNOMEDCT AND to.code:113331007 AND *
+            expression: null
+            filters: {}
+            limit: 10
+            offset: 0
+            active: null
+            sort: []
+            ascending: null
+            leaf: null
+        }
+        items: [class ConceptRelationship {
+            id: 624caca0-d875-4ff1-9924-bdde8b85851f
+            confidence: 6.359950065612793
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 97229020
+            type: Is a
+            additionalType: 116680003
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Entire endocrine system
+                code: 278876000
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Structure of endocrine system
+                code: 113331007
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: false
+                level: null
+            }
+            toValue: null
+            hierarchical: true
+            historical: null
+            asserted: true
+            defining: true
+            group: 0
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }, class ConceptRelationship {
+            id: ffa28585-ecd9-4d9e-8109-ffb9f3142466
+            confidence: 6.359950065612793
+            modified: 2019-07-31T00:00Z
+            created: 2019-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 933154024
+            type: other
+            additionalType: 363698007
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Disorder of endocrine system
+                code: 362969004
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: true
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Structure of endocrine system
+                code: 113331007
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: false
+                level: null
+            }
+            toValue: null
+            hierarchical: false
+            historical: null
+            asserted: true
+            defining: true
+            group: 1
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }, class ConceptRelationship {
+            id: dd9c4edc-c246-41b7-81e1-88373739f511
+            confidence: 6.359950065612793
+            modified: 2019-07-31T00:00Z
+            created: 2019-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 4601710026
+            type: other
+            additionalType: 363698007
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Structure of endocrine system
+                code: 113331007
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: false
+                level: null
+            }
+            toValue: null
+            hierarchical: false
+            historical: null
+            asserted: true
+            defining: true
+            group: 1
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }]
+    }
+
+ConceptByCodeApiTest > findConceptInverseRelationshipsTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 1 executed, 2 up-to-date
+

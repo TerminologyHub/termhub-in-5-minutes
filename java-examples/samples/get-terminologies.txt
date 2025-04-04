@@ -1,0 +1,272 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 79 STANDARD_ERROR
+    Apr 04, 2025 3:46:23 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 3 tests were Method or class mismatch
+
+TerminologyApiTest > findTerminologiesTest() STANDARD_OUT
+    Response: class ResultListTerminology {
+        total: 142
+        parameters: class SearchParameters {
+            terminology: null
+            query: loaded:true
+            expression: null
+            filters: {}
+            limit: 10
+            offset: 0
+            active: null
+            sort: []
+            ascending: null
+            leaf: null
+        }
+        items: [class Terminology {
+            id: e04c9251-e493-4b5a-b500-f36163625d1f
+            confidence: 0.0031897954177111387
+            modified: 2024-05-11T04:07:44.624Z
+            created: 2024-05-11T04:07:44.624Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ICD10CM
+            name: International Classification of Diseases, Tenth Revision, Clinical Modification
+            version: 2022_04_01
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2022-05-02
+            family: ICD10CM
+            uri: null
+            attributes: {origin-version=2022AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://hl7.org/fhir/sid/icd-10-cm, hierarchical=true, fhirVersion=2022_04_01, region-us=true, label-clinical=true, label-uscdi=true, fhirId=icd10cm_2022_04_01, fhirCompositional=false}
+            roots: [ICD-10-CM]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=191692, concepts=95847, terms=204093, parentsInactive=0, termsActive=204093, parentsActive=95846, definitions=0, treePositions=95847, conceptsActive=95847, childrenActive=95846}
+        }, class Terminology {
+            id: 8f038f6e-775f-4573-a139-5174daabbd82
+            confidence: 0.0031897954177111387
+            modified: 2024-05-11T15:47:02.406Z
+            created: 2024-05-11T15:47:02.406Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: RXNORM
+            name: RxNorm
+            version: 04012024
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2024-04-01
+            family: RXNORM
+            uri: null
+            attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, region-us=true, label-clinical=true, label-uscdi=true, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
+            roots: []
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=143330, childrenInactive=0, relationships=1634722, concepts=221584, terms=348885, conceptsInactive=95454, termsActive=205555, definitions=0, conceptsActive=126130, childrenActive=0}
+        }, class Terminology {
+            id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
+            confidence: 0.0031897954177111387
+            modified: 2024-05-13T18:29:48.953Z
+            created: 2024-05-13T18:29:48.953Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: RXNORM
+            name: Mini version of RXNORM for testing purposes
+            version: 04012024
+            publisher: SANDBOX
+            latest: true
+            loaded: true
+            releaseDate: 2024-04-01
+            family: RXNORM
+            uri: null
+            attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
+            roots: []
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
+        }, class Terminology {
+            id: 135ee0de-10eb-43ed-9d31-f4f8fef8cba0
+            confidence: 0.0031897954177111387
+            modified: 2024-06-10T02:40:46.951Z
+            created: 2024-06-10T02:40:46.951Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: CPT
+            name: Current Procedural Terminology
+            version: 2023
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2023-09-26
+            family: CPT
+            uri: null
+            attributes: {copyright=American Medical Association, origin-version=2023AB, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://www.ama-assn.org/go/cpt, polyhierarchy=true, hierarchical=true, fhirVersion=2023, region-us=true, label-clinical=true, label-uscdi=true, fhirId=cpt_2023, fhirCompositional=false}
+            roots: [1002795]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=81782, concepts=14844, terms=64725, parentsInactive=0, termsActive=64725, parentsActive=14854, definitions=0, treePositions=14855, conceptsActive=14844, childrenActive=14854}
+        }, class Terminology {
+            id: de16927d-72c1-47c1-9e1b-b8fb68a391cb
+            confidence: 0.0031897954177111387
+            modified: 2024-06-10T02:57:17.255Z
+            created: 2024-06-10T02:57:17.255Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: NCI
+            name: NCI Thesaurus
+            version: 2022_09D
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2023-05-01
+            family: NCI
+            uri: null
+            attributes: {origin-version=2023AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl, polyhierarchy=true, hierarchical=true, fhirVersion=2022_09D, region-us=true, label-research=true, fhirId=nci_2022_09D, fhirCompositional=false}
+            roots: [C12218, C12219, C12913, C14250, C16612, C17828, C1908, C20047, C20181, C20189, C20633, C22187, C22188, C26548, C3910, C43431, C7057, C97325]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=2266336, concepts=170946, terms=422517, parentsInactive=0, termsActive=422517, parentsActive=196504, definitions=137609, treePositions=725261, conceptsActive=170946, childrenActive=196504}
+        }, class Terminology {
+            id: 0694c32c-804b-4c44-baa9-c52fd66d88e6
+            confidence: 0.0031897954177111387
+            modified: 2024-08-11T02:09:58.173Z
+            created: 2024-08-11T02:09:58.173Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: UCUM
+            name: UCUM terminology
+            version: 202301
+            publisher: TERMHUB
+            latest: false
+            loaded: true
+            releaseDate: 2023-01-01
+            family: UCUM
+            uri: null
+            attributes: {autocomplete=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, fhirUri=http://unitsofmeasure.org, hierarchical=true, fhirVersion=202301, label-clinical=true, label-uscdi=true, label-research=true, fhirId=ucum_202301, fhirCompositional=false}
+            roots: [root]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=1562, concepts=1563, terms=10675, parentsInactive=0, termsActive=10675, parentsActive=1562, definitions=120, treePositions=1563, conceptsActive=1563, childrenActive=1562}
+        }, class Terminology {
+            id: 62230403-6310-4da3-a92d-75aea9806e2f
+            confidence: 0.0031897954177111387
+            modified: 2024-06-06T17:49:01.976Z
+            created: 2024-06-06T17:49:01.976Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: RXNORM
+            name: RxNorm
+            version: 06032024
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2024-06-03
+            family: RXNORM
+            uri: null
+            attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=06032024, region-us=true, label-clinical=true, label-uscdi=true, ecl=true, fhirId=rxnorm_06032024, fhirCompositional=false}
+            roots: []
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=143513, childrenInactive=0, relationships=1639482, concepts=222199, terms=350085, conceptsInactive=95550, termsActive=206572, definitions=0, conceptsActive=126649, childrenActive=0}
+        }, class Terminology {
+            id: 3a2b01bf-9dc2-4611-befb-1eeae8802f3f
+            confidence: 0.0031897954177111387
+            modified: 2024-08-12T17:22:29.100Z
+            created: 2024-08-12T17:22:29.100Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: CDCREC
+            name: Race & Ethnicity - CDC
+            version: 1.0
+            publisher: CDC
+            latest: false
+            loaded: true
+            releaseDate: 2000-03-31
+            family: CDCREC
+            uri: null
+            attributes: {copyright=CDCREC, autocomplete=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, fhirUri=http://terminology.hl7.org/CodeSystem/cdcrec, hierarchical=true, fhirVersion=1.0, region-us=true, label-uscdi=true, fhirId=cdcrec_1.0, fhirCompositional=false}
+            roots: [1000-9, 2133-7]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=964, concepts=966, terms=1932, parentsInactive=0, termsActive=1932, parentsActive=964, definitions=0, treePositions=967, conceptsActive=966, childrenActive=964}
+        }, class Terminology {
+            id: 3a1c1cbb-f4ac-43bb-ae1b-5c0a2593612a
+            confidence: 0.0031897954177111387
+            modified: 2024-06-08T23:29:13.398Z
+            created: 2024-06-08T23:29:13.398Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ICD10PCS
+            name: International Classification of Diseases, 10th Revision, Procedure Coding System
+            version: 2024
+            publisher: NLM
+            latest: false
+            loaded: true
+            releaseDate: 2024-05-06
+            family: ICD10PCS
+            uri: null
+            attributes: {copyright=Centers for Medicare and Medicaid Services, origin-version=2024AA,2023AB, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://www.cms.gov/Medicare/Coding/ICD10, hierarchical=true, fhirVersion=2024, region-us=true, label-clinical=true, label-uscdi=true, fhirId=icd10pcs_2024, fhirCompositional=false}
+            roots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, B, C, D, F, G, H, X]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=383058, concepts=191546, terms=271054, parentsInactive=0, termsActive=271054, parentsActive=191529, definitions=0, treePositions=191547, conceptsActive=191546, childrenActive=191529}
+        }, class Terminology {
+            id: 94aea2aa-1abc-4fff-81e8-52558d6850a6
+            confidence: 0.0031897954177111387
+            modified: 2024-06-08T23:59:39.728Z
+            created: 2024-06-08T23:59:39.728Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: CDT
+            name: Code on Dental Procedures and Nomenclature
+            version: 2023
+            publisher: NLM
+            latest: true
+            loaded: true
+            releaseDate: 2024-05-06
+            family: CDT
+            uri: null
+            attributes: {copyright=American Dental Association, origin-version=2024AA,2023AB,2024AB, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://www.ada.org/cdt, hierarchical=true, fhirVersion=2023, region-us=true, label-clinical=true, label-uscdi=true, fhirId=cdt_2023, fhirCompositional=false}
+            roots: [D0120-D0999, D1110-D1999, D2140-D2999, D3110-D3999, D4210-D4999, D5110-D5899, D5911-D5999, D6010-D6199, D6205-D6999, D7111-D7999, D8010-D8999, D9110-D9999]
+            conceptCt: null
+            relationshipCt: null
+            treePositionCt: null
+            statistics: {termsInactive=0, childrenInactive=0, relationships=1766, concepts=895, terms=895, parentsInactive=0, termsActive=895, parentsActive=883, definitions=0, treePositions=896, conceptsActive=895, childrenActive=883}
+        }]
+    }
+
+TerminologyApiTest > findTerminologiesTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 1 executed, 2 up-to-date
+

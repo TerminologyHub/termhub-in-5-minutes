@@ -1,0 +1,750 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 90 STANDARD_ERROR
+    Apr 04, 2025 3:46:53 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 5 tests were Method or class mismatch
+
+ConceptApiTest > findConceptsWithExpressionTest() STANDARD_OUT
+    Concept: class Concept {
+        id: ff74189a-22bc-4b08-aa5e-78ee43ed16b2
+        confidence: 15.993428230285645
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Diabetes mellitus
+        code: 73211009
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: true
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of endocrine system
+            code: 362969004
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: true
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of glucose metabolism
+            code: 126877002
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of body system
+            code: 362965005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: true
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of carbohydrate metabolism
+            code: 20957000
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Metabolic disease
+            code: 75934005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 4
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 5
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: 7d287509-979f-4507-8ef0-cf4910515810
+        confidence: 11.380547523498535
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Disorder of glucose metabolism
+        code: 126877002
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of carbohydrate metabolism
+            code: 20957000
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Metabolic disease
+            code: 75934005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 4
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 5
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: a0912f56-6cb7-4daa-98b7-047263b27c4e
+        confidence: 11.380547523498535
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Disorder of endocrine system
+        code: 362969004
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: true
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of body system
+            code: 362965005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: true
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 4
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: 46b69fd9-85d6-4d66-8a39-7ba9ccb21e39
+        confidence: 10.345874786376953
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Disorder of carbohydrate metabolism
+        code: 20957000
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Metabolic disease
+            code: 75934005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 4
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: 8569d332-4a0f-422b-80b0-a7e175a6a268
+        confidence: 10.031586647033691
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Metabolic disease
+        code: 75934005
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: 8222f160-9f01-45f8-9a8b-6be8b69439a4
+        confidence: 9.43838882446289
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Disorder of body system
+        code: 362965005
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: true
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disease
+            code: 64572001
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 3
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+    Concept: class Concept {
+        id: 15497b03-229e-489b-b6b8-bd9877663691
+        confidence: 8.608920097351074
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Disease
+        code: 64572001
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: false
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Clinical finding
+            code: 404684003
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 1
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: SNOMED CT Concept
+            code: 138875005
+            terminology: null
+            version: null
+            publisher: null
+            historical: null
+            leaf: false
+            defined: false
+            level: 2
+        }]
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+
+ConceptApiTest > findConceptsWithExpressionTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 1 executed, 2 up-to-date
+

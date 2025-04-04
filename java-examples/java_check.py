@@ -61,9 +61,9 @@ def process_markdown():
         
         if in_section:
             # found a java command
-            if line.startswith("`./gradlew test "):
+            if line.startswith("./gradlew test"):
                 java_command = line.strip()
-                current_section["javas"].append(java_command[3:-1])
+                current_section["javas"].append(java_command[2:])
             
             # all sample files are in the samples directory, so look for that
             file_matches = re.findall(r'`samples/([^`]+)`', line)
