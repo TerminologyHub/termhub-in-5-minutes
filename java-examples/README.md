@@ -267,7 +267,7 @@ is most useful to directly find concepts with matching terms, this call allows
 users to isolate exactly those terms that resolve from a search.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/term?terminology=SNOMEDCT&query=diabetes&limit=5" | jq
+./gradlew test --tests api.TermApiTest.findTermsTest
 ```
 
 See sample payload data from this call in [`samples/find-terms-by-search-term.txt`](samples/find-terms-by-search-term.txt)
@@ -282,7 +282,7 @@ and finding possible matches with only a few starting characters. The background
 algorithm is based on edge ngrams.
 
 ```
-curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/autocomplete?terminology=SNOMEDCT&query=diab&limit=10" | jq
+./gradlew test --tests api.TermApiTest.autocompleteTest
 ```
 
 See sample payload data from this call in [`samples/autocomplete-search-term.txt`](samples/autocomplete-search-term.txt)

@@ -84,6 +84,7 @@ public class ConceptByCodeApiTest {
         assertNotNull(response);
         assertNotNull(response.getItems());
         assertFalse(response.getItems().isEmpty());
+        System.out.println("Response: " + response);
         for (ConceptRelationship item : response.getItems()) {
             assertNotNull(item.getTerminology());
             assertEquals(terminology, item.getTerminology());
@@ -118,6 +119,7 @@ public class ConceptByCodeApiTest {
         assertNotNull(response);
         assertNotNull(response.getItems());
         assertFalse(response.getItems().isEmpty());
+        System.out.println("Response: " + response);
         for (ConceptRelationship item : response.getItems()) {
           System.out.println("Item: " + item);
             assertNotNull(item.getTerminology());
@@ -151,6 +153,7 @@ public class ConceptByCodeApiTest {
         ResultListConceptTreePosition response = api.findTreePositionChildren(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
         assertNotNull(response);
         assertNotNull(response.getItems());
+        System.out.println("Response: " + response);
         for (ConceptTreePosition item : response.getItems()) {
             assertNotNull(item.getTerminology());
             assertEquals(terminology, item.getTerminology());
@@ -181,6 +184,7 @@ public class ConceptByCodeApiTest {
         ResultListConceptTreePosition response = api.findTreePositions(idOrUriLabel, terminology, code, query, offset, limit, ascending, sort);
         assertNotNull(response);
         assertNotNull(response.getItems());
+        System.out.println("Response: " + response);
         for (ConceptTreePosition item : response.getItems()) {
             assertNotNull(item.getTerminology());
             assertEquals(terminology, item.getTerminology());

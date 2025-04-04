@@ -109,6 +109,7 @@ public class TerminologyApiTest {
         ResultListTerminology response = api.findTerminologies(query, offset, limit, sort, ascending);
         assertNotNull(response);
         assertNotNull(response.getItems());
+        System.out.println("Response: " + response);
         assertTrue(response.getItems().size() > 0);
         
     }
@@ -125,8 +126,8 @@ public class TerminologyApiTest {
         String idOrUriLabel = "sandbox";
         List<Terminology> response = api.getProjectTerminologies(idOrUriLabel);
         assertNotNull(response);
-        System.out.println("Response: " + response);
         assertTrue(response.size() > 0);
+        System.out.println("Response: " + response);
         for (Terminology terminology : response) {
             assertNotNull(terminology.getId());
             assertNotNull(terminology.getName());

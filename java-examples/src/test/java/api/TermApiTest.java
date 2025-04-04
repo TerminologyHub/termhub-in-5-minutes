@@ -16,7 +16,9 @@ package api;
 import api.invoker.*;
 import api.invoker.auth.*;
 import api.model.AuthResponse;
+import api.model.ResultListTerm;
 import api.model.ResultListTerminology;
+import api.model.Term;
 import api.model.Terminology;
 
 import org.junit.jupiter.api.Assertions;
@@ -65,12 +67,17 @@ public class TermApiTest {
      */
     @Test
     public void autocompleteTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String query = null;
-        //String terminology = null;
-        //Integer limit = null;
-        //List<String> response = api.autocomplete(idOrUriLabel, query, terminology, limit);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String query = "diab";
+        String terminology = "SNOMEDCT";
+        Integer limit = 10;
+        List<String> response = api.autocomplete(idOrUriLabel, query, terminology, limit);
+        assertNotNull(response);
+        assertFalse(response.isEmpty());
+        System.out.println("Response: " + response);
+        for (String suggestion : response) {
+          assertTrue(suggestion.toLowerCase().contains(query.toLowerCase()), "Suggestion does not contain expected query: " + query);
+        }
     }
 
     /**
@@ -82,16 +89,23 @@ public class TermApiTest {
      */
     @Test
     public void findTermsTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //ResultListTerm response = api.findTerms(idOrUriLabel, terminology, query, offset, limit, sort, ascending, active);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String query = "diabetes";
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        ResultListTerm response = api.findTerms(idOrUriLabel, terminology, query, offset, limit, sort, ascending, active);
+        assertNotNull(response);
+        assertFalase(response.isEmpty());
+        assertFalse(response.getItems().isEmpty());
+        System.out.println("Response: " + response);
+        for (Term term : response.getItems()) {
+          assertTrue(term.getName().toLowerCase().contains(query), "Term name does not contain expected query: " + query);
+        }
+        
     }
 
 }
