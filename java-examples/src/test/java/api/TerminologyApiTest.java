@@ -15,13 +15,24 @@ package api;
 
 import api.invoker.*;
 import api.invoker.auth.*;
+import api.model.AuthResponse;
 import api.model.ResultListTerminology;
 import api.model.Terminology;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
+
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +59,7 @@ public class TerminologyApiTest {
             e.printStackTrace();
             Assertions.fail("Failed to authenticate: " + e.getMessage());
         }
-        api.getApiClient().setAccessToken(accessToken);
+        api.getApiClient().setBearerToken(accessToken);
     }
 
     /**
@@ -60,11 +71,25 @@ public class TerminologyApiTest {
      */
     @Test
     public void exportTerminologyTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String format = null;
-        //byte[] response = api.exportTerminology(idOrUriLabel, terminology, format);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String format = "native";
+        byte[] response = api.exportTerminology(idOrUriLabel, terminology, format);
+        assertNotNull(response);
+        assertTrue(response.length > 0);
+
+        // write the response to a file
+        try {
+            FileOutputStream fos = new FileOutputStream("SNOMEDCT.zip");
+            fos.write(response);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Assertions.fail("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+            Assertions.fail("IO Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -76,13 +101,16 @@ public class TerminologyApiTest {
      */
     @Test
     public void findTerminologiesTest() throws ApiException {
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //ResultListTerminology response = api.findTerminologies(query, offset, limit, sort, ascending);
-        // TODO: test validations
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        Boolean ascending = null;
+        ResultListTerminology response = api.findTerminologies(query, offset, limit, sort, ascending);
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        assertTrue(response.getItems().size() > 0);
+        
     }
 
     /**
@@ -94,9 +122,18 @@ public class TerminologyApiTest {
      */
     @Test
     public void getProjectTerminologiesTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //List<Terminology> response = api.getProjectTerminologies(idOrUriLabel);
-        // TODO: test validations
+        String idOrUriLabel = "sandbox";
+        List<Terminology> response = api.getProjectTerminologies(idOrUriLabel);
+        assertNotNull(response);
+        System.out.println("Response: " + response);
+        assertTrue(response.size() > 0);
+        for (Terminology terminology : response) {
+            assertNotNull(terminology.getId());
+            assertNotNull(terminology.getName());
+            assertNotNull(terminology.getVersion());
+            assertNotNull(terminology.getPublisher());
+            assertNotNull(terminology.getPublisher(), "SANDBOX");
+        }
     }
 
     /**
@@ -108,9 +145,16 @@ public class TerminologyApiTest {
      */
     @Test
     public void getTerminologyTest() throws ApiException {
-        //String id = null;
-        //Terminology response = api.getTerminology(id);
-        // TODO: test validations
+        String id = "e04c9251-e493-4b5a-b500-f36163625d1f";
+        Terminology response = api.getTerminology(id);
+        assertNotNull(response);
+        System.out.println("Response: " + response);
+        assertNotNull(response.getId());
+        assertEquals(id, response.getId().toString());
+        assertNotNull(response.getName());
+        assertNotNull(response.getVersion());
+        assertNotNull(response.getAbbreviation());
+        assertEquals(response.getAbbreviation(), "ICD10CM");
     }
 
 }

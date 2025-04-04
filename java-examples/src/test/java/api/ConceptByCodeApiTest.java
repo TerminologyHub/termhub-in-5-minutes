@@ -19,8 +19,13 @@ import api.model.Concept;
 import api.model.Mapping;
 import api.model.ResultListConceptRelationship;
 import api.model.ResultListConceptTreePosition;
+import api.model.AuthResponse;
+import api.model.ResultListTerminology;
+import api.model.Terminology;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +55,9 @@ public class ConceptByCodeApiTest {
             e.printStackTrace();
             Assertions.fail("Failed to authenticate: " + e.getMessage());
         }
-        api.getApiClient().setAccessToken(accessToken);
+        api.getApiClient().setBearerToken(accessToken);
+
+        
     }
 
     /**
@@ -138,20 +145,51 @@ public class ConceptByCodeApiTest {
     }
 
     /**
-     * Get concept by terminology and code
+     * Get minimal concept by terminology and code
      *
      * Gets concept for the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getConceptTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String terminology = null;
-        //String code = null;
-        //String include = null;
-        //Concept response = api.getConcept(idOrUriLabel, terminology, code, include);
-        // TODO: test validations
+    public void getMinimalConceptTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "73211009";
+        String include = "minimal";
+        Concept response = api.getConcept(idOrUriLabel, terminology, code, include);
+        System.out.println("Response: " + response);
+        assertNotNull(response);
+        assertNotNull(response.getId());
+        assertNotNull(response.getName());
+        assertNotNull(response.getCode());
+        assertEquals(code, response.getCode());
+        assertNotNull(response.getTerminology());
+        assertEquals(terminology, response.getTerminology());
+    }
+
+    /**
+     * Get full concept by terminology and code
+     *
+     * Gets concept for the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getFullConceptTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String code = "73211009";
+        String include = "full";
+        Concept response = api.getConcept(idOrUriLabel, terminology, code, include);
+        System.out.println("Response: " + response);
+        /*assertNotNull(response);
+        assertNotNull(response.getId());
+        assertNotNull(response.getName());
+        assertNotNull(response.getCode());
+        assertEquals(code, response.getCode());
+        assertNotNull(response.getTerminology());
+        assertEquals(terminology, response.getTerminology());*/
     }
 
     /**

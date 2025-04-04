@@ -15,9 +15,13 @@ package api;
 
 import api.invoker.*;
 import api.invoker.auth.*;
-import api.model.ResultListTerm;
+import api.model.AuthResponse;
+import api.model.ResultListTerminology;
+import api.model.Terminology;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +51,9 @@ public class TermApiTest {
             e.printStackTrace();
             Assertions.fail("Failed to authenticate: " + e.getMessage());
         }
-        api.getApiClient().setAccessToken(accessToken);
+        api.getApiClient().setBearerToken(accessToken);
+
+        
     }
 
     /**

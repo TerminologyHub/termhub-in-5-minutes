@@ -19,8 +19,13 @@ import java.io.File;
 import api.model.Mapset;
 import api.model.ResultListMapping;
 import api.model.ResultListMapset;
+import api.model.AuthResponse;
+import api.model.ResultListTerminology;
+import api.model.Terminology;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +55,9 @@ public class MapsetApiTest {
             e.printStackTrace();
             Assertions.fail("Failed to authenticate: " + e.getMessage());
         }
-        api.getApiClient().setAccessToken(accessToken);
+        api.getApiClient().setBearerToken(accessToken);
+
+        
     }
 
     /**
