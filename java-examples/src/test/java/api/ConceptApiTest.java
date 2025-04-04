@@ -160,6 +160,40 @@ public class ConceptApiTest {
     }
 
     /**
+     * Find concepts across project terminologies with specific "parents" include parameter
+     *
+     * Finds concepts matching specified search criteria.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void findConceptsWithExpressionTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String terminology = "SNOMEDCT";
+        String query = "diabetes";
+        String expression = "<<64572001";
+        Integer offset = 0;
+        Integer limit = 10;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        Boolean leaf = null;
+        String include = "ancestors";
+        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        assertNotNull(response);
+        assertTrue(response.getItems().size() <= 10);
+        for (Concept concept : response.getItems()) {
+          System.out.println("Concept: " + concept);
+            assertNotNull(concept.getId());
+            assertNotNull(concept.getName());
+            assertNotNull(concept.getTerminology());
+            assertNotNull(concept.getAncestors());
+            // Check if the concept is a descendant of the specified concept or the concept itself (64572001)
+            assertTrue(concept.getCode().equals("64572001") || concept.getAncestors().stream().anyMatch(ref -> "64572001".equals(ref.getCode())));
+        }
+    }
+
+    /**
      * Bulk find of concepts across specified project terminologies
      *
      * Bulk find of concepts matching specified search criteria.

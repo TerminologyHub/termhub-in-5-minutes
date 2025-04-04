@@ -252,7 +252,7 @@ concept in SNOMED).  To work properly, the expression value has to be url encode
 (See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/concept?terminology=SNOMEDCT&query=diabetes&expression=%3C%3C64572001&offset=0&limit=10" | jq
+./gradlew test --tests api.ConceptApiTest.findConceptsWithExpressionTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
