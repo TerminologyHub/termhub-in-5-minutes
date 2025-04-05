@@ -76,8 +76,8 @@ def process_markdown():
     return sections
 
 def extract_test_stdout(output):
-    blocks = re.findall(r"STANDARD_OUT\s+(.*?)\s+PASSED", output, re.DOTALL)
-    return "\n".join(block.strip() for block in blocks)
+    lines = re.findall(r"STANDARD_OUT\s+(.*?)\s+PASSED", output, re.DOTALL)
+    return "".join(line for line in lines)
 
 def run_sections(sections):
     """Executes java commands and updates corresponding sample files."""
