@@ -15,7 +15,15 @@ Run this command before the sample curl calls below as they expect $API_URL to b
 
 ## Building the Code
 
-Building the java-examples should be as simple as running the following command from
+It is possible that your file permissions may not be set up correctly to run the ./gradlew commands. If you run into any errors regarding permissions, run the following command from the `java-examples` directory:
+
+```
+chmod 755 ./gradlew
+```
+
+This should explicitly set read, write, and execute permissions for running the ./gradlew commands.
+
+Once permissions are set, building the java-examples should be as simple as running the following command from
 this directory.
 
 ```
