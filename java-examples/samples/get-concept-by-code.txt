@@ -1,0 +1,35 @@
+Response: class Concept {
+        id: ff74189a-22bc-4b08-aa5e-78ee43ed16b2
+        confidence: 5.673330783843994
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Diabetes mellitus
+        code: 73211009
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: true
+        defined: false
+        level: null
+        terms: []
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: []
+        attributes: {}
+        semanticTypes: []
+        labels: []
+        children: []
+        parents: []
+        descendants: []
+        ancestors: []
+        relationships: []
+        inverseRelationships: []
+        treePositions: []
+    }
+
+ConceptByCodeApiTest > getMinimalConceptTest()

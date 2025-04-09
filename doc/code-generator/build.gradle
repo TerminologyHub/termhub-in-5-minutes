@@ -11,8 +11,8 @@ version = "1.0.0-SNAPSHOT"
 
 // Input Specification locations. When using the inputFile, make sure you've updated
 // the doc with the changes you want to generate
-//def inputURL = 'https://api.terminologyhub.com/terminology/doc/v3/api-docs'
-def inputURL = 'https://dev.terminologyhub.com/terminology/doc/v3/api-docs'
+def inputURL = 'https://api.terminologyhub.com/terminology/doc/v3/api-docs'
+//def inputURL = 'https://dev.terminologyhub.com/terminology/doc/v3/api-docs'
 
 repositories {
   mavenCentral()
@@ -29,21 +29,21 @@ test {
  * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
  * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
 */
-//tasks.register('buildJavaSdk', GenerateTask) {
-//  generatorName.set("java")
-//  remoteInputSpec.set(inputURL)
-//  outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
-//  apiPackage.set("api")
-//  invokerPackage.set("api.invoker")
-//  modelPackage.set("api.model")
-//  configOptions.set([
-//      "packageName": "termhub",
-//      "dateLibrary": "java8",
-//      "library": "restclient",
-//      "serializationLibrary": "jackson",
-//      "hideGenerationTimestamp": "false"
-//  ])
-//}
+tasks.register('buildJavaSdk', GenerateTask) {
+ generatorName.set("java")
+ remoteInputSpec.set(inputURL)
+ outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
+ apiPackage.set("api")
+ invokerPackage.set("api.invoker")
+ modelPackage.set("api.model")
+ configOptions.set([
+     "packageName": "termhub",
+     "library": "jersey3",
+     "serializationLibrary": "jackson",
+     "hideGenerationTimestamp": "false",
+     "ignoreUnknown": "true"
+ ])
+}
 
 /**
  * Build a python client by default: https://openapi-generator.tech/docs/generators/python/

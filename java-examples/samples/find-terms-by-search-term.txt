@@ -1,0 +1,94 @@
+Response: class ResultListTerm {
+        total: 4
+        parameters: class SearchParameters {
+            terminology: null
+            query: diabetes
+            expression: null
+            filters: {}
+            limit: 5
+            offset: 0
+            active: null
+            sort: []
+            ascending: null
+            leaf: null
+        }
+        items: [class Term {
+            id: 9854500b-dec0-4ede-9b0b-6cc4f9f1df3d
+            confidence: 9.246849060058594
+            modified: 2017-07-31T00:00Z
+            created: 2017-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: Diabetes mellitus
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 121589010
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=true, en=true}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000448009, moduleId=900000000000207008}
+        }, class Term {
+            id: 107bbc60-0f41-43a1-9951-cb4910058499
+            confidence: 9.246849060058594
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: DM - Diabetes mellitus
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 502372015
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=false, en=false}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000017005, moduleId=900000000000207008}
+        }, class Term {
+            id: 1b3d9685-f8f3-49ac-8995-4369e5732835
+            confidence: 8.964832305908203
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: false
+            name: Diabetes mellitus, NOS
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 121590018
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en=false}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000020002, moduleId=900000000000207008}
+        }, class Term {
+            id: 44afa8c2-22ae-468f-91b7-8b0208e2abcd
+            confidence: 8.964832305908203
+            modified: 2017-07-31T00:00Z
+            created: 2017-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: Diabetes mellitus (disorder)
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 813575016
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=true, en=true}
+            type: 900000000000003001
+            attributes: {caseSignificanceId=900000000000448009, moduleId=900000000000207008}
+        }]
+    }
+
+TermApiTest > findTermsTest()
