@@ -1,0 +1,26 @@
+Response: class Terminology {
+        id: e04c9251-e493-4b5a-b500-f36163625d1f
+        confidence: 6.616942405700684
+        modified: 2024-05-11T04:07:44.624Z
+        created: 2024-05-11T04:07:44.624Z
+        modifiedBy: loader
+        local: false
+        active: true
+        abbreviation: ICD10CM
+        name: International Classification of Diseases, Tenth Revision, Clinical Modification
+        version: 2022_04_01
+        publisher: NLM
+        latest: false
+        loaded: true
+        releaseDate: 2022-05-02
+        family: ICD10CM
+        uri: null
+        attributes: {origin-version=2022AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://hl7.org/fhir/sid/icd-10-cm, hierarchical=true, fhirVersion=2022_04_01, region-us=true, label-clinical=true, label-uscdi=true, fhirId=icd10cm_2022_04_01, fhirCompositional=false}
+        roots: [ICD-10-CM]
+        conceptCt: null
+        relationshipCt: null
+        treePositionCt: null
+        statistics: {termsInactive=0, childrenInactive=0, relationships=191692, concepts=95847, terms=204093, parentsInactive=0, termsActive=204093, parentsActive=95846, definitions=0, treePositions=95847, conceptsActive=95847, childrenActive=95846}
+    }
+
+TerminologyApiTest > getTerminologyTest()

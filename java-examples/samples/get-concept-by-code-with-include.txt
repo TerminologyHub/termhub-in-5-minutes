@@ -1,0 +1,320 @@
+Response: class Concept {
+        id: ff74189a-22bc-4b08-aa5e-78ee43ed16b2
+        confidence: 5.673330783843994
+        modified: 2002-01-31T00:00Z
+        created: 2002-01-31T00:00Z
+        modifiedBy: loader
+        local: false
+        active: true
+        name: Diabetes mellitus
+        code: 73211009
+        terminology: SNOMEDCT
+        version: 20240101
+        publisher: SANDBOX
+        historical: null
+        leaf: true
+        defined: false
+        level: null
+        terms: [class Term {
+            id: 9854500b-dec0-4ede-9b0b-6cc4f9f1df3d
+            confidence: null
+            modified: 2017-07-31T00:00Z
+            created: 2017-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: Diabetes mellitus
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 121589010
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=true, en=true}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000448009, moduleId=900000000000207008}
+        }, class Term {
+            id: 1b3d9685-f8f3-49ac-8995-4369e5732835
+            confidence: null
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: false
+            name: Diabetes mellitus, NOS
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 121590018
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en=false}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000020002, moduleId=900000000000207008}
+        }, class Term {
+            id: 107bbc60-0f41-43a1-9951-cb4910058499
+            confidence: null
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: DM - Diabetes mellitus
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 502372015
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=false, en=false}
+            type: 900000000000013009
+            attributes: {caseSignificanceId=900000000000017005, moduleId=900000000000207008}
+        }, class Term {
+            id: 44afa8c2-22ae-468f-91b7-8b0208e2abcd
+            confidence: null
+            modified: 2017-07-31T00:00Z
+            created: 2017-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            name: Diabetes mellitus (disorder)
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 813575016
+            code: 73211009
+            conceptId: 73211009
+            descriptorId: null
+            localeMap: {en_GB=true, en=true}
+            type: 900000000000003001
+            attributes: {caseSignificanceId=900000000000448009, moduleId=900000000000207008}
+        }]
+        indexTerms: []
+        definitions: []
+        axioms: []
+        identifiers: [class IdentifierRef {
+            id: 201820
+            confidence: null
+            label: OMOP
+        }]
+        attributes: {definitionStatusId=900000000000074008, moduleId=900000000000207008}
+        semanticTypes: [disorder]
+        labels: []
+        children: []
+        parents: [class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of endocrine system
+            code: 362969004
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            historical: null
+            leaf: false
+            defined: true
+            level: null
+        }, class ConceptRef {
+            id: null
+            confidence: null
+            modified: null
+            created: null
+            modifiedBy: null
+            local: false
+            active: true
+            name: Disorder of glucose metabolism
+            code: 126877002
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            historical: null
+            leaf: false
+            defined: false
+            level: null
+        }]
+        descendants: []
+        ancestors: []
+        relationships: [class ConceptRelationship {
+            id: d72890c7-2bc6-4036-8bf2-3ec785c97428
+            confidence: 5.359277725219727
+            modified: 2002-01-31T00:00Z
+            created: 2002-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 267149027
+            type: Is a
+            additionalType: 116680003
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Disorder of glucose metabolism
+                code: 126877002
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: false
+                level: null
+            }
+            toValue: null
+            hierarchical: true
+            historical: null
+            asserted: true
+            defining: true
+            group: 0
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }, class ConceptRelationship {
+            id: 8c87cbe4-9491-48b5-9c0a-12aada7d538c
+            confidence: 5.359277725219727
+            modified: 2012-01-31T00:00Z
+            created: 2012-01-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 4601709020
+            type: Is a
+            additionalType: 116680003
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Disorder of endocrine system
+                code: 362969004
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: true
+                level: null
+            }
+            toValue: null
+            hierarchical: true
+            historical: null
+            asserted: true
+            defining: true
+            group: 0
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }, class ConceptRelationship {
+            id: dd9c4edc-c246-41b7-81e1-88373739f511
+            confidence: 5.359277725219727
+            modified: 2019-07-31T00:00Z
+            created: 2019-07-31T00:00Z
+            modifiedBy: loader
+            local: false
+            active: true
+            terminology: SNOMEDCT
+            version: 20240101
+            publisher: SANDBOX
+            componentId: 4601710026
+            type: other
+            additionalType: 363698007
+            from: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Diabetes mellitus
+                code: 73211009
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: true
+                defined: false
+                level: null
+            }
+            to: class ConceptRef {
+                id: null
+                confidence: null
+                modified: null
+                created: null
+                modifiedBy: null
+                local: false
+                active: true
+                name: Structure of endocrine system
+                code: 113331007
+                terminology: SNOMEDCT
+                version: 20240101
+                publisher: SANDBOX
+                historical: null
+                leaf: false
+                defined: false
+                level: null
+            }
+            toValue: null
+            hierarchical: false
+            historical: null
+            asserted: true
+            defining: true
+            group: 1
+            attributes: {modifierId=900000000000451002, characteristicTypeId=900000000000011006, moduleId=900000000000207008}
+        }]
+        inverseRelationships: []
+        treePositions: []
+    }
+
+ConceptByCodeApiTest > getFullConceptTest()
