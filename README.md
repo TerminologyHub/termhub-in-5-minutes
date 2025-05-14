@@ -96,7 +96,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 ## License
 
-See the included [`LICENSE`](LICENSE) file for details.
+See the included [`LICENSE.txt`](LICENSE.txt) file for details.
 
 **[Back to top](#table-of-contents)**
 
