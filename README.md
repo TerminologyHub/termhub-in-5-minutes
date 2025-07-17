@@ -3,7 +3,7 @@
 This is an easy-to-use tutorial for accessing TermHub APIs through api.terminologyhub.com.
 [TermHub](https://www.terminologyhub.com) is a cloud healthcare terminology server offering 
 access to a large library of code systems, value sets, and concept mappings along with standard 
-developer-friendly mechansims for interacting with that content (such as FHIR terminology services).
+developer-friendly mechansims for interacting with that content (such as FHIR® terminology services).
 
 [Tutorial Training Video](https://youtu.be/Vto42DIMw2U)
 
