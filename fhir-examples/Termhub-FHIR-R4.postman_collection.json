@@ -1405,12 +1405,12 @@
 		},
 		{
 			"key": "TERMHUB_USER",
-			"value": "admin",
+			"value": "",
 			"type": "string"
 		},
 		{
 			"key": "TERMHUB_PASSWORD",
-			"value": "admin12345",
+			"value": "",
 			"type": "string"
 		}
 	]

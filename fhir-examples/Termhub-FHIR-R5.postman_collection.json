@@ -1401,12 +1401,12 @@
 		},
 		{
 			"key": "TERMHUB_USER",
-			"value": "admin",
+			"value": "",
 			"type": "string"
 		},
 		{
 			"key": "TERMHUB_PASSWORD",
-			"value": "99dc2dd8-982d-48ea-8897-63f24b8c64bb",
+			"value": "",
 			"type": "string"
 		}
 	]
