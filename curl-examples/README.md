@@ -52,7 +52,6 @@ The following examples can be typed into the command line of any terminal that h
 - [Get specific subset](#get-subset)
 - [Export subset](#export-subset)
 - [Get subset members for project subset](#get-subset-members-for-project-subset)
-- [Find project subset members](#find-project-subset-members)
 
 ### Login
 
@@ -435,18 +434,4 @@ See sample payload data from this call in [`samples/get-subset-members-for-proje
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
 
-### Find project subset members
 
-Return members of a specific subset by its id. The UUID below is an example
-that may or may not work.  The idea is to take one of the subset ids returned
-by the previous call and you can then look up subset info specifically for that
-UUID. This example uses paging to get only the first 5 results and to filter members
-by the query parameter.
-
-```
-curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/dd01be90-f9dd-4531-abb4-810f2090ba17/member?query=diabetes&limit=5" | jq
-```
-
-See sample payload data from this call in [`samples/find-project-subset-members.txt`](samples/find-project-subset-members.txt)
-
-[Back to Top](#termhub-in-5-minutes-curl-tutorial)
