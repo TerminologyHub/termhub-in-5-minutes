@@ -1,0 +1,230 @@
+{
+  "total": 129,
+  "parameters": {
+    "limit": 10,
+    "offset": 0
+  },
+  "items": [
+    {
+      "id": "09651c8d-5506-4834-9abf-8808eb4ee5bd",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Description type",
+      "code": "900000000000446008",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "b52a95c0-133f-4945-9612-636f6d8e02c7",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Description inactivation indicator reference set",
+      "code": "900000000000490003",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "3d6ba49d-8bfb-498b-bc04-8b0963c1fde5",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Map rule",
+      "code": "900000000000503008",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "99a78efe-1e17-4408-8cad-641179049925",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Linkage concept",
+      "code": "106237007",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "1d3d2987-a1d5-41be-b2f1-50681aaa503d",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Association source component",
+      "code": "900000000000532006",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "b2a419c9-a538-4e66-885b-4e83306c59fa",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Ambiguous",
+      "code": "900000000000484002",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "32f28f63-98ef-47f5-9dc2-d66dd388a8e0",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Primitive",
+      "code": "900000000000074008",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "3b087ce8-3957-4bd5-b933-99487a58772f",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Associated morphology",
+      "code": "116676008",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "6a1d2d4e-e538-4e0f-a068-6d769de69861",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "Finding site",
+      "code": "363698007",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    },
+    {
+      "id": "31dc7be7-5576-4797-a0f0-89308fab2895",
+      "confidence": 14.0188570022583,
+      "modified": "2025-07-10T23:10:38.599+00:00",
+      "created": "2025-07-10T23:10:38.599+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "terminology": "SNOMEDCT_US",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "name": "ICD-10 map category value",
+      "code": "447634004",
+      "subset": {
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "code": "900000000000012004"
+      }
+    }
+  ]
+}
+
