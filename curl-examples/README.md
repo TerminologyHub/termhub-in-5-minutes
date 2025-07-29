@@ -386,7 +386,7 @@ Return all subsets for the specified project identified by either projectId or p
 curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset" | jq
 ```
 
-See sample payload data from this call in [`samples/get-subsets-sandbox.txt`](samples/get-subsets-sandbox.txt)
+See sample payload data from this call in [`samples/get-project-subsets.txt`](samples/get-project-subsets.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
 
@@ -402,6 +402,51 @@ UUID.
 curl -H "Authorization: Bearer $token" "$API_URL/subset/2a545e12-04eb-48ee-b988-c17346b4e05f" | jq
 ```
 
-See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10cm.txt`](samples/get-mapset-snomedct_us-icd10cm.txt)
+See sample payload data from this call in [`samples/get-subset.txt`](samples/get-subset.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+### Export subset
+
+Export zip file of a subset in a particular format.  Currently only format=native is
+supported.
+
+```
+curl -o SNOMEDCT_US-MODEL.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/SNOMEDCT_US-MODEL/export?format=native"
+```
+
+No payload sample as the output is a .zip file.
+
+
+### Get subset members for project subset
+
+Return members of a specific subset by its id. The UUID below is an example
+that may or may not work.  The idea is to take one of the subset ids returned
+by the previous call and you can then look up subset info specifically for that
+UUID.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/2a545e12-04eb-48ee-b988-c17346b4e05f/member" | jq
+```
+
+See sample payload data from this call in [`samples/get-subset-members-for-project-subset.txt`](samples/get-subset-members-for-project-subset.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+### Find project subset members
+
+Return members of a specific subset by its id. The UUID below is an example
+that may or may not work.  The idea is to take one of the subset ids returned
+by the previous call and you can then look up subset info specifically for that
+UUID. This example uses paging to get only the first 5 results and to filter members
+by the query parameter.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/dd01be90-f9dd-4531-abb4-810f2090ba17/member?query=diabetes&limit=5" | jq
+```
+
+See sample payload data from this call in [`samples/find-project-subset-members.txt`](samples/find-project-subset-members.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
