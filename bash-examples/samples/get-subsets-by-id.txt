@@ -1,0 +1,47 @@
+-----------------------------------------------------
+Starting ...Wed Jul 30 06:56:29 PDT 2025
+-----------------------------------------------------
+url = https://dev.terminologyhub.com
+query =
+offset = 0
+limit = 10
+sort =
+ascending =
+id = e1db453f-07f2-4c9a-a740-6395f7dea053
+
+  Performing subsets lookup
+    {
+      "id": "e1db453f-07f2-4c9a-a740-6395f7dea053",
+      "confidence": 3.215794086456299,
+      "modified": "2025-07-10T23:10:38.446+00:00",
+      "created": "2025-07-10T23:10:38.446+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "SNOMEDCT_US-MODEL",
+      "name": "SNOMEDCT model concepts",
+      "version": "20240301",
+      "publisher": "SANDBOX",
+      "releaseDate": "2024-03-01",
+      "latest": true,
+      "loaded": true,
+      "code": "900000000000012004",
+      "fromPublisher": "SANDBOX",
+      "fromTerminology": "SNOMEDCT_US",
+      "fromVersion": "20240301",
+      "terminology": "SNOMEDCT_US",
+      "description": "SNOMED CT model component",
+      "attributes": {
+        "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000012004",
+        "fhirVersion": "20240301",
+        "fhirId": "sandbox_900000000000012004_20240301"
+      },
+      "statistics": {
+        "members": 129,
+        "membersActive": 129
+      }
+    }
+
+-----------------------------------------------------
+Finished ...Wed Jul 30 06:56:30 PDT 2025
+-----------------------------------------------------
