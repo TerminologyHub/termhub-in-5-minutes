@@ -434,7 +434,7 @@ performs a text search for "map" and limits search results to 5
 entries.  It searches only within the SNOMEDCT_US-MODEL subset in the specified project.
 
 ```bash
-$ ./find-members.sh sandbox to.name:diabetes --subset SNOMEDCT_US-ICD10CM --token $token
+$ ./find-members.sh sandbox map --subset SNOMEDCT_US-MODEL --token $token
 ```
 
 See sample payload data from this call in [`samples/get-members-by-subset-and-text.txt`](samples/get-members-by-subset-and-text.txt)
