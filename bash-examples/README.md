@@ -39,6 +39,11 @@ Test Scripts
 - [Get concept mappings by code](#get-concept-mappings-by-code)
 - [Find project mappings for mapset](#find-project-mapset-mappings)
 - [Find project mappings](#find-project-mappings)
+- [Get subsets](#get-subsets)
+- [Get project subsets](#get-project-subsets)
+- [Get specific subset](#get-subset)
+- [Export subset](#export-subset)
+- [Find project members for subset](#find-project-subset-members)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -367,5 +372,57 @@ $ ./find-mappings.sh sandbox "to.name:diabetes"  --token $token --limit 5
 ```
 
 See sample payload data from this call in [`samples/get-mappings-by-text2.txt`](samples/get-mappings-by-text2.txt)
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-mapsets" />Get subsets - find-subsets.sh
+
+Return all loaded subsets currently hosted by the API (limited to 2 entries). This supports offset, limit,
+sort, and ascending parameters to control amount and order of mapset information.
+
+```bash
+$ ./find-subsets.sh  --token $token --limit 2
+```
+
+See sample payload data from this call in [`samples/get-subsets.txt`](samples/get-subsets.txt)
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-project-mapsets" />Get project subsets - find-subsets.sh
+
+Return all subsets for specific project identified by either project id or project uriLabel.
+
+```bash
+$ ./find-subsets.sh --token $token --project sandbox
+```
+
+See sample payload data from this call in [`samples/get-subsets-by-project.txt`](samples/get-subsets-by-project.txt)
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="get-subset" />Get specific subset - find-subsets.sh
+
+Return a specific subset by its subset id.  The UUID below is an example
+that may or may not work.  The idea is to take one of the subset ids returned
+by one of the previous calls and you can then look up subset info for specifically that
+UUID.
+
+```bash
+$ ./find-subsets.sh --token $token --id 2a545e12-04eb-48ee-b988-c17346b4e05f
+```
+
+See sample payload data from this call in [`samples/get-subsets-by-id.txt`](samples/get-subsets-by-id.txt)
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="export-subset" />Export mapset - export-subset.sh
+
+Export a subset for the given project id (or uriLabel) and subset abbreviation or id.
+
+```bash
+$ ./export-subset.sh --token $token sandbox SNOMEDCT_US-ICD10CM
+```
+
+No payload sample as the output is a .zip file.
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
