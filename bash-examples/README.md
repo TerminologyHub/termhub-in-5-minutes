@@ -375,10 +375,10 @@ See sample payload data from this call in [`samples/get-mappings-by-text2.txt`](
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### <a id="get-mapsets" />Get subsets - find-subsets.sh
+### <a id="get-subsets" />Get subsets - find-subsets.sh
 
 Return all loaded subsets currently hosted by the API (limited to 2 entries). This supports offset, limit,
-sort, and ascending parameters to control amount and order of mapset information.
+sort, and ascending parameters to control amount and order of subset information.
 
 ```bash
 $ ./find-subsets.sh  --token $token --limit 2
@@ -388,7 +388,7 @@ See sample payload data from this call in [`samples/get-subsets.txt`](samples/ge
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### <a id="get-project-mapsets" />Get project subsets - find-subsets.sh
+### <a id="get-project-subsets" />Get project subsets - find-subsets.sh
 
 Return all subsets for specific project identified by either project id or project uriLabel.
 
@@ -415,7 +415,7 @@ See sample payload data from this call in [`samples/get-subsets-by-id.txt`](samp
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
 
-### <a id="export-subset" />Export mapset - export-subset.sh
+### <a id="export-subset" />Export subset - export-subset.sh
 
 Export a subset for the given project id (or uriLabel) and subset abbreviation or id.
 
@@ -424,5 +424,19 @@ $ ./export-subset.sh --token $token sandbox SNOMEDCT_US-ICD10CM
 ```
 
 No payload sample as the output is a .zip file.
+
+[Back to Top](#termhub-in-5-minutes-bash-tutorial)
+
+### <a id="find-project-subset-members" />Find project members for subset - find-members.sh
+
+Return members matching a given text search for a given subset. The following example
+performs a text search for "map" and limits search results to 5
+entries.  It searches only within the SNOMEDCT_US-MODEL subset in the specified project.
+
+```bash
+$ ./find-members.sh sandbox to.name:diabetes --subset SNOMEDCT_US-ICD10CM --token $token
+```
+
+See sample payload data from this call in [`samples/get-members-by-subset-and-text.txt`](samples/get-members-by-subset-and-text.txt)
 
 [Back to Top](#termhub-in-5-minutes-bash-tutorial)
