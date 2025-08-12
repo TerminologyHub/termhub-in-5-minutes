@@ -1,6 +1,6 @@
 /*
  * Terminology Hub Terminology Terminology API
- * API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+ * <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@terminologyhub.com
@@ -45,6 +45,8 @@ import api.invoker.JSON;
   Mapset.JSON_PROPERTY_NAME,
   Mapset.JSON_PROPERTY_VERSION,
   Mapset.JSON_PROPERTY_PUBLISHER,
+  Mapset.JSON_PROPERTY_RELEASE_DATE,
+  Mapset.JSON_PROPERTY_URI,
   Mapset.JSON_PROPERTY_LATEST,
   Mapset.JSON_PROPERTY_LOADED,
   Mapset.JSON_PROPERTY_CODE,
@@ -54,13 +56,13 @@ import api.invoker.JSON;
   Mapset.JSON_PROPERTY_TO_PUBLISHER,
   Mapset.JSON_PROPERTY_TO_TERMINOLOGY,
   Mapset.JSON_PROPERTY_TO_VERSION,
+  Mapset.JSON_PROPERTY_LICENSE,
   Mapset.JSON_PROPERTY_TERMINOLOGY,
   Mapset.JSON_PROPERTY_DESCRIPTION,
-  Mapset.JSON_PROPERTY_RELEASE_DATE,
   Mapset.JSON_PROPERTY_ATTRIBUTES,
   Mapset.JSON_PROPERTY_STATISTICS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Mapset {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -95,6 +97,12 @@ public class Mapset {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
+  public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
+  private String releaseDate;
+
+  public static final String JSON_PROPERTY_URI = "uri";
+  private String uri;
+
   public static final String JSON_PROPERTY_LATEST = "latest";
   private Boolean latest;
 
@@ -122,14 +130,14 @@ public class Mapset {
   public static final String JSON_PROPERTY_TO_VERSION = "toVersion";
   private String toVersion;
 
+  public static final String JSON_PROPERTY_LICENSE = "license";
+  private String license;
+
   public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
   private String terminology;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
-
-  public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
-  private String releaseDate;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, String> attributes = new HashMap<>();
@@ -415,6 +423,56 @@ public class Mapset {
   }
 
 
+  public Mapset releaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
+    return this;
+  }
+
+   /**
+   * YYYY-MM-DD rendering of the release date
+   * @return releaseDate
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReleaseDate() {
+    return releaseDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
+  }
+
+
+  public Mapset uri(String uri) {
+    this.uri = uri;
+    return this;
+  }
+
+   /**
+   * Uri for downloading the terminology
+   * @return uri
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUri() {
+    return uri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
+
   public Mapset latest(Boolean latest) {
     this.latest = latest;
     return this;
@@ -496,7 +554,7 @@ public class Mapset {
   }
 
    /**
-   * Get fromPublisher
+   * Publisher that maps in this set are mapped from, e.g. \&quot;SNOMEDCT\&quot;
    * @return fromPublisher
   **/
   @jakarta.annotation.Nullable
@@ -571,7 +629,7 @@ public class Mapset {
   }
 
    /**
-   * Get toPublisher
+   * Publisher that maps in this set are mapped from, e.g. \&quot;SNOMEDCT\&quot;
    * @return toPublisher
   **/
   @jakarta.annotation.Nullable
@@ -640,6 +698,31 @@ public class Mapset {
   }
 
 
+  public Mapset license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * Get license
+   * @return license
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLicense() {
+    return license;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
+
   public Mapset terminology(String terminology) {
     this.terminology = terminology;
     return this;
@@ -687,31 +770,6 @@ public class Mapset {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public Mapset releaseDate(String releaseDate) {
-    this.releaseDate = releaseDate;
-    return this;
-  }
-
-   /**
-   * YYYY-MM-DD rendering of the release date
-   * @return releaseDate
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getReleaseDate() {
-    return releaseDate;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReleaseDate(String releaseDate) {
-    this.releaseDate = releaseDate;
   }
 
 
@@ -804,6 +862,8 @@ public class Mapset {
         Objects.equals(this.name, mapset.name) &&
         Objects.equals(this.version, mapset.version) &&
         Objects.equals(this.publisher, mapset.publisher) &&
+        Objects.equals(this.releaseDate, mapset.releaseDate) &&
+        Objects.equals(this.uri, mapset.uri) &&
         Objects.equals(this.latest, mapset.latest) &&
         Objects.equals(this.loaded, mapset.loaded) &&
         Objects.equals(this.code, mapset.code) &&
@@ -813,16 +873,16 @@ public class Mapset {
         Objects.equals(this.toPublisher, mapset.toPublisher) &&
         Objects.equals(this.toTerminology, mapset.toTerminology) &&
         Objects.equals(this.toVersion, mapset.toVersion) &&
+        Objects.equals(this.license, mapset.license) &&
         Objects.equals(this.terminology, mapset.terminology) &&
         Objects.equals(this.description, mapset.description) &&
-        Objects.equals(this.releaseDate, mapset.releaseDate) &&
         Objects.equals(this.attributes, mapset.attributes) &&
         Objects.equals(this.statistics, mapset.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, toPublisher, toTerminology, toVersion, terminology, description, releaseDate, attributes, statistics);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, toPublisher, toTerminology, toVersion, license, terminology, description, attributes, statistics);
   }
 
   @Override
@@ -840,6 +900,8 @@ public class Mapset {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
+    sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    loaded: ").append(toIndentedString(loaded)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -849,9 +911,9 @@ public class Mapset {
     sb.append("    toPublisher: ").append(toIndentedString(toPublisher)).append("\n");
     sb.append("    toTerminology: ").append(toIndentedString(toTerminology)).append("\n");
     sb.append("    toVersion: ").append(toIndentedString(toVersion)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");

@@ -16,6 +16,7 @@ package api.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import api.model.SubsetRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,34 +24,36 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import api.invoker.JSON;
 
 
 /**
- * Represents enough information to uniquely reference a concept in a terminology
+ * Represents a member of a subset, refset, or value set in a terminology
  */
 @JsonPropertyOrder({
-  ConceptRef.JSON_PROPERTY_ID,
-  ConceptRef.JSON_PROPERTY_CONFIDENCE,
-  ConceptRef.JSON_PROPERTY_MODIFIED,
-  ConceptRef.JSON_PROPERTY_CREATED,
-  ConceptRef.JSON_PROPERTY_MODIFIED_BY,
-  ConceptRef.JSON_PROPERTY_LOCAL,
-  ConceptRef.JSON_PROPERTY_ACTIVE,
-  ConceptRef.JSON_PROPERTY_NAME,
-  ConceptRef.JSON_PROPERTY_CODE,
-  ConceptRef.JSON_PROPERTY_TERMINOLOGY,
-  ConceptRef.JSON_PROPERTY_VERSION,
-  ConceptRef.JSON_PROPERTY_PUBLISHER,
-  ConceptRef.JSON_PROPERTY_HISTORICAL,
-  ConceptRef.JSON_PROPERTY_LEAF,
-  ConceptRef.JSON_PROPERTY_DEFINED,
-  ConceptRef.JSON_PROPERTY_LEVEL
+  SubsetMember.JSON_PROPERTY_ID,
+  SubsetMember.JSON_PROPERTY_CONFIDENCE,
+  SubsetMember.JSON_PROPERTY_MODIFIED,
+  SubsetMember.JSON_PROPERTY_CREATED,
+  SubsetMember.JSON_PROPERTY_MODIFIED_BY,
+  SubsetMember.JSON_PROPERTY_LOCAL,
+  SubsetMember.JSON_PROPERTY_ACTIVE,
+  SubsetMember.JSON_PROPERTY_TERMINOLOGY,
+  SubsetMember.JSON_PROPERTY_VERSION,
+  SubsetMember.JSON_PROPERTY_PUBLISHER,
+  SubsetMember.JSON_PROPERTY_NAME,
+  SubsetMember.JSON_PROPERTY_CODE,
+  SubsetMember.JSON_PROPERTY_SUBSET,
+  SubsetMember.JSON_PROPERTY_CODE_ACTIVE,
+  SubsetMember.JSON_PROPERTY_CODE_EXISTS,
+  SubsetMember.JSON_PROPERTY_ATTRIBUTES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class ConceptRef {
+public class SubsetMember {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
@@ -72,12 +75,6 @@ public class ConceptRef {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
-
   public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
   private String terminology;
 
@@ -87,22 +84,28 @@ public class ConceptRef {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
-  public static final String JSON_PROPERTY_HISTORICAL = "historical";
-  private String historical;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_LEAF = "leaf";
-  private Boolean leaf;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-  public static final String JSON_PROPERTY_DEFINED = "defined";
-  private Boolean defined;
+  public static final String JSON_PROPERTY_SUBSET = "subset";
+  private SubsetRef subset;
 
-  public static final String JSON_PROPERTY_LEVEL = "level";
-  private Integer level;
+  public static final String JSON_PROPERTY_CODE_ACTIVE = "codeActive";
+  private Boolean codeActive;
 
-  public ConceptRef() { 
+  public static final String JSON_PROPERTY_CODE_EXISTS = "codeExists";
+  private Boolean codeExists;
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, String> attributes = new HashMap<>();
+
+  public SubsetMember() { 
   }
 
-  public ConceptRef id(UUID id) {
+  public SubsetMember id(UUID id) {
     this.id = id;
     return this;
   }
@@ -127,7 +130,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef confidence(Double confidence) {
+  public SubsetMember confidence(Double confidence) {
     this.confidence = confidence;
     return this;
   }
@@ -152,7 +155,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef modified(OffsetDateTime modified) {
+  public SubsetMember modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -177,7 +180,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef created(OffsetDateTime created) {
+  public SubsetMember created(OffsetDateTime created) {
     this.created = created;
     return this;
   }
@@ -202,7 +205,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef modifiedBy(String modifiedBy) {
+  public SubsetMember modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -227,7 +230,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef local(Boolean local) {
+  public SubsetMember local(Boolean local) {
     this.local = local;
     return this;
   }
@@ -252,7 +255,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef active(Boolean active) {
+  public SubsetMember active(Boolean active) {
     this.active = active;
     return this;
   }
@@ -277,63 +280,13 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Concept name
-   * @return name
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ConceptRef code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Terminology code, typically representing a unit of meaning
-   * @return code
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCode() {
-    return code;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public ConceptRef terminology(String terminology) {
+  public SubsetMember terminology(String terminology) {
     this.terminology = terminology;
     return this;
   }
 
    /**
-   * Terminology abbreviation
+   * Terminology abbreviation, e.g. \&quot;SNOMEDCT\&quot;
    * @return terminology
   **/
   @jakarta.annotation.Nullable
@@ -352,13 +305,13 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef version(String version) {
+  public SubsetMember version(String version) {
     this.version = version;
     return this;
   }
 
    /**
-   * Terminology version
+   * Terminology version, e.g. \&quot;20230901\&quot;
    * @return version
   **/
   @jakarta.annotation.Nullable
@@ -377,13 +330,13 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef publisher(String publisher) {
+  public SubsetMember publisher(String publisher) {
     this.publisher = publisher;
     return this;
   }
 
    /**
-   * Terminology publisher
+   * Terminology publisher, e.g. \&quot;SNOMEDCT\&quot;
    * @return publisher
   **/
   @jakarta.annotation.Nullable
@@ -402,108 +355,166 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef historical(String historical) {
-    this.historical = historical;
+  public SubsetMember name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Historical relationship type (only used for concept descendants)
-   * @return historical
+   * Prefererd name of the member code
+   * @return name
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HISTORICAL)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHistorical() {
-    return historical;
+  public String getName() {
+    return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HISTORICAL)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHistorical(String historical) {
-    this.historical = historical;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public ConceptRef leaf(Boolean leaf) {
-    this.leaf = leaf;
+  public SubsetMember code(String code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Indicates whether or not this concept is a leaf node in its hierarchy
-   * @return leaf
+   * Member code in the subset
+   * @return code
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEAF)
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getLeaf() {
-    return leaf;
+  public String getCode() {
+    return code;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LEAF)
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLeaf(Boolean leaf) {
-    this.leaf = leaf;
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
-  public ConceptRef defined(Boolean defined) {
-    this.defined = defined;
+  public SubsetMember subset(SubsetRef subset) {
+    this.subset = subset;
     return this;
   }
 
    /**
-   * Indicates whether or not this concept has a logical definition with necessary and sufficient conditions
-   * @return defined
+   * Get subset
+   * @return subset
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFINED)
+  @JsonProperty(JSON_PROPERTY_SUBSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getDefined() {
-    return defined;
+  public SubsetRef getSubset() {
+    return subset;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFINED)
+  @JsonProperty(JSON_PROPERTY_SUBSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefined(Boolean defined) {
-    this.defined = defined;
+  public void setSubset(SubsetRef subset) {
+    this.subset = subset;
   }
 
 
-  public ConceptRef level(Integer level) {
-    this.level = level;
+  public SubsetMember codeActive(Boolean codeActive) {
+    this.codeActive = codeActive;
     return this;
   }
 
    /**
-   * Level of depth
-   * @return level
+   * Indicates whether the member code is active or not
+   * @return codeActive
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonProperty(JSON_PROPERTY_CODE_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getLevel() {
-    return level;
+  public Boolean getCodeActive() {
+    return codeActive;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonProperty(JSON_PROPERTY_CODE_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLevel(Integer level) {
-    this.level = level;
+  public void setCodeActive(Boolean codeActive) {
+    this.codeActive = codeActive;
+  }
+
+
+  public SubsetMember codeExists(Boolean codeExists) {
+    this.codeExists = codeExists;
+    return this;
+  }
+
+   /**
+   * Indicates whether the member code exists or not
+   * @return codeExists
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_EXISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getCodeExists() {
+    return codeExists;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CODE_EXISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCodeExists(Boolean codeExists) {
+    this.codeExists = codeExists;
+  }
+
+
+  public SubsetMember attributes(Map<String, String> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public SubsetMember putAttributesItem(String key, String attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * Key/value pairs associated with this object
+   * @return attributes
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getAttributes() {
+    return attributes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttributes(Map<String, String> attributes) {
+    this.attributes = attributes;
   }
 
 
   /**
-   * Return true if this ConceptRef object is equal to o.
+   * Return true if this SubsetMember object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -513,34 +524,34 @@ public class ConceptRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConceptRef conceptRef = (ConceptRef) o;
-    return Objects.equals(this.id, conceptRef.id) &&
-        Objects.equals(this.confidence, conceptRef.confidence) &&
-        Objects.equals(this.modified, conceptRef.modified) &&
-        Objects.equals(this.created, conceptRef.created) &&
-        Objects.equals(this.modifiedBy, conceptRef.modifiedBy) &&
-        Objects.equals(this.local, conceptRef.local) &&
-        Objects.equals(this.active, conceptRef.active) &&
-        Objects.equals(this.name, conceptRef.name) &&
-        Objects.equals(this.code, conceptRef.code) &&
-        Objects.equals(this.terminology, conceptRef.terminology) &&
-        Objects.equals(this.version, conceptRef.version) &&
-        Objects.equals(this.publisher, conceptRef.publisher) &&
-        Objects.equals(this.historical, conceptRef.historical) &&
-        Objects.equals(this.leaf, conceptRef.leaf) &&
-        Objects.equals(this.defined, conceptRef.defined) &&
-        Objects.equals(this.level, conceptRef.level);
+    SubsetMember subsetMember = (SubsetMember) o;
+    return Objects.equals(this.id, subsetMember.id) &&
+        Objects.equals(this.confidence, subsetMember.confidence) &&
+        Objects.equals(this.modified, subsetMember.modified) &&
+        Objects.equals(this.created, subsetMember.created) &&
+        Objects.equals(this.modifiedBy, subsetMember.modifiedBy) &&
+        Objects.equals(this.local, subsetMember.local) &&
+        Objects.equals(this.active, subsetMember.active) &&
+        Objects.equals(this.terminology, subsetMember.terminology) &&
+        Objects.equals(this.version, subsetMember.version) &&
+        Objects.equals(this.publisher, subsetMember.publisher) &&
+        Objects.equals(this.name, subsetMember.name) &&
+        Objects.equals(this.code, subsetMember.code) &&
+        Objects.equals(this.subset, subsetMember.subset) &&
+        Objects.equals(this.codeActive, subsetMember.codeActive) &&
+        Objects.equals(this.codeExists, subsetMember.codeExists) &&
+        Objects.equals(this.attributes, subsetMember.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, name, code, terminology, version, publisher, historical, leaf, defined, level);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, terminology, version, publisher, name, code, subset, codeActive, codeExists, attributes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConceptRef {\n");
+    sb.append("class SubsetMember {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
@@ -548,15 +559,15 @@ public class ConceptRef {
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    local: ").append(toIndentedString(local)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
-    sb.append("    historical: ").append(toIndentedString(historical)).append("\n");
-    sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
-    sb.append("    defined: ").append(toIndentedString(defined)).append("\n");
-    sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    subset: ").append(toIndentedString(subset)).append("\n");
+    sb.append("    codeActive: ").append(toIndentedString(codeActive)).append("\n");
+    sb.append("    codeExists: ").append(toIndentedString(codeExists)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

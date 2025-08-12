@@ -16,115 +16,127 @@ package api.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import api.model.SearchParameters;
+import api.model.Subset;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import api.invoker.JSON;
 
 
 /**
- * Alternate identifiers associated with the concept
+ * Represents a list of subsets returned from a find call
  */
 @JsonPropertyOrder({
-  IdentifierRef.JSON_PROPERTY_ID,
-  IdentifierRef.JSON_PROPERTY_CONFIDENCE,
-  IdentifierRef.JSON_PROPERTY_LABEL
+  ResultListSubset.JSON_PROPERTY_TOTAL,
+  ResultListSubset.JSON_PROPERTY_PARAMETERS,
+  ResultListSubset.JSON_PROPERTY_ITEMS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class IdentifierRef {
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+public class ResultListSubset {
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  private Long total;
 
-  public static final String JSON_PROPERTY_CONFIDENCE = "confidence";
-  private Double confidence;
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private SearchParameters parameters;
 
-  public static final String JSON_PROPERTY_LABEL = "label";
-  private String label;
+  public static final String JSON_PROPERTY_ITEMS = "items";
+  private List<Subset> items = new ArrayList<>();
 
-  public IdentifierRef() { 
+  public ResultListSubset() { 
   }
 
-  public IdentifierRef id(String id) {
-    this.id = id;
+  public ResultListSubset total(Long total) {
+    this.total = total;
     return this;
   }
 
    /**
-   * Unique identifier
-   * @return id
+   * Total number of results (often this list represents just a single page)
+   * @return total
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getId() {
-    return id;
+  public Long getTotal() {
+    return total;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
+  public void setTotal(Long total) {
+    this.total = total;
   }
 
 
-  public IdentifierRef confidence(Double confidence) {
-    this.confidence = confidence;
+  public ResultListSubset parameters(SearchParameters parameters) {
+    this.parameters = parameters;
     return this;
   }
 
    /**
-   * Confidence value (for use with search results)
-   * @return confidence
+   * Get parameters
+   * @return parameters
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIDENCE)
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getConfidence() {
-    return confidence;
+  public SearchParameters getParameters() {
+    return parameters;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONFIDENCE)
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfidence(Double confidence) {
-    this.confidence = confidence;
+  public void setParameters(SearchParameters parameters) {
+    this.parameters = parameters;
   }
 
 
-  public IdentifierRef label(String label) {
-    this.label = label;
+  public ResultListSubset items(List<Subset> items) {
+    this.items = items;
+    return this;
+  }
+
+  public ResultListSubset addItemsItem(Subset itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Identifier label, e.g. \&quot;OMOP\&quot;
-   * @return label
+   * items of the result list
+   * @return items
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getLabel() {
-    return label;
+  public List<Subset> getItems() {
+    return items;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabel(String label) {
-    this.label = label;
+  public void setItems(List<Subset> items) {
+    this.items = items;
   }
 
 
   /**
-   * Return true if this IdentifierRef object is equal to o.
+   * Return true if this ResultListSubset object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -134,24 +146,24 @@ public class IdentifierRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IdentifierRef identifierRef = (IdentifierRef) o;
-    return Objects.equals(this.id, identifierRef.id) &&
-        Objects.equals(this.confidence, identifierRef.confidence) &&
-        Objects.equals(this.label, identifierRef.label);
+    ResultListSubset resultListSubset = (ResultListSubset) o;
+    return Objects.equals(this.total, resultListSubset.total) &&
+        Objects.equals(this.parameters, resultListSubset.parameters) &&
+        Objects.equals(this.items, resultListSubset.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, label);
+    return Objects.hash(total, parameters, items);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IdentifierRef {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("class ResultListSubset {\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

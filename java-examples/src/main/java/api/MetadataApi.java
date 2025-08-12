@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:36:52.969136900-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class MetadataApi {
   private ApiClient apiClient;
 
@@ -61,11 +61,11 @@ public class MetadataApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Matadata for the specified project and query parameters </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Matadata for the specified project and query parameters </td><td>  -  </td></tr>
      </table>
    */
   public ResultListMetadata findMetadata(String idOrUriLabel, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -86,11 +86,11 @@ public class MetadataApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Matadata for the specified project and query parameters </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Matadata for the specified project and query parameters </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListMetadata> findMetadataWithHttpInfo(String idOrUriLabel, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -129,11 +129,11 @@ public class MetadataApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public List<Metadata> getTerminologyMetadata(String id) throws ApiException {
@@ -149,11 +149,11 @@ public class MetadataApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Metadata>> getTerminologyMetadataWithHttpInfo(String id) throws ApiException {

@@ -12,6 +12,7 @@ import api.model.Concept;
 import api.model.Mapping;
 import api.model.ResultListConceptRelationship;
 import api.model.ResultListConceptTreePosition;
+import api.model.SubsetMember;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:36:52.969136900-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class ConceptByCodeApi {
   private ApiClient apiClient;
 
@@ -65,11 +66,11 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concept inverse relationships </td><td>  -  </td></tr>
      </table>
    */
@@ -93,11 +94,11 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concept inverse relationships </td><td>  -  </td></tr>
      </table>
    */
@@ -153,11 +154,11 @@ public class ConceptByCodeApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Result list of matching concept relationships </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConceptRelationship findConceptRelationships(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -181,11 +182,11 @@ public class ConceptByCodeApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Result list of matching concept relationships </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConceptRelationship> findConceptRelationshipsWithHttpInfo(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -239,12 +240,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concept tree position children </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept tree position children </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConceptTreePosition findTreePositionChildren(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -267,12 +268,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concept tree position children </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept tree position children </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConceptTreePosition> findTreePositionChildrenWithHttpInfo(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -326,12 +327,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concept tree positions </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept tree positions </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConceptTreePosition findTreePositions(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -354,12 +355,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concept tree positions </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept tree positions </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConceptTreePosition> findTreePositionsWithHttpInfo(String idOrUriLabel, String terminology, String code, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
@@ -409,12 +410,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concept matching specified terminology and code in specified project </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concept matching specified terminology and code in specified project </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public Concept getConcept(String idOrUriLabel, String terminology, String code, String include) throws ApiException {
@@ -433,12 +434,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concept matching specified terminology and code in specified project </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concept matching specified terminology and code in specified project </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Concept> getConceptWithHttpInfo(String idOrUriLabel, String terminology, String code, String include) throws ApiException {
@@ -484,12 +485,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concepts mathcing code list in the specified project </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concepts mathcing code list in the specified project </td><td>  -  </td></tr>
      </table>
    */
   public List<Concept> getConceptCodes(String idOrUriLabel, String terminology, String codes, String include) throws ApiException {
@@ -508,12 +509,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concepts mathcing code list in the specified project </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concepts mathcing code list in the specified project </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Concept>> getConceptCodesWithHttpInfo(String idOrUriLabel, String terminology, String codes, String include) throws ApiException {
@@ -557,12 +558,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concept diagram </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concept diagram </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
    */
   public void getConceptDiagram(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -580,12 +581,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Concept diagram </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Concept diagram </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> getConceptDiagramWithHttpInfo(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -624,12 +625,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Mappings to the concept matching specified terminology and code </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Mappings to the concept matching specified terminology and code </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public List<Mapping> getConceptInverseMappings(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -647,12 +648,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Mappings to the concept matching specified terminology and code </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Mappings to the concept matching specified terminology and code </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Mapping>> getConceptInverseMappingsWithHttpInfo(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -692,12 +693,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Mappings from the concept matching specified terminology and code </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Mappings from the concept matching specified terminology and code </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public List<Mapping> getConceptMappings(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -715,12 +716,12 @@ public class ConceptByCodeApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Mappings from the concept matching specified terminology and code </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Mappings from the concept matching specified terminology and code </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Mapping>> getConceptMappingsWithHttpInfo(String idOrUriLabel, String terminology, String code) throws ApiException {
@@ -746,6 +747,74 @@ public class ConceptByCodeApi {
     String[] localVarAuthNames = new String[] {"bearerAuth"};
     GenericType<List<Mapping>> localVarReturnType = new GenericType<List<Mapping>>() {};
     return apiClient.invokeAPI("ConceptByCodeApi.getConceptMappings", localVarPath, "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get subset members from concept by terminology and code
+   * Gets subset members from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param code Terminology code, e.g. \&quot;1119\&quot;, \&quot;8867-4\&quot;, or \&quot;64572001\&quot; (required)
+   * @return List&lt;SubsetMember&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Subset members from the concept matching specified terminology and code </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public List<SubsetMember> getConceptMembers(String idOrUriLabel, String terminology, String code) throws ApiException {
+    return getConceptMembersWithHttpInfo(idOrUriLabel, terminology, code).getData();
+  }
+
+  /**
+   * Get subset members from concept by terminology and code
+   * Gets subset members from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param code Terminology code, e.g. \&quot;1119\&quot;, \&quot;8867-4\&quot;, or \&quot;64572001\&quot; (required)
+   * @return ApiResponse&lt;List&lt;SubsetMember&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Subset members from the concept matching specified terminology and code </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<List<SubsetMember>> getConceptMembersWithHttpInfo(String idOrUriLabel, String terminology, String code) throws ApiException {
+    // Check required parameters
+    if (idOrUriLabel == null) {
+      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling getConceptMembers");
+    }
+    if (terminology == null) {
+      throw new ApiException(400, "Missing the required parameter 'terminology' when calling getConceptMembers");
+    }
+    if (code == null) {
+      throw new ApiException(400, "Missing the required parameter 'code' when calling getConceptMembers");
+    }
+
+    // Path parameters
+    String localVarPath = "/project/{idOrUriLabel}/concept/{terminology}/{code}/members"
+            .replaceAll("\\{idOrUriLabel}", apiClient.escapeString(idOrUriLabel))
+            .replaceAll("\\{terminology}", apiClient.escapeString(terminology))
+            .replaceAll("\\{code}", apiClient.escapeString(code));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"bearerAuth"};
+    GenericType<List<SubsetMember>> localVarReturnType = new GenericType<List<SubsetMember>>() {};
+    return apiClient.invokeAPI("ConceptByCodeApi.getConceptMembers", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

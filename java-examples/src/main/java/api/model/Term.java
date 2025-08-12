@@ -1,6 +1,6 @@
 /*
  * Terminology Hub Terminology Terminology API
- * API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+ * <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@terminologyhub.com
@@ -53,7 +53,7 @@ import api.invoker.JSON;
   Term.JSON_PROPERTY_TYPE,
   Term.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Term {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;

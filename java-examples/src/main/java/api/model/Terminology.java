@@ -1,6 +1,6 @@
 /*
  * Terminology Hub Terminology Terminology API
- * API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+ * <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@terminologyhub.com
@@ -47,11 +47,11 @@ import api.invoker.JSON;
   Terminology.JSON_PROPERTY_NAME,
   Terminology.JSON_PROPERTY_VERSION,
   Terminology.JSON_PROPERTY_PUBLISHER,
+  Terminology.JSON_PROPERTY_RELEASE_DATE,
+  Terminology.JSON_PROPERTY_URI,
   Terminology.JSON_PROPERTY_LATEST,
   Terminology.JSON_PROPERTY_LOADED,
-  Terminology.JSON_PROPERTY_RELEASE_DATE,
   Terminology.JSON_PROPERTY_FAMILY,
-  Terminology.JSON_PROPERTY_URI,
   Terminology.JSON_PROPERTY_ATTRIBUTES,
   Terminology.JSON_PROPERTY_ROOTS,
   Terminology.JSON_PROPERTY_CONCEPT_CT,
@@ -59,7 +59,7 @@ import api.invoker.JSON;
   Terminology.JSON_PROPERTY_TREE_POSITION_CT,
   Terminology.JSON_PROPERTY_STATISTICS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Terminology {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -94,20 +94,20 @@ public class Terminology {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
+  public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
+  private String releaseDate;
+
+  public static final String JSON_PROPERTY_URI = "uri";
+  private String uri;
+
   public static final String JSON_PROPERTY_LATEST = "latest";
   private Boolean latest;
 
   public static final String JSON_PROPERTY_LOADED = "loaded";
   private Boolean loaded;
 
-  public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
-  private String releaseDate;
-
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
-
-  public static final String JSON_PROPERTY_URI = "uri";
-  private String uri;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, String> attributes = new HashMap<>();
@@ -405,6 +405,56 @@ public class Terminology {
   }
 
 
+  public Terminology releaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
+    return this;
+  }
+
+   /**
+   * YYYY-MM-DD rendering of the release date
+   * @return releaseDate
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReleaseDate() {
+    return releaseDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
+  }
+
+
+  public Terminology uri(String uri) {
+    this.uri = uri;
+    return this;
+  }
+
+   /**
+   * Uri for downloading the terminology
+   * @return uri
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUri() {
+    return uri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
+
   public Terminology latest(Boolean latest) {
     this.latest = latest;
     return this;
@@ -455,31 +505,6 @@ public class Terminology {
   }
 
 
-  public Terminology releaseDate(String releaseDate) {
-    this.releaseDate = releaseDate;
-    return this;
-  }
-
-   /**
-   * YYYY-MM-DD rendering of the release date
-   * @return releaseDate
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getReleaseDate() {
-    return releaseDate;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReleaseDate(String releaseDate) {
-    this.releaseDate = releaseDate;
-  }
-
-
   public Terminology family(String family) {
     this.family = family;
     return this;
@@ -502,31 +527,6 @@ public class Terminology {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFamily(String family) {
     this.family = family;
-  }
-
-
-  public Terminology uri(String uri) {
-    this.uri = uri;
-    return this;
-  }
-
-   /**
-   * Uri for downloading the terminology
-   * @return uri
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getUri() {
-    return uri;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUri(String uri) {
-    this.uri = uri;
   }
 
 
@@ -727,11 +727,11 @@ public class Terminology {
         Objects.equals(this.name, terminology.name) &&
         Objects.equals(this.version, terminology.version) &&
         Objects.equals(this.publisher, terminology.publisher) &&
+        Objects.equals(this.releaseDate, terminology.releaseDate) &&
+        Objects.equals(this.uri, terminology.uri) &&
         Objects.equals(this.latest, terminology.latest) &&
         Objects.equals(this.loaded, terminology.loaded) &&
-        Objects.equals(this.releaseDate, terminology.releaseDate) &&
         Objects.equals(this.family, terminology.family) &&
-        Objects.equals(this.uri, terminology.uri) &&
         Objects.equals(this.attributes, terminology.attributes) &&
         Objects.equals(this.roots, terminology.roots) &&
         Objects.equals(this.conceptCt, terminology.conceptCt) &&
@@ -742,7 +742,7 @@ public class Terminology {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, latest, loaded, releaseDate, family, uri, attributes, roots, conceptCt, relationshipCt, treePositionCt, statistics);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, family, attributes, roots, conceptCt, relationshipCt, treePositionCt, statistics);
   }
 
   @Override
@@ -760,11 +760,11 @@ public class Terminology {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
+    sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    loaded: ").append(toIndentedString(loaded)).append("\n");
-    sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    family: ").append(toIndentedString(family)).append("\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    roots: ").append(toIndentedString(roots)).append("\n");
     sb.append("    conceptCt: ").append(toIndentedString(conceptCt)).append("\n");

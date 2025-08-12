@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:36:52.969136900-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class ConceptApi {
   private ApiClient apiClient;
 
@@ -47,90 +47,6 @@ public class ConceptApi {
   }
 
   /**
-   * Export concept search across all project terminologies
-   * Export concept search matching specified search criteria.
-   * @param idOrUriLabel Project id or uriLabel (required)
-   * @param terminology Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \&quot;uuid1,uuid2\&quot;, \&quot;SNOMEDCT,RXNORM\&quot;, or \&quot;ICD10CM\&quot;. (required)
-   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
-   * @param expression ECL-style expression (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
-   * @param sort Comma-separated list of fields to sort on (optional)
-   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
-   * @param active &lt;code&gt;true&lt;/code&gt; for active concepts only, &lt;code&gt;false&lt;/code&gt; for inactive concepts only, &lt;code&gt;null&lt;/code&gt; for both (optional)
-   * @param leaf &lt;code&gt;true&lt;/code&gt; for leaf nodes only, &lt;code&gt;false&lt;/code&gt; for non-leaf nodes, &lt;code&gt;null&lt;/code&gt; for either (optional)
-   * @return String
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-   */
-  public String exportConcepts(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
-    return exportConceptsWithHttpInfo(idOrUriLabel, terminology, query, expression, sort, ascending, active, leaf).getData();
-  }
-
-  /**
-   * Export concept search across all project terminologies
-   * Export concept search matching specified search criteria.
-   * @param idOrUriLabel Project id or uriLabel (required)
-   * @param terminology Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \&quot;uuid1,uuid2\&quot;, \&quot;SNOMEDCT,RXNORM\&quot;, or \&quot;ICD10CM\&quot;. (required)
-   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
-   * @param expression ECL-style expression (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
-   * @param sort Comma-separated list of fields to sort on (optional)
-   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
-   * @param active &lt;code&gt;true&lt;/code&gt; for active concepts only, &lt;code&gt;false&lt;/code&gt; for inactive concepts only, &lt;code&gt;null&lt;/code&gt; for both (optional)
-   * @param leaf &lt;code&gt;true&lt;/code&gt; for leaf nodes only, &lt;code&gt;false&lt;/code&gt; for non-leaf nodes, &lt;code&gt;null&lt;/code&gt; for either (optional)
-   * @return ApiResponse&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<String> exportConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
-    // Check required parameters
-    if (idOrUriLabel == null) {
-      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling exportConcepts");
-    }
-    if (terminology == null) {
-      throw new ApiException(400, "Missing the required parameter 'terminology' when calling exportConcepts");
-    }
-
-    // Path parameters
-    String localVarPath = "/project/{idOrUriLabel}/concept/export"
-            .replaceAll("\\{idOrUriLabel}", apiClient.escapeString(idOrUriLabel));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "terminology", terminology)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "expression", expression));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "active", active));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "leaf", leaf));
-
-    String localVarAccept = apiClient.selectHeaderAccept("text/plain");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"bearerAuth"};
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ConceptApi.exportConcepts", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
    * Export bulk find of concepts across specified project terminologies
    * Export bulk find of concepts matching specified search criteria.
    * @param idOrUriLabel Project id or uriLabel (required)
@@ -145,12 +61,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public String exportLookup(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf) throws ApiException {
@@ -172,12 +88,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<String> exportLookupWithHttpInfo(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf) throws ApiException {
@@ -211,6 +127,90 @@ public class ConceptApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Export concept search across all project terminologies
+   * Export concept search matching specified search criteria.
+   * @param idOrUriLabel Project id or uriLabel (required)
+   * @param terminology Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \&quot;uuid1,uuid2\&quot;, \&quot;SNOMEDCT,RXNORM\&quot;, or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param expression ECL-style expression (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param active &lt;code&gt;true&lt;/code&gt; for active concepts only, &lt;code&gt;false&lt;/code&gt; for inactive concepts only, &lt;code&gt;null&lt;/code&gt; for both (optional)
+   * @param leaf &lt;code&gt;true&lt;/code&gt; for leaf nodes only, &lt;code&gt;false&lt;/code&gt; for non-leaf nodes, &lt;code&gt;null&lt;/code&gt; for either (optional)
+   * @return String
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public String exportProjectConcepts(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
+    return exportProjectConceptsWithHttpInfo(idOrUriLabel, terminology, query, expression, sort, ascending, active, leaf).getData();
+  }
+
+  /**
+   * Export concept search across all project terminologies
+   * Export concept search matching specified search criteria.
+   * @param idOrUriLabel Project id or uriLabel (required)
+   * @param terminology Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \&quot;uuid1,uuid2\&quot;, \&quot;SNOMEDCT,RXNORM\&quot;, or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param expression ECL-style expression (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param active &lt;code&gt;true&lt;/code&gt; for active concepts only, &lt;code&gt;false&lt;/code&gt; for inactive concepts only, &lt;code&gt;null&lt;/code&gt; for both (optional)
+   * @param leaf &lt;code&gt;true&lt;/code&gt; for leaf nodes only, &lt;code&gt;false&lt;/code&gt; for non-leaf nodes, &lt;code&gt;null&lt;/code&gt; for either (optional)
+   * @return ApiResponse&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<String> exportProjectConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
+    // Check required parameters
+    if (idOrUriLabel == null) {
+      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling exportProjectConcepts");
+    }
+    if (terminology == null) {
+      throw new ApiException(400, "Missing the required parameter 'terminology' when calling exportProjectConcepts");
+    }
+
+    // Path parameters
+    String localVarPath = "/project/{idOrUriLabel}/concept/export"
+            .replaceAll("\\{idOrUriLabel}", apiClient.escapeString(idOrUriLabel));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "terminology", terminology)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "expression", expression));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "active", active));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "leaf", leaf));
+
+    String localVarAccept = apiClient.selectHeaderAccept("text/plain");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"bearerAuth"};
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI("ConceptApi.exportProjectConcepts", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Find concepts across project terminologies
    * Finds concepts matching specified search criteria.
    * @param idOrUriLabel Project id or uriLabel (required)
@@ -229,16 +229,16 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
-  public ResultListConcept findConcepts(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
-    return findConceptsWithHttpInfo(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include).getData();
+  public ResultListConcept findProjectConcepts(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
+    return findProjectConceptsWithHttpInfo(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include).getData();
   }
 
   /**
@@ -260,18 +260,18 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ResultListConcept> findConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
+  public ApiResponse<ResultListConcept> findProjectConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
     // Check required parameters
     if (idOrUriLabel == null) {
-      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling findConcepts");
+      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling findProjectConcepts");
     }
 
     // Path parameters
@@ -296,7 +296,7 @@ public class ConceptApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"bearerAuth"};
     GenericType<ResultListConcept> localVarReturnType = new GenericType<ResultListConcept>() {};
-    return apiClient.invokeAPI("ConceptApi.findConcepts", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ConceptApi.findProjectConcepts", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -316,11 +316,11 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> List of result lists of matching concepts for each query </td><td>  -  </td></tr>
      </table>
    */
@@ -344,11 +344,11 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> List of result lists of matching concepts for each query </td><td>  -  </td></tr>
      </table>
    */
