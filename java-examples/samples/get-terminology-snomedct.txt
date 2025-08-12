@@ -10,11 +10,11 @@ Response: class Terminology {
         name: International Classification of Diseases, Tenth Revision, Clinical Modification
         version: 2022_04_01
         publisher: NLM
+        releaseDate: 2022-05-02
+        uri: null
         latest: false
         loaded: true
-        releaseDate: 2022-05-02
         family: ICD10CM
-        uri: null
         attributes: {origin-version=2022AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://hl7.org/fhir/sid/icd-10-cm, hierarchical=true, fhirVersion=2022_04_01, region-us=true, label-clinical=true, label-uscdi=true, fhirId=icd10cm_2022_04_01, fhirCompositional=false}
         roots: [ICD-10-CM]
         conceptCt: null
