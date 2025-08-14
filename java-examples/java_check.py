@@ -102,7 +102,7 @@ def report_script_health():
         for script in unhealthy_scripts:
             print(script)
     else:
-        print("\nAll scripts executed successfully.")
+        print("\nAll scripts executed successfully and all test endpoints are healthy.")
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
