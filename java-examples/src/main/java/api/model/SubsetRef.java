@@ -29,28 +29,31 @@ import api.invoker.JSON;
 
 
 /**
- * Represents enough information to uniquely reference a concept in a terminology
+ * Reference to the subset this member is part of
  */
 @JsonPropertyOrder({
-  ConceptRef.JSON_PROPERTY_ID,
-  ConceptRef.JSON_PROPERTY_CONFIDENCE,
-  ConceptRef.JSON_PROPERTY_MODIFIED,
-  ConceptRef.JSON_PROPERTY_CREATED,
-  ConceptRef.JSON_PROPERTY_MODIFIED_BY,
-  ConceptRef.JSON_PROPERTY_LOCAL,
-  ConceptRef.JSON_PROPERTY_ACTIVE,
-  ConceptRef.JSON_PROPERTY_NAME,
-  ConceptRef.JSON_PROPERTY_CODE,
-  ConceptRef.JSON_PROPERTY_TERMINOLOGY,
-  ConceptRef.JSON_PROPERTY_VERSION,
-  ConceptRef.JSON_PROPERTY_PUBLISHER,
-  ConceptRef.JSON_PROPERTY_HISTORICAL,
-  ConceptRef.JSON_PROPERTY_LEAF,
-  ConceptRef.JSON_PROPERTY_DEFINED,
-  ConceptRef.JSON_PROPERTY_LEVEL
+  SubsetRef.JSON_PROPERTY_ID,
+  SubsetRef.JSON_PROPERTY_CONFIDENCE,
+  SubsetRef.JSON_PROPERTY_MODIFIED,
+  SubsetRef.JSON_PROPERTY_CREATED,
+  SubsetRef.JSON_PROPERTY_MODIFIED_BY,
+  SubsetRef.JSON_PROPERTY_LOCAL,
+  SubsetRef.JSON_PROPERTY_ACTIVE,
+  SubsetRef.JSON_PROPERTY_ABBREVIATION,
+  SubsetRef.JSON_PROPERTY_NAME,
+  SubsetRef.JSON_PROPERTY_VERSION,
+  SubsetRef.JSON_PROPERTY_PUBLISHER,
+  SubsetRef.JSON_PROPERTY_RELEASE_DATE,
+  SubsetRef.JSON_PROPERTY_URI,
+  SubsetRef.JSON_PROPERTY_LATEST,
+  SubsetRef.JSON_PROPERTY_LOADED,
+  SubsetRef.JSON_PROPERTY_CODE,
+  SubsetRef.JSON_PROPERTY_FROM_PUBLISHER,
+  SubsetRef.JSON_PROPERTY_FROM_TERMINOLOGY,
+  SubsetRef.JSON_PROPERTY_FROM_VERSION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class ConceptRef {
+public class SubsetRef {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
@@ -72,14 +75,11 @@ public class ConceptRef {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  public static final String JSON_PROPERTY_ABBREVIATION = "abbreviation";
+  private String abbreviation;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
-
-  public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
-  private String terminology;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
@@ -87,22 +87,34 @@ public class ConceptRef {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
-  public static final String JSON_PROPERTY_HISTORICAL = "historical";
-  private String historical;
+  public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
+  private String releaseDate;
 
-  public static final String JSON_PROPERTY_LEAF = "leaf";
-  private Boolean leaf;
+  public static final String JSON_PROPERTY_URI = "uri";
+  private String uri;
 
-  public static final String JSON_PROPERTY_DEFINED = "defined";
-  private Boolean defined;
+  public static final String JSON_PROPERTY_LATEST = "latest";
+  private Boolean latest;
 
-  public static final String JSON_PROPERTY_LEVEL = "level";
-  private Integer level;
+  public static final String JSON_PROPERTY_LOADED = "loaded";
+  private Boolean loaded;
 
-  public ConceptRef() { 
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
+
+  public static final String JSON_PROPERTY_FROM_PUBLISHER = "fromPublisher";
+  private String fromPublisher;
+
+  public static final String JSON_PROPERTY_FROM_TERMINOLOGY = "fromTerminology";
+  private String fromTerminology;
+
+  public static final String JSON_PROPERTY_FROM_VERSION = "fromVersion";
+  private String fromVersion;
+
+  public SubsetRef() { 
   }
 
-  public ConceptRef id(UUID id) {
+  public SubsetRef id(UUID id) {
     this.id = id;
     return this;
   }
@@ -127,7 +139,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef confidence(Double confidence) {
+  public SubsetRef confidence(Double confidence) {
     this.confidence = confidence;
     return this;
   }
@@ -152,7 +164,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef modified(OffsetDateTime modified) {
+  public SubsetRef modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -177,7 +189,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef created(OffsetDateTime created) {
+  public SubsetRef created(OffsetDateTime created) {
     this.created = created;
     return this;
   }
@@ -202,7 +214,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef modifiedBy(String modifiedBy) {
+  public SubsetRef modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -227,7 +239,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef local(Boolean local) {
+  public SubsetRef local(Boolean local) {
     this.local = local;
     return this;
   }
@@ -252,7 +264,7 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef active(Boolean active) {
+  public SubsetRef active(Boolean active) {
     this.active = active;
     return this;
   }
@@ -277,13 +289,38 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef name(String name) {
+  public SubsetRef abbreviation(String abbreviation) {
+    this.abbreviation = abbreviation;
+    return this;
+  }
+
+   /**
+   * Terminology abbreviation, e.g. \&quot;SNOMEDCT\&quot;
+   * @return abbreviation
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ABBREVIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAbbreviation() {
+    return abbreviation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ABBREVIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAbbreviation(String abbreviation) {
+    this.abbreviation = abbreviation;
+  }
+
+
+  public SubsetRef name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * Concept name
+   * Get name
    * @return name
   **/
   @jakarta.annotation.Nullable
@@ -302,63 +339,13 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Terminology code, typically representing a unit of meaning
-   * @return code
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCode() {
-    return code;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public ConceptRef terminology(String terminology) {
-    this.terminology = terminology;
-    return this;
-  }
-
-   /**
-   * Terminology abbreviation
-   * @return terminology
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERMINOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getTerminology() {
-    return terminology;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TERMINOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTerminology(String terminology) {
-    this.terminology = terminology;
-  }
-
-
-  public ConceptRef version(String version) {
+  public SubsetRef version(String version) {
     this.version = version;
     return this;
   }
 
    /**
-   * Terminology version
+   * Terminology version, e.g. \&quot;20230901\&quot;
    * @return version
   **/
   @jakarta.annotation.Nullable
@@ -377,13 +364,13 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef publisher(String publisher) {
+  public SubsetRef publisher(String publisher) {
     this.publisher = publisher;
     return this;
   }
 
    /**
-   * Terminology publisher
+   * Terminology publisher, e.g. \&quot;SNOMEDCT\&quot;
    * @return publisher
   **/
   @jakarta.annotation.Nullable
@@ -402,108 +389,208 @@ public class ConceptRef {
   }
 
 
-  public ConceptRef historical(String historical) {
-    this.historical = historical;
+  public SubsetRef releaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
     return this;
   }
 
    /**
-   * Historical relationship type (only used for concept descendants)
-   * @return historical
+   * YYYY-MM-DD rendering of the release date
+   * @return releaseDate
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HISTORICAL)
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHistorical() {
-    return historical;
+  public String getReleaseDate() {
+    return releaseDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HISTORICAL)
+  @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHistorical(String historical) {
-    this.historical = historical;
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
   }
 
 
-  public ConceptRef leaf(Boolean leaf) {
-    this.leaf = leaf;
+  public SubsetRef uri(String uri) {
+    this.uri = uri;
     return this;
   }
 
    /**
-   * Indicates whether or not this concept is a leaf node in its hierarchy
-   * @return leaf
+   * Uri for downloading the terminology
+   * @return uri
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEAF)
+  @JsonProperty(JSON_PROPERTY_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getLeaf() {
-    return leaf;
+  public String getUri() {
+    return uri;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LEAF)
+  @JsonProperty(JSON_PROPERTY_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLeaf(Boolean leaf) {
-    this.leaf = leaf;
+  public void setUri(String uri) {
+    this.uri = uri;
   }
 
 
-  public ConceptRef defined(Boolean defined) {
-    this.defined = defined;
+  public SubsetRef latest(Boolean latest) {
+    this.latest = latest;
     return this;
   }
 
    /**
-   * Indicates whether or not this concept has a logical definition with necessary and sufficient conditions
-   * @return defined
+   * Indicates whether this is the latest version of the terminology
+   * @return latest
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFINED)
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getDefined() {
-    return defined;
+  public Boolean getLatest() {
+    return latest;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFINED)
+  @JsonProperty(JSON_PROPERTY_LATEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefined(Boolean defined) {
-    this.defined = defined;
+  public void setLatest(Boolean latest) {
+    this.latest = latest;
   }
 
 
-  public ConceptRef level(Integer level) {
-    this.level = level;
+  public SubsetRef loaded(Boolean loaded) {
+    this.loaded = loaded;
     return this;
   }
 
    /**
-   * Level of depth
-   * @return level
+   * Indicates whether this is the version of the terminology is loaded
+   * @return loaded
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonProperty(JSON_PROPERTY_LOADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getLevel() {
-    return level;
+  public Boolean getLoaded() {
+    return loaded;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonProperty(JSON_PROPERTY_LOADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLevel(Integer level) {
-    this.level = level;
+  public void setLoaded(Boolean loaded) {
+    this.loaded = loaded;
+  }
+
+
+  public SubsetRef code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Subset code
+   * @return code
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCode() {
+    return code;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public SubsetRef fromPublisher(String fromPublisher) {
+    this.fromPublisher = fromPublisher;
+    return this;
+  }
+
+   /**
+   * Publisher that maps in this set are mapped from, e.g. \&quot;SNOMEDCT\&quot;
+   * @return fromPublisher
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FROM_PUBLISHER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFromPublisher() {
+    return fromPublisher;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FROM_PUBLISHER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFromPublisher(String fromPublisher) {
+    this.fromPublisher = fromPublisher;
+  }
+
+
+  public SubsetRef fromTerminology(String fromTerminology) {
+    this.fromTerminology = fromTerminology;
+    return this;
+  }
+
+   /**
+   * Terminology abbreviation that members in this set are from, e.g. \&quot;SNOMEDCT\&quot;
+   * @return fromTerminology
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FROM_TERMINOLOGY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFromTerminology() {
+    return fromTerminology;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FROM_TERMINOLOGY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFromTerminology(String fromTerminology) {
+    this.fromTerminology = fromTerminology;
+  }
+
+
+  public SubsetRef fromVersion(String fromVersion) {
+    this.fromVersion = fromVersion;
+    return this;
+  }
+
+   /**
+   * Terminology version that members in this set are from, e.g. \&quot;20230901\&quot;
+   * @return fromVersion
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FROM_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFromVersion() {
+    return fromVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FROM_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFromVersion(String fromVersion) {
+    this.fromVersion = fromVersion;
   }
 
 
   /**
-   * Return true if this ConceptRef object is equal to o.
+   * Return true if this SubsetRef object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -513,34 +600,37 @@ public class ConceptRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConceptRef conceptRef = (ConceptRef) o;
-    return Objects.equals(this.id, conceptRef.id) &&
-        Objects.equals(this.confidence, conceptRef.confidence) &&
-        Objects.equals(this.modified, conceptRef.modified) &&
-        Objects.equals(this.created, conceptRef.created) &&
-        Objects.equals(this.modifiedBy, conceptRef.modifiedBy) &&
-        Objects.equals(this.local, conceptRef.local) &&
-        Objects.equals(this.active, conceptRef.active) &&
-        Objects.equals(this.name, conceptRef.name) &&
-        Objects.equals(this.code, conceptRef.code) &&
-        Objects.equals(this.terminology, conceptRef.terminology) &&
-        Objects.equals(this.version, conceptRef.version) &&
-        Objects.equals(this.publisher, conceptRef.publisher) &&
-        Objects.equals(this.historical, conceptRef.historical) &&
-        Objects.equals(this.leaf, conceptRef.leaf) &&
-        Objects.equals(this.defined, conceptRef.defined) &&
-        Objects.equals(this.level, conceptRef.level);
+    SubsetRef subsetRef = (SubsetRef) o;
+    return Objects.equals(this.id, subsetRef.id) &&
+        Objects.equals(this.confidence, subsetRef.confidence) &&
+        Objects.equals(this.modified, subsetRef.modified) &&
+        Objects.equals(this.created, subsetRef.created) &&
+        Objects.equals(this.modifiedBy, subsetRef.modifiedBy) &&
+        Objects.equals(this.local, subsetRef.local) &&
+        Objects.equals(this.active, subsetRef.active) &&
+        Objects.equals(this.abbreviation, subsetRef.abbreviation) &&
+        Objects.equals(this.name, subsetRef.name) &&
+        Objects.equals(this.version, subsetRef.version) &&
+        Objects.equals(this.publisher, subsetRef.publisher) &&
+        Objects.equals(this.releaseDate, subsetRef.releaseDate) &&
+        Objects.equals(this.uri, subsetRef.uri) &&
+        Objects.equals(this.latest, subsetRef.latest) &&
+        Objects.equals(this.loaded, subsetRef.loaded) &&
+        Objects.equals(this.code, subsetRef.code) &&
+        Objects.equals(this.fromPublisher, subsetRef.fromPublisher) &&
+        Objects.equals(this.fromTerminology, subsetRef.fromTerminology) &&
+        Objects.equals(this.fromVersion, subsetRef.fromVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, name, code, terminology, version, publisher, historical, leaf, defined, level);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConceptRef {\n");
+    sb.append("class SubsetRef {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
@@ -548,15 +638,18 @@ public class ConceptRef {
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    local: ").append(toIndentedString(local)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    abbreviation: ").append(toIndentedString(abbreviation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
-    sb.append("    historical: ").append(toIndentedString(historical)).append("\n");
-    sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
-    sb.append("    defined: ").append(toIndentedString(defined)).append("\n");
-    sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
+    sb.append("    loaded: ").append(toIndentedString(loaded)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    fromPublisher: ").append(toIndentedString(fromPublisher)).append("\n");
+    sb.append("    fromTerminology: ").append(toIndentedString(fromTerminology)).append("\n");
+    sb.append("    fromVersion: ").append(toIndentedString(fromVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

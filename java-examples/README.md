@@ -79,9 +79,9 @@ The following examples can be typed into the command line of any terminal that h
 - [Get concept relationships by code](#get-concept-relationships-by-code)
 - [Get concept inverse relationships by code](#get-concept-inverse-relationships-by-code)
 - [Get concept trees](#get-concept-trees)
-- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
-- [Find concepts by search term with explicit include parameter](#find-concepts-by-search-term-with-explicit-include-parameter)
-- [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
+- [Find project concepts by search term (use paging to get only first 5 results)](#find-project-concepts-by-search-term)
+- [Find project concepts by search term with explicit include parameter](#find-project-concepts-by-search-term-with-explicit-include-parameter)
+- [Find project concepts by search term and expression](#find-project-concepts-by-search-term-and-expression)
 - [Find terms by search term](#find-terms-by-search-term)
 - [Support autocomplete/typeahead for first few characters typed](#support-autocomplete-typeahead-for-first-few-characters-typed)
 - [Get mapsets](#get-mapsets)
@@ -227,33 +227,33 @@ See sample payload data from this call in [`samples/get-concept-treepos.txt`](sa
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
-### Find concepts by search term
+### Find project concepts by search term
 
 Find concepts matching a search term within a specified terminology. This 
 example uses paging to get only the first 5 results.
 
 ```
-./gradlew test --tests api.ConceptApiTest.findConceptsTest
+./gradlew test --tests api.ConceptApiTest.findProjectConceptsTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
-### Find concepts by search term with explicit include parameter
+### Find project concepts by search term with explicit include parameter
 
 This is the same as the example above but with the use of an explicit include
 parameter to show that additional data can be loaded with searches.
 
 ```
-./gradlew test --tests api.ConceptApiTest.findConceptsIncludeParentsTest
+./gradlew test --tests api.ConceptApiTest.findProjectConceptsIncludeParentsTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-include.txt`](samples/find-concepts-by-search-term-include.txt)
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
-### Find concepts by search term and expression
+### Find project concepts by search term and expression
 
 Find concepts matching a search term within a specified terminology and constrain
 the search results by an expression. This example uses paging to get only the first 
@@ -264,7 +264,7 @@ concept in SNOMED).  To work properly, the expression value has to be url encode
 (See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
-./gradlew test --tests api.ConceptApiTest.findConceptsWithExpressionTest
+./gradlew test --tests api.ConceptApiTest.findProjectConceptsWithExpressionTest
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)

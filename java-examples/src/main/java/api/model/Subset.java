@@ -21,42 +21,54 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import api.invoker.JSON;
 
 
 /**
- * MapsetRef
+ * Represents a subset, refset, or value set in a terminology
  */
 @JsonPropertyOrder({
-  MapsetRef.JSON_PROPERTY_ID,
-  MapsetRef.JSON_PROPERTY_CONFIDENCE,
-  MapsetRef.JSON_PROPERTY_MODIFIED,
-  MapsetRef.JSON_PROPERTY_CREATED,
-  MapsetRef.JSON_PROPERTY_MODIFIED_BY,
-  MapsetRef.JSON_PROPERTY_LOCAL,
-  MapsetRef.JSON_PROPERTY_ACTIVE,
-  MapsetRef.JSON_PROPERTY_ABBREVIATION,
-  MapsetRef.JSON_PROPERTY_NAME,
-  MapsetRef.JSON_PROPERTY_VERSION,
-  MapsetRef.JSON_PROPERTY_PUBLISHER,
-  MapsetRef.JSON_PROPERTY_RELEASE_DATE,
-  MapsetRef.JSON_PROPERTY_URI,
-  MapsetRef.JSON_PROPERTY_LATEST,
-  MapsetRef.JSON_PROPERTY_LOADED,
-  MapsetRef.JSON_PROPERTY_CODE,
-  MapsetRef.JSON_PROPERTY_FROM_PUBLISHER,
-  MapsetRef.JSON_PROPERTY_FROM_TERMINOLOGY,
-  MapsetRef.JSON_PROPERTY_FROM_VERSION,
-  MapsetRef.JSON_PROPERTY_TO_PUBLISHER,
-  MapsetRef.JSON_PROPERTY_TO_TERMINOLOGY,
-  MapsetRef.JSON_PROPERTY_TO_VERSION
+  Subset.JSON_PROPERTY_ID,
+  Subset.JSON_PROPERTY_CONFIDENCE,
+  Subset.JSON_PROPERTY_MODIFIED,
+  Subset.JSON_PROPERTY_CREATED,
+  Subset.JSON_PROPERTY_MODIFIED_BY,
+  Subset.JSON_PROPERTY_LOCAL,
+  Subset.JSON_PROPERTY_ACTIVE,
+  Subset.JSON_PROPERTY_ABBREVIATION,
+  Subset.JSON_PROPERTY_NAME,
+  Subset.JSON_PROPERTY_VERSION,
+  Subset.JSON_PROPERTY_PUBLISHER,
+  Subset.JSON_PROPERTY_RELEASE_DATE,
+  Subset.JSON_PROPERTY_URI,
+  Subset.JSON_PROPERTY_LATEST,
+  Subset.JSON_PROPERTY_LOADED,
+  Subset.JSON_PROPERTY_CODE,
+  Subset.JSON_PROPERTY_FROM_PUBLISHER,
+  Subset.JSON_PROPERTY_FROM_TERMINOLOGY,
+  Subset.JSON_PROPERTY_FROM_VERSION,
+  Subset.JSON_PROPERTY_TERMINOLOGY,
+  Subset.JSON_PROPERTY_LICENSE,
+  Subset.JSON_PROPERTY_CATEGORY,
+  Subset.JSON_PROPERTY_ENTITY_TYPE,
+  Subset.JSON_PROPERTY_DESCRIPTION,
+  Subset.JSON_PROPERTY_EXPRESSION,
+  Subset.JSON_PROPERTY_QUERY,
+  Subset.JSON_PROPERTY_ATTRIBUTES,
+  Subset.JSON_PROPERTY_STATISTICS,
+  Subset.JSON_PROPERTY_DISJOINT_SUBSETS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class MapsetRef {
+public class Subset {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
@@ -114,19 +126,40 @@ public class MapsetRef {
   public static final String JSON_PROPERTY_FROM_VERSION = "fromVersion";
   private String fromVersion;
 
-  public static final String JSON_PROPERTY_TO_PUBLISHER = "toPublisher";
-  private String toPublisher;
+  public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
+  private String terminology;
 
-  public static final String JSON_PROPERTY_TO_TERMINOLOGY = "toTerminology";
-  private String toTerminology;
+  public static final String JSON_PROPERTY_LICENSE = "license";
+  private String license;
 
-  public static final String JSON_PROPERTY_TO_VERSION = "toVersion";
-  private String toVersion;
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private String category;
 
-  public MapsetRef() { 
+  public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
+  private String entityType;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  public static final String JSON_PROPERTY_EXPRESSION = "expression";
+  private String expression;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, String> attributes = new HashMap<>();
+
+  public static final String JSON_PROPERTY_STATISTICS = "statistics";
+  private Map<String, Integer> statistics = new HashMap<>();
+
+  public static final String JSON_PROPERTY_DISJOINT_SUBSETS = "disjointSubsets";
+  private Set<String> disjointSubsets = new LinkedHashSet<>();
+
+  public Subset() { 
   }
 
-  public MapsetRef id(UUID id) {
+  public Subset id(UUID id) {
     this.id = id;
     return this;
   }
@@ -151,7 +184,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef confidence(Double confidence) {
+  public Subset confidence(Double confidence) {
     this.confidence = confidence;
     return this;
   }
@@ -176,7 +209,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef modified(OffsetDateTime modified) {
+  public Subset modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -201,7 +234,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef created(OffsetDateTime created) {
+  public Subset created(OffsetDateTime created) {
     this.created = created;
     return this;
   }
@@ -226,7 +259,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef modifiedBy(String modifiedBy) {
+  public Subset modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -251,7 +284,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef local(Boolean local) {
+  public Subset local(Boolean local) {
     this.local = local;
     return this;
   }
@@ -276,7 +309,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef active(Boolean active) {
+  public Subset active(Boolean active) {
     this.active = active;
     return this;
   }
@@ -301,7 +334,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef abbreviation(String abbreviation) {
+  public Subset abbreviation(String abbreviation) {
     this.abbreviation = abbreviation;
     return this;
   }
@@ -326,7 +359,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef name(String name) {
+  public Subset name(String name) {
     this.name = name;
     return this;
   }
@@ -351,7 +384,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef version(String version) {
+  public Subset version(String version) {
     this.version = version;
     return this;
   }
@@ -376,7 +409,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef publisher(String publisher) {
+  public Subset publisher(String publisher) {
     this.publisher = publisher;
     return this;
   }
@@ -401,7 +434,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef releaseDate(String releaseDate) {
+  public Subset releaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -426,7 +459,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef uri(String uri) {
+  public Subset uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -451,7 +484,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef latest(Boolean latest) {
+  public Subset latest(Boolean latest) {
     this.latest = latest;
     return this;
   }
@@ -476,7 +509,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef loaded(Boolean loaded) {
+  public Subset loaded(Boolean loaded) {
     this.loaded = loaded;
     return this;
   }
@@ -501,13 +534,13 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef code(String code) {
+  public Subset code(String code) {
     this.code = code;
     return this;
   }
 
    /**
-   * Mapset code
+   * Subset code
    * @return code
   **/
   @jakarta.annotation.Nullable
@@ -526,7 +559,7 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef fromPublisher(String fromPublisher) {
+  public Subset fromPublisher(String fromPublisher) {
     this.fromPublisher = fromPublisher;
     return this;
   }
@@ -551,13 +584,13 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef fromTerminology(String fromTerminology) {
+  public Subset fromTerminology(String fromTerminology) {
     this.fromTerminology = fromTerminology;
     return this;
   }
 
    /**
-   * Terminology abbreviation that maps in this set are mapped from, e.g. \&quot;SNOMEDCT\&quot;
+   * Terminology abbreviation that members in this set are from, e.g. \&quot;SNOMEDCT\&quot;
    * @return fromTerminology
   **/
   @jakarta.annotation.Nullable
@@ -576,13 +609,13 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef fromVersion(String fromVersion) {
+  public Subset fromVersion(String fromVersion) {
     this.fromVersion = fromVersion;
     return this;
   }
 
    /**
-   * Terminology version that maps in this set are mapped from, e.g. \&quot;20230901\&quot;
+   * Terminology version that members in this set are from, e.g. \&quot;20230901\&quot;
    * @return fromVersion
   **/
   @jakarta.annotation.Nullable
@@ -601,83 +634,283 @@ public class MapsetRef {
   }
 
 
-  public MapsetRef toPublisher(String toPublisher) {
-    this.toPublisher = toPublisher;
+  public Subset terminology(String terminology) {
+    this.terminology = terminology;
     return this;
   }
 
    /**
-   * Publisher that maps in this set are mapped from, e.g. \&quot;SNOMEDCT\&quot;
-   * @return toPublisher
+   * Terminology abbreviation, e.g. \&quot;SNOMEDCT\&quot;
+   * @return terminology
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_PUBLISHER)
+  @JsonProperty(JSON_PROPERTY_TERMINOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getToPublisher() {
-    return toPublisher;
+  public String getTerminology() {
+    return terminology;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_PUBLISHER)
+  @JsonProperty(JSON_PROPERTY_TERMINOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToPublisher(String toPublisher) {
-    this.toPublisher = toPublisher;
+  public void setTerminology(String terminology) {
+    this.terminology = terminology;
   }
 
 
-  public MapsetRef toTerminology(String toTerminology) {
-    this.toTerminology = toTerminology;
+  public Subset license(String license) {
+    this.license = license;
     return this;
   }
 
    /**
-   * Terminology abbreviation that maps in this set are mapped to, e.g. \&quot;SNOMEDCT\&quot;
-   * @return toTerminology
+   * License for usage of this subset (e.g. \&quot;TERMHUB\&quot;)
+   * @return license
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_TERMINOLOGY)
+  @JsonProperty(JSON_PROPERTY_LICENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getToTerminology() {
-    return toTerminology;
+  public String getLicense() {
+    return license;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_TERMINOLOGY)
+  @JsonProperty(JSON_PROPERTY_LICENSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToTerminology(String toTerminology) {
-    this.toTerminology = toTerminology;
+  public void setLicense(String license) {
+    this.license = license;
   }
 
 
-  public MapsetRef toVersion(String toVersion) {
-    this.toVersion = toVersion;
+  public Subset category(String category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Terminology version that maps in this set are mapped to, e.g. \&quot;20230901\&quot;
-   * @return toVersion
+   * Category for usage of this subset (e.g. \&quot;cancer\&quot;)
+   * @return category
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_VERSION)
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getToVersion() {
-    return toVersion;
+  public String getCategory() {
+    return category;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO_VERSION)
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToVersion(String toVersion) {
-    this.toVersion = toVersion;
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+
+  public Subset entityType(String entityType) {
+    this.entityType = entityType;
+    return this;
+  }
+
+   /**
+   * Clinical class entity type for the kind of concepts in the subset, e.g. \&quot;medication\&quot; or \&quot;diagnosis\&quot;
+   * @return entityType
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEntityType() {
+    return entityType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+
+  public Subset description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the subset
+   * @return description
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public Subset expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Concept query used as part of the subsets computable definition
+   * @return expression
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExpression() {
+    return expression;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+
+  public Subset query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * Concept query used as part of the subsets computable definition
+   * @return query
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getQuery() {
+    return query;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+
+  public Subset attributes(Map<String, String> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public Subset putAttributesItem(String key, String attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * Key/value pairs associated with this object
+   * @return attributes
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getAttributes() {
+    return attributes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttributes(Map<String, String> attributes) {
+    this.attributes = attributes;
+  }
+
+
+  public Subset statistics(Map<String, Integer> statistics) {
+    this.statistics = statistics;
+    return this;
+  }
+
+  public Subset putStatisticsItem(String key, Integer statisticsItem) {
+    if (this.statistics == null) {
+      this.statistics = new HashMap<>();
+    }
+    this.statistics.put(key, statisticsItem);
+    return this;
+  }
+
+   /**
+   * Get statistics
+   * @return statistics
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATISTICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Integer> getStatistics() {
+    return statistics;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATISTICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatistics(Map<String, Integer> statistics) {
+    this.statistics = statistics;
+  }
+
+
+  public Subset disjointSubsets(Set<String> disjointSubsets) {
+    this.disjointSubsets = disjointSubsets;
+    return this;
+  }
+
+  public Subset addDisjointSubsetsItem(String disjointSubsetsItem) {
+    if (this.disjointSubsets == null) {
+      this.disjointSubsets = new LinkedHashSet<>();
+    }
+    this.disjointSubsets.add(disjointSubsetsItem);
+    return this;
+  }
+
+   /**
+   * Codes for matching terminology/publiser/version subsets this one is disjoint with
+   * @return disjointSubsets
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISJOINT_SUBSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getDisjointSubsets() {
+    return disjointSubsets;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_DISJOINT_SUBSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDisjointSubsets(Set<String> disjointSubsets) {
+    this.disjointSubsets = disjointSubsets;
   }
 
 
   /**
-   * Return true if this MapsetRef object is equal to o.
+   * Return true if this Subset object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -687,40 +920,47 @@ public class MapsetRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MapsetRef mapsetRef = (MapsetRef) o;
-    return Objects.equals(this.id, mapsetRef.id) &&
-        Objects.equals(this.confidence, mapsetRef.confidence) &&
-        Objects.equals(this.modified, mapsetRef.modified) &&
-        Objects.equals(this.created, mapsetRef.created) &&
-        Objects.equals(this.modifiedBy, mapsetRef.modifiedBy) &&
-        Objects.equals(this.local, mapsetRef.local) &&
-        Objects.equals(this.active, mapsetRef.active) &&
-        Objects.equals(this.abbreviation, mapsetRef.abbreviation) &&
-        Objects.equals(this.name, mapsetRef.name) &&
-        Objects.equals(this.version, mapsetRef.version) &&
-        Objects.equals(this.publisher, mapsetRef.publisher) &&
-        Objects.equals(this.releaseDate, mapsetRef.releaseDate) &&
-        Objects.equals(this.uri, mapsetRef.uri) &&
-        Objects.equals(this.latest, mapsetRef.latest) &&
-        Objects.equals(this.loaded, mapsetRef.loaded) &&
-        Objects.equals(this.code, mapsetRef.code) &&
-        Objects.equals(this.fromPublisher, mapsetRef.fromPublisher) &&
-        Objects.equals(this.fromTerminology, mapsetRef.fromTerminology) &&
-        Objects.equals(this.fromVersion, mapsetRef.fromVersion) &&
-        Objects.equals(this.toPublisher, mapsetRef.toPublisher) &&
-        Objects.equals(this.toTerminology, mapsetRef.toTerminology) &&
-        Objects.equals(this.toVersion, mapsetRef.toVersion);
+    Subset subset = (Subset) o;
+    return Objects.equals(this.id, subset.id) &&
+        Objects.equals(this.confidence, subset.confidence) &&
+        Objects.equals(this.modified, subset.modified) &&
+        Objects.equals(this.created, subset.created) &&
+        Objects.equals(this.modifiedBy, subset.modifiedBy) &&
+        Objects.equals(this.local, subset.local) &&
+        Objects.equals(this.active, subset.active) &&
+        Objects.equals(this.abbreviation, subset.abbreviation) &&
+        Objects.equals(this.name, subset.name) &&
+        Objects.equals(this.version, subset.version) &&
+        Objects.equals(this.publisher, subset.publisher) &&
+        Objects.equals(this.releaseDate, subset.releaseDate) &&
+        Objects.equals(this.uri, subset.uri) &&
+        Objects.equals(this.latest, subset.latest) &&
+        Objects.equals(this.loaded, subset.loaded) &&
+        Objects.equals(this.code, subset.code) &&
+        Objects.equals(this.fromPublisher, subset.fromPublisher) &&
+        Objects.equals(this.fromTerminology, subset.fromTerminology) &&
+        Objects.equals(this.fromVersion, subset.fromVersion) &&
+        Objects.equals(this.terminology, subset.terminology) &&
+        Objects.equals(this.license, subset.license) &&
+        Objects.equals(this.category, subset.category) &&
+        Objects.equals(this.entityType, subset.entityType) &&
+        Objects.equals(this.description, subset.description) &&
+        Objects.equals(this.expression, subset.expression) &&
+        Objects.equals(this.query, subset.query) &&
+        Objects.equals(this.attributes, subset.attributes) &&
+        Objects.equals(this.statistics, subset.statistics) &&
+        Objects.equals(this.disjointSubsets, subset.disjointSubsets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, toPublisher, toTerminology, toVersion);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, terminology, license, category, entityType, description, expression, query, attributes, statistics, disjointSubsets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MapsetRef {\n");
+    sb.append("class Subset {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
@@ -740,9 +980,16 @@ public class MapsetRef {
     sb.append("    fromPublisher: ").append(toIndentedString(fromPublisher)).append("\n");
     sb.append("    fromTerminology: ").append(toIndentedString(fromTerminology)).append("\n");
     sb.append("    fromVersion: ").append(toIndentedString(fromVersion)).append("\n");
-    sb.append("    toPublisher: ").append(toIndentedString(toPublisher)).append("\n");
-    sb.append("    toTerminology: ").append(toIndentedString(toTerminology)).append("\n");
-    sb.append("    toVersion: ").append(toIndentedString(toVersion)).append("\n");
+    sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    disjointSubsets: ").append(toIndentedString(disjointSubsets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

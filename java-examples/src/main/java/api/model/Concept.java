@@ -1,6 +1,6 @@
 /*
  * Terminology Hub Terminology Terminology API
- * API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+ * <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@terminologyhub.com
@@ -22,6 +22,7 @@ import api.model.ConceptRelationship;
 import api.model.ConceptTreePosition;
 import api.model.Definition;
 import api.model.IdentifierRef;
+import api.model.SubsetRef;
 import api.model.Term;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -68,17 +69,19 @@ import api.invoker.JSON;
   Concept.JSON_PROPERTY_AXIOMS,
   Concept.JSON_PROPERTY_IDENTIFIERS,
   Concept.JSON_PROPERTY_ATTRIBUTES,
+  Concept.JSON_PROPERTY_HIGHLIGHTS,
   Concept.JSON_PROPERTY_SEMANTIC_TYPES,
   Concept.JSON_PROPERTY_LABELS,
   Concept.JSON_PROPERTY_CHILDREN,
   Concept.JSON_PROPERTY_PARENTS,
   Concept.JSON_PROPERTY_DESCENDANTS,
   Concept.JSON_PROPERTY_ANCESTORS,
+  Concept.JSON_PROPERTY_SUBSETS,
   Concept.JSON_PROPERTY_RELATIONSHIPS,
   Concept.JSON_PROPERTY_INVERSE_RELATIONSHIPS,
   Concept.JSON_PROPERTY_TREE_POSITIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T13:11:42.646293800-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Concept {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -146,6 +149,9 @@ public class Concept {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, String> attributes = new HashMap<>();
 
+  public static final String JSON_PROPERTY_HIGHLIGHTS = "highlights";
+  private Map<String, String> highlights = new HashMap<>();
+
   public static final String JSON_PROPERTY_SEMANTIC_TYPES = "semanticTypes";
   private Set<String> semanticTypes = new LinkedHashSet<>();
 
@@ -163,6 +169,9 @@ public class Concept {
 
   public static final String JSON_PROPERTY_ANCESTORS = "ancestors";
   private List<ConceptRef> ancestors = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_SUBSETS = "subsets";
+  private List<SubsetRef> subsets = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private List<ConceptRelationship> relationships = new ArrayList<>();
@@ -774,6 +783,39 @@ public class Concept {
   }
 
 
+  public Concept highlights(Map<String, String> highlights) {
+    this.highlights = highlights;
+    return this;
+  }
+
+  public Concept putHighlightsItem(String key, String highlightsItem) {
+    if (this.highlights == null) {
+      this.highlights = new HashMap<>();
+    }
+    this.highlights.put(key, highlightsItem);
+    return this;
+  }
+
+   /**
+   * Used by search calls to provide information for highlighting a view of results
+   * @return highlights
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIGHLIGHTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getHighlights() {
+    return highlights;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HIGHLIGHTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHighlights(Map<String, String> highlights) {
+    this.highlights = highlights;
+  }
+
+
   public Concept semanticTypes(Set<String> semanticTypes) {
     this.semanticTypes = semanticTypes;
     return this;
@@ -974,6 +1016,39 @@ public class Concept {
   }
 
 
+  public Concept subsets(List<SubsetRef> subsets) {
+    this.subsets = subsets;
+    return this;
+  }
+
+  public Concept addSubsetsItem(SubsetRef subsetsItem) {
+    if (this.subsets == null) {
+      this.subsets = new ArrayList<>();
+    }
+    this.subsets.add(subsetsItem);
+    return this;
+  }
+
+   /**
+   * Subsets the concept is a part of from the same terminology loader
+   * @return subsets
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubsetRef> getSubsets() {
+    return subsets;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUBSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubsets(List<SubsetRef> subsets) {
+    this.subsets = subsets;
+  }
+
+
   public Concept relationships(List<ConceptRelationship> relationships) {
     this.relationships = relationships;
     return this;
@@ -1107,12 +1182,14 @@ public class Concept {
         Objects.equals(this.axioms, concept.axioms) &&
         Objects.equals(this.identifiers, concept.identifiers) &&
         Objects.equals(this.attributes, concept.attributes) &&
+        Objects.equals(this.highlights, concept.highlights) &&
         Objects.equals(this.semanticTypes, concept.semanticTypes) &&
         Objects.equals(this.labels, concept.labels) &&
         Objects.equals(this.children, concept.children) &&
         Objects.equals(this.parents, concept.parents) &&
         Objects.equals(this.descendants, concept.descendants) &&
         Objects.equals(this.ancestors, concept.ancestors) &&
+        Objects.equals(this.subsets, concept.subsets) &&
         Objects.equals(this.relationships, concept.relationships) &&
         Objects.equals(this.inverseRelationships, concept.inverseRelationships) &&
         Objects.equals(this.treePositions, concept.treePositions);
@@ -1120,7 +1197,7 @@ public class Concept {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, name, code, terminology, version, publisher, historical, leaf, defined, level, terms, indexTerms, definitions, axioms, identifiers, attributes, semanticTypes, labels, children, parents, descendants, ancestors, relationships, inverseRelationships, treePositions);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, name, code, terminology, version, publisher, historical, leaf, defined, level, terms, indexTerms, definitions, axioms, identifiers, attributes, highlights, semanticTypes, labels, children, parents, descendants, ancestors, subsets, relationships, inverseRelationships, treePositions);
   }
 
   @Override
@@ -1149,12 +1226,14 @@ public class Concept {
     sb.append("    axioms: ").append(toIndentedString(axioms)).append("\n");
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    highlights: ").append(toIndentedString(highlights)).append("\n");
     sb.append("    semanticTypes: ").append(toIndentedString(semanticTypes)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    parents: ").append(toIndentedString(parents)).append("\n");
     sb.append("    descendants: ").append(toIndentedString(descendants)).append("\n");
     sb.append("    ancestors: ").append(toIndentedString(ancestors)).append("\n");
+    sb.append("    subsets: ").append(toIndentedString(subsets)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    inverseRelationships: ").append(toIndentedString(inverseRelationships)).append("\n");
     sb.append("    treePositions: ").append(toIndentedString(treePositions)).append("\n");

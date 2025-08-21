@@ -21,12 +21,14 @@ Response: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
         parents: []
         descendants: []
         ancestors: []
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
