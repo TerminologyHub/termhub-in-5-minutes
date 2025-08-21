@@ -21,6 +21,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -163,6 +164,7 @@ Concept: class Concept {
             defined: false
             level: 5
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -190,6 +192,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -281,6 +284,7 @@ Concept: class Concept {
             defined: false
             level: 5
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -308,6 +312,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -382,6 +387,7 @@ Concept: class Concept {
             defined: false
             level: 4
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -409,6 +415,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -483,6 +490,7 @@ Concept: class Concept {
             defined: false
             level: 4
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -510,6 +518,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -567,6 +576,7 @@ Concept: class Concept {
             defined: false
             level: 3
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -594,6 +604,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -651,6 +662,7 @@ Concept: class Concept {
             defined: false
             level: 3
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
@@ -678,6 +690,7 @@ Concept: class Concept {
         axioms: []
         identifiers: []
         attributes: {}
+        highlights: {}
         semanticTypes: []
         labels: []
         children: []
@@ -718,9 +731,10 @@ Concept: class Concept {
             defined: false
             level: 2
         }]
+        subsets: []
         relationships: []
         inverseRelationships: []
         treePositions: []
     }
 
-ConceptApiTest > findConceptsWithExpressionTest()
+ConceptApiTest > findProjectConceptsWithExpressionTest()

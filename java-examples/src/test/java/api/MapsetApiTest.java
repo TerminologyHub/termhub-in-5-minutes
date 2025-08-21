@@ -13,30 +13,26 @@
 
 package api;
 
-import api.invoker.*;
-import api.invoker.auth.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import api.invoker.ApiException;
+import api.model.AuthResponse;
 import api.model.Mapping;
 import api.model.Mapset;
 import api.model.ResultListMapping;
 import api.model.ResultListMapset;
-import api.model.AuthResponse;
-import api.model.ResultListTerminology;
-import api.model.Terminology;
-
-import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for MapsetApi
@@ -76,7 +72,7 @@ public class MapsetApiTest {
         String idOrUriLabel = "sandbox";
         String mapset = "SNOMEDCT_US-ICD10CM";
         String format = "native";
-        byte[] response = api.exportMapset(idOrUriLabel, mapset, format);
+        byte[] response = api.exportProjectMapset(idOrUriLabel, mapset, format);
         assertNotNull(response);
         assertTrue(response.length > 0);
         // write the response to a file
@@ -132,8 +128,7 @@ public class MapsetApiTest {
         String sort = null;
         Boolean ascending = null;
         Boolean active = null;
-        Boolean leaf = null;
-        ResultListMapping response = api.findMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
+        ResultListMapping response = api.findProjectMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active);
 
         assertNotNull(response);
         assertNotNull(response.getTotal());
@@ -162,16 +157,14 @@ public class MapsetApiTest {
      */
     @Test
     public void findMapsetMappingsTest() throws ApiException {
-        String idOrUriLabel = "sandbox";
-        String mapset = "SNOMEDCT_US-ICD10CM";
+        String mapset = "2a545e12-04eb-48ee-b988-c17346b4e05f";
         String query = "to.name:diabetes";
         Integer offset = null;
         Integer limit = 5;
         String sort = null;
         Boolean ascending = null;
         Boolean active = null;
-        Boolean leaf = null;
-        ResultListMapping response = api.findMapsetMappings(idOrUriLabel, mapset, query, offset, limit, sort, ascending, active, leaf);
+        ResultListMapping response = api.findMapsetMappings(mapset, query, offset, limit, sort, ascending, active);
 
         assertNotNull(response);
         assertNotNull(response.getTotal());

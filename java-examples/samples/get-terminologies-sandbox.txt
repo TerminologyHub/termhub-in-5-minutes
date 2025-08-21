@@ -1,6 +1,6 @@
 Response: [class Terminology {
         id: 177f2263-fe04-4f1f-b0e6-9b351ab8baa9
-        confidence: 9.488221168518066
+        confidence: 9.409539222717285
         modified: 2024-08-23T02:03:54.059Z
         created: 2024-08-23T02:03:54.059Z
         modifiedBy: loader
@@ -10,20 +10,20 @@ Response: [class Terminology {
         name: Mini version of ICD10CM for testing purposes
         version: 2023
         publisher: SANDBOX
+        releaseDate: 2023-05-01
+        uri: null
         latest: false
         loaded: true
-        releaseDate: 2023-05-01
         family: ICD10CM
-        uri: null
         attributes: {fhirUri=http://hl7.org/fhir/sid/icd-10-cm, origin-version=2023AA, autocomplete=true, hierarchical=true, fhirVersion=2023, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirId=icd10cm_2023, fhirCompositional=false}
         roots: [ICD-10-CM]
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
-        statistics: {termsInactive=0, childrenInactive=0, relationships=18, concepts=10, terms=22, parentsInactive=0, termsActive=22, parentsActive=9, definitions=0, treePositions=10, conceptsActive=10, childrenActive=9}
+        statistics: {parentsInactive=0, parentsActive=9, treePositions=10, termsInactive=0, childrenInactive=0, relationships=18, concepts=10, terms=22, termsActive=22, definitions=0, conceptsActive=10, childrenActive=9}
     }, class Terminology {
         id: 3e8e4d7c-7d3a-4682-a1e4-c5db5bc33d4b
-        confidence: 8.80398941040039
+        confidence: 8.959708213806152
         modified: 2025-03-27T15:03:43.252Z
         created: 2025-03-27T15:03:43.252Z
         modifiedBy: loader
@@ -33,11 +33,11 @@ Response: [class Terminology {
         name: Mini version of SNOMEDCT For testing purposes
         version: 20240101
         publisher: SANDBOX
+        releaseDate: 2024-01-01
+        uri: null
         latest: true
         loaded: true
-        releaseDate: 2024-01-01
         family: SNOMEDCT
-        uri: null
         attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/900000000000207008/version/20240101, fhirId=snomedct_900000000000207008_20240101}
         roots: [138875005]
         conceptCt: null
@@ -45,10 +45,10 @@ Response: [class Terminology {
         treePositionCt: null
         statistics: {parentsInactive=0, parentsActive=592, treePositions=2152, termsInactive=353, childrenInactive=0, relationships=743, concepts=434, terms=1534, conceptsInactive=3, termsActive=1181, definitions=19, conceptsActive=431, childrenActive=592}
     }, class Terminology {
-        id: a1d1e426-26a6-4326-b18b-c54c154079b5
-        confidence: 9.285401344299316
-        modified: 2025-03-27T15:09:32.887Z
-        created: 2025-03-27T15:09:32.887Z
+        id: 2369cdb4-267c-4020-84ea-eb5ddad7f8ff
+        confidence: 8.755613327026367
+        modified: 2025-07-24T05:59:17.127Z
+        created: 2025-07-24T05:59:17.127Z
         modifiedBy: loader
         local: false
         active: true
@@ -56,20 +56,20 @@ Response: [class Terminology {
         name: Mini version of SNOMEDCT_US For testing purposes
         version: 20240301
         publisher: SANDBOX
+        releaseDate: 2024-03-01
+        uri: null
         latest: true
         loaded: true
-        releaseDate: 2024-03-01
         family: SNOMEDCT
-        uri: null
         attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/731000124108/version/20240301, fhirId=snomedct_us_731000124108_20240301}
         roots: [138875005]
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
-        statistics: {parentsInactive=0, parentsActive=598, treePositions=2158, termsInactive=355, childrenInactive=0, relationships=749, concepts=440, terms=1549, conceptsInactive=3, termsActive=1194, definitions=19, conceptsActive=437, childrenActive=598}
+        statistics: {parentsInactive=0, parentsActive=616, treePositions=2181, termsInactive=366, childrenInactive=0, relationships=776, concepts=456, terms=1601, conceptsInactive=3, termsActive=1235, definitions=20, conceptsActive=453, childrenActive=616}
     }, class Terminology {
         id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
-        confidence: 9.295109748840332
+        confidence: 8.959708213806152
         modified: 2024-05-13T18:29:48.953Z
         created: 2024-05-13T18:29:48.953Z
         modifiedBy: loader
@@ -79,11 +79,11 @@ Response: [class Terminology {
         name: Mini version of RXNORM for testing purposes
         version: 04012024
         publisher: SANDBOX
+        releaseDate: 2024-04-01
+        uri: null
         latest: true
         loaded: true
-        releaseDate: 2024-04-01
         family: RXNORM
-        uri: null
         attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
         roots: []
         conceptCt: null
@@ -92,7 +92,7 @@ Response: [class Terminology {
         statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
     }, class Terminology {
         id: d1aba666-39bf-48ea-b524-c5a47ab1dcf1
-        confidence: 10.175468444824219
+        confidence: 9.98556137084961
         modified: 2024-05-13T18:30:45.195Z
         created: 2024-05-13T18:30:45.195Z
         modifiedBy: loader
@@ -102,17 +102,17 @@ Response: [class Terminology {
         name: Mini version of LOINC for testing purposes
         version: 277
         publisher: SANDBOX
+        releaseDate: 2024-05-06
+        uri: null
         latest: true
         loaded: true
-        releaseDate: 2024-05-06
         family: LOINC
-        uri: null
-        attributes: {fhirUri=http://loinc.org, origin-version=2024AA, polyhierarchy=true, autocomplete=true, hierarchical=true, fhirVersion=277, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirId=lnc_277, fhirCompositional=false}
+        attributes: {origin-version=2024AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://loinc.org, polyhierarchy=true, hierarchical=true, fhirVersion=277, fhirId=lnc_277, fhirCompositional=false}
         roots: [MTHU000998, MTHU000999]
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
-        statistics: {termsInactive=0, childrenInactive=0, relationships=326, concepts=114, terms=226, parentsInactive=0, termsActive=226, parentsActive=90, definitions=0, treePositions=93, conceptsActive=114, childrenActive=90}
+        statistics: {parentsInactive=0, parentsActive=90, treePositions=93, termsInactive=0, childrenInactive=0, relationships=326, concepts=114, terms=226, termsActive=226, definitions=0, conceptsActive=114, childrenActive=90}
     }]
 
 TerminologyApiTest > getProjectTerminologiesTest()

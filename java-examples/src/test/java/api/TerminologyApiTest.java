@@ -13,30 +13,23 @@
 
 package api;
 
-import api.invoker.*;
-import api.invoker.auth.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import api.invoker.ApiException;
 import api.model.AuthResponse;
 import api.model.ResultListTerminology;
 import api.model.Terminology;
-
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.type.TypeReference;
-
-import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
-
-import java.io.FileOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for TerminologyApi
@@ -74,7 +67,7 @@ public class TerminologyApiTest {
         String idOrUriLabel = "sandbox";
         String terminology = "SNOMEDCT";
         String format = "native";
-        byte[] response = api.exportTerminology(idOrUriLabel, terminology, format);
+        byte[] response = api.exportProjectTerminology(idOrUriLabel, terminology, format);
         assertNotNull(response);
         assertTrue(response.length > 0);
 

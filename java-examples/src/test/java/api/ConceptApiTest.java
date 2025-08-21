@@ -13,24 +13,16 @@
 
 package api;
 
-import api.invoker.*;
-import api.invoker.auth.*;
-import api.model.Concept;
-import api.model.ResultListConcept;
-import api.model.AuthResponse;
-import api.model.ResultListTerminology;
-import api.model.Terminology;
-
 import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import api.invoker.ApiException;
+import api.model.AuthResponse;
+import api.model.Concept;
+import api.model.ResultListConcept;
 
 /**
  * API tests for ConceptApi
@@ -106,7 +98,7 @@ public class ConceptApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void findConceptsTest() throws ApiException {
+    public void findProjectConceptsTest() throws ApiException {
         String idOrUriLabel = "sandbox";
         String terminology = "SNOMEDCT";
         String query = "diabetes";
@@ -118,7 +110,7 @@ public class ConceptApiTest {
         Boolean active = null;
         Boolean leaf = null;
         String include = "summary";
-        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        ResultListConcept response = api.findProjectConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
         assertNotNull(response);
         assertTrue(response.getItems().size() <= 5);
         for (Concept concept : response.getItems()) {
@@ -136,7 +128,7 @@ public class ConceptApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void findConceptsIncludeParentsTest() throws ApiException {
+    public void findProjectConceptsIncludeParentsTest() throws ApiException {
         String idOrUriLabel = "sandbox";
         String terminology = "SNOMEDCT";
         String query = "diabetes";
@@ -148,7 +140,7 @@ public class ConceptApiTest {
         Boolean active = null;
         Boolean leaf = null;
         String include = "parents";
-        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        ResultListConcept response = api.findProjectConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
         assertNotNull(response);
         assertTrue(response.getItems().size() <= 5);
         for (Concept concept : response.getItems()) {
@@ -167,7 +159,7 @@ public class ConceptApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void findConceptsWithExpressionTest() throws ApiException {
+    public void findProjectConceptsWithExpressionTest() throws ApiException {
         String idOrUriLabel = "sandbox";
         String terminology = "SNOMEDCT";
         String query = "diabetes";
@@ -179,7 +171,7 @@ public class ConceptApiTest {
         Boolean active = null;
         Boolean leaf = null;
         String include = "ancestors";
-        ResultListConcept response = api.findConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
+        ResultListConcept response = api.findProjectConcepts(idOrUriLabel, terminology, query, expression, offset, limit, sort, ascending, active, leaf, include);
         assertNotNull(response);
         assertTrue(response.getItems().size() <= 10);
         for (Concept concept : response.getItems()) {

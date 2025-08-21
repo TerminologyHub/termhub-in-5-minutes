@@ -101,6 +101,7 @@ Response: class Concept {
             label: OMOP
         }]
         attributes: {definitionStatusId=900000000000074008, moduleId=900000000000207008}
+        highlights: {}
         semanticTypes: [disorder]
         labels: []
         children: []
@@ -141,6 +142,7 @@ Response: class Concept {
         }]
         descendants: []
         ancestors: []
+        subsets: []
         relationships: [class ConceptRelationship {
             id: d72890c7-2bc6-4036-8bf2-3ec785c97428
             confidence: 5.359277725219727
