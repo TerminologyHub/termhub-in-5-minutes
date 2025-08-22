@@ -53,7 +53,7 @@ class TestTerminologyApi:
         look up terminology info specifically for that UUID.
         """
         # SETUP - using global variable unless otherwise stated below
-        term_id: str = "04193786-499f-4ff6-a281-cecfa0bdfc3a36"
+        term_id: str = "e04c9251-e493-4b5a-b500-f36163625d1f"
         headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
         
         # ACT & ASSERT
