@@ -1,0 +1,90 @@
+-----------------------------------------------------
+Starting ...Wed Jul 30 06:54:04 PDT 2025
+-----------------------------------------------------
+url = https://dev.terminologyhub.com
+query =
+offset = 0
+limit = 2
+sort =
+ascending =
+
+  Performing subsets lookup
+    {
+      "total": 37,
+      "parameters": {
+        "query": "loaded:true",
+        "limit": 2,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "caa91072-6022-470e-858a-dd073f3a40f9",
+          "confidence": 0.010929069481790066,
+          "modified": "2025-06-28T02:22:31.468+00:00",
+          "created": "2025-06-28T02:22:31.468+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "ALLERGY-ALL",
+          "name": "All Allergies",
+          "version": "2.0",
+          "publisher": "TERMHUB",
+          "releaseDate": "2024-01-01",
+          "latest": false,
+          "loaded": true,
+          "code": "ALLERGY-ALL",
+          "fromPublisher": "TERMHUB",
+          "fromTerminology": "ALLERGY",
+          "fromVersion": "2.0",
+          "terminology": "ALLERGY",
+          "description": "description: All Allergies",
+          "attributes": {
+            "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-ALL",
+            "file": "allergy-subset-6.txt",
+            "fhirVersion": "2.0",
+            "fhirId": "termhub_allergy-all_2.0"
+          },
+          "statistics": {
+            "members": 11,
+            "membersActive": 11
+          }
+        },
+        {
+          "id": "f744d971-d062-40e6-96b3-54d7b630a500",
+          "confidence": 0.010929069481790066,
+          "modified": "2025-06-28T02:22:31.468+00:00",
+          "created": "2025-06-28T02:22:31.468+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "ALLERGY-FABRIC",
+          "name": "Fabric Allergies",
+          "version": "2.0",
+          "publisher": "TERMHUB",
+          "releaseDate": "2024-01-01",
+          "latest": false,
+          "loaded": true,
+          "code": "ALLERGY-FABRIC",
+          "fromPublisher": "TERMHUB",
+          "fromTerminology": "ALLERGY",
+          "fromVersion": "2.0",
+          "terminology": "ALLERGY",
+          "description": "description: Fabric Allergies",
+          "attributes": {
+            "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FABRIC",
+            "file": "allergy-subset-5.txt",
+            "fhirVersion": "2.0",
+            "fhirId": "termhub_allergy-fabric_2.0"
+          },
+          "statistics": {
+            "members": 1,
+            "membersActive": 1
+          }
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed Jul 30 06:54:05 PDT 2025
+-----------------------------------------------------
+

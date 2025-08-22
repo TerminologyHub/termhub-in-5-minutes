@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "89c11b00-0c9e-4b0e-8a01-e49130a5abd5",
+		"_postman_id": "3086227b-28e4-4738-9200-7dcd7246640d",
 		"name": "TermHub Postman Client",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "7218027"
 	},
 	"item": [
 		{
@@ -392,6 +392,23 @@
 			"response": []
 		},
 		{
+			"name": "Get subsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/subset",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"subset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get project mapsets",
 			"request": {
 				"method": "GET",
@@ -411,6 +428,25 @@
 			"response": []
 		},
 		{
+			"name": "Get project subsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/subset",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"subset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get specific mapset - by UUID from previous call",
 			"request": {
 				"method": "GET",
@@ -423,6 +459,24 @@
 					"path": [
 						"mapset",
 						"2a545e12-04eb-48ee-b988-c17346b4e05f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific subset - by UUID from previous call",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/subset/e1db453f-07f2-4c9a-a740-6395f7dea053",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"subset",
+						"e1db453f-07f2-4c9a-a740-6395f7dea053"
 					]
 				}
 			},
@@ -456,7 +510,34 @@
 			"response": []
 		},
 		{
-			"name": "Get concept mappings by code",
+			"name": "Export subset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/subset/SNOMEDCT_US-MODEL/export?format=native",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"subset",
+						"SNOMEDCT_US-MODEL",
+						"export"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "native"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept mappings by terminology & code",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -472,6 +553,27 @@
 						"SNOMEDCT_US",
 						"73211009",
 						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subset members for project subset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/subset/e1db453f-07f2-4c9a-a740-6395f7dea053/member",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"subset",
+						"e1db453f-07f2-4c9a-a740-6395f7dea053",
+						"member"
 					]
 				}
 			},
@@ -538,6 +640,37 @@
 			"response": []
 		},
 		{
+			"name": "Find project subset members",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/project/sandbox/subset/dd01be90-f9dd-4531-abb4-810f2090ba17/member?query=diabetes&limit=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"project",
+						"sandbox",
+						"subset",
+						"dd01be90-f9dd-4531-abb4-810f2090ba17",
+						"member"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "diabetes"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Compute new codes since prior version (slow)",
 			"request": {
 				"method": "GET",
@@ -586,6 +719,11 @@
 		"type": "oauth2",
 		"oauth2": [
 			{
+				"key": "accessTokenUrl",
+				"value": "{{API_URL}}/auth/token",
+				"type": "string"
+			},
+			{
 				"key": "grant_type",
 				"value": "password_credentials",
 				"type": "string"
@@ -598,11 +736,6 @@
 			{
 				"key": "username",
 				"value": "{{TERMHUB_USER}}",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "https://api.terminologyhub.com/auth/token",
 				"type": "string"
 			},
 			{

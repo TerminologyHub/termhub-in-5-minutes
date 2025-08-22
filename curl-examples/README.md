@@ -47,6 +47,11 @@ The following examples can be typed into the command line of any terminal that h
 - [Get concept mappings by code](#get-concept-mappings-by-code)
 - [Find project mappings for mapset](#find-project-mappings-for-mapset)
 - [Find project mappings](#find-project-mappings)
+- [Get subsets](#get-subsets)
+- [Get project subsets](#get-project-subsets)
+- [Get specific subset](#get-subset)
+- [Export subset](#export-subset)
+- [Get subset members for project subset](#get-subset-members-for-project-subset)
 
 ### Login
 
@@ -357,3 +362,76 @@ curl -s -H "Authorization: Bearer $token" "$API_URL/project/sandbox/mapping?quer
 See sample payload data from this call in [`samples/find-mappings-by-query.txt`](samples/find-mappings-by-query.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Get subsets
+
+Return all loaded subsets currently hosted by the API.  This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available subsets.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/subset" | jq
+```
+
+See sample payload data from this call in [`samples/get-subsets.txt`](samples/get-subsets.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+### Get project subsets
+
+Return all subsets for the specified project identified by either projectId or projectLabel.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset" | jq
+```
+
+See sample payload data from this call in [`samples/get-project-subsets.txt`](samples/get-project-subsets.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+### Get subset
+
+Return a specific subset by its id. The UUID below is an example
+that may or may not work.  The idea is to take one of the subset ids returned
+by the previous call and you can then look up subset info specifically for that
+UUID.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/subset/2a545e12-04eb-48ee-b988-c17346b4e05f" | jq
+```
+
+See sample payload data from this call in [`samples/get-subset.txt`](samples/get-subset.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+### Export subset
+
+Export zip file of a subset in a particular format.  Currently only format=native is
+supported.
+
+```
+curl -o SNOMEDCT_US-MODEL.zip -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/SNOMEDCT_US-MODEL/export?format=native"
+```
+
+No payload sample as the output is a .zip file.
+
+
+### Get subset members for project subset
+
+Return members of a specific subset by its id. The UUID below is an example
+that may or may not work.  The idea is to take one of the subset ids returned
+by the previous call and you can then look up subset info specifically for that
+UUID.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/2a545e12-04eb-48ee-b988-c17346b4e05f/member" | jq
+```
+
+See sample payload data from this call in [`samples/get-subset-members-for-project-subset.txt`](samples/get-subset-members-for-project-subset.txt)
+
+[Back to Top](#termhub-in-5-minutes-curl-tutorial)
+
+
+

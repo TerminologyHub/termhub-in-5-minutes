@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "6a8ea9c6-dc08-4850-8a06-d6073c36038e",
+		"_postman_id": "4865260d-ad96-4231-bb62-746f24a2ac31",
 		"name": "Termhub FHIR R4",
 		"description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "7218027"
 	},
 	"item": [
 		{
@@ -622,6 +622,33 @@
 					"response": []
 				},
 				{
+					"name": "Find explicit value set by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet?url=http://snomed.info/sct?fhir_vs=900000000000207008",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=900000000000207008"
+								}
+							]
+						},
+						"description": "The example ECL query is to retrieve only those concepts whose defining relationships match the given attribute value pairs:\n\n< 404684003 |clinical finding|: 116676008 |associated morphology| = *"
+					},
+					"response": []
+				},
+				{
 					"name": "Find value sets - default search by fields",
 					"request": {
 						"method": "GET",
@@ -665,12 +692,52 @@
 					"response": []
 				},
 				{
-					"name": "Validate code (versioned url)",
+					"name": "Expand value set",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct/900000000000207008/version/20240101?fhir_vs",
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$expand?url=http://snomed.info/sct?fhir_vs=900000000000012004&count=10&offset=0&filter=map",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"r4",
+								"{{idOrUriLabel}}",
+								"fhir",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://snomed.info/sct?fhir_vs=900000000000012004"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "filter",
+									"value": "map"
+								}
+							]
+						},
+						"description": "The example ECL query is to retrieve only those concepts whose defining relationships match the given attribute value pairs:\n\n< 404684003 |clinical finding|: 116676008 |associated morphology| = *"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate code with version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/r4/{{idOrUriLabel}}/fhir/ValueSet/$validate-code?system=http://snomed.info/sct&code=80891009&url=http://snomed.info/sct?fhir_vs&valueSetVersion=http://snomed.info/sct/900000000000207008/version/20240101",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -692,7 +759,11 @@
 								},
 								{
 									"key": "url",
-									"value": "http://snomed.info/sct/900000000000207008/version/20240101?fhir_vs"
+									"value": "http://snomed.info/sct?fhir_vs"
+								},
+								{
+									"key": "valueSetVersion",
+									"value": "http://snomed.info/sct/900000000000207008/version/20240101"
 								}
 							]
 						},
