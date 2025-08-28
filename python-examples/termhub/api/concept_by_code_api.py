@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -24,6 +24,7 @@ from termhub.models.concept import Concept
 from termhub.models.mapping import Mapping
 from termhub.models.result_list_concept_relationship import ResultListConceptRelationship
 from termhub.models.result_list_concept_tree_position import ResultListConceptTreePosition
+from termhub.models.subset_member import SubsetMember
 
 from termhub.api_client import ApiClient, RequestSerialized
 from termhub.api_response import ApiResponse
@@ -49,7 +50,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -77,7 +78,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -125,12 +126,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -149,7 +150,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -177,7 +178,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -225,12 +226,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -249,7 +250,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -277,7 +278,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -325,12 +326,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -437,7 +438,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -465,7 +466,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -514,11 +515,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -537,7 +538,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -565,7 +566,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -614,11 +615,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -637,7 +638,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -665,7 +666,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -714,11 +715,11 @@ class ConceptByCodeApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -825,7 +826,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -853,7 +854,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -901,12 +902,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -925,7 +926,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -953,7 +954,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -1001,12 +1002,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1025,7 +1026,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -1053,7 +1054,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -1101,12 +1102,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1213,7 +1214,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -1241,7 +1242,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -1289,12 +1290,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1313,7 +1314,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -1341,7 +1342,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -1389,12 +1390,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1413,7 +1414,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
@@ -1441,7 +1442,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -1489,12 +1490,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1601,7 +1602,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1625,7 +1626,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1661,12 +1662,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "Concept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1685,7 +1686,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1709,7 +1710,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1745,12 +1746,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "Concept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1769,7 +1770,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1793,7 +1794,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
         :type code: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1829,12 +1830,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "Concept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1921,7 +1922,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         codes: Annotated[StrictStr, Field(description="Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1945,7 +1946,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param codes: Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \" (required)
         :type codes: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1981,12 +1982,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "List[Concept]",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2005,7 +2006,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         codes: Annotated[StrictStr, Field(description="Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2029,7 +2030,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param codes: Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \" (required)
         :type codes: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2065,12 +2066,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "List[Concept]",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2089,7 +2090,7 @@ class ConceptByCodeApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
         codes: Annotated[StrictStr, Field(description="Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \"")],
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2113,7 +2114,7 @@ class ConceptByCodeApi:
         :type terminology: str
         :param codes: Comma-separated list of terminology codes, e.g. \"1119,1149\" or \"64572001,22298006 \" (required)
         :type codes: str
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2149,12 +2150,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "List[Concept]",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2299,12 +2300,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
             '404': None,
-            '500': None,
+            '403': None,
             '200': None,
             '417': None,
+            '500': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2379,12 +2380,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
             '404': None,
-            '500': None,
+            '403': None,
             '200': None,
             '417': None,
+            '500': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2459,12 +2460,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
             '404': None,
-            '500': None,
+            '403': None,
             '200': None,
             '417': None,
+            '500': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2603,12 +2604,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
             '200': "List[Mapping]",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2683,12 +2684,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
             '200': "List[Mapping]",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2763,12 +2764,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
             '200': "List[Mapping]",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2906,12 +2907,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
             '200': "List[Mapping]",
+            '417': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2986,12 +2987,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
             '200': "List[Mapping]",
+            '417': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3066,12 +3067,12 @@ class ConceptByCodeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
+            '403': None,
             '500': None,
             '200': "List[Mapping]",
+            '417': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3132,6 +3133,309 @@ class ConceptByCodeApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/project/{idOrUriLabel}/concept/{terminology}/{code}/mappings',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_concept_members(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[SubsetMember]:
+        """Get subset members from concept by terminology and code
+
+        Gets subset members from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_members_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
+            '200': "List[SubsetMember]",
+            '417': None,
+            '404': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_concept_members_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[SubsetMember]]:
+        """Get subset members from concept by terminology and code
+
+        Gets subset members from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_members_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
+            '200': "List[SubsetMember]",
+            '417': None,
+            '404': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_concept_members_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        code: Annotated[StrictStr, Field(description="Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\"")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get subset members from concept by terminology and code
+
+        Gets subset members from the concept with the specified terminology and code. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param code: Terminology code, e.g. \"1119\", \"8867-4\", or \"64572001\" (required)
+        :type code: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_concept_members_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            code=code,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
+            '200': "List[SubsetMember]",
+            '417': None,
+            '404': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_concept_members_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        code,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        if terminology is not None:
+            _path_params['terminology'] = terminology
+        if code is not None:
+            _path_params['code'] = code
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/concept/{terminology}/{code}/members',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

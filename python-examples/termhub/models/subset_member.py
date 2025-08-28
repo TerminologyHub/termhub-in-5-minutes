@@ -19,14 +19,15 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from termhub.models.subset_ref import SubsetRef
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Metadata(BaseModel):
+class SubsetMember(BaseModel):
     """
-    Represents metadata about a terminology component
+    Represents a member of a subset, refset, or value set in a terminology
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
@@ -38,33 +39,13 @@ class Metadata(BaseModel):
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
-    model: Optional[StrictStr] = Field(default=None, description="Model object that this applies to")
-    var_field: Optional[StrictStr] = Field(default=None, description="Field of model object that this applies to", alias="field")
-    code: Optional[StrictStr] = Field(default=None, description="Abbreviated code for a metadata item that has a longer name, e.g. \"PT\" for \"Preferred term\"")
-    name: Optional[StrictStr] = Field(default=None, description="Longer name of a metadata item")
-    rank: Optional[StrictInt] = Field(default=None, description="Rank of this relative to other similar kinds of metadata (primarily used for term type ranking)")
-    attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Attribute key/value pairs associated with the concept")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "terminology", "version", "publisher", "model", "field", "code", "name", "rank", "attributes"]
-
-    @field_validator('model')
-    def model_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['concept', 'term', 'indexTerm', 'definition', 'relationship', 'treePosition', 'mapping', 'subset', 'mapset', 'semanticType', 'subsetMember', 'axiom', 'inactiveConcept', 'inactiveTerm']):
-            raise ValueError("must be one of enum values ('concept', 'term', 'indexTerm', 'definition', 'relationship', 'treePosition', 'mapping', 'subset', 'mapset', 'semanticType', 'subsetMember', 'axiom', 'inactiveConcept', 'inactiveTerm')")
-        return value
-
-    @field_validator('var_field')
-    def var_field_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['language', 'type', 'additionalType', 'attribute', 'semanticType', 'precedence', 'category', 'entityType', 'uiLabel', 'other']):
-            raise ValueError("must be one of enum values ('language', 'type', 'additionalType', 'attribute', 'semanticType', 'precedence', 'category', 'entityType', 'uiLabel', 'other')")
-        return value
+    name: Optional[StrictStr] = Field(default=None, description="Prefererd name of the member code")
+    code: Optional[StrictStr] = Field(default=None, description="Member code in the subset")
+    subset: Optional[SubsetRef] = None
+    code_active: Optional[StrictBool] = Field(default=None, description="Indicates whether the member code is active or not", alias="codeActive")
+    code_exists: Optional[StrictBool] = Field(default=None, description="Indicates whether the member code exists or not", alias="codeExists")
+    attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "terminology", "version", "publisher", "name", "code", "subset", "codeActive", "codeExists", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +65,7 @@ class Metadata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Metadata from a JSON string"""
+        """Create an instance of SubsetMember from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -105,11 +86,14 @@ class Metadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of subset
+        if self.subset:
+            _dict['subset'] = self.subset.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Metadata from a dict"""
+        """Create an instance of SubsetMember from a dict"""
         if obj is None:
             return None
 
@@ -127,11 +111,11 @@ class Metadata(BaseModel):
             "terminology": obj.get("terminology"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
-            "model": obj.get("model"),
-            "field": obj.get("field"),
-            "code": obj.get("code"),
             "name": obj.get("name"),
-            "rank": obj.get("rank"),
+            "code": obj.get("code"),
+            "subset": SubsetRef.from_dict(obj["subset"]) if obj.get("subset") is not None else None,
+            "codeActive": obj.get("codeActive"),
+            "codeExists": obj.get("codeExists"),
             "attributes": obj.get("attributes")
         })
         return _obj

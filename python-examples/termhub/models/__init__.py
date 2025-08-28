@@ -4,7 +4,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -21,6 +21,7 @@ from termhub.models.concept_ref import ConceptRef
 from termhub.models.concept_relationship import ConceptRelationship
 from termhub.models.concept_tree_position import ConceptTreePosition
 from termhub.models.definition import Definition
+from termhub.models.identifier_ref import IdentifierRef
 from termhub.models.mapping import Mapping
 from termhub.models.mapset import Mapset
 from termhub.models.mapset_ref import MapsetRef
@@ -31,8 +32,13 @@ from termhub.models.result_list_concept_tree_position import ResultListConceptTr
 from termhub.models.result_list_mapping import ResultListMapping
 from termhub.models.result_list_mapset import ResultListMapset
 from termhub.models.result_list_metadata import ResultListMetadata
+from termhub.models.result_list_subset import ResultListSubset
+from termhub.models.result_list_subset_member import ResultListSubsetMember
 from termhub.models.result_list_term import ResultListTerm
 from termhub.models.result_list_terminology import ResultListTerminology
 from termhub.models.search_parameters import SearchParameters
+from termhub.models.subset import Subset
+from termhub.models.subset_member import SubsetMember
+from termhub.models.subset_ref import SubsetRef
 from termhub.models.term import Term
 from termhub.models.terminology import Terminology

@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -26,6 +26,8 @@ from termhub.models.concept_ref import ConceptRef
 from termhub.models.concept_relationship import ConceptRelationship
 from termhub.models.concept_tree_position import ConceptTreePosition
 from termhub.models.definition import Definition
+from termhub.models.identifier_ref import IdentifierRef
+from termhub.models.subset_ref import SubsetRef
 from termhub.models.term import Term
 from typing import Optional, Set
 from typing_extensions import Self
@@ -41,11 +43,12 @@ class Concept(BaseModel):
     modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
     local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    name: Optional[StrictStr] = Field(default=None, description="Preferred name of the concept")
+    name: Optional[StrictStr] = Field(default=None, description="Concept name")
     code: Optional[StrictStr] = Field(default=None, description="Terminology code, typically representing a unit of meaning")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
-    version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
-    publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation")
+    version: Optional[StrictStr] = Field(default=None, description="Terminology version")
+    publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher")
+    historical: Optional[StrictStr] = Field(default=None, description="Historical relationship type (only used for concept descendants)")
     leaf: Optional[StrictBool] = Field(default=None, description="Indicates whether or not this concept is a leaf node in its hierarchy")
     defined: Optional[StrictBool] = Field(default=None, description="Indicates whether or not this concept has a logical definition with necessary and sufficient conditions")
     level: Optional[StrictInt] = Field(default=None, description="Level of depth")
@@ -53,17 +56,20 @@ class Concept(BaseModel):
     index_terms: Optional[List[StrictStr]] = Field(default=None, description="Index terms associated with the concept (these exist for searchability but are not strictly content from the publisher)", alias="indexTerms")
     definitions: Optional[List[Definition]] = Field(default=None, description="Textual definitions associated with the concept")
     axioms: Optional[List[Axiom]] = Field(default=None, description="OwL/RDF axioms that express the logical definition")
+    identifiers: Optional[List[IdentifierRef]] = Field(default=None, description="Alternate identifiers associated with the concept")
     attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Attribute key/value pairs associated with the concept")
+    highlights: Optional[Dict[str, StrictStr]] = Field(default=None, description="Used by search calls to provide information for highlighting a view of results")
     semantic_types: Optional[List[StrictStr]] = Field(default=None, description="High level semantic types associated with the concept", alias="semanticTypes")
     labels: Optional[List[StrictStr]] = Field(default=None, description="Labels associated with the concept")
     children: Optional[List[ConceptRef]] = Field(default=None, description="Children of the concept in the hierarchy")
     parents: Optional[List[ConceptRef]] = Field(default=None, description="Parents of the concept in the hierarchy")
     descendants: Optional[List[ConceptRef]] = Field(default=None, description="Descendants of the concept in the hierarchy")
     ancestors: Optional[List[ConceptRef]] = Field(default=None, description="Ancestors of the concept in the hierarchy")
+    subsets: Optional[List[SubsetRef]] = Field(default=None, description="Subsets the concept is a part of from the same terminology loader")
     relationships: Optional[List[ConceptRelationship]] = Field(default=None, description="Relationships from this concept to other concepts")
     inverse_relationships: Optional[List[ConceptRelationship]] = Field(default=None, description="Relationships from other concepts to this concept", alias="inverseRelationships")
     tree_positions: Optional[List[ConceptTreePosition]] = Field(default=None, description="Tree positions of the concept in the hierarchy", alias="treePositions")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "code", "terminology", "version", "publisher", "leaf", "defined", "level", "terms", "indexTerms", "definitions", "axioms", "attributes", "semanticTypes", "labels", "children", "parents", "descendants", "ancestors", "relationships", "inverseRelationships", "treePositions"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "code", "terminology", "version", "publisher", "historical", "leaf", "defined", "level", "terms", "indexTerms", "definitions", "axioms", "identifiers", "attributes", "highlights", "semanticTypes", "labels", "children", "parents", "descendants", "ancestors", "subsets", "relationships", "inverseRelationships", "treePositions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -125,6 +131,13 @@ class Concept(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['axioms'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in identifiers (list)
+        _items = []
+        if self.identifiers:
+            for _item in self.identifiers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['identifiers'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in children (list)
         _items = []
         if self.children:
@@ -153,6 +166,13 @@ class Concept(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ancestors'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in subsets (list)
+        _items = []
+        if self.subsets:
+            for _item in self.subsets:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['subsets'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in relationships (list)
         _items = []
         if self.relationships:
@@ -198,6 +218,7 @@ class Concept(BaseModel):
             "terminology": obj.get("terminology"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "historical": obj.get("historical"),
             "leaf": obj.get("leaf"),
             "defined": obj.get("defined"),
             "level": obj.get("level"),
@@ -205,13 +226,16 @@ class Concept(BaseModel):
             "indexTerms": obj.get("indexTerms"),
             "definitions": [Definition.from_dict(_item) for _item in obj["definitions"]] if obj.get("definitions") is not None else None,
             "axioms": [Axiom.from_dict(_item) for _item in obj["axioms"]] if obj.get("axioms") is not None else None,
+            "identifiers": [IdentifierRef.from_dict(_item) for _item in obj["identifiers"]] if obj.get("identifiers") is not None else None,
             "attributes": obj.get("attributes"),
+            "highlights": obj.get("highlights"),
             "semanticTypes": obj.get("semanticTypes"),
             "labels": obj.get("labels"),
             "children": [ConceptRef.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None,
             "parents": [ConceptRef.from_dict(_item) for _item in obj["parents"]] if obj.get("parents") is not None else None,
             "descendants": [ConceptRef.from_dict(_item) for _item in obj["descendants"]] if obj.get("descendants") is not None else None,
             "ancestors": [ConceptRef.from_dict(_item) for _item in obj["ancestors"]] if obj.get("ancestors") is not None else None,
+            "subsets": [SubsetRef.from_dict(_item) for _item in obj["subsets"]] if obj.get("subsets") is not None else None,
             "relationships": [ConceptRelationship.from_dict(_item) for _item in obj["relationships"]] if obj.get("relationships") is not None else None,
             "inverseRelationships": [ConceptRelationship.from_dict(_item) for _item in obj["inverseRelationships"]] if obj.get("inverseRelationships") is not None else None,
             "treePositions": [ConceptTreePosition.from_dict(_item) for _item in obj["treePositions"]] if obj.get("treePositions") is not None else None

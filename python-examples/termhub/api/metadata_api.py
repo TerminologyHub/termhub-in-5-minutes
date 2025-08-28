@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -45,7 +45,7 @@ class MetadataApi:
     def find_metadata(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
@@ -69,7 +69,7 @@ class MetadataApi:
 
         :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
         :type id_or_uri_label: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -116,10 +116,10 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
             '500': None,
             '200': "ResultListMetadata",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -136,7 +136,7 @@ class MetadataApi:
     def find_metadata_with_http_info(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
@@ -160,7 +160,7 @@ class MetadataApi:
 
         :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
         :type id_or_uri_label: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -207,10 +207,10 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
             '500': None,
             '200': "ResultListMetadata",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -227,7 +227,7 @@ class MetadataApi:
     def find_metadata_without_preload_content(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
@@ -251,7 +251,7 @@ class MetadataApi:
 
         :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
         :type id_or_uri_label: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
         :param offset: Start index for search results
         :type offset: int
@@ -298,10 +298,10 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
             '500': None,
             '200': "ResultListMetadata",
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -450,11 +450,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
+            '200': "List[Metadata]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -521,11 +521,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
+            '200': "List[Metadata]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -592,11 +592,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
-            '500': None,
             '403': None,
             '404': None,
+            '500': None,
+            '200': "List[Metadata]",
         }
         response_data = self.api_client.call_api(
             *_param,
