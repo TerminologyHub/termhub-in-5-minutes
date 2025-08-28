@@ -68,5 +68,7 @@ class TestLogin:
         assert access_token is not None, "ERROR: Access token is None"
         self.logger.info(f"Authorization Token = {access_token}")
 
-        # Save the access token as an environment variable
-        os.environ["TOKEN"] = access_token
+        # Save the access token to a temp file
+        with open("temp_token.txt", "w") as token_file:
+            token_file.write(access_token)
+

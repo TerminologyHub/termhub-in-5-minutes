@@ -85,6 +85,11 @@ def run_sections(sections):
         file_index = 0
         for py_cmd in section["pythons"]:
             print(f"Running: {py_cmd}")
+            # set environment variable TOKEN if temp_token.txt exists
+            if(os.path.exists("temp_token.txt")):
+                with open("temp_token.txt", "r") as token_file:
+                    token = token_file.read().strip()
+                    os.environ["TOKEN"] = token
             response = execute_pytest(py_cmd)
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
@@ -92,6 +97,9 @@ def run_sections(sections):
                    f.write(extract_test_stdout(response))
                 print(f"Updated: {section['files'][file_index]}")
                 file_index += 1
+    # delete temp_token.txt if it exists
+    if(os.path.exists("temp_token.txt")):
+        os.remove("temp_token.txt")
 
 def report_script_health():
     if(unhealthy_scripts):
