@@ -57,6 +57,8 @@ def process_markdown():
             in_section = False
             if current_section["pythons"]:
                 sections.append(current_section)
+            # reset current_section so we don't accidentally re-append it later
+            current_section = {"pythons": [], "files": []}
             continue
         
         if in_section:
@@ -70,7 +72,10 @@ def process_markdown():
             for match in file_matches:
                 current_section["files"].append(f"samples/{match}")
     
-    if current_section["pythons"]:
+    # If the file ended while we were still inside a section (no trailing
+    # "[Back to Top]"), append that final section. Avoid appending if the
+    # section was already closed and reset above.
+    if in_section and current_section["pythons"]:
         sections.append(current_section)
     
     return sections
@@ -103,14 +108,14 @@ def run_sections(sections):
 
 def report_script_health():
     if(unhealthy_scripts):
-        print("Healthy scripts (count {}): ".format(len(healthy_scripts))) if healthy_scripts else None
+        print("Healthy endpoint tests (count {}): ".format(len(healthy_scripts))) if healthy_scripts else None
         for script in healthy_scripts:
             print(script)
-        print("Unhealthy scripts (count {}):".format(len(unhealthy_scripts)))
+        print("Unhealthy endpoint tests (count {}):".format(len(unhealthy_scripts)))
         for script in unhealthy_scripts:
             print(script)
     else:
-        print("\nAll scripts executed successfully and all test endpoints are healthy.")
+        print("\nAll " + str(len(healthy_scripts)) + " sample tests executed successfully and all endpoints are healthy.")
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
