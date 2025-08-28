@@ -59,6 +59,28 @@ tasks.register('buildPythonSdk', GenerateTask) {
           "packageName": "termhub",
           "hideGenerationTimestamp": "false",
   ])
+  // Ensure imports inside generated python files reference the top-level package
+  // without changing the generated folder layout. This post-processes files
+  // like those that reference `api.*` or `models.*` and prefixes them with
+  // the configured top-level package name (here `termhub`).
+  doLast {
+    def outDirFile = file(outputDir.get())
+    if (outDirFile.exists()) {
+      outDirFile.eachFileRecurse { f ->
+        if (f.isFile() && f.name.endsWith('.py')) {
+          def text = f.getText('UTF-8')
+          def newText = text
+              .replaceAll(/from\s+api\./, 'from termhub.api.')
+              .replaceAll(/from\s+models\./, 'from termhub.models.')
+              .replaceAll(/import\s+api\./, 'import termhub.api.')
+              .replaceAll(/import\s+models\./, 'import termhub.models.')
+          if (newText != text) {
+            f.withWriter('UTF-8') { it.write(newText) }
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
