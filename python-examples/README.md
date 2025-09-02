@@ -40,10 +40,19 @@ All commands to run these tests should be run from that directory.
 - [Find terms by search term](#find-terms)
 - [Support autocomplete/typeahead for first few characters typed](#autocomplete)
 
+Run tests automatically
+-----------------------
+
+To automatically discover and run the pytest commands listed in this README, run the helper script from this directory:
+
+```
+python python_check.py
+```
+
 ### Login [MUST BE RUN FIRST]
 
 Login and acquire an access token for a username and password.  
-You will need to set your environment variable for `USER_NAME` and `PASSWORD`.  
+You will need to set your environment variable for `USER_NAME` and `PASSWORD`, or set username and password in config.ini 
 The commands below will set a `token` variable equal to the access token. This token is used for the remaining tests.
 
 ```

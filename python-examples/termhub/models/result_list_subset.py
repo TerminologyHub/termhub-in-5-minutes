@@ -20,18 +20,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from termhub.models.concept_tree_position import ConceptTreePosition
 from termhub.models.search_parameters import SearchParameters
+from termhub.models.subset import Subset
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ResultListConceptTreePosition(BaseModel):
+class ResultListSubset(BaseModel):
     """
-    Represents a list of concept tree positions returned from a find call
+    Represents a list of subsets returned from a find call
     """ # noqa: E501
     total: Optional[StrictInt] = Field(default=None, description="Total number of results (often this list represents just a single page)")
     parameters: Optional[SearchParameters] = None
-    items: Optional[List[ConceptTreePosition]] = Field(default=None, description="items of the result list")
+    items: Optional[List[Subset]] = Field(default=None, description="items of the result list")
     __properties: ClassVar[List[str]] = ["total", "parameters", "items"]
 
     model_config = ConfigDict(
@@ -52,7 +52,7 @@ class ResultListConceptTreePosition(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ResultListConceptTreePosition from a JSON string"""
+        """Create an instance of ResultListSubset from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -87,7 +87,7 @@ class ResultListConceptTreePosition(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ResultListConceptTreePosition from a dict"""
+        """Create an instance of ResultListSubset from a dict"""
         if obj is None:
             return None
 
@@ -97,7 +97,7 @@ class ResultListConceptTreePosition(BaseModel):
         _obj = cls.model_validate({
             "total": obj.get("total"),
             "parameters": SearchParameters.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
-            "items": [ConceptTreePosition.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "items": [Subset.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

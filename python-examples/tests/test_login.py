@@ -36,8 +36,13 @@ class TestLogin:
         """
         # Define the URL, username, and password
         url: str = load_config.get("default", "url")
-        username: str = os.getenv("USER_NAME")
-        password: str = os.getenv("PASSWORD")
+        # first check if environment variables are set for username and password
+        if os.getenv("USER_NAME") and os.getenv("PASSWORD"):
+            username = os.getenv("USER_NAME")
+            password = os.getenv("PASSWORD")
+        else:
+            username: str = load_config.get("default", "username")
+            password: str = load_config.get("default", "password")
         headers: dict[str, str] = {"Content-type": "application/json"}
         
         self.logger.info(f"username = {username}")
@@ -62,3 +67,8 @@ class TestLogin:
         # Check if the access token is not None
         assert access_token is not None, "ERROR: Access token is None"
         self.logger.info(f"Authorization Token = {access_token}")
+
+        # Save the access token to a temp file
+        with open("temp_token.txt", "w") as token_file:
+            token_file.write(access_token)
+

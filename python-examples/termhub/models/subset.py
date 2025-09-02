@@ -19,14 +19,14 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Metadata(BaseModel):
+class Subset(BaseModel):
     """
-    Represents metadata about a terminology component
+    Represents a subset, refset, or value set in a terminology
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
@@ -35,36 +35,29 @@ class Metadata(BaseModel):
     modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
     local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    abbreviation: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
-    model: Optional[StrictStr] = Field(default=None, description="Model object that this applies to")
-    var_field: Optional[StrictStr] = Field(default=None, description="Field of model object that this applies to", alias="field")
-    code: Optional[StrictStr] = Field(default=None, description="Abbreviated code for a metadata item that has a longer name, e.g. \"PT\" for \"Preferred term\"")
-    name: Optional[StrictStr] = Field(default=None, description="Longer name of a metadata item")
-    rank: Optional[StrictInt] = Field(default=None, description="Rank of this relative to other similar kinds of metadata (primarily used for term type ranking)")
-    attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Attribute key/value pairs associated with the concept")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "terminology", "version", "publisher", "model", "field", "code", "name", "rank", "attributes"]
-
-    @field_validator('model')
-    def model_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['concept', 'term', 'indexTerm', 'definition', 'relationship', 'treePosition', 'mapping', 'subset', 'mapset', 'semanticType', 'subsetMember', 'axiom', 'inactiveConcept', 'inactiveTerm']):
-            raise ValueError("must be one of enum values ('concept', 'term', 'indexTerm', 'definition', 'relationship', 'treePosition', 'mapping', 'subset', 'mapset', 'semanticType', 'subsetMember', 'axiom', 'inactiveConcept', 'inactiveTerm')")
-        return value
-
-    @field_validator('var_field')
-    def var_field_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['language', 'type', 'additionalType', 'attribute', 'semanticType', 'precedence', 'category', 'entityType', 'uiLabel', 'other']):
-            raise ValueError("must be one of enum values ('language', 'type', 'additionalType', 'attribute', 'semanticType', 'precedence', 'category', 'entityType', 'uiLabel', 'other')")
-        return value
+    release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
+    uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
+    latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
+    loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the version of the terminology is loaded")
+    code: Optional[StrictStr] = Field(default=None, description="Subset code")
+    from_publisher: Optional[StrictStr] = Field(default=None, description="Publisher that maps in this set are mapped from, e.g. \"SNOMEDCT\"", alias="fromPublisher")
+    from_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that members in this set are from, e.g. \"SNOMEDCT\"", alias="fromTerminology")
+    from_version: Optional[StrictStr] = Field(default=None, description="Terminology version that members in this set are from, e.g. \"20230901\"", alias="fromVersion")
+    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
+    license: Optional[StrictStr] = Field(default=None, description="License for usage of this subset (e.g. \"TERMHUB\")")
+    category: Optional[StrictStr] = Field(default=None, description="Category for usage of this subset (e.g. \"cancer\")")
+    entity_type: Optional[StrictStr] = Field(default=None, description="Clinical class entity type for the kind of concepts in the subset, e.g. \"medication\" or \"diagnosis\"", alias="entityType")
+    description: Optional[StrictStr] = Field(default=None, description="Description of the subset")
+    expression: Optional[StrictStr] = Field(default=None, description="Concept query used as part of the subsets computable definition")
+    query: Optional[StrictStr] = Field(default=None, description="Concept query used as part of the subsets computable definition")
+    attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
+    statistics: Optional[Dict[str, StrictInt]] = None
+    disjoint_subsets: Optional[List[StrictStr]] = Field(default=None, description="Codes for matching terminology/publiser/version subsets this one is disjoint with", alias="disjointSubsets")
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "terminology", "license", "category", "entityType", "description", "expression", "query", "attributes", "statistics", "disjointSubsets"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +77,7 @@ class Metadata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Metadata from a JSON string"""
+        """Create an instance of Subset from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -109,7 +102,7 @@ class Metadata(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Metadata from a dict"""
+        """Create an instance of Subset from a dict"""
         if obj is None:
             return None
 
@@ -124,15 +117,28 @@ class Metadata(BaseModel):
             "modifiedBy": obj.get("modifiedBy"),
             "local": obj.get("local"),
             "active": obj.get("active"),
-            "terminology": obj.get("terminology"),
+            "abbreviation": obj.get("abbreviation"),
+            "name": obj.get("name"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
-            "model": obj.get("model"),
-            "field": obj.get("field"),
+            "releaseDate": obj.get("releaseDate"),
+            "uri": obj.get("uri"),
+            "latest": obj.get("latest"),
+            "loaded": obj.get("loaded"),
             "code": obj.get("code"),
-            "name": obj.get("name"),
-            "rank": obj.get("rank"),
-            "attributes": obj.get("attributes")
+            "fromPublisher": obj.get("fromPublisher"),
+            "fromTerminology": obj.get("fromTerminology"),
+            "fromVersion": obj.get("fromVersion"),
+            "terminology": obj.get("terminology"),
+            "license": obj.get("license"),
+            "category": obj.get("category"),
+            "entityType": obj.get("entityType"),
+            "description": obj.get("description"),
+            "expression": obj.get("expression"),
+            "query": obj.get("query"),
+            "attributes": obj.get("attributes"),
+            "statistics": obj.get("statistics"),
+            "disjointSubsets": obj.get("disjointSubsets")
         })
         return _obj
 

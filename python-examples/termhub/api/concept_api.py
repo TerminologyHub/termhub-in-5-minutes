@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -41,404 +41,12 @@ class ConceptApi:
 
 
     @validate_call
-    def export_concepts(
-        self,
-        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
-        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
-        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
-        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
-        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
-        """Export concepts across all project terminologies
-
-        Export concepts matching specified search criteria.
-
-        :param id_or_uri_label: Project id or uriLabel (required)
-        :type id_or_uri_label: str
-        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
-        :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
-        :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
-        :type expression: str
-        :param sort: Comma-separated list of fields to sort on
-        :type sort: str
-        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
-        :type ascending: bool
-        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
-        :type active: bool
-        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
-        :type leaf: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._export_concepts_serialize(
-            id_or_uri_label=id_or_uri_label,
-            terminology=terminology,
-            query=query,
-            expression=expression,
-            sort=sort,
-            ascending=ascending,
-            active=active,
-            leaf=leaf,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
-            '417': None,
-            '401': None,
-            '500': None,
-            '403': None,
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def export_concepts_with_http_info(
-        self,
-        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
-        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
-        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
-        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
-        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
-        """Export concepts across all project terminologies
-
-        Export concepts matching specified search criteria.
-
-        :param id_or_uri_label: Project id or uriLabel (required)
-        :type id_or_uri_label: str
-        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
-        :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
-        :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
-        :type expression: str
-        :param sort: Comma-separated list of fields to sort on
-        :type sort: str
-        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
-        :type ascending: bool
-        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
-        :type active: bool
-        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
-        :type leaf: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._export_concepts_serialize(
-            id_or_uri_label=id_or_uri_label,
-            terminology=terminology,
-            query=query,
-            expression=expression,
-            sort=sort,
-            ascending=ascending,
-            active=active,
-            leaf=leaf,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
-            '417': None,
-            '401': None,
-            '500': None,
-            '403': None,
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def export_concepts_without_preload_content(
-        self,
-        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
-        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
-        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
-        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
-        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Export concepts across all project terminologies
-
-        Export concepts matching specified search criteria.
-
-        :param id_or_uri_label: Project id or uriLabel (required)
-        :type id_or_uri_label: str
-        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
-        :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
-        :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
-        :type expression: str
-        :param sort: Comma-separated list of fields to sort on
-        :type sort: str
-        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
-        :type ascending: bool
-        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
-        :type active: bool
-        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
-        :type leaf: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._export_concepts_serialize(
-            id_or_uri_label=id_or_uri_label,
-            terminology=terminology,
-            query=query,
-            expression=expression,
-            sort=sort,
-            ascending=ascending,
-            active=active,
-            leaf=leaf,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
-            '417': None,
-            '401': None,
-            '500': None,
-            '403': None,
-            '404': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _export_concepts_serialize(
-        self,
-        id_or_uri_label,
-        terminology,
-        query,
-        expression,
-        sort,
-        ascending,
-        active,
-        leaf,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id_or_uri_label is not None:
-            _path_params['idOrUriLabel'] = id_or_uri_label
-        # process the query parameters
-        if terminology is not None:
-            
-            _query_params.append(('terminology', terminology))
-            
-        if query is not None:
-            
-            _query_params.append(('query', query))
-            
-        if expression is not None:
-            
-            _query_params.append(('expression', expression))
-            
-        if sort is not None:
-            
-            _query_params.append(('sort', sort))
-            
-        if ascending is not None:
-            
-            _query_params.append(('ascending', ascending))
-            
-        if active is not None:
-            
-            _query_params.append(('active', active))
-            
-        if leaf is not None:
-            
-            _query_params.append(('leaf', leaf))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/plain'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'bearerAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/project/{idOrUriLabel}/concept/export',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def export_lookup(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
@@ -465,7 +73,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -510,12 +118,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
             '200': "str",
             '417': None,
-            '401': None,
-            '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -534,7 +142,7 @@ class ConceptApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
@@ -561,7 +169,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -606,12 +214,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
             '200': "str",
             '417': None,
-            '401': None,
-            '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -630,7 +238,7 @@ class ConceptApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
@@ -657,7 +265,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -702,12 +310,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '500': None,
             '200': "str",
             '417': None,
-            '401': None,
-            '500': None,
             '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -819,19 +427,411 @@ class ConceptApi:
 
 
     @validate_call
-    def find_concepts(
+    def export_project_concepts(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
+        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
+        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> str:
+        """Export concept search across all project terminologies
+
+        Export concept search matching specified search criteria.
+
+        :param id_or_uri_label: Project id or uriLabel (required)
+        :type id_or_uri_label: str
+        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :type expression: str
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
+        :type active: bool
+        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
+        :type leaf: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._export_project_concepts_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            expression=expression,
+            sort=sort,
+            ascending=ascending,
+            active=active,
+            leaf=leaf,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '404': None,
+            '500': None,
+            '200': "str",
+            '417': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def export_project_concepts_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
+        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
+        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[str]:
+        """Export concept search across all project terminologies
+
+        Export concept search matching specified search criteria.
+
+        :param id_or_uri_label: Project id or uriLabel (required)
+        :type id_or_uri_label: str
+        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :type expression: str
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
+        :type active: bool
+        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
+        :type leaf: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._export_project_concepts_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            expression=expression,
+            sort=sort,
+            ascending=ascending,
+            active=active,
+            leaf=leaf,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '404': None,
+            '500': None,
+            '200': "str",
+            '417': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def export_project_concepts_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
+        terminology: Annotated[StrictStr, Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
+        leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Export concept search across all project terminologies
+
+        Export concept search matching specified search criteria.
+
+        :param id_or_uri_label: Project id or uriLabel (required)
+        :type id_or_uri_label: str
+        :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :type expression: str
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param active: <code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both
+        :type active: bool
+        :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
+        :type leaf: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._export_project_concepts_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            expression=expression,
+            sort=sort,
+            ascending=ascending,
+            active=active,
+            leaf=leaf,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '404': None,
+            '500': None,
+            '200': "str",
+            '417': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _export_project_concepts_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        query,
+        expression,
+        sort,
+        ascending,
+        active,
+        leaf,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        # process the query parameters
+        if terminology is not None:
+            
+            _query_params.append(('terminology', terminology))
+            
+        if query is not None:
+            
+            _query_params.append(('query', query))
+            
+        if expression is not None:
+            
+            _query_params.append(('expression', expression))
+            
+        if sort is not None:
+            
+            _query_params.append(('sort', sort))
+            
+        if ascending is not None:
+            
+            _query_params.append(('ascending', ascending))
+            
+        if active is not None:
+            
+            _query_params.append(('active', active))
+            
+        if leaf is not None:
+            
+            _query_params.append(('leaf', leaf))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'text/plain'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/concept/export',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def find_project_concepts(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -853,9 +853,9 @@ class ConceptApi:
         :type id_or_uri_label: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param offset: Start index for search results
         :type offset: int
@@ -869,7 +869,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -893,7 +893,7 @@ class ConceptApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._find_concepts_serialize(
+        _param = self._find_project_concepts_serialize(
             id_or_uri_label=id_or_uri_label,
             terminology=terminology,
             query=query,
@@ -912,12 +912,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "ResultListConcept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "ResultListConcept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -931,19 +931,19 @@ class ConceptApi:
 
 
     @validate_call
-    def find_concepts_with_http_info(
+    def find_project_concepts_with_http_info(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -965,9 +965,9 @@ class ConceptApi:
         :type id_or_uri_label: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param offset: Start index for search results
         :type offset: int
@@ -981,7 +981,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1005,7 +1005,7 @@ class ConceptApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._find_concepts_serialize(
+        _param = self._find_project_concepts_serialize(
             id_or_uri_label=id_or_uri_label,
             terminology=terminology,
             query=query,
@@ -1024,12 +1024,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "ResultListConcept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "ResultListConcept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1043,19 +1043,19 @@ class ConceptApi:
 
 
     @validate_call
-    def find_concepts_without_preload_content(
+    def find_project_concepts_without_preload_content(
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
         ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1077,9 +1077,9 @@ class ConceptApi:
         :type id_or_uri_label: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param query: Search text (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
         :type query: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param offset: Start index for search results
         :type offset: int
@@ -1093,7 +1093,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1117,7 +1117,7 @@ class ConceptApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._find_concepts_serialize(
+        _param = self._find_project_concepts_serialize(
             id_or_uri_label=id_or_uri_label,
             terminology=terminology,
             query=query,
@@ -1136,12 +1136,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '200': "ResultListConcept",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '500': None,
+            '200': "ResultListConcept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1150,7 +1150,7 @@ class ConceptApi:
         return response_data.response
 
 
-    def _find_concepts_serialize(
+    def _find_project_concepts_serialize(
         self,
         id_or_uri_label,
         terminology,
@@ -1267,11 +1267,11 @@ class ConceptApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1295,7 +1295,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -1303,7 +1303,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1343,12 +1343,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
-            '200': "List[ResultListConcept]",
             '403': None,
+            '500': None,
+            '417': None,
+            '200': "List[ResultListConcept]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1367,11 +1367,11 @@ class ConceptApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1395,7 +1395,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -1403,7 +1403,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1443,12 +1443,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
-            '200': "List[ResultListConcept]",
             '403': None,
+            '500': None,
+            '417': None,
+            '200': "List[ResultListConcept]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1467,11 +1467,11 @@ class ConceptApi:
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel")],
         body: Annotated[StrictStr, Field(description="Newline-separated lines of text, one line for each query")],
         terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".")] = None,
-        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
+        expression: Annotated[Optional[StrictStr], Field(description="ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return, max is 10")] = None,
         active: Annotated[Optional[StrictBool], Field(description="<code>true</code> for active concepts only, <code>false</code> for inactive concepts only, <code>null</code> for both")] = None,
         leaf: Annotated[Optional[StrictBool], Field(description="<code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either")] = None,
-        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1495,7 +1495,7 @@ class ConceptApi:
         :type body: str
         :param terminology: Comma-separated list of terminology ids or abbreviations (or null for all terminologies). e.g. \"uuid1,uuid2\", \"SNOMEDCT,RXNORM\", or \"ICD10CM\".
         :type terminology: str
-        :param expression: ECL-style expression (<a href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
+        :param expression: ECL-style expression (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/EXPRESSION.md\">See here for more info</a>)
         :type expression: str
         :param limit: Limit of results to return, max is 10
         :type limit: int
@@ -1503,7 +1503,7 @@ class ConceptApi:
         :type active: bool
         :param leaf: <code>true</code> for leaf nodes only, <code>false</code> for non-leaf nodes, <code>null</code> for either
         :type leaf: bool
-        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
+        :param include: Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, axioms, attributes, children, definitions, descendants, highlights, inverseRelationships, mapsets, parents, relationships, semanticTypes, subsets, terms, treePositions<a target=\"_blank\" href='https://github.com/TerminologyHub/termhub-in-5-minutes/blob/main/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.
         :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1543,12 +1543,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
-            '200': "List[ResultListConcept]",
             '403': None,
+            '500': None,
+            '417': None,
+            '200': "List[ResultListConcept]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,

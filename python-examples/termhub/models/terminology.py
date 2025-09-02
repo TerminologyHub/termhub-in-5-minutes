@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -39,18 +39,18 @@ class Terminology(BaseModel):
     name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
+    uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
     loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the version of the terminology is loaded")
-    release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
     family: Optional[StrictStr] = Field(default=None, description="Family of related terminologies this one belongs to")
-    uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
     roots: Optional[List[StrictStr]] = Field(default=None, description="Root codes in the hierarchy")
     concept_ct: Optional[StrictInt] = Field(default=None, description="Count of number of concepts in the terminology", alias="conceptCt")
     relationship_ct: Optional[StrictInt] = Field(default=None, description="Count of number of concept relationships in the terminology", alias="relationshipCt")
     tree_position_ct: Optional[StrictInt] = Field(default=None, description="Count of number of concept tree positions in the terminology", alias="treePositionCt")
     statistics: Optional[Dict[str, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "latest", "loaded", "releaseDate", "family", "uri", "attributes", "roots", "conceptCt", "relationshipCt", "treePositionCt", "statistics"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "releaseDate", "uri", "latest", "loaded", "family", "attributes", "roots", "conceptCt", "relationshipCt", "treePositionCt", "statistics"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,11 +114,11 @@ class Terminology(BaseModel):
             "name": obj.get("name"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "releaseDate": obj.get("releaseDate"),
+            "uri": obj.get("uri"),
             "latest": obj.get("latest"),
             "loaded": obj.get("loaded"),
-            "releaseDate": obj.get("releaseDate"),
             "family": obj.get("family"),
-            "uri": obj.get("uri"),
             "attributes": obj.get("attributes"),
             "roots": obj.get("roots"),
             "conceptCt": obj.get("conceptCt"),

@@ -3,7 +3,7 @@
 """
     Terminology Hub Terminology Terminology API
 
-    API documentation for the interacting with terminologies and concepts. <p>For a guided tour of using this API, see our github project <a href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p>
+    <div>API documentation for the interacting with terminologies and concepts. <hr width=\"100%\" /><p>For a guided tour of using this API, see our github project <a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes\">https://github.com/terminologyhub/termhub-in-5-minutes</a></p><hr width=\"100%\" /><p>For a local runtime container version of this API, see github project <a href=\"https://github.com/terminologyhub/open-termhub\">https://github.com/terminologyhub/open-termhub</a></p><hr width=\"100%\" /><p>Watch the video documentation on the right for more info on using is API documentation page</p></div><div id=\"video-destination\"></div>
 
     The version of the OpenAPI document: 1.0.0
     Contact: info@terminologyhub.com
@@ -35,15 +35,16 @@ class ConceptRef(BaseModel):
     modified_by: Optional[StrictStr] = Field(default=None, description="Last modified by", alias="modifiedBy")
     local: Optional[StrictBool] = Field(default=None, description="Indicates whether this data element is locally created")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the component is active")
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, description="Concept name")
     code: Optional[StrictStr] = Field(default=None, description="Terminology code, typically representing a unit of meaning")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
-    version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
-    publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation")
+    version: Optional[StrictStr] = Field(default=None, description="Terminology version")
+    publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher")
+    historical: Optional[StrictStr] = Field(default=None, description="Historical relationship type (only used for concept descendants)")
     leaf: Optional[StrictBool] = Field(default=None, description="Indicates whether or not this concept is a leaf node in its hierarchy")
     defined: Optional[StrictBool] = Field(default=None, description="Indicates whether or not this concept has a logical definition with necessary and sufficient conditions")
     level: Optional[StrictInt] = Field(default=None, description="Level of depth")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "code", "terminology", "version", "publisher", "leaf", "defined", "level"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "name", "code", "terminology", "version", "publisher", "historical", "leaf", "defined", "level"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,6 +109,7 @@ class ConceptRef(BaseModel):
             "terminology": obj.get("terminology"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "historical": obj.get("historical"),
             "leaf": obj.get("leaf"),
             "defined": obj.get("defined"),
             "level": obj.get("level")
