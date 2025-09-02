@@ -18,21 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
-from termhub.models.concept_tree_position import ConceptTreePosition
-from termhub.models.search_parameters import SearchParameters
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ResultListConceptTreePosition(BaseModel):
+class IdentifierRef(BaseModel):
     """
-    Represents a list of concept tree positions returned from a find call
+    Alternate identifiers associated with the concept
     """ # noqa: E501
-    total: Optional[StrictInt] = Field(default=None, description="Total number of results (often this list represents just a single page)")
-    parameters: Optional[SearchParameters] = None
-    items: Optional[List[ConceptTreePosition]] = Field(default=None, description="items of the result list")
-    __properties: ClassVar[List[str]] = ["total", "parameters", "items"]
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
+    confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
+    label: Optional[StrictStr] = Field(default=None, description="Identifier label, e.g. \"OMOP\"")
+    __properties: ClassVar[List[str]] = ["id", "confidence", "label"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +50,7 @@ class ResultListConceptTreePosition(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ResultListConceptTreePosition from a JSON string"""
+        """Create an instance of IdentifierRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,21 +71,11 @@ class ResultListConceptTreePosition(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of parameters
-        if self.parameters:
-            _dict['parameters'] = self.parameters.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
-        _items = []
-        if self.items:
-            for _item in self.items:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['items'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ResultListConceptTreePosition from a dict"""
+        """Create an instance of IdentifierRef from a dict"""
         if obj is None:
             return None
 
@@ -95,9 +83,9 @@ class ResultListConceptTreePosition(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": obj.get("total"),
-            "parameters": SearchParameters.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
-            "items": [ConceptTreePosition.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "id": obj.get("id"),
+            "confidence": obj.get("confidence"),
+            "label": obj.get("label")
         })
         return _obj
 

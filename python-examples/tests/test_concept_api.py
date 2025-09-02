@@ -36,7 +36,7 @@ class TestConceptApi:
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query}...")
-        response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, None, None,
+        response: ResultListConcept = concept_api.find_project_concepts(self.project_id, self.term, self.query, None, None,
                                                                 limit,
                                                                 None, None,
                                                                 None, None, None, _headers=headers)
@@ -61,7 +61,7 @@ class TestConceptApi:
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query} and {expression}...")
-        response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, expression,
+        response: ResultListConcept = concept_api.find_project_concepts(self.project_id, self.term, self.query, expression,
                                                                 offset, limit, None, None, None, None, None,
                                                                 _headers=headers)
         
@@ -83,7 +83,7 @@ class TestConceptApi:
         
         # ACT
         self.logger.info(f"  Getting {self.term} concept for {self.query} with include params...")
-        response: ResultListConcept = concept_api.find_concepts(self.project_id, self.term, self.query, None, None,
+        response: ResultListConcept = concept_api.find_project_concepts(self.project_id, self.term, self.query, None, None,
                                                                 limit, None, None, None, None, include,
                                                                 _headers=headers)
         

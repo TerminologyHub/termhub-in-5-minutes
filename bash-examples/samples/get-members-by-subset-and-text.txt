@@ -1,0 +1,249 @@
+-----------------------------------------------------
+Starting ...Wed Jul 30 06:58:09 PDT 2025
+-----------------------------------------------------
+url = https://dev.terminologyhub.com
+project = sandbox
+subset = SNOMEDCT_US-MODEL
+query = map
+offset = 0
+limit = 10
+sort =
+ascending =
+
+  Find members: map
+
+    {
+      "total": 19,
+      "parameters": {
+        "query": "map",
+        "limit": 10,
+        "offset": 0
+      },
+      "items": [
+        {
+          "id": "3d6ba49d-8bfb-498b-bc04-8b0963c1fde5",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.599+00:00",
+          "created": "2025-07-10T23:10:38.599+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map rule",
+          "code": "900000000000503008",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "e80d7fec-821f-4f9e-a3fa-43629548ab31",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.599+00:00",
+          "created": "2025-07-10T23:10:38.599+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map target",
+          "code": "900000000000505001",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "2d2041ad-edb2-47fd-9099-a47c5494f1cb",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.600+00:00",
+          "created": "2025-07-10T23:10:38.600+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map source",
+          "code": "900000000000500006",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "ffe29ff8-28f9-46a9-aee3-e7330617d490",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.600+00:00",
+          "created": "2025-07-10T23:10:38.600+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map priority",
+          "code": "900000000000502003",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "363d3a86-437f-4c03-84b8-2336020a829f",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.600+00:00",
+          "created": "2025-07-10T23:10:38.600+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map group",
+          "code": "900000000000501005",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "d5f0e652-85cc-4325-b6b0-1bf3201556be",
+          "confidence": 25.338603973388672,
+          "modified": "2025-07-10T23:10:38.601+00:00",
+          "created": "2025-07-10T23:10:38.601+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map advice",
+          "code": "900000000000504002",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "46378c4b-bc75-4b60-8640-9dee9e73f7d2",
+          "confidence": 25.037185668945312,
+          "modified": "2025-07-10T23:10:38.600+00:00",
+          "created": "2025-07-10T23:10:38.600+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map source to map target correlation",
+          "code": "1193546000",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "958730c5-81d6-4bb9-8c5d-5cef3dcf9b38",
+          "confidence": 24.16221046447754,
+          "modified": "2025-07-10T23:10:38.599+00:00",
+          "created": "2025-07-10T23:10:38.599+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map category value",
+          "code": "609330002",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "cfccb48c-9688-4875-b2f6-afc086b7a08f",
+          "confidence": 23.919517517089844,
+          "modified": "2025-07-10T23:10:38.600+00:00",
+          "created": "2025-07-10T23:10:38.600+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "Map source to map target correlation not specified",
+          "code": "1193552004",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        },
+        {
+          "id": "31dc7be7-5576-4797-a0f0-89308fab2895",
+          "confidence": 22.416732788085938,
+          "modified": "2025-07-10T23:10:38.599+00:00",
+          "created": "2025-07-10T23:10:38.599+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "version": "20240301",
+          "publisher": "SANDBOX",
+          "name": "ICD-10 map category value",
+          "code": "447634004",
+          "subset": {
+            "local": false,
+            "active": true,
+            "abbreviation": "SNOMEDCT_US-MODEL",
+            "version": "20240301",
+            "publisher": "SANDBOX",
+            "code": "900000000000012004"
+          }
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed Jul 30 06:58:10 PDT 2025
+-----------------------------------------------------
+

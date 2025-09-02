@@ -1,0 +1,331 @@
+{
+  "total": 37,
+  "parameters": {
+    "query": "loaded:true",
+    "limit": 10,
+    "offset": 0
+  },
+  "items": [
+    {
+      "id": "caa91072-6022-470e-858a-dd073f3a40f9",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:22:31.468+00:00",
+      "created": "2025-06-28T02:22:31.468+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-ALL",
+      "name": "All Allergies",
+      "version": "2.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2024-01-01",
+      "latest": false,
+      "loaded": true,
+      "code": "ALLERGY-ALL",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "2.0",
+      "terminology": "ALLERGY",
+      "description": "description: All Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-ALL",
+        "file": "allergy-subset-6.txt",
+        "fhirVersion": "2.0",
+        "fhirId": "termhub_allergy-all_2.0"
+      },
+      "statistics": {
+        "members": 11,
+        "membersActive": 11
+      }
+    },
+    {
+      "id": "f744d971-d062-40e6-96b3-54d7b630a500",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:22:31.468+00:00",
+      "created": "2025-06-28T02:22:31.468+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-FABRIC",
+      "name": "Fabric Allergies",
+      "version": "2.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2024-01-01",
+      "latest": false,
+      "loaded": true,
+      "code": "ALLERGY-FABRIC",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "2.0",
+      "terminology": "ALLERGY",
+      "description": "description: Fabric Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FABRIC",
+        "file": "allergy-subset-5.txt",
+        "fhirVersion": "2.0",
+        "fhirId": "termhub_allergy-fabric_2.0"
+      },
+      "statistics": {
+        "members": 1,
+        "membersActive": 1
+      }
+    },
+    {
+      "id": "6241c3a9-bba5-47eb-873c-e718d5f48cb0",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:23:26.108+00:00",
+      "created": "2025-06-28T02:23:26.108+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-FABRIC",
+      "name": "Fabric Allergies",
+      "version": "3.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2025-01-01",
+      "latest": true,
+      "loaded": true,
+      "code": "ALLERGY-FABRIC",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "3.0",
+      "terminology": "ALLERGY",
+      "description": "description: Fabric Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FABRIC",
+        "file": "allergy-subset-5.txt",
+        "fhirVersion": "3.0",
+        "fhirId": "termhub_allergy-fabric_3.0"
+      },
+      "statistics": {
+        "members": 1,
+        "membersActive": 1
+      }
+    },
+    {
+      "id": "a49d90b3-7da7-416c-b971-6e25640b9603",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:23:26.107+00:00",
+      "created": "2025-06-28T02:23:26.107+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-SY",
+      "name": "Allergies With Synonyms",
+      "version": "3.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2025-01-01",
+      "latest": true,
+      "loaded": true,
+      "code": "ALLERGY-SY",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "3.0",
+      "terminology": "ALLERGY",
+      "description": "This subset contains members that have a preferred name and a synonym",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-SY",
+        "file": "allergy-subset-3.txt",
+        "fhirVersion": "3.0",
+        "fhirId": "termhub_allergy-sy_3.0"
+      },
+      "statistics": {
+        "members": 2,
+        "membersActive": 2
+      }
+    },
+    {
+      "id": "03664014-50a8-4d07-b96f-55e3763d9c18",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:22:31.468+00:00",
+      "created": "2025-06-28T02:22:31.468+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-SY",
+      "name": "Allergies With Synonyms",
+      "version": "2.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2024-01-01",
+      "latest": false,
+      "loaded": true,
+      "code": "ALLERGY-SY",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "2.0",
+      "terminology": "ALLERGY",
+      "description": "description: Allergies With Synonyms",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-SY",
+        "file": "allergy-subset-3.txt",
+        "fhirVersion": "2.0",
+        "fhirId": "termhub_allergy-sy_2.0"
+      },
+      "statistics": {
+        "members": 2,
+        "membersActive": 2
+      }
+    },
+    {
+      "id": "9e1ace48-9395-485c-8c43-6d5c5c1bca27",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:22:31.468+00:00",
+      "created": "2025-06-28T02:22:31.468+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-FOOD",
+      "name": "Food Allergies",
+      "version": "2.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2024-01-01",
+      "latest": false,
+      "loaded": true,
+      "code": "ALLERGY-FOOD",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "2.0",
+      "terminology": "ALLERGY",
+      "description": "description: Food Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FOOD",
+        "file": "allergy-subset-2.txt",
+        "fhirVersion": "2.0",
+        "fhirId": "termhub_allergy-food_2.0"
+      },
+      "statistics": {
+        "members": 4,
+        "membersActive": 4
+      }
+    },
+    {
+      "id": "a07e723a-df4a-443f-8603-d14a76625b64",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:22:31.468+00:00",
+      "created": "2025-06-28T02:22:31.468+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-DRUG",
+      "name": "Drug Allergies",
+      "version": "2.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2024-01-01",
+      "latest": false,
+      "loaded": true,
+      "code": "ALLERGY-DRUG",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "2.0",
+      "terminology": "ALLERGY",
+      "description": "description: Drug Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-DRUG",
+        "file": "allergy-subset-4.txt",
+        "fhirVersion": "2.0",
+        "fhirId": "termhub_allergy-drug_2.0"
+      },
+      "statistics": {
+        "members": 3,
+        "membersActive": 3
+      }
+    },
+    {
+      "id": "474fddec-4b44-4412-ae92-804d431e3b1e",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:23:26.107+00:00",
+      "created": "2025-06-28T02:23:26.107+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-FOOD",
+      "name": "Food Allergies",
+      "version": "3.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2025-01-01",
+      "latest": true,
+      "loaded": true,
+      "code": "ALLERGY-FOOD",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "3.0",
+      "terminology": "ALLERGY",
+      "description": "description: Food Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FOOD",
+        "file": "allergy-subset-2.txt",
+        "fhirVersion": "3.0",
+        "fhirId": "termhub_allergy-food_3.0"
+      },
+      "statistics": {
+        "members": 4,
+        "membersActive": 4
+      }
+    },
+    {
+      "id": "b17bbe3b-432e-4b67-a46a-261b6f656e71",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:23:26.108+00:00",
+      "created": "2025-06-28T02:23:26.108+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-DRUG",
+      "name": "Drug Allergies",
+      "version": "3.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2025-01-01",
+      "latest": true,
+      "loaded": true,
+      "code": "ALLERGY-DRUG",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "3.0",
+      "terminology": "ALLERGY",
+      "description": "description: Drug Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-DRUG",
+        "file": "allergy-subset-4.txt",
+        "fhirVersion": "3.0",
+        "fhirId": "termhub_allergy-drug_3.0"
+      },
+      "statistics": {
+        "members": 3,
+        "membersActive": 3
+      }
+    },
+    {
+      "id": "9ab34afc-f7d1-4a5f-adf6-5e925203024c",
+      "confidence": 0.010929069481790066,
+      "modified": "2025-06-28T02:23:26.109+00:00",
+      "created": "2025-06-28T02:23:26.109+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ALLERGY-ALL",
+      "name": "All Allergies",
+      "version": "3.0",
+      "publisher": "TERMHUB",
+      "releaseDate": "2025-01-01",
+      "latest": true,
+      "loaded": true,
+      "code": "ALLERGY-ALL",
+      "fromPublisher": "TERMHUB",
+      "fromTerminology": "ALLERGY",
+      "fromVersion": "3.0",
+      "terminology": "ALLERGY",
+      "description": "description: All Allergies",
+      "attributes": {
+        "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-ALL",
+        "file": "allergy-subset-6.txt",
+        "fhirVersion": "3.0",
+        "fhirId": "termhub_allergy-all_3.0"
+      },
+      "statistics": {
+        "members": 11,
+        "membersActive": 11
+      }
+    }
+  ]
+}
+
