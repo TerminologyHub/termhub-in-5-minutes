@@ -34,7 +34,7 @@ class TestSubsetApi(unittest.TestCase):
         cls.token = os.getenv("TOKEN")
         cls.project_id = "sandbox"
         cls.project_subset = "SNOMEDCT_US-MODEL"
-        cls.subset_uuid = "e1db453f-07f2-4c9a-a740-6395f7dea053"
+        cls.subset_uuid = "98d907d7-13f3-43ae-a68c-2ab9e8c20576"
 
     def tearDown(self) -> None:
         pass
