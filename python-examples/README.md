@@ -283,7 +283,7 @@ search parameters such as query, limit, offset, sort, and ascending to allow sea
 across available mapsets.
 
 ```
-pytest tests/test_mapset_api.py::TestMapsetApi::test_get_mapsets
+pytest tests/test_mapset_api.py::TestMapsetApi::test_find_mapsets
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -325,7 +325,7 @@ pytest tests/test_subset_api.py::TestSubsetApi::test_get_project_subsets
 Return a specific mapset by its mapsetId (UUID) obtained from a previous call.
 
 ```
-pytest tests/test_mapset_api.py::TestMapsetApi::test_get_specific_mapset
+pytest tests/test_mapset_api.py::TestMapsetApi::test_get_mapset
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -346,7 +346,7 @@ Export zip file of a mapset in a particular format. Currently only format=native
 supported.
 
 ```
-pytest tests/test_mapset_api.py::TestMapsetApi::test_export_mapsets
+pytest tests/test_mapset_api.py::TestMapsetApi::test_export_project_mapset
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -397,7 +397,7 @@ pytest tests/test_mapset_api.py::TestMapsetApi::test_find_project_mapset_mapping
 Search mappings across a project using a query string and paging.
 
 ```
-pytest tests/test_mapset_api.py::TestMapsetApi::test_find_project_mappings
+pytest tests/test_mapset_api.py::TestMapsetApi::test_get_project_mapsets
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
