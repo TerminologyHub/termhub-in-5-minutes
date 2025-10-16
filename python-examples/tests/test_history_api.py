@@ -16,6 +16,10 @@
 import unittest
 
 from termhub.api.history_api import HistoryApi
+import os
+import logging
+import pytest
+from termhub import ResultListConcept
 
 
 class TestHistoryApi(unittest.TestCase):
@@ -23,6 +27,10 @@ class TestHistoryApi(unittest.TestCase):
 
     def setUp(self) -> None:
         self.api = HistoryApi()
+        self.logger = logging.getLogger(__name__)
+        self.token = os.getenv("TOKEN")
+        self.terminology_id = "SNOMEDCT_US"
+        self.prior_version = "20240101"
 
     def tearDown(self) -> None:
         pass
@@ -32,14 +40,38 @@ class TestHistoryApi(unittest.TestCase):
 
         Exports terminology concepts added since prior version
         """
-        pass
+        headers = {"Authorization": f"Bearer {self.token}", "accept": "*/*"}
+        try:
+            self.logger.info(f"  Exporting new concepts since {self.prior_version} for {self.terminology_id}...")
+            response = self.api.export_terminology_history_new_concepts(self.terminology_id, self.prior_version, _headers=headers)
+            if response:
+                path = f"history_new_{self.terminology_id}_{self.prior_version}.txt"
+                with open(path, "wb") as fh:
+                    fh.write(response)
+                self.logger.info(f"  Wrote exported new concepts to {path}")
+            else:
+                self.logger.info("  No data returned from export_terminology_history_new_concepts")
+        except Exception as e:
+            pytest.fail(f"Export terminology history new concepts failed: {e}")
 
     def test_export_terminology_history_retired_concepts(self) -> None:
         """Test case for export_terminology_history_retired_concepts
 
         Exports terminology concepts retired since prior version
         """
-        pass
+        headers = {"Authorization": f"Bearer {self.token}", "accept": "*/*"}
+        try:
+            self.logger.info(f"  Exporting retired concepts since {self.prior_version} for {self.terminology_id}...")
+            response = self.api.export_terminology_history_retired_concepts(self.terminology_id, self.prior_version, _headers=headers)
+            if response:
+                path = f"history_retired_{self.terminology_id}_{self.prior_version}.txt"
+                with open(path, "wb") as fh:
+                    fh.write(response)
+                self.logger.info(f"  Wrote exported retired concepts to {path}")
+            else:
+                self.logger.info("  No data returned from export_terminology_history_retired_concepts")
+        except Exception as e:
+            pytest.fail(f"Export terminology history retired concepts failed: {e}")
 
     def test_get_terminology_history_new_concepts(self) -> None:
         """Test case for get_terminology_history_new_concepts

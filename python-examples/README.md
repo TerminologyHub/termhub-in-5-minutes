@@ -295,7 +295,7 @@ search parameters such as query, limit, offset, sort, and ascending to allow sea
 across available subsets.
 
 ```
-pytest tests/test_subset_api.py::TestSubsetApi::test_get_subsets
+pytest tests/test_subset_api.py::TestSubsetApi::test_find_subsets
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -335,7 +335,7 @@ pytest tests/test_mapset_api.py::TestMapsetApi::test_get_mapset
 Return a specific subset by its subsetId (UUID) obtained from a previous call.
 
 ```
-pytest tests/test_subset_api.py::TestSubsetApi::test_get_specific_subset
+pytest tests/test_subset_api.py::TestSubsetApi::test_get_subset
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -357,7 +357,7 @@ Export zip file of a subset in a particular format. Currently only format=native
 supported.
 
 ```
-pytest tests/test_subset_api.py::TestSubsetApi::test_export_subsets
+pytest tests/test_subset_api.py::TestSubsetApi::test_export_project_subset
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -377,7 +377,7 @@ pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept
 Return members for a specified project subset.
 
 ```
-pytest tests/test_subset_api.py::TestSubsetApi::test_get_project_subset_members
+pytest tests/test_subset_api.py::TestSubsetApi::test_find_project_subset_members
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -418,7 +418,7 @@ Compute the set of new concept codes in a terminology since a prior version date
 operation can be slow for large terminologies.
 
 ```
-pytest tests/test_History_api.py::TestHistoryApi::test_compute_new_codes_since_prior_version
+pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_new_concepts
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -429,7 +429,7 @@ Compute the set of retired concept codes in a terminology since a prior version 
 operation can be slow for large terminologies.
 
 ```
-pytest tests/test_History_api.py::TestHistoryApi::test_compute_retired_codes_since_prior_version
+pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_retired_concepts
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
