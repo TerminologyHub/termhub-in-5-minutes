@@ -387,7 +387,7 @@ pytest tests/test_subset_api.py::TestSubsetApi::test_get_project_subset_members
 Search mappings within a project-scoped mapset using a query string and paging.
 
 ```
-pytest tests/test_mapping_api.py::TestMappingApi::test_find_project_mappings_for_mapset
+pytest tests/test_mapset_api.py::TestMapsetApi::test_find_project_mapset_mappings
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -397,7 +397,7 @@ pytest tests/test_mapping_api.py::TestMappingApi::test_find_project_mappings_for
 Search mappings across a project using a query string and paging.
 
 ```
-pytest tests/test_mapping_api.py::TestMappingApi::test_find_project_mappings
+pytest tests/test_mapset_api.py::TestMapsetApi::test_find_project_mappings
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -418,7 +418,7 @@ Compute the set of new concept codes in a terminology since a prior version date
 operation can be slow for large terminologies.
 
 ```
-pytest tests/test_terminology_api.py::TestTerminologyApi::test_compute_new_codes_since_prior_version
+pytest tests/test_History_api.py::TestHistoryApi::test_compute_new_codes_since_prior_version
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
@@ -429,7 +429,7 @@ Compute the set of retired concept codes in a terminology since a prior version 
 operation can be slow for large terminologies.
 
 ```
-pytest tests/test_terminology_api.py::TestTerminologyApi::test_compute_retired_codes_since_prior_version
+pytest tests/test_History_api.py::TestHistoryApi::test_compute_retired_codes_since_prior_version
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
