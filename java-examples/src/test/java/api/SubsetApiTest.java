@@ -13,6 +13,10 @@
 
 package api;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -213,9 +217,48 @@ public class SubsetApiTest {
      */
     @Test
     public void getSubsetTest() throws ApiException {
-        //String id = null;
-        //Subset response = api.getSubset(id);
+        String id = "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6";
+        Subset response = api.getSubset(id);
+        assertNotNull(response);
+        assertNotNull(response.getId());
+
+        assertTrue(response.getId().toString().equals(id));
         // TODO: test validations
+    }
+
+    /**
+     * Export subset
+     * 
+     * Exports specified subset in the specified format.
+     * 
+     * @throws ApiException if the Api call fails
+     * 
+     */
+    @Test
+    public void exportSubsetTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String mapset = "SNOMEDCT_US-MODEL";
+        String format = "native";
+        byte[] response;
+        response = api.exportProjectSubset(idOrUriLabel, mapset, format);
+        assertNotNull(response);
+        assertTrue(response.length > 0);
+        // write the response to a file
+        try {
+            FileOutputStream fos = new FileOutputStream("SNOMEDCT_US-MODEL.zip");
+            fos.write(response);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to write file: " + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+            Assertions.fail("Failed to write file: " + e.getMessage());
+        }
+        // Verify the file was created
+        File file = new File("SNOMEDCT_US-MODEL.zip");
+        assertTrue(file.exists(), "File should exist");
+        assertTrue(file.length() > 0, "File should not be empty");
     }
 
 }
