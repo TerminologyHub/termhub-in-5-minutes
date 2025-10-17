@@ -114,30 +114,39 @@ public class SubsetApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void findProjectMembersTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String subset = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //ResultListSubsetMember response = api.findProjectMembers(idOrUriLabel, subset, query, offset, limit, sort, ascending, active);
+    public void findProjectSubsetMembersTest() throws ApiException {
+        String idOrUriLabel = "sandbox";
+        String subset = "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6"; // SNOMEDCT_US-MODEL
+        String query = "description";
+        Integer offset = null;
+        Integer limit = 5;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        ResultListSubsetMember response = api.findProjectMembers(idOrUriLabel, subset, query, offset, limit, sort, ascending, active);
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        assertTrue(response.getItems().size() >= 0);
+        assertTrue(response.getItems().size() <= 5);
+        for (SubsetMember item : response.getItems()) {
+            assertNotNull(item);
+            assertNotNull(item.getName());
+            assertTrue(item.getName().toLowerCase().contains("description"));
+        }
         // TODO: test validations
     }
 
     /**
-     * Find members for the specified project subset
+     * Get members for the specified project subset
      *
-     * Finds members for the specified project subset and the specified search criteria.
+     * Gets members for the specified project subset and the specified search criteria.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void findProjectSubsetMembersTest() throws ApiException {
+    public void getSubsetMembersTest() throws ApiException {
         String idOrUriLabel = "sandbox";
-        String subset = "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6";
+        String subset = "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6"; // SNOMEDCT_US-MODEL
         String query = null;
         Integer offset = null;
         Integer limit = null;
