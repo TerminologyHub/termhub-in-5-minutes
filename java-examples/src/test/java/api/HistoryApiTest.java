@@ -13,25 +13,15 @@
 
 package api;
 
-import api.invoker.*;
-import api.invoker.auth.*;
-import api.model.ConceptRef;
-import java.io.File;
-
-import api.model.AuthResponse;
-import api.model.ResultListTerminology;
-import api.model.Terminology;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import api.invoker.ApiException;
+import api.model.AuthResponse;
+import api.model.ConceptRef;
 
 /**
  * API tests for HistoryApi
@@ -83,9 +73,9 @@ public class HistoryApiTest {
      */
     @Test
     public void exportTerminologyHistoryRetiredConceptsTest() throws ApiException {
-        //String id = null;
-        //String priorVersion = null;
-        //File response = api.exportTerminologyHistoryRetiredConcepts(id, priorVersion);
+        // String id = null;
+        // String priorVersion = null;
+        // File response = api.exportTerminologyHistoryRetiredConcepts(id, priorVersion);
         // TODO: test validations
     }
 
@@ -98,9 +88,9 @@ public class HistoryApiTest {
      */
     @Test
     public void getTerminologyHistoryNewConceptsTest() throws ApiException {
-        //String id = null;
-        //String priorVersion = null;
-        //List<ConceptRef> response = api.getTerminologyHistoryNewConcepts(id, priorVersion);
+        String id = null;
+        String priorVersion = null;
+        List<ConceptRef> response = api.getTerminologyHistoryNewConcepts(id, priorVersion);
         // TODO: test validations
     }
 
@@ -113,9 +103,9 @@ public class HistoryApiTest {
      */
     @Test
     public void getTerminologyHistoryRetiredConceptsTest() throws ApiException {
-        //String id = null;
-        //String priorVersion = null;
-        //List<ConceptRef> response = api.getTerminologyHistoryRetiredConcepts(id, priorVersion);
+        String id = null;
+        String priorVersion = null;
+        List<ConceptRef> response = api.getTerminologyHistoryRetiredConcepts(id, priorVersion);
         // TODO: test validations
     }
 
