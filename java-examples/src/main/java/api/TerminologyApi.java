@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-17T09:49:56.802404500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class TerminologyApi {
   private ApiClient apiClient;
 
@@ -59,10 +59,10 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public byte[] exportProjectTerminology(String idOrUriLabel, String terminology, String format) throws ApiException {
@@ -80,10 +80,10 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<byte[]> exportProjectTerminologyWithHttpInfo(String idOrUriLabel, String terminology, String format) throws ApiException {
@@ -129,11 +129,11 @@ public class TerminologyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public String exportTerminologyConcepts(String id, String query, String sort, Boolean ascending) throws ApiException {
@@ -153,11 +153,11 @@ public class TerminologyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<String> exportTerminologyConceptsWithHttpInfo(String id, String query, String sort, Boolean ascending) throws ApiException {
@@ -198,11 +198,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching terminologies </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ResultListTerminology findTerminologies(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -222,11 +222,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching terminologies </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListTerminology> findTerminologiesWithHttpInfo(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -261,12 +261,12 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConcept findTerminologyConcepts(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -287,12 +287,12 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConcept> findTerminologyConceptsWithHttpInfo(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -331,11 +331,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project terminologies </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public List<Terminology> getProjectTerminologies(String idOrUriLabel) throws ApiException {
@@ -351,11 +351,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project terminologies </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Terminology>> getProjectTerminologiesWithHttpInfo(String idOrUriLabel) throws ApiException {
@@ -385,11 +385,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public Terminology getTerminology(String id) throws ApiException {
@@ -405,11 +405,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Terminology> getTerminologyWithHttpInfo(String id) throws ApiException {

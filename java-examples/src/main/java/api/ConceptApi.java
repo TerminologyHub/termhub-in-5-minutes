@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-17T09:49:56.802404500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class ConceptApi {
   private ApiClient apiClient;
 
@@ -61,12 +61,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public String exportLookup(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf) throws ApiException {
@@ -88,12 +88,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<String> exportLookupWithHttpInfo(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf) throws ApiException {
@@ -143,11 +143,11 @@ public class ConceptApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public String exportProjectConcepts(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
@@ -171,11 +171,11 @@ public class ConceptApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<String> exportProjectConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, String sort, Boolean ascending, Boolean active, Boolean leaf) throws ApiException {
@@ -229,12 +229,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConcept findProjectConcepts(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
@@ -260,12 +260,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConcept> findProjectConceptsWithHttpInfo(String idOrUriLabel, String terminology, String query, String expression, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active, Boolean leaf, String include) throws ApiException {
@@ -316,12 +316,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> List of result lists of matching concepts for each query </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public List<ResultListConcept> lookup(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf, String include) throws ApiException {
@@ -344,12 +344,12 @@ public class ConceptApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> List of result lists of matching concepts for each query </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<ResultListConcept>> lookupWithHttpInfo(String idOrUriLabel, String body, String terminology, String expression, Integer limit, Boolean active, Boolean leaf, String include) throws ApiException {
