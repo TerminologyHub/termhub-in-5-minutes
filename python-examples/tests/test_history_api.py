@@ -29,7 +29,7 @@ class TestHistoryApi(unittest.TestCase):
         self.api = HistoryApi()
         self.logger = logging.getLogger(__name__)
         self.token = os.getenv("TOKEN")
-        self.terminology_id = "SNOMEDCT_US"
+        self.terminology_id = "177f2263-fe04-4f1f-b0e6-9b351ab8baa9"
         self.prior_version = "20240101"
 
     def tearDown(self) -> None:
@@ -78,6 +78,15 @@ class TestHistoryApi(unittest.TestCase):
 
         Get terminology concepts added since prior version
         """
+        headers = {"Authorization": f"Bearer {self.token}", "accept": "application/json"}
+        try:
+            self.logger.info(f"  Getting new concepts since {self.prior_version} for {self.terminology_id}...")
+            response: ResultListConcept = self.api.get_terminology_history_new_concepts(self.terminology_id, self.prior_version, _headers=headers)
+            self.logger.info(f"  Retrieved {len(response.items)} new concepts.")
+            for concept in response.items:
+                self.logger.info(f"    Concept: {concept.id} - {concept.fsn}")
+        except Exception as e:
+            pytest.fail(f"Get terminology history new concepts failed: {e}")
         pass
 
     def test_get_terminology_history_retired_concepts(self) -> None:
@@ -85,6 +94,15 @@ class TestHistoryApi(unittest.TestCase):
 
         Get terminology concepts retired since prior version
         """
+        headers = {"Authorization": f"Bearer {self.token}", "accept": "application/json"}
+        try:
+            self.logger.info(f"  Getting retired concepts since {self.prior_version} for {self.terminology_id}...")
+            response: ResultListConcept = self.api.get_terminology_history_retired_concepts(self.terminology_id, self.prior_version, _headers=headers)
+            self.logger.info(f"  Retrieved {len(response.items)} retired concepts.")
+            for concept in response.items:
+                self.logger.info(f"    Concept: {concept.id} - {concept.fsn}")
+        except Exception as e:
+            pytest.fail(f"Get terminology history retired concepts failed: {e}")
         pass
 
 
