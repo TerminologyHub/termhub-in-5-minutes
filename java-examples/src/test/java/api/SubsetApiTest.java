@@ -28,7 +28,9 @@ import org.junit.jupiter.api.Test;
 import api.invoker.ApiException;
 import api.model.AuthResponse;
 import api.model.ResultListSubset;
+import api.model.ResultListSubsetMember;
 import api.model.Subset;
+import api.model.SubsetMember;
 
 /**
  * API tests for SubsetApi
@@ -134,15 +136,24 @@ public class SubsetApiTest {
      */
     @Test
     public void findProjectSubsetMembersTest() throws ApiException {
-        //String idOrUriLabel = null;
-        //String subset = null;
-        //String query = null;
-        //Integer offset = null;
-        //Integer limit = null;
-        //String sort = null;
-        //Boolean ascending = null;
-        //Boolean active = null;
-        //ResultListSubsetMember response = api.findProjectSubsetMembers(idOrUriLabel, subset, query, offset, limit, sort, ascending, active);
+        String idOrUriLabel = "sandbox";
+        String subset = "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6";
+        String query = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        Boolean ascending = null;
+        Boolean active = null;
+        ResultListSubsetMember response = api.findProjectSubsetMembers(idOrUriLabel, subset, query, offset, limit, sort, ascending, active);
+        assertNotNull(response);
+        assertNotNull(response.getItems());
+        assertTrue(response.getItems().size() >= 0);
+        for (SubsetMember item : response.getItems()) {
+            assertNotNull(item);
+            assertNotNull(item.getSubset());
+            assertTrue(item.getPublisher().toLowerCase().equals("sandbox"));
+            assertTrue(item.getSubset().getAbbreviation().toLowerCase().contains("snomedct_us-model"));
+        }
         // TODO: test validations
     }
 
