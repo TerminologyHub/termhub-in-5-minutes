@@ -1,0 +1,128 @@
+Response: [
+    {
+        "id": "98d907d7-13f3-43ae-a68c-2ab9e8c20576",
+        "confidence": 5.624770164489746,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-EXTENSION",
+        "name": "SNOMEDCT_US extension concepts",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "releaseDate": "2024-03-01",
+        "latest": true,
+        "loaded": true,
+        "code": "731000124108",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "terminology": "SNOMEDCT_US",
+        "description": "US National Library of Medicine maintained module",
+        "attributes": {
+            "fhirUri": "http://snomed.info/sct?fhir_vs=731000124108",
+            "fhirVersion": "20240301",
+            "fhirId": "sandbox_731000124108_20240301"
+        },
+        "statistics": {
+            "members": 4,
+            "membersActive": 4
+        }
+    },
+    {
+        "id": "54c3f5eb-1b28-494d-b4a1-f4355170c94f",
+        "confidence": 5.624770164489746,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-CORE",
+        "name": "SNOMEDCT core concepts",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "releaseDate": "2024-03-01",
+        "latest": true,
+        "loaded": true,
+        "code": "900000000000207008",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "terminology": "SNOMEDCT_US",
+        "description": "SNOMED CT core",
+        "attributes": {
+            "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000207008",
+            "fhirVersion": "20240301",
+            "fhirId": "sandbox_900000000000207008_20240301"
+        },
+        "statistics": {
+            "members": 323,
+            "membersActive": 323
+        }
+    },
+    {
+        "id": "4bd3b9ca-d577-4fc7-9569-2ce8c0932f63",
+        "confidence": 5.4816694259643555,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-723264001",
+        "name": "Lateralizable body structure reference set",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "releaseDate": "2024-03-01",
+        "latest": true,
+        "loaded": true,
+        "code": "723264001",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "terminology": "SNOMEDCT_US",
+        "description": "Lateralizable body structure reference set",
+        "attributes": {
+            "fhirUri": "http://snomed.info/sct?fhir_vs=723264001",
+            "fhirVersion": "20240301",
+            "fhirId": "sandbox_723264001_20240301"
+        },
+        "statistics": {
+            "members": 12,
+            "membersActive": 12
+        }
+    },
+    {
+        "id": "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6",
+        "confidence": 5.624770164489746,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-MODEL",
+        "name": "SNOMEDCT model concepts",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "releaseDate": "2024-03-01",
+        "latest": true,
+        "loaded": true,
+        "code": "900000000000012004",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "terminology": "SNOMEDCT_US",
+        "description": "SNOMED CT model component",
+        "attributes": {
+            "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000012004",
+            "fhirVersion": "20240301",
+            "fhirId": "sandbox_900000000000012004_20240301"
+        },
+        "statistics": {
+            "members": 129,
+            "membersActive": 129
+        }
+    }
+]
+
+SubsetApiTest > getProjectSubsetsTest()
