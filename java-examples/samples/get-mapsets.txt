@@ -1,8 +1,8 @@
 Response: class ResultListMapset {
-        total: 98
+        total: 113
         parameters: class SearchParameters {
             terminology: null
-            query: loaded:true
+            query: null
             expression: null
             filters: {}
             limit: 10
@@ -14,7 +14,7 @@ Response: class ResultListMapset {
         }
         items: [class Mapset {
             id: 145e8ada-d079-420f-af9d-783a9b3a5c29
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-21T17:26:41.670Z
             created: 2024-08-21T17:26:41.670Z
             modifiedBy: loader
@@ -42,7 +42,7 @@ Response: class ResultListMapset {
             statistics: {mappings=169, uniqueFromCodes=169, mappingsEmptyTarget=0, mappingsActive=169, uniqueToCodes=85}
         }, class Mapset {
             id: 58445968-9abf-459a-9e4d-d1b5518dc4fe
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-21T17:26:41.670Z
             created: 2024-08-21T17:26:41.670Z
             modifiedBy: loader
@@ -70,7 +70,7 @@ Response: class ResultListMapset {
             statistics: {mappings=169, uniqueFromCodes=85, mappingsEmptyTarget=0, mappingsActive=169, uniqueToCodes=169}
         }, class Mapset {
             id: 13afa4ee-c6ac-49fa-8875-9061a4a1e975
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-21T17:25:15.593Z
             created: 2024-08-21T17:25:15.593Z
             modifiedBy: loader
@@ -98,7 +98,7 @@ Response: class ResultListMapset {
             statistics: {mappings=170, uniqueFromCodes=84, mappingsEmptyTarget=0, mappingsActive=170, uniqueToCodes=170}
         }, class Mapset {
             id: 9f538945-d646-4cf0-a7ea-e808837b3d5c
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-21T17:23:55.027Z
             created: 2024-08-21T17:23:55.027Z
             modifiedBy: loader
@@ -126,7 +126,7 @@ Response: class ResultListMapset {
             statistics: {mappings=167, uniqueFromCodes=83, mappingsEmptyTarget=0, mappingsActive=167, uniqueToCodes=167}
         }, class Mapset {
             id: 806dfb9f-513d-4893-94df-1477374b4d36
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-13T01:53:32.306Z
             created: 2024-08-13T01:53:32.306Z
             modifiedBy: loader
@@ -154,7 +154,7 @@ Response: class ResultListMapset {
             statistics: {mappings=170, uniqueFromCodes=170, mappingsEmptyTarget=0, mappingsActive=170, uniqueToCodes=84}
         }, class Mapset {
             id: a0ef5ab8-8142-4c9f-a2c7-93637c52403f
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-13T02:10:33.718Z
             created: 2024-08-13T02:10:33.718Z
             modifiedBy: loader
@@ -182,7 +182,7 @@ Response: class ResultListMapset {
             statistics: {mappings=167, uniqueFromCodes=167, mappingsEmptyTarget=0, mappingsActive=167, uniqueToCodes=83}
         }, class Mapset {
             id: 2a545e12-04eb-48ee-b988-c17346b4e05f
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-23T18:59:26.487Z
             created: 2024-08-23T18:59:26.487Z
             modifiedBy: loader
@@ -210,7 +210,7 @@ Response: class ResultListMapset {
             statistics: {mappings=64, uniqueFromCodes=41, mappingsEmptyTarget=15, mappingsActive=64, uniqueToCodes=35}
         }, class Mapset {
             id: b47612ba-54d8-4cf6-aca8-3beda5c597aa
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-23T19:06:56.085Z
             created: 2024-08-23T19:06:56.085Z
             modifiedBy: loader
@@ -238,7 +238,7 @@ Response: class ResultListMapset {
             statistics: {mappings=266336, uniqueFromCodes=133665, mappingsEmptyTarget=25812, mappingsActive=266336, uniqueToCodes=21021}
         }, class Mapset {
             id: 1d7d707c-19db-4158-bc3d-82a02dd1e9fa
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-26T16:28:24.995Z
             created: 2024-08-26T16:28:24.995Z
             modifiedBy: loader
@@ -266,7 +266,7 @@ Response: class ResultListMapset {
             statistics: {mappings=256479, uniqueFromCodes=130996, mappingsEmptyTarget=25015, mappingsActive=256479, uniqueToCodes=20607}
         }, class Mapset {
             id: 0280502a-7fe2-49f5-a1bb-2fb7e030c3c5
-            confidence: 0.004728141240775585
+            confidence: 1.0041754245758057
             modified: 2024-08-21T17:28:00.583Z
             created: 2024-08-21T17:28:00.583Z
             modifiedBy: loader
