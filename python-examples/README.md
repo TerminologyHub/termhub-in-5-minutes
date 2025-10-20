@@ -414,6 +414,8 @@ pytest tests/test_subset_api.py::TestSubsetApi::test_find_project_subset_members
 
 ### Compute new codes since prior version (slow)
 
+WARNING: This call could take over a minute to complete. Test with caution.
+
 Compute the set of new concept codes in a terminology since a prior version date. This
 operation can be slow for large terminologies.
 
@@ -424,6 +426,8 @@ pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_n
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 ### Compute retired codes since prior version (slow)
+
+WARNING: This call could take over a minute to complete. Test with caution.
 
 Compute the set of retired concept codes in a terminology since a prior version date. This
 operation can be slow for large terminologies.

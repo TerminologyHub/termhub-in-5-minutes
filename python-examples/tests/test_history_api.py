@@ -29,8 +29,8 @@ class TestHistoryApi(unittest.TestCase):
         self.api = HistoryApi()
         self.logger = logging.getLogger(__name__)
         self.token = os.getenv("TOKEN")
-        self.terminology_id = "177f2263-fe04-4f1f-b0e6-9b351ab8baa9"
-        self.prior_version = "20240101"
+        self.terminology_id = "33c1b4dc-bab4-4194-b79b-aafe5e07fd19"
+        self.prior_version = "20250301"
 
     def tearDown(self) -> None:
         pass
@@ -82,9 +82,9 @@ class TestHistoryApi(unittest.TestCase):
         try:
             self.logger.info(f"  Getting new concepts since {self.prior_version} for {self.terminology_id}...")
             response: ResultListConcept = self.api.get_terminology_history_new_concepts(self.terminology_id, self.prior_version, _headers=headers)
-            self.logger.info(f"  Retrieved {len(response.items)} new concepts.")
-            for concept in response.items:
-                self.logger.info(f"    Concept: {concept.id} - {concept.fsn}")
+            self.logger.info(f"  Retrieved {len(response)} new concepts.")
+            assert response is not None
+            assert len(response) > 0
         except Exception as e:
             pytest.fail(f"Get terminology history new concepts failed: {e}")
         pass
@@ -98,9 +98,9 @@ class TestHistoryApi(unittest.TestCase):
         try:
             self.logger.info(f"  Getting retired concepts since {self.prior_version} for {self.terminology_id}...")
             response: ResultListConcept = self.api.get_terminology_history_retired_concepts(self.terminology_id, self.prior_version, _headers=headers)
-            self.logger.info(f"  Retrieved {len(response.items)} retired concepts.")
-            for concept in response.items:
-                self.logger.info(f"    Concept: {concept.id} - {concept.fsn}")
+            assert response is not None
+            assert len(response) > 0
+            self.logger.info(f"  Retrieved {len(response)} retired concepts.")
         except Exception as e:
             pytest.fail(f"Get terminology history retired concepts failed: {e}")
         pass

@@ -16,6 +16,7 @@ package api;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -88,10 +89,12 @@ public class HistoryApiTest {
      */
     @Test
     public void getTerminologyHistoryNewConceptsTest() throws ApiException {
-        String id = null;
-        String priorVersion = null;
+        String id = "33c1b4dc-bab4-4194-b79b-aafe5e07fd19";
+        String priorVersion = "20250301";
         List<ConceptRef> response = api.getTerminologyHistoryNewConcepts(id, priorVersion);
         // TODO: test validations
+        assertTrue(response != null);
+        assertTrue(!response.isEmpty());
     }
 
     /**
@@ -103,10 +106,12 @@ public class HistoryApiTest {
      */
     @Test
     public void getTerminologyHistoryRetiredConceptsTest() throws ApiException {
-        String id = null;
-        String priorVersion = null;
+        String id = "33c1b4dc-bab4-4194-b79b-aafe5e07fd19";
+        String priorVersion = "20250301";
         List<ConceptRef> response = api.getTerminologyHistoryRetiredConcepts(id, priorVersion);
         // TODO: test validations
+        assertTrue(response != null);
+        assertTrue(!response.isEmpty());
     }
 
 }
