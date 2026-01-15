@@ -123,3 +123,28 @@ class TestConceptByCodeApi:
         # ASSERT
         assert response is not None, "ERROR: Response is None"
         self.logger.info(f"Concept Relationships: ")
+
+    def test_get_concept_mappings(self, concept_by_code_api):
+        """
+        Test the get concept mappings by code endpoint with SNOMEDCT terminology and a code for diabetes in
+        the sandbox project. This will call the termhub api and return the results
+        """
+        # SETUP
+        code: str = "73211009"
+        id_or_uri_label: str = "sandbox"
+        terminology: str = "SNOMEDCT_US"
+        headers: dict[str, str] = {"Authorization": f"Bearer {self.token}"}
+
+        # ACT
+        self.logger.info(f"  Getting {terminology} concept mappings for {code}...")
+        # call signature: get_concept_mappings(id_or_uri_label, terminology, code, _request_timeout=None, _request_auth=None, _content_type=None, _headers=None, _host_index=0)
+        response: ResultListConceptRelationship = concept_by_code_api.get_concept_mappings(
+            self.project_id,
+            terminology,
+            code,
+            _headers=headers,
+        )
+
+        # ASSERT
+        assert response is not None, "ERROR: Response is None"
+        self.logger.info(f"Concept Mappings: {response}")
