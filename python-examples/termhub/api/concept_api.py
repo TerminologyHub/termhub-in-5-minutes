@@ -124,6 +124,9 @@ class ConceptApi:
             '200': "str",
             '417': None,
             '404': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -220,6 +223,9 @@ class ConceptApi:
             '200': "str",
             '417': None,
             '404': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -316,6 +322,9 @@ class ConceptApi:
             '200': "str",
             '417': None,
             '404': None,
+            '401': None,
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -508,12 +517,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -608,12 +617,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -708,12 +717,12 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "str",
             '417': None,
+            '401': None,
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -912,7 +921,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListConcept",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListConcept",
@@ -1024,7 +1037,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListConcept",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListConcept",
@@ -1136,7 +1153,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListConcept",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListConcept",
@@ -1343,7 +1364,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '500': None,
+            '200': "List[ResultListConcept]",
             '403': None,
             '500': None,
             '417': None,
@@ -1443,7 +1468,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '500': None,
+            '200': "List[ResultListConcept]",
             '403': None,
             '500': None,
             '417': None,
@@ -1543,7 +1572,11 @@ class ConceptApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '500': None,
+            '200': "List[ResultListConcept]",
             '403': None,
             '500': None,
             '417': None,

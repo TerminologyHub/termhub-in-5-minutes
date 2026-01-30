@@ -37,8 +37,32 @@ All commands to run these tests should be run from that directory.
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term with explicit include parameter](#find-concepts-include)
 - [Find concepts by search term and expression](#find-concepts-expr)
-- [Find terms by search term](#find-terms)
-- [Support autocomplete/typeahead for first few characters typed](#autocomplete)
+- [Find terms by search term](#find-terms-by-search-term)
+- [Support autocomplete/typeahead for first few characters typed](#support-autocompletetypeahead-for-first-few-characters-typed)
+- [Get mapsets](#get-mapsets)
+- [Get subsets](#get-subsets)
+- [Get project mapsets](#get-project-mapsets)
+- [Get project subsets](#get-project-subsets)
+- [Get specific mapset](#get-specific-mapset)
+- [Get specific subset](#get-specific-subset)
+- [Export mapset](#export-mapset)
+- [Export subset](#export-subset)
+- [Get concept mappings by terminology and code](#get-concept-mappings-by-terminology-and-code)
+- [Get subset members for project subset](#get-subset-members)
+- [Find project mappings for mapset](#find-project-mappings-for-mapset)
+- [Find project mappings](#find-project-mappings)
+- [Find project subset members](#find-project-subset-members)
+- [Compute new codes since prior version (slow)](#compute-new-codes-since-prior-version)
+- [Compute retired codes since prior version (slow)](#compute-retired-codes-since-prior-version)
+
+Run tests automatically
+-----------------------
+
+To automatically discover and run the pytest commands listed in this README, run the helper script from this directory:
+
+```
+python python_check.py
+```
 
 Run tests automatically
 -----------------------
@@ -77,7 +101,7 @@ across available terminologies.
 pytest tests/test_terminology_api.py::TestTerminologyApi::test_get_terminologies
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-project-terminologies"/>
 
@@ -89,7 +113,7 @@ Return all terminologies for the specified project identified by either projectI
 pytest tests/test_terminology_api.py::TestTerminologyApi::test_get_project_terminologies
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-terminology"/>
 
@@ -101,7 +125,7 @@ Return a specific terminology by its terminologyId.
 pytest tests/test_terminology_api.py::TestTerminologyApi::test_get_specific_terminology
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="export-terminology"/>
 
@@ -114,7 +138,7 @@ supported.
 pytest tests/test_terminology_api.py::TestTerminologyApi::test_export_terminologies
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-concept-by-code"/>
 
@@ -126,7 +150,7 @@ Look up concept information for a given terminology and code.
 pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_by_code
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-concept-by-code-with-include"/>
 
@@ -141,7 +165,7 @@ that you are interested in. For more information see [INCLUDE.md](../doc/INCLUDE
 pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_by_code_with_include_param
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-concept-relationships"/>
 
@@ -156,7 +180,7 @@ concept pointing to its parent.
 pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_relationships_by_code
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-concept-inverse-relationships"/>
 
@@ -171,7 +195,7 @@ being pointed to from a child.
 pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_inverse_relationships_by_code
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="get-treepos"/>
 
@@ -186,7 +210,7 @@ each one with a different path to the root concept.
 pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_trees
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="find-concepts"/>
 
@@ -199,7 +223,7 @@ example uses paging to get only the first 5 results.
 pytest tests/test_concept_api.py::TestConceptApi::test_get_concept_by_search_term
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="find-concepts"/>
 
@@ -212,7 +236,7 @@ parameter to show that additional data can be loaded with searches.
 pytest tests/test_concept_api.py::TestConceptApi::test_get_concept_by_query_and_include_param
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="find-concepts-expr"/>
 
@@ -229,7 +253,7 @@ concept in SNOMED).
 pytest tests/test_concept_api.py::TestConceptApi::test_get_concept_from_query_and_expression
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="find-terms"/>
 
@@ -244,7 +268,7 @@ users to isolate exactly those terms that resolve from a search.
 pytest tests/test_term_api.py::TestTermApi::test_find_terms_by_search_term
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 
 <a name="autocomplete"/>
 
@@ -259,5 +283,167 @@ algorithm is based on edge ngrams.
 pytest tests/test_term_api.py::TestTermApi::test_autocomplete_and_typeahead
 ```
 
-[Back to Top](#top)
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get mapsets
+
+Return all loaded mapsets currently hosted by the API. This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available mapsets.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_find_mapsets
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get subsets
+
+Return all loaded subsets currently hosted by the API. This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available subsets.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_find_subsets
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get project mapsets
+
+Return all mapsets for the specified project identified by either projectId or projectLabel.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_get_project_mapsets
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get project subsets
+
+Return all subsets for the specified project identified by either projectId or projectLabel.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_get_project_subsets
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get specific mapset
+
+Return a specific mapset by its mapsetId (UUID) obtained from a previous call.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_get_mapset
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get specific subset
+
+Return a specific subset by its subsetId (UUID) obtained from a previous call.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_get_subset
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Export mapset
+
+Export zip file of a mapset in a particular format. Currently only format=native is
+supported.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_export_project_mapset
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Export subset
+
+Export zip file of a subset in a particular format. Currently only format=native is
+supported.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_export_project_subset
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get concept mappings by terminology and code
+
+Get mappings for a specific concept identified by terminology and code.
+
+```
+pytest tests/test_concept_by_code_api.py::TestConceptByCodeApi::test_get_concept_mappings
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Get subset members for project subset
+
+Return members for a specified project subset.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_find_project_subset_members
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Find project mappings for mapset
+
+Search mappings within a project-scoped mapset using a query string and paging.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_find_project_mapset_mappings
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Find project mappings
+
+Search mappings across a project using a query string and paging.
+
+```
+pytest tests/test_mapset_api.py::TestMapsetApi::test_get_project_mapsets
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Find project subset members
+
+Search members within a project subset using a query string and paging.
+
+```
+pytest tests/test_subset_api.py::TestSubsetApi::test_find_project_subset_members
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Compute new codes since prior version (slow)
+
+WARNING: This call could take over a minute to complete. Test with caution.
+
+Compute the set of new concept codes in a terminology since a prior version date. This
+operation can be slow for large terminologies.
+
+```
+pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_new_concepts
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
+
+### Compute retired codes since prior version (slow)
+
+WARNING: This call could take over a minute to complete. Test with caution.
+
+Compute the set of retired concept codes in a terminology since a prior version date. This
+operation can be slow for large terminologies.
+
+```
+pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_retired_concepts
+```
+
+[Back to Top](#termhub-in-5-minutes-python-tutorial)
 

@@ -443,7 +443,11 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListTerm",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListTerm",
@@ -543,7 +547,11 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListTerm",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListTerm",
@@ -643,7 +651,11 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': None,
+            '404': None,
             '401': None,
+            '200': "ResultListTerm",
+            '500': None,
             '403': None,
             '500': None,
             '200': "ResultListTerm",

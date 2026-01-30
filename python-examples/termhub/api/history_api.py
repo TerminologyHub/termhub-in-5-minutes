@@ -99,10 +99,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "bytearray",
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -174,10 +174,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "bytearray",
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -249,10 +249,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
-            '500': None,
             '200': "bytearray",
+            '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -384,10 +384,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
             '200': "bytearray",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -459,10 +459,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
             '200': "bytearray",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -534,10 +534,10 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
             '200': "bytearray",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -669,10 +669,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '200': "List[ConceptRef]",
-            '404': None,
             '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -744,10 +743,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '200': "List[ConceptRef]",
-            '404': None,
             '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -819,10 +817,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '200': "List[ConceptRef]",
-            '404': None,
             '500': None,
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -954,10 +951,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[ConceptRef]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1029,10 +1025,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[ConceptRef]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1104,10 +1099,9 @@ class HistoryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[ConceptRef]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,

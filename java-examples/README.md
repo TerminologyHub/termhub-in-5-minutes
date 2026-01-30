@@ -85,12 +85,20 @@ The following examples can be typed into the command line of any terminal that h
 - [Find terms by search term](#find-terms-by-search-term)
 - [Support autocomplete/typeahead for first few characters typed](#support-autocomplete-typeahead-for-first-few-characters-typed)
 - [Get mapsets](#get-mapsets)
+- [Get subsets](#get-subsets)
 - [Get project mapsets](#get-project-mapsets)
-- [Get specific mapset](#get-mapset)
+- [Get project subsets](#get-project-subsets)
+- [Get specific mapset](#get-specific-mapset)
+- [Get specific subset](#get-specific-subset)
 - [Export mapset](#export-mapset)
-- [Get concept mappings by code](#get-concept-mappings-by-code)
+- [Export subset](#export-subset)
+- [Get concept mappings by terminology and code](#get-concept-mappings-by-terminology-and-code)
+- [Get subset members for project subset](#get-subset-members-for-project-subset)
 - [Find project mappings for mapset](#find-project-mappings-for-mapset)
 - [Find project mappings](#find-project-mappings)
+- [Find project subset members](#find-project-subset-members)
+- [Compute new codes since prior version (slow)](#compute-new-codes-since-prior-version)
+- [Compute retired codes since prior version (slow)](#compute-retired-codes-since-prior-version)
 
 ### Login
 
@@ -315,6 +323,18 @@ See sample payload data from this call in [`samples/get-mapsets.txt`](samples/ge
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
+### Get subsets
+
+Return all loaded subsets currently hosted by the API. This call also takes
+search parameters such as query, limit, offset, sort, and ascending to allow searching
+across available subsets.
+
+```
+./gradlew test --tests api.SubsetApiTest.findSubsetsTest
+```
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
 ### Get project mapsets
 
 Return all mapsets for the specified project identified by either projectId or projectLabel.
@@ -327,8 +347,20 @@ See sample payload data from this call in [`samples/get-mapsets-sandbox.txt`](sa
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
+### Get project subsets
 
-### Get mapset
+Return all subsets for the specified project identified by either projectId or projectLabel.
+
+```
+./gradlew test --tests api.SubsetApiTest.getProjectSubsetsTest
+```
+
+See sample payload data from this call in [`samples/get-subsets-sandbox.txt`](samples/get-subsets-sandbox.txt)
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+
+### Get specific mapset
 
 Return a specific mapset by its id. The UUID below is an example
 that may or may not work.  The idea is to take one of the mapset ids returned
@@ -343,6 +375,16 @@ See sample payload data from this call in [`samples/get-mapset-snomedct_us-icd10
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
+### Get specific subset
+
+Return a specific subset by its subsetId (UUID).
+
+```
+./gradlew test --tests api.SubsetApiTest.getSubsetTest
+```
+
+See sample payload data form this call in [`samples/get-subset.txt`](samples/get-subset.txt)
+
 ### Export mapset
 
 Export zip file of a mapset in a particular format.  Currently only format=native is
@@ -356,7 +398,20 @@ No payload sample as the output is a .zip file.
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
-### Get concept mappings by code
+### Export mapset
+
+Export zip file of a subset in a particular format.  Currently only format=native is
+supported.
+
+```
+./gradlew test --tests api.SubsetApiTest.exportSubsetTest
+```
+
+No payload sample as the output is a .zip file.
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Get concept mappings by terminology and code
 
 Get concept mappings for a terminology and code. In this case it resolves
 mappings that originate "from" this concept code and contains information about
@@ -367,6 +422,16 @@ the concepts those mappings point "to" on the other side.
 ```
 
 See sample payload data from this call in [`samples/get-concept-mappings.txt`](samples/get-concept-mappings.txt)
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Get subset members for project subset
+
+Return members for a specified project subset.
+
+```
+./gradlew test --tests api.SubsetApiTest.getSubsetMembersTest
+```
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)
 
@@ -393,5 +458,38 @@ example uses paging to get only the first 5 results.
 ```
 
 See sample payload data from this call in [`samples/find-mappings-by-query.txt`](samples/find-mappings-by-query.txt)
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Find project subset members
+
+Search members within a project subset using a query string and paging. This 
+example uses paging to get only the first 5 results.
+
+```
+./gradlew test --tests api.SubsetApiTest.findProjectSubsetMembersTest
+```
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Compute new codes since prior version (slow)
+
+Compute the set of new concept codes in a terminology since a prior version date. This
+operation can be slow for large terminologies.
+
+```
+./gradlew test --tests api.HistoryApiTest.getTerminologyHistoryNewConceptsTest
+```
+
+[Back to Top](#termhub-in-5-minutes-java-tutorial)
+
+### Compute retired codes since prior version (slow)
+
+Compute the set of retired concept codes in a terminology since a prior version date. This
+operation can be slow for large terminologies.
+
+```
+./gradlew test --tests api.HistoryApiTest.getTerminologyHistoryRetiredConceptsTest
+```
 
 [Back to Top](#termhub-in-5-minutes-java-tutorial)

@@ -398,7 +398,7 @@ by the previous call and you can then look up subset info specifically for that
 UUID.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/subset/2a545e12-04eb-48ee-b988-c17346b4e05f" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/subset/57d8f6ee-a79c-4dba-b831-8ff6044cdfe6" | jq
 ```
 
 See sample payload data from this call in [`samples/get-subset.txt`](samples/get-subset.txt)

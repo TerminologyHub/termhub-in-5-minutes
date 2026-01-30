@@ -115,11 +115,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '500': None,
-            '200': "ResultListMetadata",
             '404': None,
+            '401': None,
+            '200': "ResultListMetadata",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -206,11 +206,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '500': None,
-            '200': "ResultListMetadata",
             '404': None,
+            '401': None,
+            '200': "ResultListMetadata",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -297,11 +297,11 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '403': None,
-            '500': None,
-            '200': "ResultListMetadata",
             '404': None,
+            '401': None,
+            '200': "ResultListMetadata",
+            '500': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -451,10 +451,9 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[Metadata]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -522,10 +521,9 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[Metadata]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -593,10 +591,9 @@ class MetadataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '403': None,
-            '404': None,
             '500': None,
-            '200': "List[Metadata]",
+            '404': None,
+            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,

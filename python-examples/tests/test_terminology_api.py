@@ -95,7 +95,7 @@ class TestTerminologyApi:
         # ACT
         try:
             self.logger.info(f"  Exporting terminology {terminology}...")
-            response: Optional[bytes] = terminology_api.export_terminology(self.project_id, terminology, format_type,
+            response: Optional[bytes] = terminology_api.export_project_terminology(self.project_id, terminology, format_type,
                                                                  _headers=headers)
             if response:
                 file_path = f"{terminology}.zip"

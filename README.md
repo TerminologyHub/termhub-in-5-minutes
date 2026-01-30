@@ -60,6 +60,11 @@ the standard kinds of questions that a terminology server supports for interacti
 - Get mappings for concept by code
 - Find project mappings for mapset
 - Find project mappings
+- Get subsets
+- Get project subsets
+- Get specific subset
+- Export subset
+- Get subset members for project subset
 - Coming Soon: compute "new" or "retired" codes across terminology versions
 
 All of the tutorials use an environment variable for the API URL of the deployment:
