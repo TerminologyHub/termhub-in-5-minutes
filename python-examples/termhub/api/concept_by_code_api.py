@@ -129,7 +129,9 @@ class ConceptByCodeApi:
             '417': None,
             '404': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '403': None,
         }
@@ -229,7 +231,9 @@ class ConceptByCodeApi:
             '417': None,
             '404': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '403': None,
         }
@@ -329,7 +333,9 @@ class ConceptByCodeApi:
             '417': None,
             '404': None,
             '401': None,
+            '403': None,
             '500': None,
+            '417': None,
             '200': "ResultListConceptRelationship",
             '403': None,
         }
@@ -520,6 +526,9 @@ class ConceptByCodeApi:
             '401': None,
             '500': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -620,6 +629,9 @@ class ConceptByCodeApi:
             '401': None,
             '500': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -720,6 +732,9 @@ class ConceptByCodeApi:
             '401': None,
             '500': None,
             '403': None,
+            '500': None,
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1668,6 +1683,10 @@ class ConceptByCodeApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1752,6 +1771,10 @@ class ConceptByCodeApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1836,6 +1859,10 @@ class ConceptByCodeApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '417': None,
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,

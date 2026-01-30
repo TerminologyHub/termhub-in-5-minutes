@@ -122,7 +122,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '500': None,
             '200': "ResultListConceptRelationship",
@@ -218,7 +217,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '500': None,
             '200': "ResultListConceptRelationship",
@@ -314,7 +312,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '500': None,
             '200': "ResultListConceptRelationship",
@@ -496,7 +493,6 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
             '500': None,
             '404': None,
@@ -592,7 +588,6 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
             '500': None,
             '404': None,
@@ -688,7 +683,6 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
-            '417': None,
             '401': None,
             '500': None,
             '404': None,
@@ -868,7 +862,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -964,7 +957,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -1060,7 +1052,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -1241,7 +1232,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -1337,7 +1327,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -1433,7 +1422,6 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
@@ -1603,6 +1591,9 @@ class ConceptByIdApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1682,6 +1673,9 @@ class ConceptByIdApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1761,6 +1755,9 @@ class ConceptByIdApi:
             '200': "Concept",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "Concept",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2190,6 +2187,9 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2265,6 +2265,9 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2340,6 +2343,9 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '500': None,
             '403': None,
+            '500': None,
+            '200': "List[Mapping]",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2473,6 +2479,8 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '404': None,
             '401': None,
+            '403': None,
+            '200': "List[Mapping]",
             '500': None,
             '403': None,
         }
@@ -2548,6 +2556,8 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '404': None,
             '401': None,
+            '403': None,
+            '200': "List[Mapping]",
             '500': None,
             '403': None,
         }
@@ -2623,6 +2633,8 @@ class ConceptByIdApi:
             '200': "List[Mapping]",
             '404': None,
             '401': None,
+            '403': None,
+            '200': "List[Mapping]",
             '500': None,
             '403': None,
         }

@@ -64,6 +64,15 @@ To automatically discover and run the pytest commands listed in this README, run
 python python_check.py
 ```
 
+Run tests automatically
+-----------------------
+
+To automatically discover and run the pytest commands listed in this README, run the helper script from this directory:
+
+```
+python python_check.py
+```
+
 ### Login [MUST BE RUN FIRST]
 
 Login and acquire an access token for a username and password.  

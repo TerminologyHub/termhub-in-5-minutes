@@ -450,7 +450,6 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
             '500': None,
             '404': None,
@@ -521,7 +520,6 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
             '500': None,
             '404': None,
@@ -592,7 +590,6 @@ class MetadataApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Metadata]",
             '401': None,
             '500': None,
             '404': None,
