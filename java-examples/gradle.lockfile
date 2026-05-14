@@ -1,12 +1,12 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
-com.fasterxml.jackson.core:jackson-annotations:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
-com.fasterxml.jackson.core:jackson-core:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
-com.fasterxml.jackson.core:jackson-databind:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
-com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
-com.fasterxml.jackson.module:jackson-module-jakarta-xmlbind-annotations:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
-com.fasterxml.jackson:jackson-bom:2.14.0-rc2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-annotations:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-core:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.core:jackson-databind:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson.module:jackson-module-jakarta-xmlbind-annotations:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+com.fasterxml.jackson:jackson-bom:2.18.6=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
 com.google.code.findbugs:jsr305:3.0.2=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
 com.sun.activation:jakarta.activation:2.0.1=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
 commons-codec:commons-codec:1.11=compileClasspath,default,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
