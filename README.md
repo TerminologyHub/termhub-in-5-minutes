@@ -127,6 +127,10 @@ Use `API_URL`, `PROJECT`, and `PYTHON` to override defaults, for example:
 make check API_URL=https://dev.terminologyhub.com PROJECT=sandbox PYTHON=python3
 ```
 
+The curl and bash checks print the `API_URL` they are using. If you see a connection refused
+error, check whether your shell has an old `API_URL` pointing at a stopped local instance.
+You can also set `TERMHUB_TOKEN` or `TOKEN` to reuse an existing bearer token.
+
 **[Back to top](#table-of-contents)**
 
 

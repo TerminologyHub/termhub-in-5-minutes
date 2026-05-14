@@ -9,7 +9,7 @@ if SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, SCRIPTS_DIR)
 
 from process_output import print_process_failure
-from termhub_auth import DEFAULT_API_URL, require_credentials, request_access_token
+from termhub_auth import DEFAULT_API_URL, require_credentials, request_access_token, token_from_env
 
 
 API_URL = os.environ.get("API_URL", DEFAULT_API_URL)
@@ -29,8 +29,17 @@ def check_jq():
 
 def get_auth_token():
     """Resolve credentials and request the bearer token used by README curls."""
+    token = token_from_env()
+    if token:
+        return token
+
     username, password = require_credentials(sys.argv[1:], "python curl_check.py <username> <password>")
-    return request_access_token(API_URL, username, password)
+    try:
+        return request_access_token(API_URL, username, password)
+    except RuntimeError as error:
+        print(error, file=sys.stderr)
+        print(f"Check API_URL; curl examples are using {API_URL}", file=sys.stderr)
+        raise SystemExit(1) from error
 
 
 def run_curl_command(command, endpoint):
@@ -135,6 +144,7 @@ def report_endpoints():
       print("\nAll endpoints are healthy.")
 
 if __name__ == "__main__":
+    print(f"Using API_URL={API_URL}")
     check_jq()
     token = get_auth_token()
     sections = process_markdown(token)

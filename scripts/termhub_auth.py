@@ -63,13 +63,15 @@ def require_credentials(args, usage, stream=sys.stderr):
 
 def request_access_token(api_url, username, password):
     """Request a TermHub access token using the username/password grant."""
+    normalized_api_url = api_url.rstrip("/")
+    auth_url = f"{normalized_api_url}/auth/token"
     payload = {
         "grant_type": "username_password",
         "username": username,
         "password": password,
     }
     request = urllib.request.Request(
-        f"{api_url}/auth/token",
+        auth_url,
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -80,11 +82,11 @@ def request_access_token(api_url, username, password):
             body = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
         error_body = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"Failed to get token: {error.code} {error_body}") from error
+        raise RuntimeError(f"Failed to get token from {auth_url}: {error.code} {error_body}") from error
     except urllib.error.URLError as error:
-        raise RuntimeError(f"Failed to get token: {error.reason}") from error
+        raise RuntimeError(f"Failed to get token from {auth_url}: {error.reason}") from error
 
     access_token = body.get("access_token")
     if not access_token:
-        raise RuntimeError(f"No access_token found in {api_url}/auth/token response.")
+        raise RuntimeError(f"No access_token found in {auth_url} response.")
     return access_token

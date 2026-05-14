@@ -13,6 +13,8 @@ export PROJECT
 export TERMHUB_USER
 export TERMHUB_USERNAME
 export TERMHUB_PASSWORD
+export TERMHUB_TOKEN
+export TOKEN
 
 .PHONY: help all resample samples check test check-curl check-bash check-python check-java fhir check-fhir-r4 check-fhir-r5 python-deps install-python-deps scan scan-strict scan-source scan-deps scan-prepare scan-prepare-java scan-prepare-python scan-java scan-python regenerate regenerate-java regenerate-python clean
 

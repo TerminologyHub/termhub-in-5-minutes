@@ -29,7 +29,9 @@ python curl_check.py <username> <password>
 ```
 
 From the project root, this is also available as `make check-curl` or as part of `make resample`.
-The helper script uses only Python standard-library modules.
+The helper script uses only Python standard-library modules. It uses `API_URL` from the environment
+when set, otherwise it defaults to `https://api.terminologyhub.com`. If you already have a bearer
+token, set `TERMHUB_TOKEN` or `TOKEN` to skip the login request.
 
 
 Sample cURL Calls
@@ -444,5 +446,4 @@ curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/2a545e12
 See sample payload data from this call in [`samples/get-subset-members-for-project-subset.txt`](samples/get-subset-members-for-project-subset.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
-
 

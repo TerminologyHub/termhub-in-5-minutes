@@ -12,7 +12,7 @@ if SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, SCRIPTS_DIR)
 
 from process_output import print_process_failure
-from termhub_auth import DEFAULT_API_URL, require_credentials, request_access_token
+from termhub_auth import DEFAULT_API_URL, require_credentials, request_access_token, token_from_env
 
 
 API_URL = os.environ.get("API_URL", DEFAULT_API_URL)
@@ -83,8 +83,17 @@ def check_bash_installation():
 
 def get_auth_context():
     """Resolve credentials and token once for all README bash examples."""
+    token = token_from_env()
+    if token:
+        return None, token
+
     credentials = require_credentials(sys.argv[1:], "python bash_check.py <username> <password>")
-    token = request_access_token(API_URL, *credentials)
+    try:
+        token = request_access_token(API_URL, *credentials)
+    except RuntimeError as error:
+        print(error, file=sys.stderr)
+        print(f"Check API_URL; bash examples are using {API_URL}", file=sys.stderr)
+        raise SystemExit(1) from error
     return credentials, token
 
 
@@ -94,6 +103,9 @@ def run_bash_command(command, token, credentials):
         display_command = command
         print(f"Running: {display_command}")
         if "(username)" in command and "(password)" in command:
+            if credentials is None:
+                print("Skipping login command because TERMHUB_TOKEN/TOKEN is already set.")
+                return ""
             username, password = credentials
             command = command.replace("(username)", username).replace("(password)", password)
         command = command.replace("$token", token)
@@ -178,6 +190,7 @@ def report_script_health():
         print("\nAll scripts executed successfully.")
 
 if __name__ == "__main__":
+    print(f"Using API_URL={API_URL}")
     check_bash_installation()
     credentials, token = get_auth_context()
     sections = process_markdown()

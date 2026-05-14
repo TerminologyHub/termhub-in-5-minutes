@@ -1,51 +1,8 @@
 {
-  "id": "165cdb81-81d7-4878-a799-ee7575c7bbf7",
-  "confidence": 7.296356201171875,
-  "modified": "2024-08-28T01:27:08.489+00:00",
-  "created": "2024-08-28T01:27:08.489+00:00",
-  "modifiedBy": "loader",
+  "timestamp": "2026-05-14T22:02:03.199+00:00",
   "local": false,
-  "active": true,
-  "abbreviation": "SNOMEDCT_US",
-  "name": "Mini version of SNOMEDCT_US For testing purposes",
-  "version": "20240301",
-  "publisher": "SANDBOX",
-  "latest": true,
-  "loaded": true,
-  "releaseDate": "2024-03-01",
-  "family": "SNOMEDCT",
-  "attributes": {
-    "autocomplete": "true",
-    "description-logic-based": "true",
-    "tree-positions": "true",
-    "unidirectional-rels": "true",
-    "has-relationship-directionality": "true",
-    "ecl": "true",
-    "description-logic-profile": "EL++",
-    "fhirUri": "http://snomed.info/sct",
-    "show-sty": "true",
-    "polyhierarchy": "true",
-    "hierarchical": "true",
-    "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
-    "fhirId": "snomedct_us_731000124108_20240301"
-  },
-  "roots": [
-    "138875005"
-  ],
-  "statistics": {
-    "parentsInactive": 0,
-    "parentsActive": 598,
-    "treePositions": 2158,
-    "termsInactive": 355,
-    "childrenInactive": 0,
-    "relationships": 749,
-    "concepts": 440,
-    "terms": 1549,
-    "conceptsInactive": 3,
-    "termsActive": 1194,
-    "definitions": 19,
-    "conceptsActive": 437,
-    "childrenActive": 598
-  }
+  "status": 404,
+  "error": "Not Found",
+  "message": "Unable to find terminology for a1d1e426-26a6-4326-b18b-c54c154079b5"
 }
 
