@@ -1,8 +1,8 @@
 {
-  "id": "e1db453f-07f2-4c9a-a740-6395f7dea053",
-  "confidence": 3.215794086456299,
-  "modified": "2025-07-10T23:10:38.446+00:00",
-  "created": "2025-07-10T23:10:38.446+00:00",
+  "id": "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6",
+  "confidence": 1.0,
+  "modified": "2025-07-24T05:59:17.505+00:00",
+  "created": "2025-07-24T05:59:17.505+00:00",
   "modifiedBy": "loader",
   "local": false,
   "active": true,
@@ -10,6 +10,7 @@
   "name": "SNOMEDCT model concepts",
   "version": "20240301",
   "publisher": "SANDBOX",
+  "license": "TERMHUB",
   "releaseDate": "2024-03-01",
   "latest": true,
   "loaded": true,
@@ -22,6 +23,12 @@
   "attributes": {
     "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000012004",
     "fhirVersion": "20240301",
+    "content-native-md5hash": "69012a94b02175856d9529532024f541",
+    "fhir-r4-md5hash": "50609e7bb3b2504e3cd46feed00811f1",
+    "fhir-r5-length": "11973",
+    "fhir-r5-md5hash": "50609e7bb3b2504e3cd46feed00811f1",
+    "content-native-length": "198",
+    "fhir-r4-length": "11973",
     "fhirId": "sandbox_900000000000012004_20240301"
   },
   "statistics": {
