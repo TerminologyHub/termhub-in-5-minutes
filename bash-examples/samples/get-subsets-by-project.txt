@@ -1,47 +1,16 @@
 -----------------------------------------------------
-Starting ...Wed Jul 30 06:55:13 PDT 2025
+Starting ...Thu, May 14, 2026  3:10:56 PM
 -----------------------------------------------------
-url = https://dev.terminologyhub.com
+url = https://api.terminologyhub.com
 project = sandbox
 
   Performing subsets lookup
     [
       {
-        "id": "dd01be90-f9dd-4531-abb4-810f2090ba17",
-        "confidence": 5.701714515686035,
-        "modified": "2025-07-10T23:10:38.446+00:00",
-        "created": "2025-07-10T23:10:38.446+00:00",
-        "modifiedBy": "loader",
-        "local": false,
-        "active": true,
-        "abbreviation": "SNOMEDCT_US-EXTENSION",
-        "name": "SNOMEDCT_US extension concepts",
-        "version": "20240301",
-        "publisher": "SANDBOX",
-        "releaseDate": "2024-03-01",
-        "latest": true,
-        "loaded": true,
-        "code": "731000124108",
-        "fromPublisher": "SANDBOX",
-        "fromTerminology": "SNOMEDCT_US",
-        "fromVersion": "20240301",
-        "terminology": "SNOMEDCT_US",
-        "description": "US National Library of Medicine maintained module",
-        "attributes": {
-          "fhirUri": "http://snomed.info/sct?fhir_vs=731000124108",
-          "fhirVersion": "20240301",
-          "fhirId": "sandbox_731000124108_20240301"
-        },
-        "statistics": {
-          "members": 4,
-          "membersActive": 4
-        }
-      },
-      {
-        "id": "4c2a7181-43e0-40ad-bf41-f351c51547ef",
-        "confidence": 5.701714515686035,
-        "modified": "2025-07-10T23:10:38.446+00:00",
-        "created": "2025-07-10T23:10:38.446+00:00",
+        "id": "54c3f5eb-1b28-494d-b4a1-f4355170c94f",
+        "confidence": 8.208186149597168,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
@@ -49,6 +18,7 @@ project = sandbox
         "name": "SNOMEDCT core concepts",
         "version": "20240301",
         "publisher": "SANDBOX",
+        "license": "TERMHUB",
         "releaseDate": "2024-03-01",
         "latest": true,
         "loaded": true,
@@ -61,6 +31,12 @@ project = sandbox
         "attributes": {
           "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000207008",
           "fhirVersion": "20240301",
+          "content-native-md5hash": "8a8ced7a6cd79482d115c14edc07b7f3",
+          "fhir-r4-md5hash": "93689aa294e313e9d40798f7be5cd6f6",
+          "fhir-r5-length": "28181",
+          "fhir-r5-md5hash": "93689aa294e313e9d40798f7be5cd6f6",
+          "content-native-length": "198",
+          "fhir-r4-length": "28181",
           "fhirId": "sandbox_900000000000207008_20240301"
         },
         "statistics": {
@@ -69,10 +45,48 @@ project = sandbox
         }
       },
       {
-        "id": "6729e634-e4ed-4adb-b8f7-7bb7861861bf",
-        "confidence": 5.701714515686035,
-        "modified": "2025-07-10T23:10:38.446+00:00",
-        "created": "2025-07-10T23:10:38.446+00:00",
+        "id": "98d907d7-13f3-43ae-a68c-2ab9e8c20576",
+        "confidence": 8.208186149597168,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
+        "modifiedBy": "loader",
+        "local": false,
+        "active": true,
+        "abbreviation": "SNOMEDCT_US-EXTENSION",
+        "name": "SNOMEDCT_US extension concepts",
+        "version": "20240301",
+        "publisher": "SANDBOX",
+        "license": "TERMHUB",
+        "releaseDate": "2024-03-01",
+        "latest": true,
+        "loaded": true,
+        "code": "731000124108",
+        "fromPublisher": "SANDBOX",
+        "fromTerminology": "SNOMEDCT_US",
+        "fromVersion": "20240301",
+        "terminology": "SNOMEDCT_US",
+        "description": "US National Library of Medicine maintained module",
+        "attributes": {
+          "fhirUri": "http://snomed.info/sct?fhir_vs=731000124108",
+          "fhirVersion": "20240301",
+          "content-native-md5hash": "5e8574e578ebe6414964e52a31e09625",
+          "fhir-r4-md5hash": "3b562cb8b9cdb9fb49b2c1bc062ae0b8",
+          "fhir-r5-length": "1087",
+          "fhir-r5-md5hash": "3b562cb8b9cdb9fb49b2c1bc062ae0b8",
+          "content-native-length": "198",
+          "fhir-r4-length": "1087",
+          "fhirId": "sandbox_731000124108_20240301"
+        },
+        "statistics": {
+          "members": 4,
+          "membersActive": 4
+        }
+      },
+      {
+        "id": "4bd3b9ca-d577-4fc7-9569-2ce8c0932f63",
+        "confidence": 8.208186149597168,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
@@ -80,6 +94,7 @@ project = sandbox
         "name": "Lateralizable body structure reference set",
         "version": "20240301",
         "publisher": "SANDBOX",
+        "license": "TERMHUB",
         "releaseDate": "2024-03-01",
         "latest": true,
         "loaded": true,
@@ -92,6 +107,12 @@ project = sandbox
         "attributes": {
           "fhirUri": "http://snomed.info/sct?fhir_vs=723264001",
           "fhirVersion": "20240301",
+          "content-native-md5hash": "5cebc6c22c898f69c43d24b084c6433c",
+          "fhir-r4-md5hash": "8b92cf2fcbb0fb7ea5de1873894b2578",
+          "fhir-r5-length": "1747",
+          "fhir-r5-md5hash": "8b92cf2fcbb0fb7ea5de1873894b2578",
+          "content-native-length": "198",
+          "fhir-r4-length": "1747",
           "fhirId": "sandbox_723264001_20240301"
         },
         "statistics": {
@@ -100,10 +121,10 @@ project = sandbox
         }
       },
       {
-        "id": "e1db453f-07f2-4c9a-a740-6395f7dea053",
-        "confidence": 5.701714515686035,
-        "modified": "2025-07-10T23:10:38.446+00:00",
-        "created": "2025-07-10T23:10:38.446+00:00",
+        "id": "57d8f6ee-a79c-4dba-b831-8ff6044cdfe6",
+        "confidence": 8.208186149597168,
+        "modified": "2025-07-24T05:59:17.505+00:00",
+        "created": "2025-07-24T05:59:17.505+00:00",
         "modifiedBy": "loader",
         "local": false,
         "active": true,
@@ -111,6 +132,7 @@ project = sandbox
         "name": "SNOMEDCT model concepts",
         "version": "20240301",
         "publisher": "SANDBOX",
+        "license": "TERMHUB",
         "releaseDate": "2024-03-01",
         "latest": true,
         "loaded": true,
@@ -123,6 +145,12 @@ project = sandbox
         "attributes": {
           "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000012004",
           "fhirVersion": "20240301",
+          "content-native-md5hash": "69012a94b02175856d9529532024f541",
+          "fhir-r4-md5hash": "50609e7bb3b2504e3cd46feed00811f1",
+          "fhir-r5-length": "11973",
+          "fhir-r5-md5hash": "50609e7bb3b2504e3cd46feed00811f1",
+          "content-native-length": "198",
+          "fhir-r4-length": "11973",
           "fhirId": "sandbox_900000000000012004_20240301"
         },
         "statistics": {
@@ -133,6 +161,6 @@ project = sandbox
     ]
 
 -----------------------------------------------------
-Finished ...Wed Jul 30 06:55:14 PDT 2025
+Finished ...Thu, May 14, 2026  3:10:56 PM
 -----------------------------------------------------
 

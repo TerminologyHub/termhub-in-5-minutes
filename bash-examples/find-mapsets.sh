@@ -21,18 +21,26 @@ esac; shift; done
 
 if [ ${#arr[@]} -ne 0 ] || [ -z $token ]; then
   echo "Usage: $0 [--token token] [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
-  echo "Usage: $0 [--query <query>] [--id <id>] [--offset <offset>] [--project <project>]"
+  echo "Usage: $0 [--query <query>] [--id <id|sample>] [--offset <offset>] [--project <project>]"
   echo "  e.g. $0 --token \$token"
   echo "  e.g. $0 --token \$token --limit 100"
   echo "  e.g. $0 --token \$token --limit 5 --sort abbreviation"
   echo "  e.g. $0 --token \$token --query SNOMEDCT_US-ICD10CM"
-  echo "  e.g. $0 --token \$token --id 2a545e12-04eb-48ee-b988-c17346b4e05f"
+  echo "  e.g. $0 --token \$token --id sample"
   echo "  e.g. $0 --token \$token --project sandbox"
   exit 1
 fi
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . $DIR/url.env
+
+if [ "$id" = "sample" ]; then
+  id=$(curl -s -G "$url/mapset" -H "Authorization: Bearer $token" --data-urlencode "limit=1" | jq -r '.items[0].id // empty')
+  if [ -z "$id" ]; then
+    echo "ERROR: Unable to resolve sample mapset id"
+    exit 1
+  fi
+fi
 
 echo "-----------------------------------------------------"
 echo "Starting ...$(/bin/date)"

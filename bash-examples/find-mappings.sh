@@ -58,7 +58,7 @@ echo "  Find mappings: $query"
 if [[ -z $mapset ]]; then
   curl -v -w "\n%{http_code}" -G "$url/project/$project/mapping" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort"  2> /dev/null > /tmp/x.$$
 else
-  curl -v -w "\n%{http_code}" -G "$url/project/$project/mapset/$mapset/mappings" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort"  2> /dev/null > /tmp/x.$$
+  curl -v -w "\n%{http_code}" -G "$url/project/$project/mapset/$mapset/mapping" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort"  2> /dev/null > /tmp/x.$$
 fi
 if [ $? -ne 0 ]; then
   echo "ERROR: GET call failed"

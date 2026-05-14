@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025  2:35:06 PM
+Starting ...Thu, May 14, 2026  3:10:47 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -23,7 +23,7 @@ ascending =
       },
       "items": [
         {
-          "id": "a5795a20-baf4-41e4-835e-a26a16a00bc7",
+          "id": "05616fba-6c78-475e-ac9a-3869b208650a",
           "confidence": 10.569323539733887,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
@@ -35,11 +35,11 @@ ascending =
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": false,
+          "leaf": true,
           "defined": true
         },
         {
-          "id": "52a1b7a5-78ac-481b-a85d-69687fe4cac2",
+          "id": "8222f160-9f01-45f8-9a8b-6be8b69439a4",
           "confidence": 10.095866203308105,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
@@ -55,7 +55,7 @@ ascending =
           "defined": true
         },
         {
-          "id": "b511b7f6-0887-4ac9-a63b-027248284dd0",
+          "id": "a0912f56-6cb7-4daa-98b7-047263b27c4e",
           "confidence": 10.052236557006836,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
@@ -71,7 +71,7 @@ ascending =
           "defined": true
         },
         {
-          "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+          "id": "ff74189a-22bc-4b08-aa5e-78ee43ed16b2",
           "confidence": 6.616611480712891,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
@@ -83,11 +83,11 @@ ascending =
           "terminology": "SNOMEDCT",
           "version": "20240101",
           "publisher": "SANDBOX",
-          "leaf": false,
+          "leaf": true,
           "defined": false
         },
         {
-          "id": "151ee928-8af7-4f73-8bd1-39e26c96bf6f",
+          "id": "0de82661-5132-4240-bd8e-ef958489f6d2",
           "confidence": 6.48627233505249,
           "modified": "2002-01-31T00:00:00.000+00:00",
           "created": "2002-01-31T00:00:00.000+00:00",
@@ -106,6 +106,6 @@ ascending =
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025  2:35:06 PM
+Finished ...Thu, May 14, 2026  3:10:47 PM
 -----------------------------------------------------
 

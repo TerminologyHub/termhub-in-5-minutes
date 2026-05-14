@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:27 PM
+Starting ...Thu, May 14, 2026  3:10:44 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 terminology = SNOMEDCT
@@ -10,7 +10,7 @@ include = parents
   Get concept for SNOMEDCT 73211009:
 
     {
-      "id": "97fe3340-33c8-4d57-ae34-81bd8e53fb6a",
+      "id": "ff74189a-22bc-4b08-aa5e-78ee43ed16b2",
       "confidence": 5.673330783843994,
       "modified": "2002-01-31T00:00:00.000+00:00",
       "created": "2002-01-31T00:00:00.000+00:00",
@@ -22,7 +22,7 @@ include = parents
       "terminology": "SNOMEDCT",
       "version": "20240101",
       "publisher": "SANDBOX",
-      "leaf": false,
+      "leaf": true,
       "defined": false,
       "parents": [
         {
@@ -51,6 +51,6 @@ include = parents
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:27 PM
+Finished ...Thu, May 14, 2026  3:10:44 PM
 -----------------------------------------------------
 

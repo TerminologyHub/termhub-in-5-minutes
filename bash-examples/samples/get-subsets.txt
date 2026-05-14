@@ -1,90 +1,97 @@
 -----------------------------------------------------
-Starting ...Wed Jul 30 06:54:04 PDT 2025
+Starting ...Thu, May 14, 2026  3:10:55 PM
 -----------------------------------------------------
-url = https://dev.terminologyhub.com
-query =
+url = https://api.terminologyhub.com
+query = 
 offset = 0
 limit = 2
-sort =
-ascending =
+sort = 
+ascending = 
 
   Performing subsets lookup
     {
-      "total": 37,
+      "total": 83,
       "parameters": {
-        "query": "loaded:true",
         "limit": 2,
         "offset": 0
       },
       "items": [
         {
-          "id": "caa91072-6022-470e-858a-dd073f3a40f9",
-          "confidence": 0.010929069481790066,
-          "modified": "2025-06-28T02:22:31.468+00:00",
-          "created": "2025-06-28T02:22:31.468+00:00",
+          "id": "78a5a54a-3613-42e3-9c79-aa2909c659ac",
+          "confidence": 1.0051679611206055,
+          "modified": "2026-01-04T18:08:25.217+00:00",
+          "created": "2026-01-04T18:08:25.217+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "abbreviation": "ALLERGY-ALL",
-          "name": "All Allergies",
-          "version": "2.0",
-          "publisher": "TERMHUB",
-          "releaseDate": "2024-01-01",
+          "abbreviation": "RXNORM-prescribable",
+          "name": "RxNorm Current Prescribable Content",
+          "version": "01052026",
+          "publisher": "NLM",
+          "license": "UMLS",
+          "releaseDate": "2026-01-05",
           "latest": false,
           "loaded": true,
-          "code": "ALLERGY-ALL",
-          "fromPublisher": "TERMHUB",
-          "fromTerminology": "ALLERGY",
-          "fromVersion": "2.0",
-          "terminology": "ALLERGY",
-          "description": "description: All Allergies",
+          "code": "RXNORM-prescribable",
+          "fromPublisher": "NLM",
+          "fromTerminology": "RXNORM",
+          "fromVersion": "01052026",
+          "terminology": "RXNORM",
+          "description": "Subset of currently prescribable drugs found in RxNorm. It is intended to be an approximation of the prescription drugs currently marketed in the US. The subset also includes many over-the-counter drugs. The subset includes only the active RxNorm normalized names, codes (RxCUIs), attributes, and relationships, as well as the FDA structured product label drugs and ingredients and the small set of CMS data.",
           "attributes": {
-            "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-ALL",
-            "file": "allergy-subset-6.txt",
-            "fhirVersion": "2.0",
-            "fhirId": "termhub_allergy-all_2.0"
+            "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm?fhir_vs=RXNORM-prescribable",
+            "fhirVersion": "01052026",
+            "fhir-r4-md5hash": "5c48c52e64014ae35fa19cfdfc9aba68",
+            "fhir-r5-length": "1013864",
+            "fhir-r5-md5hash": "5c48c52e64014ae35fa19cfdfc9aba68",
+            "fhir-r4-length": "1013864",
+            "fhirId": "nlm_rxnorm-prescribable_01052026"
           },
           "statistics": {
-            "members": 11,
-            "membersActive": 11
+            "members": 81944,
+            "membersActive": 81944
           }
         },
         {
-          "id": "f744d971-d062-40e6-96b3-54d7b630a500",
-          "confidence": 0.010929069481790066,
-          "modified": "2025-06-28T02:22:31.468+00:00",
-          "created": "2025-06-28T02:22:31.468+00:00",
+          "id": "24d0df25-1063-41b5-a597-de14d9d01cfb",
+          "confidence": 1.0051679611206055,
+          "modified": "2025-11-30T19:40:30.774+00:00",
+          "created": "2025-11-30T19:40:30.774+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "abbreviation": "ALLERGY-FABRIC",
-          "name": "Fabric Allergies",
-          "version": "2.0",
-          "publisher": "TERMHUB",
-          "releaseDate": "2024-01-01",
+          "abbreviation": "RXNORM-prescribable",
+          "name": "RxNorm Current Prescribable Content",
+          "version": "12012025",
+          "publisher": "NLM",
+          "license": "UMLS",
+          "releaseDate": "2025-12-01",
           "latest": false,
           "loaded": true,
-          "code": "ALLERGY-FABRIC",
-          "fromPublisher": "TERMHUB",
-          "fromTerminology": "ALLERGY",
-          "fromVersion": "2.0",
-          "terminology": "ALLERGY",
-          "description": "description: Fabric Allergies",
+          "code": "RXNORM-prescribable",
+          "fromPublisher": "NLM",
+          "fromTerminology": "RXNORM",
+          "fromVersion": "12012025",
+          "terminology": "RXNORM",
+          "description": "Subset of currently prescribable drugs found in RxNorm. It is intended to be an approximation of the prescription drugs currently marketed in the US. The subset also includes many over-the-counter drugs. The subset includes only the active RxNorm normalized names, codes (RxCUIs), attributes, and relationships, as well as the FDA structured product label drugs and ingredients and the small set of CMS data.",
           "attributes": {
-            "fhirUri": "https://terminologyhub.com/ALLERGY?fhir_vs=ALLERGY-FABRIC",
-            "file": "allergy-subset-5.txt",
-            "fhirVersion": "2.0",
-            "fhirId": "termhub_allergy-fabric_2.0"
+            "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm?fhir_vs=RXNORM-prescribable",
+            "fhirVersion": "12012025",
+            "fhir-r4-md5hash": "9ef3a71f4197531a944647de8848c16a",
+            "fhir-r5-length": "1013942",
+            "fhir-r5-md5hash": "9ef3a71f4197531a944647de8848c16a",
+            "fhir-r4-length": "1013942",
+            "fhirId": "nlm_rxnorm-prescribable_12012025"
           },
           "statistics": {
-            "members": 1,
-            "membersActive": 1
+            "members": 81734,
+            "membersActive": 81734
           }
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Wed Jul 30 06:54:05 PDT 2025
+Finished ...Thu, May 14, 2026  3:10:56 PM
 -----------------------------------------------------
 

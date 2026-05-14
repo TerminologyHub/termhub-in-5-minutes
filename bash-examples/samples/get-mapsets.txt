@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:30 PM
+Starting ...Thu, May 14, 2026  3:10:48 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 query = 
@@ -10,107 +10,120 @@ ascending =
 
   Performing mapsets lookup
     {
-      "total": 58,
+      "total": 158,
       "parameters": {
-        "query": "loaded:true",
         "limit": 2,
         "offset": 0
       },
       "items": [
         {
-          "id": "145e8ada-d079-420f-af9d-783a9b3a5c29",
-          "confidence": 0.0076045989990234375,
-          "modified": "2024-08-21T17:26:41.670+00:00",
-          "created": "2024-08-21T17:26:41.670+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "abbreviation": "NDC-CVX",
-          "name": "Mapset from NDC 20240704 to CVX 20240729",
-          "version": "20240729",
-          "publisher": "CDC",
-          "latest": false,
-          "loaded": true,
-          "code": "NDC-CVX",
-          "fromPublisher": "FDA",
-          "fromTerminology": "NDC",
-          "fromVersion": "20240704",
-          "toPublisher": "CDC",
-          "toTerminology": "CVX",
-          "toVersion": "20240729",
-          "terminology": "CVX",
-          "description": "Mapset from NDC 20240704 to CVX 20240729",
-          "releaseDate": "2024-07-29",
-          "attributes": {
-            "complexity": "simple",
-            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=NDC-CVX",
-            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/ndc",
-            "origin-version": "20240729",
-            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/cvx",
-            "fhirToTerminologyVersion": "20240729",
-            "fhirVersion": "20240729",
-            "fhirFromTerminologyVersion": "20240704",
-            "origin-terminology": "CVX",
-            "cardinality": "N-1",
-            "fhirId": "cdc_ndc-cvx_20240729"
-          },
-          "statistics": {
-            "mappings": 169,
-            "uniqueFromCodes": 169,
-            "mappingsEmptyTarget": 0,
-            "mappingsActive": 169,
-            "uniqueToCodes": 85
-          }
-        },
-        {
-          "id": "58445968-9abf-459a-9e4d-d1b5518dc4fe",
-          "confidence": 0.0076045989990234375,
-          "modified": "2024-08-21T17:26:41.670+00:00",
-          "created": "2024-08-21T17:26:41.670+00:00",
+          "id": "4c446b2a-92d5-46af-a82b-e7f81961e60c",
+          "confidence": 1.0023725032806396,
+          "modified": "2026-03-18T23:43:41.583+00:00",
+          "created": "2026-03-18T23:43:41.583+00:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
           "abbreviation": "CVX-NDC",
-          "name": "Mapset from CVX 20240729 to NDC 20240704",
-          "version": "20240729",
+          "name": "Mapset from CVX 20240515 to NDC 20240503",
+          "version": "20240515",
           "publisher": "CDC",
+          "license": "TERMHUB",
+          "releaseDate": "2024-05-15",
           "latest": false,
           "loaded": true,
           "code": "CVX-NDC",
           "fromPublisher": "CDC",
           "fromTerminology": "CVX",
-          "fromVersion": "20240729",
+          "fromVersion": "20240515",
           "toPublisher": "FDA",
           "toTerminology": "NDC",
-          "toVersion": "20240704",
+          "toVersion": "20240503",
           "terminology": "CVX",
-          "description": "Mapset from CVX 20240729 to NDC 20240704",
-          "releaseDate": "2024-07-29",
+          "description": "Mapset from CVX 20240515 to NDC 20240503",
           "attributes": {
             "complexity": "simple",
-            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC",
             "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/cvx",
-            "origin-version": "20240729",
+            "origin-version": "20240515",
             "fhirToTerminologyUri": "http://hl7.org/fhir/sid/ndc",
-            "fhirToTerminologyVersion": "20240704",
-            "fhirVersion": "20240729",
-            "fhirFromTerminologyVersion": "20240729",
+            "fhirFromTerminologyVersion": "20240515",
+            "fhir-r4-md5hash": "6c2af3f3e84d0dc528a746da9edb227b",
             "origin-terminology": "CVX",
+            "fhir-r5-md5hash": "b2ce3a1e4f513519b2d5d15b9bc83116",
+            "content-native-length": "106043",
             "cardinality": "1-N",
-            "fhirId": "cdc_cvx-ndc_20240729"
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC",
+            "fhirToTerminologyVersion": "20240503",
+            "fhirVersion": "20240515",
+            "content-native-md5hash": "3ee6ebb0ff1385d6f5d1294004266267",
+            "fhir-r5-length": "99353",
+            "fhir-r4-length": "98836",
+            "fhirId": "cdc_cvx-ndc_20240515"
           },
           "statistics": {
-            "mappings": 169,
-            "uniqueFromCodes": 85,
+            "mappings": 167,
+            "uniqueFromCodes": 83,
             "mappingsEmptyTarget": 0,
-            "mappingsActive": 169,
-            "uniqueToCodes": 169
+            "mappingsActive": 167,
+            "uniqueToCodes": 167
+          }
+        },
+        {
+          "id": "cfecc698-0329-4df0-8831-b4a59921a18d",
+          "confidence": 1.0023725032806396,
+          "modified": "2024-09-06T17:00:11.892+00:00",
+          "created": "2024-09-06T17:00:11.892+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "abbreviation": "CVX-NDC",
+          "name": "Mapset from CVX 20240903 to NDC 20240901",
+          "version": "20240903",
+          "publisher": "CDC",
+          "license": "TERMHUB",
+          "releaseDate": "2024-09-03",
+          "latest": false,
+          "loaded": true,
+          "code": "CVX-NDC",
+          "fromPublisher": "CDC",
+          "fromTerminology": "CVX",
+          "fromVersion": "20240903",
+          "toPublisher": "FDA",
+          "toTerminology": "NDC",
+          "toVersion": "20240901",
+          "terminology": "CVX",
+          "description": "Mapset from CVX 20240903 to NDC 20240901",
+          "attributes": {
+            "complexity": "simple",
+            "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+            "origin-version": "20240903",
+            "fhirToTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+            "fhirFromTerminologyVersion": "20240903",
+            "fhir-r4-md5hash": "d3dc652ca64421da332ea80e6f382ed8",
+            "origin-terminology": "CVX",
+            "fhir-r5-md5hash": "0441d23e3627014fcc2936d544a9ce22",
+            "content-native-length": "111753",
+            "cardinality": "1-N",
+            "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC",
+            "fhirToTerminologyVersion": "20240901",
+            "fhirVersion": "20240903",
+            "content-native-md5hash": "b3c6b14f5c004e2e1137409d78775791",
+            "fhir-r5-length": "97897",
+            "fhir-r4-length": "97386",
+            "fhirId": "cdc_cvx-ndc_20240903"
+          },
+          "statistics": {
+            "mappings": 164,
+            "uniqueFromCodes": 84,
+            "mappingsEmptyTarget": 0,
+            "mappingsActive": 164,
+            "uniqueToCodes": 164
           }
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:30 PM
+Finished ...Thu, May 14, 2026  3:10:48 PM
 -----------------------------------------------------
 

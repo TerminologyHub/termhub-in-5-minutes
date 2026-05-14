@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon, Mar 17, 2025 12:14:30 PM
+Starting ...Thu, May 14, 2026  3:10:49 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 query = 
@@ -7,56 +7,63 @@ offset = 0
 limit = 10
 sort = 
 ascending = 
-id = 2a545e12-04eb-48ee-b988-c17346b4e05f
+id = 4c446b2a-92d5-46af-a82b-e7f81961e60c
 
   Performing mapsets lookup
     {
-      "id": "2a545e12-04eb-48ee-b988-c17346b4e05f",
-      "confidence": 3.220355987548828,
-      "modified": "2024-08-23T18:59:26.487+00:00",
-      "created": "2024-08-23T18:59:26.487+00:00",
+      "id": "4c446b2a-92d5-46af-a82b-e7f81961e60c",
+      "confidence": 1.0,
+      "modified": "2026-03-18T23:43:41.583+00:00",
+      "created": "2026-03-18T23:43:41.583+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT_US-ICD10CM",
-      "name": "Mapset from SNOMEDCT_US 20240301 to ICD10CM 2023",
-      "version": "20240301",
-      "publisher": "SANDBOX",
-      "latest": true,
+      "abbreviation": "CVX-NDC",
+      "name": "Mapset from CVX 20240515 to NDC 20240503",
+      "version": "20240515",
+      "publisher": "CDC",
+      "license": "TERMHUB",
+      "releaseDate": "2024-05-15",
+      "latest": false,
       "loaded": true,
-      "code": "6011000124106",
-      "fromPublisher": "SANDBOX",
-      "fromTerminology": "SNOMEDCT_US",
-      "fromVersion": "20240301",
-      "toPublisher": "SANDBOX",
-      "toTerminology": "ICD10CM",
-      "toVersion": "2023",
-      "terminology": "SNOMEDCT_US",
-      "description": "ICD-10-CM complex map reference set",
-      "releaseDate": "2024-03-01",
+      "code": "CVX-NDC",
+      "fromPublisher": "CDC",
+      "fromTerminology": "CVX",
+      "fromVersion": "20240515",
+      "toPublisher": "FDA",
+      "toTerminology": "NDC",
+      "toVersion": "20240503",
+      "terminology": "CVX",
+      "description": "Mapset from CVX 20240515 to NDC 20240503",
       "attributes": {
-        "complexity": "complex",
-        "fhirUri": "http://snomed.info/sct?fhir_cm=6011000124106",
-        "fhirFromTerminologyUri": "http://snomed.info/sct",
-        "origin-version": "20240301",
-        "fhirToTerminologyUri": "http://hl7.org/fhir/sid/icd-10-cm",
-        "fhirToTerminologyVersion": "2023",
-        "fhirVersion": "20240301",
-        "fhirFromTerminologyVersion": "20240301",
-        "origin-terminology": "SNOMEDCT_US",
-        "cardinality": "N-N",
-        "fhirId": "sandbox_snomedct_us-icd10cm_20240301"
+        "complexity": "simple",
+        "fhirFromTerminologyUri": "http://hl7.org/fhir/sid/cvx",
+        "origin-version": "20240515",
+        "fhirToTerminologyUri": "http://hl7.org/fhir/sid/ndc",
+        "fhirFromTerminologyVersion": "20240515",
+        "fhir-r4-md5hash": "6c2af3f3e84d0dc528a746da9edb227b",
+        "origin-terminology": "CVX",
+        "fhir-r5-md5hash": "b2ce3a1e4f513519b2d5d15b9bc83116",
+        "content-native-length": "106043",
+        "cardinality": "1-N",
+        "fhirUri": "http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC",
+        "fhirToTerminologyVersion": "20240503",
+        "fhirVersion": "20240515",
+        "content-native-md5hash": "3ee6ebb0ff1385d6f5d1294004266267",
+        "fhir-r5-length": "99353",
+        "fhir-r4-length": "98836",
+        "fhirId": "cdc_cvx-ndc_20240515"
       },
       "statistics": {
-        "mappings": 64,
-        "uniqueFromCodes": 41,
-        "mappingsEmptyTarget": 15,
-        "mappingsActive": 64,
-        "uniqueToCodes": 35
+        "mappings": 167,
+        "uniqueFromCodes": 83,
+        "mappingsEmptyTarget": 0,
+        "mappingsActive": 167,
+        "uniqueToCodes": 167
       }
     }
 
 -----------------------------------------------------
-Finished ...Mon, Mar 17, 2025 12:14:31 PM
+Finished ...Thu, May 14, 2026  3:10:49 PM
 -----------------------------------------------------
 

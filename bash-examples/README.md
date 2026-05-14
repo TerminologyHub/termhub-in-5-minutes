@@ -103,13 +103,11 @@ See sample payload data from this call in [`samples/find-terminologies-by-projec
 
 ### <a id="get-terminology" />Get specific terminology - find-terminologies.sh
 
-Return a specific terminology by its terminology id.  The UUID below is an example
-that may or may not work.  The idea is to take one of the terminology ids returned
-by one of the previous calls and you can then look up terminology info for specifically that
-UUID.
+Return a specific terminology by its terminology id. Use `sample` to have the helper script
+resolve a currently available terminology id before making the lookup.
 
 ```bash
-$ ./find-terminologies.sh --token $token --id a1d1e426-26a6-4326-b18b-c54c154079b5
+$ ./find-terminologies.sh --token $token --id sample
 ```
 
 See sample payload data from this call in [`samples/find-terminologies-by-id.txt`](samples/find-terminologies-by-id.txt)
@@ -305,13 +303,11 @@ See sample payload data from this call in [`samples/get-mapsets-by-project.txt`]
 
 ### <a id="get-mapset" />Get specific mapset - find-mapsets.sh
 
-Return a specific mapset by its mapset id.  The UUID below is an example
-that may or may not work.  The idea is to take one of the mapset ids returned
-by one of the previous calls and you can then look up mapset info for specifically that
-UUID.
+Return a specific mapset by its mapset id. Use `sample` to have the helper script
+resolve a currently available mapset id before making the lookup.
 
 ```bash
-$ ./find-mapsets.sh --token $token --id 2a545e12-04eb-48ee-b988-c17346b4e05f
+$ ./find-mapsets.sh --token $token --id sample
 ```
 
 See sample payload data from this call in [`samples/get-mapsets-by-id.txt`](samples/get-mapsets-by-id.txt)
@@ -415,13 +411,11 @@ See sample payload data from this call in [`samples/get-subsets-by-project.txt`]
 
 ### <a id="get-subset" />Get specific subset - find-subsets.sh
 
-Return a specific subset by its subset id.  The UUID below is an example
-that may or may not work.  The idea is to take one of the subset ids returned
-by one of the previous calls and you can then look up subset info for specifically that
-UUID.
+Return a specific subset by its subset id. Use `sample` to have the helper script
+resolve a currently available subset id before making the lookup.
 
 ```bash
-$ ./find-subsets.sh --token $token --id 2a545e12-04eb-48ee-b988-c17346b4e05f
+$ ./find-subsets.sh --token $token --id sample
 ```
 
 See sample payload data from this call in [`samples/get-subsets-by-id.txt`](samples/get-subsets-by-id.txt)
@@ -433,7 +427,7 @@ See sample payload data from this call in [`samples/get-subsets-by-id.txt`](samp
 Export a subset for the given project id (or uriLabel) and subset abbreviation or id.
 
 ```bash
-$ ./export-subset.sh --token $token sandbox SNOMEDCT_US-ICD10CM
+$ ./export-subset.sh --token $token sandbox SNOMEDCT_US-MODEL
 ```
 
 No payload sample as the output is a .zip file.
