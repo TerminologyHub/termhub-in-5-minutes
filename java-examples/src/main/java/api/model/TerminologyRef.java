@@ -22,46 +22,35 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import api.invoker.JSON;
 
 
 /**
- * Represents a terminology abbreviation and associated metadata
+ * Terminology abbreviation/publisher/version tripes that members in this set are from.This is used by subsets whose members are from more than one terminology.
  */
 @JsonPropertyOrder({
-  Terminology.JSON_PROPERTY_ID,
-  Terminology.JSON_PROPERTY_CONFIDENCE,
-  Terminology.JSON_PROPERTY_MODIFIED,
-  Terminology.JSON_PROPERTY_CREATED,
-  Terminology.JSON_PROPERTY_MODIFIED_BY,
-  Terminology.JSON_PROPERTY_LOCAL,
-  Terminology.JSON_PROPERTY_ACTIVE,
-  Terminology.JSON_PROPERTY_ABBREVIATION,
-  Terminology.JSON_PROPERTY_NAME,
-  Terminology.JSON_PROPERTY_VERSION,
-  Terminology.JSON_PROPERTY_PUBLISHER,
-  Terminology.JSON_PROPERTY_LICENSE,
-  Terminology.JSON_PROPERTY_RELEASE_DATE,
-  Terminology.JSON_PROPERTY_URI,
-  Terminology.JSON_PROPERTY_LATEST,
-  Terminology.JSON_PROPERTY_LOADED,
-  Terminology.JSON_PROPERTY_FAMILY,
-  Terminology.JSON_PROPERTY_ATTRIBUTES,
-  Terminology.JSON_PROPERTY_ROOTS,
-  Terminology.JSON_PROPERTY_CONCEPT_CT,
-  Terminology.JSON_PROPERTY_RELATIONSHIP_CT,
-  Terminology.JSON_PROPERTY_TREE_POSITION_CT,
-  Terminology.JSON_PROPERTY_STATISTICS
+  TerminologyRef.JSON_PROPERTY_ID,
+  TerminologyRef.JSON_PROPERTY_CONFIDENCE,
+  TerminologyRef.JSON_PROPERTY_MODIFIED,
+  TerminologyRef.JSON_PROPERTY_CREATED,
+  TerminologyRef.JSON_PROPERTY_MODIFIED_BY,
+  TerminologyRef.JSON_PROPERTY_LOCAL,
+  TerminologyRef.JSON_PROPERTY_ACTIVE,
+  TerminologyRef.JSON_PROPERTY_ABBREVIATION,
+  TerminologyRef.JSON_PROPERTY_NAME,
+  TerminologyRef.JSON_PROPERTY_VERSION,
+  TerminologyRef.JSON_PROPERTY_PUBLISHER,
+  TerminologyRef.JSON_PROPERTY_LICENSE,
+  TerminologyRef.JSON_PROPERTY_RELEASE_DATE,
+  TerminologyRef.JSON_PROPERTY_URI,
+  TerminologyRef.JSON_PROPERTY_LATEST,
+  TerminologyRef.JSON_PROPERTY_LOADED
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class Terminology {
+public class TerminologyRef {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
@@ -110,31 +99,10 @@ public class Terminology {
   public static final String JSON_PROPERTY_LOADED = "loaded";
   private Boolean loaded;
 
-  public static final String JSON_PROPERTY_FAMILY = "family";
-  private String family;
-
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private Map<String, String> attributes = new HashMap<>();
-
-  public static final String JSON_PROPERTY_ROOTS = "roots";
-  private List<String> roots = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_CONCEPT_CT = "conceptCt";
-  private Long conceptCt;
-
-  public static final String JSON_PROPERTY_RELATIONSHIP_CT = "relationshipCt";
-  private Long relationshipCt;
-
-  public static final String JSON_PROPERTY_TREE_POSITION_CT = "treePositionCt";
-  private Long treePositionCt;
-
-  public static final String JSON_PROPERTY_STATISTICS = "statistics";
-  private Map<String, Integer> statistics = new HashMap<>();
-
-  public Terminology() { 
+  public TerminologyRef() { 
   }
 
-  public Terminology id(UUID id) {
+  public TerminologyRef id(UUID id) {
     this.id = id;
     return this;
   }
@@ -143,9 +111,9 @@ public class Terminology {
    * Unique identifier
    * @return id
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
     return id;
@@ -153,13 +121,13 @@ public class Terminology {
 
 
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public Terminology confidence(Double confidence) {
+  public TerminologyRef confidence(Double confidence) {
     this.confidence = confidence;
     return this;
   }
@@ -184,7 +152,7 @@ public class Terminology {
   }
 
 
-  public Terminology modified(OffsetDateTime modified) {
+  public TerminologyRef modified(OffsetDateTime modified) {
     this.modified = modified;
     return this;
   }
@@ -209,7 +177,7 @@ public class Terminology {
   }
 
 
-  public Terminology created(OffsetDateTime created) {
+  public TerminologyRef created(OffsetDateTime created) {
     this.created = created;
     return this;
   }
@@ -234,7 +202,7 @@ public class Terminology {
   }
 
 
-  public Terminology modifiedBy(String modifiedBy) {
+  public TerminologyRef modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -259,7 +227,7 @@ public class Terminology {
   }
 
 
-  public Terminology local(Boolean local) {
+  public TerminologyRef local(Boolean local) {
     this.local = local;
     return this;
   }
@@ -284,7 +252,7 @@ public class Terminology {
   }
 
 
-  public Terminology active(Boolean active) {
+  public TerminologyRef active(Boolean active) {
     this.active = active;
     return this;
   }
@@ -309,7 +277,7 @@ public class Terminology {
   }
 
 
-  public Terminology abbreviation(String abbreviation) {
+  public TerminologyRef abbreviation(String abbreviation) {
     this.abbreviation = abbreviation;
     return this;
   }
@@ -334,7 +302,7 @@ public class Terminology {
   }
 
 
-  public Terminology name(String name) {
+  public TerminologyRef name(String name) {
     this.name = name;
     return this;
   }
@@ -359,7 +327,7 @@ public class Terminology {
   }
 
 
-  public Terminology version(String version) {
+  public TerminologyRef version(String version) {
     this.version = version;
     return this;
   }
@@ -384,7 +352,7 @@ public class Terminology {
   }
 
 
-  public Terminology publisher(String publisher) {
+  public TerminologyRef publisher(String publisher) {
     this.publisher = publisher;
     return this;
   }
@@ -409,7 +377,7 @@ public class Terminology {
   }
 
 
-  public Terminology license(String license) {
+  public TerminologyRef license(String license) {
     this.license = license;
     return this;
   }
@@ -434,7 +402,7 @@ public class Terminology {
   }
 
 
-  public Terminology releaseDate(String releaseDate) {
+  public TerminologyRef releaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -459,7 +427,7 @@ public class Terminology {
   }
 
 
-  public Terminology uri(String uri) {
+  public TerminologyRef uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -484,7 +452,7 @@ public class Terminology {
   }
 
 
-  public Terminology latest(Boolean latest) {
+  public TerminologyRef latest(Boolean latest) {
     this.latest = latest;
     return this;
   }
@@ -509,7 +477,7 @@ public class Terminology {
   }
 
 
-  public Terminology loaded(Boolean loaded) {
+  public TerminologyRef loaded(Boolean loaded) {
     this.loaded = loaded;
     return this;
   }
@@ -534,207 +502,8 @@ public class Terminology {
   }
 
 
-  public Terminology family(String family) {
-    this.family = family;
-    return this;
-  }
-
-   /**
-   * Family of related terminologies this one belongs to
-   * @return family
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFamily() {
-    return family;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFamily(String family) {
-    this.family = family;
-  }
-
-
-  public Terminology attributes(Map<String, String> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public Terminology putAttributesItem(String key, String attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
-    this.attributes.put(key, attributesItem);
-    return this;
-  }
-
-   /**
-   * Key/value pairs associated with this object
-   * @return attributes
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, String> getAttributes() {
-    return attributes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttributes(Map<String, String> attributes) {
-    this.attributes = attributes;
-  }
-
-
-  public Terminology roots(List<String> roots) {
-    this.roots = roots;
-    return this;
-  }
-
-  public Terminology addRootsItem(String rootsItem) {
-    if (this.roots == null) {
-      this.roots = new ArrayList<>();
-    }
-    this.roots.add(rootsItem);
-    return this;
-  }
-
-   /**
-   * Root codes in the hierarchy
-   * @return roots
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROOTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getRoots() {
-    return roots;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ROOTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoots(List<String> roots) {
-    this.roots = roots;
-  }
-
-
-  public Terminology conceptCt(Long conceptCt) {
-    this.conceptCt = conceptCt;
-    return this;
-  }
-
-   /**
-   * Count of number of concepts in the terminology
-   * @return conceptCt
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONCEPT_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getConceptCt() {
-    return conceptCt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CONCEPT_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConceptCt(Long conceptCt) {
-    this.conceptCt = conceptCt;
-  }
-
-
-  public Terminology relationshipCt(Long relationshipCt) {
-    this.relationshipCt = relationshipCt;
-    return this;
-  }
-
-   /**
-   * Count of number of concept relationships in the terminology
-   * @return relationshipCt
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIP_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getRelationshipCt() {
-    return relationshipCt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIP_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelationshipCt(Long relationshipCt) {
-    this.relationshipCt = relationshipCt;
-  }
-
-
-  public Terminology treePositionCt(Long treePositionCt) {
-    this.treePositionCt = treePositionCt;
-    return this;
-  }
-
-   /**
-   * Count of number of concept tree positions in the terminology
-   * @return treePositionCt
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TREE_POSITION_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getTreePositionCt() {
-    return treePositionCt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TREE_POSITION_CT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTreePositionCt(Long treePositionCt) {
-    this.treePositionCt = treePositionCt;
-  }
-
-
-  public Terminology statistics(Map<String, Integer> statistics) {
-    this.statistics = statistics;
-    return this;
-  }
-
-  public Terminology putStatisticsItem(String key, Integer statisticsItem) {
-    if (this.statistics == null) {
-      this.statistics = new HashMap<>();
-    }
-    this.statistics.put(key, statisticsItem);
-    return this;
-  }
-
-   /**
-   * Get statistics
-   * @return statistics
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATISTICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, Integer> getStatistics() {
-    return statistics;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATISTICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatistics(Map<String, Integer> statistics) {
-    this.statistics = statistics;
-  }
-
-
   /**
-   * Return true if this Terminology object is equal to o.
+   * Return true if this TerminologyRef object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -744,41 +513,34 @@ public class Terminology {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Terminology terminology = (Terminology) o;
-    return Objects.equals(this.id, terminology.id) &&
-        Objects.equals(this.confidence, terminology.confidence) &&
-        Objects.equals(this.modified, terminology.modified) &&
-        Objects.equals(this.created, terminology.created) &&
-        Objects.equals(this.modifiedBy, terminology.modifiedBy) &&
-        Objects.equals(this.local, terminology.local) &&
-        Objects.equals(this.active, terminology.active) &&
-        Objects.equals(this.abbreviation, terminology.abbreviation) &&
-        Objects.equals(this.name, terminology.name) &&
-        Objects.equals(this.version, terminology.version) &&
-        Objects.equals(this.publisher, terminology.publisher) &&
-        Objects.equals(this.license, terminology.license) &&
-        Objects.equals(this.releaseDate, terminology.releaseDate) &&
-        Objects.equals(this.uri, terminology.uri) &&
-        Objects.equals(this.latest, terminology.latest) &&
-        Objects.equals(this.loaded, terminology.loaded) &&
-        Objects.equals(this.family, terminology.family) &&
-        Objects.equals(this.attributes, terminology.attributes) &&
-        Objects.equals(this.roots, terminology.roots) &&
-        Objects.equals(this.conceptCt, terminology.conceptCt) &&
-        Objects.equals(this.relationshipCt, terminology.relationshipCt) &&
-        Objects.equals(this.treePositionCt, terminology.treePositionCt) &&
-        Objects.equals(this.statistics, terminology.statistics);
+    TerminologyRef terminologyRef = (TerminologyRef) o;
+    return Objects.equals(this.id, terminologyRef.id) &&
+        Objects.equals(this.confidence, terminologyRef.confidence) &&
+        Objects.equals(this.modified, terminologyRef.modified) &&
+        Objects.equals(this.created, terminologyRef.created) &&
+        Objects.equals(this.modifiedBy, terminologyRef.modifiedBy) &&
+        Objects.equals(this.local, terminologyRef.local) &&
+        Objects.equals(this.active, terminologyRef.active) &&
+        Objects.equals(this.abbreviation, terminologyRef.abbreviation) &&
+        Objects.equals(this.name, terminologyRef.name) &&
+        Objects.equals(this.version, terminologyRef.version) &&
+        Objects.equals(this.publisher, terminologyRef.publisher) &&
+        Objects.equals(this.license, terminologyRef.license) &&
+        Objects.equals(this.releaseDate, terminologyRef.releaseDate) &&
+        Objects.equals(this.uri, terminologyRef.uri) &&
+        Objects.equals(this.latest, terminologyRef.latest) &&
+        Objects.equals(this.loaded, terminologyRef.loaded);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, license, releaseDate, uri, latest, loaded, family, attributes, roots, conceptCt, relationshipCt, treePositionCt, statistics);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, license, releaseDate, uri, latest, loaded);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Terminology {\n");
+    sb.append("class TerminologyRef {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
@@ -795,13 +557,6 @@ public class Terminology {
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    loaded: ").append(toIndentedString(loaded)).append("\n");
-    sb.append("    family: ").append(toIndentedString(family)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    roots: ").append(toIndentedString(roots)).append("\n");
-    sb.append("    conceptCt: ").append(toIndentedString(conceptCt)).append("\n");
-    sb.append("    relationshipCt: ").append(toIndentedString(relationshipCt)).append("\n");
-    sb.append("    treePositionCt: ").append(toIndentedString(treePositionCt)).append("\n");
-    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

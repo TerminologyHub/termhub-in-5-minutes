@@ -45,6 +45,7 @@ import api.invoker.JSON;
   Mapset.JSON_PROPERTY_NAME,
   Mapset.JSON_PROPERTY_VERSION,
   Mapset.JSON_PROPERTY_PUBLISHER,
+  Mapset.JSON_PROPERTY_LICENSE,
   Mapset.JSON_PROPERTY_RELEASE_DATE,
   Mapset.JSON_PROPERTY_URI,
   Mapset.JSON_PROPERTY_LATEST,
@@ -56,13 +57,12 @@ import api.invoker.JSON;
   Mapset.JSON_PROPERTY_TO_PUBLISHER,
   Mapset.JSON_PROPERTY_TO_TERMINOLOGY,
   Mapset.JSON_PROPERTY_TO_VERSION,
-  Mapset.JSON_PROPERTY_LICENSE,
   Mapset.JSON_PROPERTY_TERMINOLOGY,
   Mapset.JSON_PROPERTY_DESCRIPTION,
   Mapset.JSON_PROPERTY_ATTRIBUTES,
   Mapset.JSON_PROPERTY_STATISTICS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Mapset {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -97,6 +97,9 @@ public class Mapset {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
+  public static final String JSON_PROPERTY_LICENSE = "license";
+  private String license;
+
   public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
   private String releaseDate;
 
@@ -129,9 +132,6 @@ public class Mapset {
 
   public static final String JSON_PROPERTY_TO_VERSION = "toVersion";
   private String toVersion;
-
-  public static final String JSON_PROPERTY_LICENSE = "license";
-  private String license;
 
   public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
   private String terminology;
@@ -423,6 +423,31 @@ public class Mapset {
   }
 
 
+  public Mapset license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * Terminology license, e.g. \&quot;UMLS\&quot;
+   * @return license
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLicense() {
+    return license;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
+
   public Mapset releaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
     return this;
@@ -698,31 +723,6 @@ public class Mapset {
   }
 
 
-  public Mapset license(String license) {
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * Get license
-   * @return license
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LICENSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLicense() {
-    return license;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LICENSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLicense(String license) {
-    this.license = license;
-  }
-
-
   public Mapset terminology(String terminology) {
     this.terminology = terminology;
     return this;
@@ -862,6 +862,7 @@ public class Mapset {
         Objects.equals(this.name, mapset.name) &&
         Objects.equals(this.version, mapset.version) &&
         Objects.equals(this.publisher, mapset.publisher) &&
+        Objects.equals(this.license, mapset.license) &&
         Objects.equals(this.releaseDate, mapset.releaseDate) &&
         Objects.equals(this.uri, mapset.uri) &&
         Objects.equals(this.latest, mapset.latest) &&
@@ -873,7 +874,6 @@ public class Mapset {
         Objects.equals(this.toPublisher, mapset.toPublisher) &&
         Objects.equals(this.toTerminology, mapset.toTerminology) &&
         Objects.equals(this.toVersion, mapset.toVersion) &&
-        Objects.equals(this.license, mapset.license) &&
         Objects.equals(this.terminology, mapset.terminology) &&
         Objects.equals(this.description, mapset.description) &&
         Objects.equals(this.attributes, mapset.attributes) &&
@@ -882,7 +882,7 @@ public class Mapset {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, toPublisher, toTerminology, toVersion, license, terminology, description, attributes, statistics);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, license, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, toPublisher, toTerminology, toVersion, terminology, description, attributes, statistics);
   }
 
   @Override
@@ -900,6 +900,7 @@ public class Mapset {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
@@ -911,7 +912,6 @@ public class Mapset {
     sb.append("    toPublisher: ").append(toIndentedString(toPublisher)).append("\n");
     sb.append("    toTerminology: ").append(toIndentedString(toTerminology)).append("\n");
     sb.append("    toVersion: ").append(toIndentedString(toVersion)).append("\n");
-    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");

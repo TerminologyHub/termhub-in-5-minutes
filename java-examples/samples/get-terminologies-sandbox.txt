@@ -1,8 +1,32 @@
 Response: [class Terminology {
-        id: 177f2263-fe04-4f1f-b0e6-9b351ab8baa9
-        confidence: 9.409539222717285
-        modified: 2024-08-23T02:03:54.059Z
-        created: 2024-08-23T02:03:54.059Z
+        id: ba07eed3-0777-40a1-974e-cd8776a69f5d
+        confidence: 9.160594940185547
+        modified: 2024-08-12T17:22:49.276Z
+        created: 2024-08-12T17:22:49.276Z
+        modifiedBy: loader
+        local: false
+        active: true
+        abbreviation: CDCREC
+        name: Race & Ethnicity - CDC
+        version: 1.2
+        publisher: CDC
+        license: TERMHUB
+        releaseDate: 2021-07-08
+        uri: null
+        latest: true
+        loaded: true
+        family: CDCREC
+        attributes: {copyright=CDCREC, autocomplete=true, tree-positions=true, fhir-r4-md5hash=cc05acb319b8d3ef2c927cbdcd1d8826, fhir-r5-md5hash=644c9e3b442323a0d1c271ca44513699, content-native-length=27287, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, fhirUri=http://terminology.hl7.org/CodeSystem/cdcrec, hierarchical=true, fhirVersion=1.2, content-native-md5hash=d0de48a069a39b6388fd1e360cec4c57, region-us=true, fhir-r5-length=990297, label-uscdi=true, fhir-r4-length=990297, fhirId=cdcrec_1.2, fhirCompositional=false}
+        roots: [1000-9, 2133-7]
+        conceptCt: null
+        relationshipCt: null
+        treePositionCt: null
+        statistics: {parentsInactive=0, parentsActive=964, treePositions=967, termsInactive=0, childrenInactive=0, relationships=964, concepts=966, terms=1932, termsActive=1932, definitions=0, conceptsActive=966, childrenActive=964}
+    }, class Terminology {
+        id: fd5198b6-2eb3-4c54-8bb1-fedbc1967c82
+        confidence: 10.826883316040039
+        modified: 2026-01-30T01:06:01.141Z
+        created: 2026-01-30T01:06:01.141Z
         modifiedBy: loader
         local: false
         active: true
@@ -10,20 +34,21 @@ Response: [class Terminology {
         name: Mini version of ICD10CM for testing purposes
         version: 2023
         publisher: SANDBOX
-        releaseDate: 2023-05-01
+        license: TERMHUB
+        releaseDate: 2022-11-07
         uri: null
         latest: false
         loaded: true
         family: ICD10CM
-        attributes: {fhirUri=http://hl7.org/fhir/sid/icd-10-cm, origin-version=2023AA, autocomplete=true, hierarchical=true, fhirVersion=2023, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirId=icd10cm_2023, fhirCompositional=false}
+        attributes: {origin-version=2022AB, autocomplete=true, description=Built from a small collection of starter concepts and transitive closure to the root, tree-positions=true, fhir-r4-md5hash=578edec4548b7cdc2ecd79b8758c999d, origin-terminology=UMLS, fhir-r5-md5hash=530c3a1a606a17c067eb9492aaee8481, content-native-length=41601, ecl=true, fhirUri=http://hl7.org/fhir/sid/icd-10-cm, fhirVersion=2023, hierarchical=true, content-native-md5hash=76e302e3b7d05593ccc0564af4a1d4ad, fhir-r5-length=13521, fhir-r4-length=13521, fhirId=icd10cm_2023, fhirCompositional=false}
         roots: [ICD-10-CM]
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
-        statistics: {parentsInactive=0, parentsActive=9, treePositions=10, termsInactive=0, childrenInactive=0, relationships=18, concepts=10, terms=22, termsActive=22, definitions=0, conceptsActive=10, childrenActive=9}
+        statistics: {parentsInactive=0, parentsActive=5, treePositions=6, termsInactive=0, childrenInactive=0, relationships=10, concepts=6, terms=10, termsActive=10, definitions=0, conceptsActive=6, childrenActive=5}
     }, class Terminology {
         id: 3e8e4d7c-7d3a-4682-a1e4-c5db5bc33d4b
-        confidence: 8.959708213806152
+        confidence: 9.834754943847656
         modified: 2025-03-27T15:03:43.252Z
         created: 2025-03-27T15:03:43.252Z
         modifiedBy: loader
@@ -33,12 +58,13 @@ Response: [class Terminology {
         name: Mini version of SNOMEDCT For testing purposes
         version: 20240101
         publisher: SANDBOX
+        license: TERMHUB
         releaseDate: 2024-01-01
         uri: null
         latest: true
         loaded: true
         family: SNOMEDCT
-        attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/900000000000207008/version/20240101, fhirId=snomedct_900000000000207008_20240101}
+        attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, fhir-r4-md5hash=8be86bdbd5b26b2fe6c7372e5711a485, fhir-r5-md5hash=0efa942feb10157ffb0f1c1b73652fa5, content-native-length=206449, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/900000000000207008/version/20240101, content-native-md5hash=2e3b45ac36cf733d166c5e9ac907064e, fhir-r5-length=648367, fhir-r4-length=648367, fhirId=snomedct_900000000000207008_20240101}
         roots: [138875005]
         conceptCt: null
         relationshipCt: null
@@ -46,7 +72,7 @@ Response: [class Terminology {
         statistics: {parentsInactive=0, parentsActive=592, treePositions=2152, termsInactive=353, childrenInactive=0, relationships=743, concepts=434, terms=1534, conceptsInactive=3, termsActive=1181, definitions=19, conceptsActive=431, childrenActive=592}
     }, class Terminology {
         id: 2369cdb4-267c-4020-84ea-eb5ddad7f8ff
-        confidence: 8.755613327026367
+        confidence: 10.600110054016113
         modified: 2025-07-24T05:59:17.127Z
         created: 2025-07-24T05:59:17.127Z
         modifiedBy: loader
@@ -56,12 +82,13 @@ Response: [class Terminology {
         name: Mini version of SNOMEDCT_US For testing purposes
         version: 20240301
         publisher: SANDBOX
+        license: TERMHUB
         releaseDate: 2024-03-01
         uri: null
         latest: true
         loaded: true
         family: SNOMEDCT
-        attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/731000124108/version/20240301, fhirId=snomedct_us_731000124108_20240301}
+        attributes: {autocomplete=true, description-logic-based=true, tree-positions=true, fhir-r4-md5hash=7df6968f1811dd6b2bfdb5a83964001b, fhir-r5-md5hash=d088d1685398656138705e31ae64e93a, content-native-length=221134, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, description-logic-profile=EL++, fhirUri=http://snomed.info/sct, show-sty=true, polyhierarchy=true, hierarchical=true, fhirVersion=http://snomed.info/sct/731000124108/version/20240301, content-native-md5hash=0756b3e097b104c43d7195a153d08388, fhir-r5-length=678667, fhir-r4-length=678667, fhirId=snomedct_us_731000124108_20240301}
         roots: [138875005]
         conceptCt: null
         relationshipCt: null
@@ -69,7 +96,7 @@ Response: [class Terminology {
         statistics: {parentsInactive=0, parentsActive=616, treePositions=2181, termsInactive=366, childrenInactive=0, relationships=776, concepts=456, terms=1601, conceptsInactive=3, termsActive=1235, definitions=20, conceptsActive=453, childrenActive=616}
     }, class Terminology {
         id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
-        confidence: 8.959708213806152
+        confidence: 10.060710906982422
         modified: 2024-05-13T18:29:48.953Z
         created: 2024-05-13T18:29:48.953Z
         modifiedBy: loader
@@ -79,12 +106,13 @@ Response: [class Terminology {
         name: Mini version of RXNORM for testing purposes
         version: 04012024
         publisher: SANDBOX
+        license: TERMHUB
         releaseDate: 2024-04-01
         uri: null
         latest: true
         loaded: true
         family: RXNORM
-        attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
+        attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, fhir-r4-md5hash=eef004d2d75943b96b9856fd81a9602c, fhir-r5-length=1303689, fhir-r5-md5hash=5e460d1a9a3b83795f5ac2ef13fa0a8c, fhir-r4-length=1303689, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
         roots: []
         conceptCt: null
         relationshipCt: null
@@ -92,7 +120,7 @@ Response: [class Terminology {
         statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
     }, class Terminology {
         id: d1aba666-39bf-48ea-b524-c5a47ab1dcf1
-        confidence: 9.98556137084961
+        confidence: 12.888306617736816
         modified: 2024-05-13T18:30:45.195Z
         created: 2024-05-13T18:30:45.195Z
         modifiedBy: loader
@@ -102,17 +130,42 @@ Response: [class Terminology {
         name: Mini version of LOINC for testing purposes
         version: 277
         publisher: SANDBOX
+        license: TERMHUB
         releaseDate: 2024-05-06
         uri: null
         latest: true
         loaded: true
         family: LOINC
-        attributes: {origin-version=2024AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://loinc.org, polyhierarchy=true, hierarchical=true, fhirVersion=277, fhirId=lnc_277, fhirCompositional=false}
+        attributes: {origin-version=2024AA, autocomplete=true, tree-positions=true, fhir-r4-md5hash=ce03c48502c7cadc10a87936ed5e1550, origin-terminology=UMLS, fhir-r5-md5hash=233e3a57bf37c7d9684ff3e80afe9c8b, content-native-length=63367, ecl=true, fhirUri=http://loinc.org, polyhierarchy=true, hierarchical=true, fhirVersion=277, content-native-md5hash=0e56deae969deb89bd6fdaa83b84941a, fhir-r5-length=163587, fhir-r4-length=163587, fhirId=lnc_277, fhirCompositional=false}
         roots: [MTHU000998, MTHU000999]
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
         statistics: {parentsInactive=0, parentsActive=90, treePositions=93, termsInactive=0, childrenInactive=0, relationships=326, concepts=114, terms=226, termsActive=226, definitions=0, conceptsActive=114, childrenActive=90}
+    }, class Terminology {
+        id: 5737d6f2-2ff4-40f5-805f-8655599ed41c
+        confidence: 9.01749324798584
+        modified: 2026-05-06T17:00:18.452Z
+        created: 2026-05-06T17:00:18.452Z
+        modifiedBy: loader
+        local: false
+        active: true
+        abbreviation: BCP-47
+        name: Best Current Practices 47 - Language Tags
+        version: 20260505
+        publisher: IETF
+        license: TERMHUB
+        releaseDate: 2026-05-05
+        uri: null
+        latest: true
+        loaded: true
+        family: BCP
+        attributes: {copyright=(c) 2009 IETF Trust, autocomplete=true, description=BCP 47 language tags are standardized codes that are used to identify human languages on the Internet. The tag structure has been standardized by the Internet Engineering Task Force. The subtags are maintained by the IANA Language Subtag Registry., tree-positions=true, fhir-r4-md5hash=4e3f45ee459b9f97e002e51c9131a3bc, fhir-r5-md5hash=744ded0c32c5934e478e38219e61ea79, content-native-length=114724, unidirectional-rels=true, has-relationship-directionality=true, ecl=true, fhirUri=urn:ietf:bcp:47, fhirVersion=20260505, hierarchical=true, content-native-md5hash=be1c8757f89b36c3d1863232fa2e815a, region-us=true, fhir-r5-length=615536, fhir-r4-length=615536, fhirId=bcp-47_20260505, fhirCompositional=false}
+        roots: [root]
+        conceptCt: null
+        relationshipCt: null
+        treePositionCt: null
+        statistics: {parentsInactive=0, parentsActive=1121, treePositions=1122, termsInactive=0, childrenInactive=0, relationships=1121, concepts=1122, terms=1122, termsActive=1122, definitions=0, conceptsActive=1122, childrenActive=1121}
     }]
 
 TerminologyApiTest > getProjectTerminologiesTest()

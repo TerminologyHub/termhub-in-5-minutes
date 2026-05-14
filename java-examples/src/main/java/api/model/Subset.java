@@ -16,6 +16,7 @@ package api.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import api.model.TerminologyRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,9 +24,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -48,6 +51,7 @@ import api.invoker.JSON;
   Subset.JSON_PROPERTY_NAME,
   Subset.JSON_PROPERTY_VERSION,
   Subset.JSON_PROPERTY_PUBLISHER,
+  Subset.JSON_PROPERTY_LICENSE,
   Subset.JSON_PROPERTY_RELEASE_DATE,
   Subset.JSON_PROPERTY_URI,
   Subset.JSON_PROPERTY_LATEST,
@@ -56,8 +60,8 @@ import api.invoker.JSON;
   Subset.JSON_PROPERTY_FROM_PUBLISHER,
   Subset.JSON_PROPERTY_FROM_TERMINOLOGY,
   Subset.JSON_PROPERTY_FROM_VERSION,
+  Subset.JSON_PROPERTY_FROM_TERMINOLOGIES,
   Subset.JSON_PROPERTY_TERMINOLOGY,
-  Subset.JSON_PROPERTY_LICENSE,
   Subset.JSON_PROPERTY_CATEGORY,
   Subset.JSON_PROPERTY_ENTITY_TYPE,
   Subset.JSON_PROPERTY_DESCRIPTION,
@@ -67,7 +71,7 @@ import api.invoker.JSON;
   Subset.JSON_PROPERTY_STATISTICS,
   Subset.JSON_PROPERTY_DISJOINT_SUBSETS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Subset {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -102,6 +106,9 @@ public class Subset {
   public static final String JSON_PROPERTY_PUBLISHER = "publisher";
   private String publisher;
 
+  public static final String JSON_PROPERTY_LICENSE = "license";
+  private String license;
+
   public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
   private String releaseDate;
 
@@ -126,11 +133,11 @@ public class Subset {
   public static final String JSON_PROPERTY_FROM_VERSION = "fromVersion";
   private String fromVersion;
 
+  public static final String JSON_PROPERTY_FROM_TERMINOLOGIES = "fromTerminologies";
+  private List<TerminologyRef> fromTerminologies = new ArrayList<>();
+
   public static final String JSON_PROPERTY_TERMINOLOGY = "terminology";
   private String terminology;
-
-  public static final String JSON_PROPERTY_LICENSE = "license";
-  private String license;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
@@ -434,6 +441,31 @@ public class Subset {
   }
 
 
+  public Subset license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * Terminology license, e.g. \&quot;UMLS\&quot;
+   * @return license
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLicense() {
+    return license;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LICENSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
+
   public Subset releaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
     return this;
@@ -634,6 +666,39 @@ public class Subset {
   }
 
 
+  public Subset fromTerminologies(List<TerminologyRef> fromTerminologies) {
+    this.fromTerminologies = fromTerminologies;
+    return this;
+  }
+
+  public Subset addFromTerminologiesItem(TerminologyRef fromTerminologiesItem) {
+    if (this.fromTerminologies == null) {
+      this.fromTerminologies = new ArrayList<>();
+    }
+    this.fromTerminologies.add(fromTerminologiesItem);
+    return this;
+  }
+
+   /**
+   * Terminology abbreviation/publisher/version tripes that members in this set are from.This is used by subsets whose members are from more than one terminology.
+   * @return fromTerminologies
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FROM_TERMINOLOGIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TerminologyRef> getFromTerminologies() {
+    return fromTerminologies;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FROM_TERMINOLOGIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFromTerminologies(List<TerminologyRef> fromTerminologies) {
+    this.fromTerminologies = fromTerminologies;
+  }
+
+
   public Subset terminology(String terminology) {
     this.terminology = terminology;
     return this;
@@ -656,31 +721,6 @@ public class Subset {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminology(String terminology) {
     this.terminology = terminology;
-  }
-
-
-  public Subset license(String license) {
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * License for usage of this subset (e.g. \&quot;TERMHUB\&quot;)
-   * @return license
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LICENSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLicense() {
-    return license;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LICENSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLicense(String license) {
-    this.license = license;
   }
 
 
@@ -932,6 +972,7 @@ public class Subset {
         Objects.equals(this.name, subset.name) &&
         Objects.equals(this.version, subset.version) &&
         Objects.equals(this.publisher, subset.publisher) &&
+        Objects.equals(this.license, subset.license) &&
         Objects.equals(this.releaseDate, subset.releaseDate) &&
         Objects.equals(this.uri, subset.uri) &&
         Objects.equals(this.latest, subset.latest) &&
@@ -940,8 +981,8 @@ public class Subset {
         Objects.equals(this.fromPublisher, subset.fromPublisher) &&
         Objects.equals(this.fromTerminology, subset.fromTerminology) &&
         Objects.equals(this.fromVersion, subset.fromVersion) &&
+        Objects.equals(this.fromTerminologies, subset.fromTerminologies) &&
         Objects.equals(this.terminology, subset.terminology) &&
-        Objects.equals(this.license, subset.license) &&
         Objects.equals(this.category, subset.category) &&
         Objects.equals(this.entityType, subset.entityType) &&
         Objects.equals(this.description, subset.description) &&
@@ -954,7 +995,7 @@ public class Subset {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, terminology, license, category, entityType, description, expression, query, attributes, statistics, disjointSubsets);
+    return Objects.hash(id, confidence, modified, created, modifiedBy, local, active, abbreviation, name, version, publisher, license, releaseDate, uri, latest, loaded, code, fromPublisher, fromTerminology, fromVersion, fromTerminologies, terminology, category, entityType, description, expression, query, attributes, statistics, disjointSubsets);
   }
 
   @Override
@@ -972,6 +1013,7 @@ public class Subset {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
@@ -980,8 +1022,8 @@ public class Subset {
     sb.append("    fromPublisher: ").append(toIndentedString(fromPublisher)).append("\n");
     sb.append("    fromTerminology: ").append(toIndentedString(fromTerminology)).append("\n");
     sb.append("    fromVersion: ").append(toIndentedString(fromVersion)).append("\n");
+    sb.append("    fromTerminologies: ").append(toIndentedString(fromTerminologies)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
-    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -9,6 +9,8 @@ import api.invoker.Pair;
 import jakarta.ws.rs.core.GenericType;
 
 import api.model.ResultListConcept;
+import api.model.ResultListConceptRelationship;
+import api.model.ResultListConceptTreePosition;
 import api.model.ResultListTerminology;
 import api.model.Terminology;
 
@@ -18,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-17T09:49:56.802404500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class TerminologyApi {
   private ApiClient apiClient;
 
@@ -53,16 +55,16 @@ public class TerminologyApi {
    * Exports specified terminology in the specified format.
    * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
    * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
-   * @param format Requested download format, e.g. \&quot;native\&quot; (required)
+   * @param format Requested download format, e.g. \&quot;native\&quot;, \&quot;r4\&quot;, \&quot;r5\&quot;, \&quot;r4-json-only\&quot;, \&quot;r5-json-only\&quot; (required)
    * @return byte[]
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public byte[] exportProjectTerminology(String idOrUriLabel, String terminology, String format) throws ApiException {
@@ -74,16 +76,16 @@ public class TerminologyApi {
    * Exports specified terminology in the specified format.
    * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
    * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
-   * @param format Requested download format, e.g. \&quot;native\&quot; (required)
+   * @param format Requested download format, e.g. \&quot;native\&quot;, \&quot;r4\&quot;, \&quot;r5\&quot;, \&quot;r4-json-only\&quot;, \&quot;r5-json-only\&quot; (required)
    * @return ApiResponse&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Export terminology matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<byte[]> exportProjectTerminologyWithHttpInfo(String idOrUriLabel, String terminology, String format) throws ApiException {
@@ -129,11 +131,11 @@ public class TerminologyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public String exportTerminologyConcepts(String id, String query, String sort, Boolean ascending) throws ApiException {
@@ -153,11 +155,11 @@ public class TerminologyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Tab separated values file content for matching concepts </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<String> exportTerminologyConceptsWithHttpInfo(String id, String query, String sort, Boolean ascending) throws ApiException {
@@ -186,6 +188,87 @@ public class TerminologyApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Find concept relationships by terminology
+   * Finds all concept relationships for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param offset Start index for search results (optional, default to 0)
+   * @param limit Limit of results to return (hard limit of 1000 regardless of value) (optional, default to 10)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @return ResultListConceptRelationship
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept relationships </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ResultListConceptRelationship findConceptRelationshipsByTerminology(String idOrUriLabel, String terminology, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
+    return findConceptRelationshipsByTerminologyWithHttpInfo(idOrUriLabel, terminology, query, offset, limit, ascending, sort).getData();
+  }
+
+  /**
+   * Find concept relationships by terminology
+   * Finds all concept relationships for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param offset Start index for search results (optional, default to 0)
+   * @param limit Limit of results to return (hard limit of 1000 regardless of value) (optional, default to 10)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @return ApiResponse&lt;ResultListConceptRelationship&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concept relationships </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ResultListConceptRelationship> findConceptRelationshipsByTerminologyWithHttpInfo(String idOrUriLabel, String terminology, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
+    // Check required parameters
+    if (idOrUriLabel == null) {
+      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling findConceptRelationshipsByTerminology");
+    }
+    if (terminology == null) {
+      throw new ApiException(400, "Missing the required parameter 'terminology' when calling findConceptRelationshipsByTerminology");
+    }
+
+    // Path parameters
+    String localVarPath = "/project/{idOrUriLabel}/terminology/{terminology}/relationships"
+            .replaceAll("\\{idOrUriLabel}", apiClient.escapeString(idOrUriLabel))
+            .replaceAll("\\{terminology}", apiClient.escapeString(terminology));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "query", query)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"bearerAuth"};
+    GenericType<ResultListConceptRelationship> localVarReturnType = new GenericType<ResultListConceptRelationship>() {};
+    return apiClient.invokeAPI("TerminologyApi.findConceptRelationshipsByTerminology", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Find terminologies
    * Finds terminologies matching specified criteria.
    * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
@@ -200,11 +283,9 @@ public class TerminologyApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching terminologies </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ResultListTerminology findTerminologies(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -226,11 +307,9 @@ public class TerminologyApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching terminologies </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListTerminology> findTerminologiesWithHttpInfo(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -265,12 +344,12 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ResultListConcept findTerminologyConcepts(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -291,12 +370,12 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching concepts </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListConcept> findTerminologyConceptsWithHttpInfo(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -327,6 +406,87 @@ public class TerminologyApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Find tree positions by terminology
+   * Finds all tree positions for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param offset Start index for search results (optional, default to 0)
+   * @param limit Limit of results to return (hard limit of 1000 regardless of value) (optional, default to 10)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @return ResultListConceptTreePosition
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching tree positions </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ResultListConceptTreePosition findTreePositionsByTerminology(String idOrUriLabel, String terminology, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
+    return findTreePositionsByTerminologyWithHttpInfo(idOrUriLabel, terminology, query, offset, limit, ascending, sort).getData();
+  }
+
+  /**
+   * Find tree positions by terminology
+   * Finds all tree positions for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+   * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
+   * @param terminology Terminology id or abbreviation. e.g. \&quot;uuid1\&quot; or \&quot;ICD10CM\&quot;. (required)
+   * @param query Search text (&lt;a target&#x3D;\&quot;_blank\&quot; href&#x3D;\&quot;https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\&quot;&gt;See here for more info&lt;/a&gt;) (optional)
+   * @param offset Start index for search results (optional, default to 0)
+   * @param limit Limit of results to return (hard limit of 1000 regardless of value) (optional, default to 10)
+   * @param ascending &lt;code&gt;true&lt;/code&gt; for ascending, &lt;code&gt;false&lt;/code&gt; for descending, &lt;code&gt;null&lt;/code&gt; for unspecified (optional)
+   * @param sort Comma-separated list of fields to sort on (optional)
+   * @return ApiResponse&lt;ResultListConceptTreePosition&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching tree positions </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ResultListConceptTreePosition> findTreePositionsByTerminologyWithHttpInfo(String idOrUriLabel, String terminology, String query, Integer offset, Integer limit, Boolean ascending, String sort) throws ApiException {
+    // Check required parameters
+    if (idOrUriLabel == null) {
+      throw new ApiException(400, "Missing the required parameter 'idOrUriLabel' when calling findTreePositionsByTerminology");
+    }
+    if (terminology == null) {
+      throw new ApiException(400, "Missing the required parameter 'terminology' when calling findTreePositionsByTerminology");
+    }
+
+    // Path parameters
+    String localVarPath = "/project/{idOrUriLabel}/terminology/{terminology}/treePositions"
+            .replaceAll("\\{idOrUriLabel}", apiClient.escapeString(idOrUriLabel))
+            .replaceAll("\\{terminology}", apiClient.escapeString(terminology));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "query", query)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"bearerAuth"};
+    GenericType<ResultListConceptTreePosition> localVarReturnType = new GenericType<ResultListConceptTreePosition>() {};
+    return apiClient.invokeAPI("TerminologyApi.findTreePositionsByTerminology", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get project terminologies
    * Gets terminology objects used by the specified project.
    * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
@@ -335,12 +495,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project terminologies </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public List<Terminology> getProjectTerminologies(String idOrUriLabel) throws ApiException {
@@ -356,12 +515,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project terminologies </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Terminology>> getProjectTerminologiesWithHttpInfo(String idOrUriLabel) throws ApiException {
@@ -391,11 +549,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public Terminology getTerminology(String id) throws ApiException {
@@ -411,11 +569,11 @@ public class TerminologyApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Terminology </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Terminology> getTerminologyWithHttpInfo(String id) throws ApiException {

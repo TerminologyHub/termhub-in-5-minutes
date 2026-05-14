@@ -52,7 +52,7 @@ import api.invoker.JSON;
   SubsetMember.JSON_PROPERTY_CODE_EXISTS,
   SubsetMember.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T13:13:49.637811500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class SubsetMember {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;

@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-17T09:49:56.802404500-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-14T14:37:22.308097300-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class SubsetApi {
   private ApiClient apiClient;
 
@@ -54,16 +54,16 @@ public class SubsetApi {
    * Exports specified project subset in the specified format.
    * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
    * @param subset Subset id or abbreviation e.g. \&quot;uuid1\&quot; or \&quot;CVX-NDC\&quot;. (required)
-   * @param format Requested download format, e.g. \&quot;native\&quot; (required)
+   * @param format Requested download format, e.g. \&quot;native\&quot;, \&quot;r4\&quot;, \&quot;r5\&quot;, \&quot;r4-json-only\&quot;, \&quot;r5-json-only\&quot; (required)
    * @return byte[]
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Export project subset matching specified criteria </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Export project subset matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public byte[] exportProjectSubset(String idOrUriLabel, String subset, String format) throws ApiException {
@@ -75,16 +75,16 @@ public class SubsetApi {
    * Exports specified project subset in the specified format.
    * @param idOrUriLabel Project id or uriLabel, e.g. \&quot;sandbox\&quot; (required)
    * @param subset Subset id or abbreviation e.g. \&quot;uuid1\&quot; or \&quot;CVX-NDC\&quot;. (required)
-   * @param format Requested download format, e.g. \&quot;native\&quot; (required)
+   * @param format Requested download format, e.g. \&quot;native\&quot;, \&quot;r4\&quot;, \&quot;r5\&quot;, \&quot;r4-json-only\&quot;, \&quot;r5-json-only\&quot; (required)
    * @return ApiResponse&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Export project subset matching specified criteria </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Export project subset matching specified criteria </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<byte[]> exportProjectSubsetWithHttpInfo(String idOrUriLabel, String subset, String format) throws ApiException {
@@ -129,12 +129,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public File exportProjectSubsetMembers(String idOrUriLabel, String subset, String query, Boolean active) throws ApiException {
@@ -153,12 +153,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> exportProjectSubsetMembersWithHttpInfo(String idOrUriLabel, String subset, String query, Boolean active) throws ApiException {
@@ -200,12 +200,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public File exportSubsetMembers(String id, String query, Boolean active) throws ApiException {
@@ -223,12 +223,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Tab separated values file content for matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> exportSubsetMembersWithHttpInfo(String id, String query, Boolean active) throws ApiException {
@@ -271,12 +271,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching members </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ResultListSubsetMember findProjectMembers(String idOrUriLabel, String subset, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -299,12 +299,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of matching members </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListSubsetMember> findProjectMembersWithHttpInfo(String idOrUriLabel, String subset, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -352,12 +352,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ResultListSubsetMember findProjectSubsetMembers(String idOrUriLabel, String subset, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -380,12 +380,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListSubsetMember> findProjectSubsetMembersWithHttpInfo(String idOrUriLabel, String subset, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -435,12 +435,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ResultListSubsetMember findSubsetMembers(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -462,12 +462,12 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subset members </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListSubsetMember> findSubsetMembersWithHttpInfo(String id, String query, Integer offset, Integer limit, String sort, Boolean ascending, Boolean active) throws ApiException {
@@ -511,11 +511,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subsets </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subsets </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ResultListSubset findSubsets(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -535,11 +535,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 200 </td><td> Result list of matching subsets </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Result list of matching subsets </td><td>  -  </td></tr>
+       <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ResultListSubset> findSubsetsWithHttpInfo(String query, Integer offset, Integer limit, String sort, Boolean ascending) throws ApiException {
@@ -569,11 +569,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project subsets </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public List<Subset> getProjectSubsets(String idOrUriLabel) throws ApiException {
@@ -589,11 +589,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 200 </td><td> Result list of project subsets </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<Subset>> getProjectSubsetsWithHttpInfo(String idOrUriLabel) throws ApiException {
@@ -623,11 +623,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Subset </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Subset </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public Subset getSubset(String id) throws ApiException {
@@ -643,11 +643,11 @@ public class SubsetApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Subset </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Subset </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Subset> getSubsetWithHttpInfo(String id) throws ApiException {

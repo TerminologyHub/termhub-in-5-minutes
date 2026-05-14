@@ -14,7 +14,7 @@ Response: class ResultListMapping {
         }
         items: [class Mapping {
             id: 8e05c2bd-7f77-4cd1-9edd-1c4185d2e818
-            confidence: 24.49860954284668
+            confidence: 25.775371551513672
             modified: 2024-08-23T18:59:26.844Z
             created: 2024-08-23T18:59:26.844Z
             modifiedBy: loader
@@ -36,6 +36,7 @@ Response: class ResultListMapping {
                 name: null
                 version: 20240301
                 publisher: SANDBOX
+                license: null
                 releaseDate: null
                 uri: null
                 latest: null
@@ -92,7 +93,7 @@ Response: class ResultListMapping {
             attributes: {}
         }, class Mapping {
             id: f012f377-2d76-408e-a107-66378e26fc46
-            confidence: 24.49860954284668
+            confidence: 25.775371551513672
             modified: 2024-08-23T18:59:26.845Z
             created: 2024-08-23T18:59:26.845Z
             modifiedBy: loader
@@ -114,6 +115,7 @@ Response: class ResultListMapping {
                 name: null
                 version: 20240301
                 publisher: SANDBOX
+                license: null
                 releaseDate: null
                 uri: null
                 latest: null

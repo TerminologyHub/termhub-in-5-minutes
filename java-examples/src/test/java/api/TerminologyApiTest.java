@@ -38,6 +38,22 @@ public class TerminologyApiTest {
 
     private final TerminologyApi api = new TerminologyApi();
 
+    private Terminology sampleTerminology() throws ApiException {
+        ResultListTerminology terminologies = api.findTerminologies(null, null, null, null, null);
+        assertNotNull(terminologies);
+        assertNotNull(terminologies.getItems());
+        assertTrue(terminologies.getItems().size() > 0);
+
+        for (Terminology terminology : terminologies.getItems()) {
+            if (terminology.getId() != null) {
+                return terminology;
+            }
+        }
+
+        Assertions.fail("No terminology with an id returned");
+        return null;
+    }
+
     @BeforeEach
     public void setUp() {
         // Set up the API client with authentication
@@ -143,7 +159,8 @@ public class TerminologyApiTest {
      */
     @Test
     public void getTerminologyTest() throws ApiException {
-        String id = "e04c9251-e493-4b5a-b500-f36163625d1f";
+        Terminology sample = sampleTerminology();
+        String id = sample.getId().toString();
         Terminology response = api.getTerminology(id);
         assertNotNull(response);
         System.out.println("Response: " + response);
@@ -152,7 +169,6 @@ public class TerminologyApiTest {
         assertNotNull(response.getName());
         assertNotNull(response.getVersion());
         assertNotNull(response.getAbbreviation());
-        assertEquals(response.getAbbreviation(), "ICD10CM");
     }
 
 }

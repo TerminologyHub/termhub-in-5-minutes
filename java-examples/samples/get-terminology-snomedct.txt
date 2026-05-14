@@ -1,26 +1,27 @@
 Response: class Terminology {
-        id: e04c9251-e493-4b5a-b500-f36163625d1f
-        confidence: 6.616942405700684
-        modified: 2024-05-11T04:07:44.624Z
-        created: 2024-05-11T04:07:44.624Z
+        id: b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
+        confidence: 1.0
+        modified: 2024-05-13T18:29:48.953Z
+        created: 2024-05-13T18:29:48.953Z
         modifiedBy: loader
         local: false
         active: true
-        abbreviation: ICD10CM
-        name: International Classification of Diseases, Tenth Revision, Clinical Modification
-        version: 2022_04_01
-        publisher: NLM
-        releaseDate: 2022-05-02
+        abbreviation: RXNORM
+        name: Mini version of RXNORM for testing purposes
+        version: 04012024
+        publisher: SANDBOX
+        license: TERMHUB
+        releaseDate: 2024-04-01
         uri: null
-        latest: false
+        latest: true
         loaded: true
-        family: ICD10CM
-        attributes: {origin-version=2022AA, autocomplete=true, tree-positions=true, origin-terminology=UMLS, ecl=true, fhirUri=http://hl7.org/fhir/sid/icd-10-cm, hierarchical=true, fhirVersion=2022_04_01, region-us=true, label-clinical=true, label-uscdi=true, fhirId=icd10cm_2022_04_01, fhirCompositional=false}
-        roots: [ICD-10-CM]
+        family: RXNORM
+        attributes: {fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm, autocomplete=true, fhirVersion=04012024, fhir-r4-md5hash=eef004d2d75943b96b9856fd81a9602c, fhir-r5-length=1303689, fhir-r5-md5hash=5e460d1a9a3b83795f5ac2ef13fa0a8c, fhir-r4-length=1303689, ecl=true, fhirId=rxnorm_04012024, fhirCompositional=false}
+        roots: []
         conceptCt: null
         relationshipCt: null
         treePositionCt: null
-        statistics: {termsInactive=0, childrenInactive=0, relationships=191692, concepts=95847, terms=204093, parentsInactive=0, termsActive=204093, parentsActive=95846, definitions=0, treePositions=95847, conceptsActive=95847, childrenActive=95846}
+        statistics: {parentsInactive=0, parentsActive=0, treePositions=0, termsInactive=403, childrenInactive=0, relationships=7428, concepts=816, terms=1975, conceptsInactive=198, termsActive=1572, definitions=0, conceptsActive=618, childrenActive=0}
     }
 
 TerminologyApiTest > getTerminologyTest()
