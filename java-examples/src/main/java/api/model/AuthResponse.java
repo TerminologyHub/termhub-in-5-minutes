@@ -209,8 +209,8 @@ public class AuthResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthResponse {\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    accessToken: ").append(accessToken == null ? "null" : "<redacted>").append("\n");
+    sb.append("    refreshToken: ").append(refreshToken == null ? "null" : "<redacted>").append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
@@ -230,4 +230,3 @@ public class AuthResponse {
   }
 
 }
-

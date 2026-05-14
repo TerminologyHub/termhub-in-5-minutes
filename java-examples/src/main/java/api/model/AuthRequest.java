@@ -247,10 +247,10 @@ public class AuthRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthRequest {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    password: ").append(password == null ? "null" : "<redacted>").append("\n");
+    sb.append("    token: ").append(token == null ? "null" : "<redacted>").append("\n");
     sb.append("    grantType: ").append(toIndentedString(grantType)).append("\n");
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    refreshToken: ").append(refreshToken == null ? "null" : "<redacted>").append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -267,4 +267,3 @@ public class AuthRequest {
   }
 
 }
-
