@@ -74,7 +74,7 @@ scan-strict: TRIVY_FLAGS := --exit-code 1
 scan-strict: scan
 
 scan-source:
-	trivy fs $(TRIVY_FLAGS) --scanners vuln,secret,misconfig --skip-dirs .git --skip-dirs build --skip-dirs node_modules --skip-files java-examples/gradle.lockfile .
+	trivy fs $(TRIVY_FLAGS) --scanners vuln,secret,misconfig --skip-dirs .git --skip-dirs build --skip-dirs doc/code-generator/build --skip-dirs node_modules --skip-files java-examples/gradle.lockfile .
 
 scan-deps: scan-java scan-python
 
