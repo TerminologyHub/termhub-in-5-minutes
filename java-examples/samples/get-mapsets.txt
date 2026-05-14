@@ -13,243 +13,75 @@ Response: class ResultListMapset {
             leaf: null
         }
         items: [class Mapset {
-            id: 4c446b2a-92d5-46af-a82b-e7f81961e60c
-            confidence: 1.0023725032806396
-            modified: 2026-03-18T23:43:41.583Z
-            created: 2026-03-18T23:43:41.583Z
+            id: df25a75a-f808-4b10-9cf9-370c159a468d
+            confidence: 1.0031496286392212
+            modified: 2025-10-20T21:36:11.570Z
+            created: 2025-10-20T21:36:11.570Z
             modifiedBy: loader
             local: false
             active: true
-            abbreviation: CVX-NDC
-            name: Mapset from CVX 20240515 to NDC 20240503
-            version: 20240515
-            publisher: CDC
+            abbreviation: CMS-HCC-ICD10CM-Model_Category_V24
+            name: Mapset from CMS-HCC v24 to ICD10CM 2025
+            version: 2025
+            publisher: CMS
             license: TERMHUB
-            releaseDate: 2024-05-15
+            releaseDate: 2025-01-01
             uri: null
-            latest: false
+            latest: true
             loaded: true
-            code: CVX-NDC
-            fromPublisher: CDC
-            fromTerminology: CVX
-            fromVersion: 20240515
-            toPublisher: FDA
-            toTerminology: NDC
-            toVersion: 20240503
-            terminology: CVX
-            description: Mapset from CVX 20240515 to NDC 20240503
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://hl7.org/fhir/sid/cvx, origin-version=20240515, fhirToTerminologyUri=http://hl7.org/fhir/sid/ndc, fhirFromTerminologyVersion=20240515, fhir-r4-md5hash=6c2af3f3e84d0dc528a746da9edb227b, origin-terminology=CVX, fhir-r5-md5hash=b2ce3a1e4f513519b2d5d15b9bc83116, content-native-length=106043, cardinality=1-N, fhirUri=http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC, fhirToTerminologyVersion=20240503, fhirVersion=20240515, content-native-md5hash=3ee6ebb0ff1385d6f5d1294004266267, fhir-r5-length=99353, fhir-r4-length=98836, fhirId=cdc_cvx-ndc_20240515}
-            statistics: {mappings=167, uniqueFromCodes=83, mappingsEmptyTarget=0, mappingsActive=167, uniqueToCodes=167}
+            code: CMS-HCC-ICD10CM-Model_Category_V24
+            fromPublisher: CMS
+            fromTerminology: CMS-HCC
+            fromVersion: v24
+            toPublisher: NLM
+            toTerminology: ICD10CM
+            toVersion: 2025
+            terminology: CMS-HCC
+            description: Mapset from CMS-HCC v24 to ICD10CM 2025
+            attributes: {complexity=simple, fhirUri=http://terminology.hl7.org/CodeSystem/cmshcc?fhir_cm=CMS-HCC-ICD10CM-Model_Category_V24, fhirFromTerminologyUri=http://terminology.hl7.org/CodeSystem/cmshcc, fhirToTerminologyUri=http://hl7.org/fhir/sid/icd-10-cm, fhirToTerminologyVersion=2025, fhirVersion=2025, fhirFromTerminologyVersion=v24, cardinality=1-N, fhirId=cms_cms-hcc-icd10cm-model_category_v24_2025}
+            statistics: {mappings=10211, uniqueFromCodes=86, mappingsEmptyTarget=0, mappingsActive=10211, uniqueToCodes=9927}
         }, class Mapset {
-            id: cfecc698-0329-4df0-8831-b4a59921a18d
-            confidence: 1.0023725032806396
-            modified: 2024-09-06T17:00:11.892Z
-            created: 2024-09-06T17:00:11.892Z
+            id: 9d075c90-cc3c-4549-a834-8326f2ad92aa
+            confidence: 1.0031496286392212
+            modified: 2025-10-20T21:36:11.571Z
+            created: 2025-10-20T21:36:11.571Z
             modifiedBy: loader
             local: false
             active: true
-            abbreviation: CVX-NDC
-            name: Mapset from CVX 20240903 to NDC 20240901
-            version: 20240903
-            publisher: CDC
+            abbreviation: CMS-HCC-ICD10CM-Model_Category_V28
+            name: Mapset from CMS-HCC v28 to ICD10CM 2025
+            version: 2025
+            publisher: CMS
             license: TERMHUB
-            releaseDate: 2024-09-03
+            releaseDate: 2025-01-01
             uri: null
-            latest: false
+            latest: true
             loaded: true
-            code: CVX-NDC
-            fromPublisher: CDC
-            fromTerminology: CVX
-            fromVersion: 20240903
-            toPublisher: FDA
-            toTerminology: NDC
-            toVersion: 20240901
-            terminology: CVX
-            description: Mapset from CVX 20240903 to NDC 20240901
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://hl7.org/fhir/sid/cvx, origin-version=20240903, fhirToTerminologyUri=http://hl7.org/fhir/sid/ndc, fhirFromTerminologyVersion=20240903, fhir-r4-md5hash=d3dc652ca64421da332ea80e6f382ed8, origin-terminology=CVX, fhir-r5-md5hash=0441d23e3627014fcc2936d544a9ce22, content-native-length=111753, cardinality=1-N, fhirUri=http://hl7.org/fhir/sid/cvx?fhir_cm=CVX-NDC, fhirToTerminologyVersion=20240901, fhirVersion=20240903, content-native-md5hash=b3c6b14f5c004e2e1137409d78775791, fhir-r5-length=97897, fhir-r4-length=97386, fhirId=cdc_cvx-ndc_20240903}
-            statistics: {mappings=164, uniqueFromCodes=84, mappingsEmptyTarget=0, mappingsActive=164, uniqueToCodes=164}
-        }, class Mapset {
-            id: 6c783166-ebeb-4c80-8228-d5a46c3c4d62
-            confidence: 1.0023725032806396
-            modified: 2025-10-05T18:38:14.020Z
-            created: 2025-10-05T18:38:14.020Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2025_02_10 to RXNORM 10062025
-            version: 10062025
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2025-10-06
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2025_02_10
+            code: CMS-HCC-ICD10CM-Model_Category_V28
+            fromPublisher: CMS
+            fromTerminology: CMS-HCC
+            fromVersion: v28
             toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 10062025
-            terminology: RXNORM
-            description: Mapset from ATC 2025_02_10 to RXNORM 10062025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=10062025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=10062025, fhirVersion=10062025, content-native-md5hash=182e2421a1aff7c79290815a0b01f9d2, fhirId=nlm_atc-rxnorm_10062025}
-            statistics: {mappings=460450, uniqueFromCodes=4853, mappingsEmptyTarget=0, mappingsActive=460450, uniqueToCodes=91410}
+            toTerminology: ICD10CM
+            toVersion: 2025
+            terminology: CMS-HCC
+            description: Mapset from CMS-HCC v28 to ICD10CM 2025
+            attributes: {complexity=simple, fhirUri=http://terminology.hl7.org/CodeSystem/cmshcc?fhir_cm=CMS-HCC-ICD10CM-Model_Category_V28, fhirFromTerminologyUri=http://terminology.hl7.org/CodeSystem/cmshcc, fhirToTerminologyUri=http://hl7.org/fhir/sid/icd-10-cm, fhirToTerminologyVersion=2025, fhirVersion=2025, fhirFromTerminologyVersion=v28, cardinality=1-N, fhirId=cms_cms-hcc-icd10cm-model_category_v28_2025}
+            statistics: {mappings=8183, uniqueFromCodes=115, mappingsEmptyTarget=0, mappingsActive=8183, uniqueToCodes=7903}
         }, class Mapset {
-            id: 29acd32d-6384-4473-b9b3-e0fdf133c976
-            confidence: 1.0023725032806396
-            modified: 2025-01-06T19:10:47.615Z
-            created: 2025-01-06T19:10:47.615Z
+            id: 55e61cd6-3625-451a-9d8b-481da2484eeb
+            confidence: 1.0031496286392212
+            modified: 2026-01-04T18:08:25.173Z
+            created: 2026-01-04T18:08:25.173Z
             modifiedBy: loader
             local: false
             active: true
             abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2024_01_19_24_03_04 to RXNORM 11042024
-            version: 11042024
+            name: Mapset from ATC 2025_02_10_25_09_02 to RXNORM 01052026
+            version: 01052026
             publisher: NLM
             license: UMLS
-            releaseDate: 2024-11-04
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2024_01_19_24_03_04
-            toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 11042024
-            terminology: RXNORM
-            description: Mapset from ATC 2024_01_19_24_03_04 to RXNORM 11042024
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=11042024, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_03_04, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=11042024, fhirVersion=11042024, content-native-md5hash=6ffa99d96ab0fd39ab9e3f4d5b058a5f, fhirId=nlm_atc-rxnorm_11042024}
-            statistics: {mappings=375095, uniqueFromCodes=4631, mappingsEmptyTarget=0, mappingsActive=375095, uniqueToCodes=51284}
-        }, class Mapset {
-            id: 0bfe05ec-38cf-4b79-9d43-7ef216aa3d31
-            confidence: 1.0023725032806396
-            modified: 2025-08-03T17:08:38.536Z
-            created: 2025-08-03T17:08:38.536Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2025_02_10 to RXNORM 08042025
-            version: 08042025
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2025-08-04
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2025_02_10
-            toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 08042025
-            terminology: RXNORM
-            description: Mapset from ATC 2025_02_10 to RXNORM 08042025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=08042025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=08042025, fhirVersion=08042025, content-native-md5hash=00206e972a58fa33dfb72473b3af4219, fhirId=nlm_atc-rxnorm_08042025}
-            statistics: {mappings=451580, uniqueFromCodes=4848, mappingsEmptyTarget=0, mappingsActive=451580, uniqueToCodes=89844}
-        }, class Mapset {
-            id: 278785c3-c941-43fe-97f2-f4491093c857
-            confidence: 1.0023725032806396
-            modified: 2025-09-01T17:08:17.986Z
-            created: 2025-09-01T17:08:17.986Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2025_02_10 to RXNORM 09022025
-            version: 09022025
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2025-09-02
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2025_02_10
-            toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 09022025
-            terminology: RXNORM
-            description: Mapset from ATC 2025_02_10 to RXNORM 09022025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=09022025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=09022025, fhirVersion=09022025, content-native-md5hash=dc1d49b82db1dd2b8689ed33fb859b9c, fhirId=nlm_atc-rxnorm_09022025}
-            statistics: {mappings=451434, uniqueFromCodes=4850, mappingsEmptyTarget=0, mappingsActive=451434, uniqueToCodes=89783}
-        }, class Mapset {
-            id: 4ef9094a-ec0d-4c11-af88-7fae9242ac17
-            confidence: 1.0023725032806396
-            modified: 2025-01-07T03:34:16.019Z
-            created: 2025-01-07T03:34:16.019Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 12022024
-            version: 12022024
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2024-12-02
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2024_01_19_24_09_03
-            toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 12022024
-            terminology: RXNORM
-            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 12022024
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=12022024, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=12022024, fhirVersion=12022024, content-native-md5hash=31fa13f49501630e61f9de0766978aca, fhirId=nlm_atc-rxnorm_12022024}
-            statistics: {mappings=375242, uniqueFromCodes=4632, mappingsEmptyTarget=0, mappingsActive=375242, uniqueToCodes=51317}
-        }, class Mapset {
-            id: 5e3c9cd4-52d2-437e-95bc-7e06dbc315fd
-            confidence: 1.0023725032806396
-            modified: 2025-01-09T22:05:23.780Z
-            created: 2025-01-09T22:05:23.780Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 01062025
-            version: 01062025
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2025-01-06
-            uri: null
-            latest: false
-            loaded: true
-            code: ATC-RXNORM
-            fromPublisher: NLM
-            fromTerminology: ATC
-            fromVersion: 2024_01_19_24_09_03
-            toPublisher: NLM
-            toTerminology: RXNORM
-            toVersion: 01062025
-            terminology: RXNORM
-            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 01062025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=01062025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=01062025, fhirVersion=01062025, content-native-md5hash=579b7e4230107e70f5c21e3955cc09d5, fhirId=nlm_atc-rxnorm_01062025}
-            statistics: {mappings=449975, uniqueFromCodes=4799, mappingsEmptyTarget=0, mappingsActive=449975, uniqueToCodes=89603}
-        }, class Mapset {
-            id: 5bfc3710-635c-4956-9069-1092bd4eb899
-            confidence: 1.0023725032806396
-            modified: 2025-11-30T19:40:30.713Z
-            created: 2025-11-30T19:40:30.713Z
-            modifiedBy: loader
-            local: false
-            active: true
-            abbreviation: ATC-RXNORM
-            name: Mapset from ATC 2025_02_10_25_09_02 to RXNORM 12012025
-            version: 12012025
-            publisher: NLM
-            license: UMLS
-            releaseDate: 2025-12-01
+            releaseDate: 2026-01-05
             uri: null
             latest: false
             loaded: true
@@ -259,21 +91,161 @@ Response: class ResultListMapset {
             fromVersion: 2025_02_10_25_09_02
             toPublisher: NLM
             toTerminology: RXNORM
-            toVersion: 12012025
+            toVersion: 01052026
             terminology: RXNORM
-            description: Mapset from ATC 2025_02_10_25_09_02 to RXNORM 12012025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=12012025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10_25_09_02, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=12012025, fhirVersion=12012025, content-native-md5hash=30f8cd60d620723be9d17385afd68346, fhirId=nlm_atc-rxnorm_12012025}
-            statistics: {mappings=460036, uniqueFromCodes=4854, mappingsEmptyTarget=0, mappingsActive=460036, uniqueToCodes=91299}
+            description: Mapset from ATC 2025_02_10_25_09_02 to RXNORM 01052026
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=01052026, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10_25_09_02, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=01052026, fhirVersion=01052026, content-native-md5hash=e6fd03fdfb683301a304ead2a57ac7a0, fhirId=nlm_atc-rxnorm_01052026}
+            statistics: {mappings=459707, uniqueFromCodes=4854, mappingsEmptyTarget=0, mappingsActive=459707, uniqueToCodes=91193}
         }, class Mapset {
-            id: db945e16-a7ec-420b-ad24-145ed51142f1
-            confidence: 1.0023725032806396
+            id: d299a2b1-f2bf-4f49-b887-7f47605f3ab9
+            confidence: 1.0031496286392212
+            modified: 2025-10-20T21:36:11.570Z
+            created: 2025-10-20T21:36:11.570Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ICD10CM-CMS-HCC-Model_Category_V24
+            name: Mapset from ICD10CM 2025 to CMS-HCC v24
+            version: 2025
+            publisher: CMS
+            license: TERMHUB
+            releaseDate: 2025-01-01
+            uri: null
+            latest: true
+            loaded: true
+            code: ICD10CM-CMS-HCC-Model_Category_V24
+            fromPublisher: NLM
+            fromTerminology: ICD10CM
+            fromVersion: 2025
+            toPublisher: CMS
+            toTerminology: CMS-HCC
+            toVersion: v24
+            terminology: CMS-HCC
+            description: Mapset from ICD10CM 2025 to CMS-HCC v24
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://hl7.org/fhir/sid/icd-10-cm, fhirToTerminologyUri=http://terminology.hl7.org/CodeSystem/cmshcc, fhirFromTerminologyVersion=2025, fhir-r4-md5hash=148ca6906688ed711c4e53bc3648ab0b, fhir-r5-md5hash=a84ff6d1023c4521495c73c6e4890a56, cardinality=N-1, fhirUri=http://terminology.hl7.org/CodeSystem/cmshcc?fhir_cm=ICD10CM-CMS-HCC-Model_Category_V24, fhirToTerminologyVersion=v24, fhirVersion=2025, fhir-r5-length=2770257, fhir-r4-length=2749630, fhirId=cms_icd10cm-cms-hcc-model_category_v24_2025}
+            statistics: {mappings=10211, uniqueFromCodes=9927, mappingsEmptyTarget=0, mappingsActive=10211, uniqueToCodes=86}
+        }, class Mapset {
+            id: 12afbb66-3c45-4085-a8de-03cbd83c9355
+            confidence: 1.0031496286392212
+            modified: 2025-10-20T21:36:11.571Z
+            created: 2025-10-20T21:36:11.571Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ICD10CM-CMS-HCC-Model_Category_V28
+            name: Mapset from ICD10CM 2025 to CMS-HCC v28
+            version: 2025
+            publisher: CMS
+            license: TERMHUB
+            releaseDate: 2025-01-01
+            uri: null
+            latest: true
+            loaded: true
+            code: ICD10CM-CMS-HCC-Model_Category_V28
+            fromPublisher: NLM
+            fromTerminology: ICD10CM
+            fromVersion: 2025
+            toPublisher: CMS
+            toTerminology: CMS-HCC
+            toVersion: v28
+            terminology: CMS-HCC
+            description: Mapset from ICD10CM 2025 to CMS-HCC v28
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://hl7.org/fhir/sid/icd-10-cm, fhirToTerminologyUri=http://terminology.hl7.org/CodeSystem/cmshcc, fhirFromTerminologyVersion=2025, fhir-r4-md5hash=c4a08144779c7174a31acc62af1662ec, fhir-r5-md5hash=a8f08a90a4f60377432abc3b52656dce, cardinality=N-1, fhirUri=http://terminology.hl7.org/CodeSystem/cmshcc?fhir_cm=ICD10CM-CMS-HCC-Model_Category_V28, fhirToTerminologyVersion=v28, fhirVersion=2025, fhir-r5-length=2271066, fhir-r4-length=2254495, fhirId=cms_icd10cm-cms-hcc-model_category_v28_2025}
+            statistics: {mappings=8183, uniqueFromCodes=7903, mappingsEmptyTarget=0, mappingsActive=8183, uniqueToCodes=115}
+        }, class Mapset {
+            id: 8ef94ef5-4e4e-48a3-a398-b13a9750b400
+            confidence: 1.0031496286392212
+            modified: 2025-02-02T18:08:08.901Z
+            created: 2025-02-02T18:08:08.901Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ATC-RXNORM
+            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 02032025
+            version: 02032025
+            publisher: NLM
+            license: UMLS
+            releaseDate: 2025-02-03
+            uri: null
+            latest: false
+            loaded: true
+            code: ATC-RXNORM
+            fromPublisher: NLM
+            fromTerminology: ATC
+            fromVersion: 2024_01_19_24_09_03
+            toPublisher: NLM
+            toTerminology: RXNORM
+            toVersion: 02032025
+            terminology: RXNORM
+            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 02032025
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=02032025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=02032025, fhirVersion=02032025, content-native-md5hash=d912f3080a81462f466d0b50ee0d9c28, fhirId=nlm_atc-rxnorm_02032025}
+            statistics: {mappings=449339, uniqueFromCodes=4799, mappingsEmptyTarget=0, mappingsActive=449339, uniqueToCodes=89427}
+        }, class Mapset {
+            id: 281cfcda-8ab9-4043-828d-4a3fb43ad641
+            confidence: 1.0031496286392212
+            modified: 2025-05-04T17:08:24.260Z
+            created: 2025-05-04T17:08:24.260Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ATC-RXNORM
+            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 05052025
+            version: 05052025
+            publisher: NLM
+            license: UMLS
+            releaseDate: 2025-05-05
+            uri: null
+            latest: false
+            loaded: true
+            code: ATC-RXNORM
+            fromPublisher: NLM
+            fromTerminology: ATC
+            fromVersion: 2024_01_19_24_09_03
+            toPublisher: NLM
+            toTerminology: RXNORM
+            toVersion: 05052025
+            terminology: RXNORM
+            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 05052025
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=05052025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=05052025, fhirVersion=05052025, content-native-md5hash=b6750355db90cd1a474c870823568a4f, fhirId=nlm_atc-rxnorm_05052025}
+            statistics: {mappings=449051, uniqueFromCodes=4806, mappingsEmptyTarget=0, mappingsActive=449051, uniqueToCodes=89253}
+        }, class Mapset {
+            id: dceecdae-6f4a-4d36-92ac-046edba77a96
+            confidence: 1.0031496286392212
+            modified: 2025-06-01T18:18:21.581Z
+            created: 2025-06-01T18:18:21.581Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ATC-RXNORM
+            name: Mapset from ATC 2025_02_10 to RXNORM 06022025
+            version: 06022025
+            publisher: NLM
+            license: UMLS
+            releaseDate: 2025-06-02
+            uri: null
+            latest: false
+            loaded: true
+            code: ATC-RXNORM
+            fromPublisher: NLM
+            fromTerminology: ATC
+            fromVersion: 2025_02_10
+            toPublisher: NLM
+            toTerminology: RXNORM
+            toVersion: 06022025
+            terminology: RXNORM
+            description: Mapset from ATC 2025_02_10 to RXNORM 06022025
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=06022025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2025_02_10, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=06022025, fhirVersion=06022025, content-native-md5hash=387be353c4731724c5853f0855485d86, fhirId=nlm_atc-rxnorm_06022025}
+            statistics: {mappings=452020, uniqueFromCodes=4846, mappingsEmptyTarget=0, mappingsActive=452020, uniqueToCodes=89968}
+        }, class Mapset {
+            id: 4ff5de9c-9100-4780-8524-6b6a95da8a4b
+            confidence: 1.0031496286392212
             modified: 2025-03-03T18:08:14.230Z
             created: 2025-03-03T18:08:14.230Z
             modifiedBy: loader
             local: false
             active: true
-            abbreviation: CVX-RXNORM
-            name: Mapset from CVX 20241216 to RXNORM 03032025
+            abbreviation: ATC-RXNORM
+            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 03032025
             version: 03032025
             publisher: NLM
             license: UMLS
@@ -281,17 +253,45 @@ Response: class ResultListMapset {
             uri: null
             latest: false
             loaded: true
-            code: CVX-RXNORM
-            fromPublisher: CDC
-            fromTerminology: CVX
-            fromVersion: 20241216
+            code: ATC-RXNORM
+            fromPublisher: NLM
+            fromTerminology: ATC
+            fromVersion: 2024_01_19_24_09_03
             toPublisher: NLM
             toTerminology: RXNORM
             toVersion: 03032025
             terminology: RXNORM
-            description: Mapset from CVX 20241216 to RXNORM 03032025
-            attributes: {complexity=simple, fhirFromTerminologyUri=http://hl7.org/fhir/sid/cvx, origin-version=03032025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=20241216, fhir-r4-md5hash=59cce2ffa65210a30f3ecc5533c104b2, origin-terminology=RXNORM, fhir-r5-md5hash=af69e80cc8a70ff1f7ad83c5c5c83272, content-native-length=333, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=CVX-RXNORM, fhirToTerminologyVersion=03032025, fhirVersion=03032025, content-native-md5hash=c141a7c083728430117d43336818b4ab, fhir-r5-length=136867, fhir-r4-length=135989, fhirId=nlm_cvx-rxnorm_03032025}
-            statistics: {mappings=338, uniqueFromCodes=132, mappingsEmptyTarget=0, mappingsActive=338, uniqueToCodes=329}
+            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 03032025
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=03032025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=03032025, fhirVersion=03032025, content-native-md5hash=1061f722e2bcb35eb4b04da60cc136aa, fhirId=nlm_atc-rxnorm_03032025}
+            statistics: {mappings=449101, uniqueFromCodes=4797, mappingsEmptyTarget=0, mappingsActive=449101, uniqueToCodes=89318}
+        }, class Mapset {
+            id: bcece680-8ed0-4206-8c9d-a2946e75bcc8
+            confidence: 1.0031496286392212
+            modified: 2025-04-06T17:08:32.738Z
+            created: 2025-04-06T17:08:32.738Z
+            modifiedBy: loader
+            local: false
+            active: true
+            abbreviation: ATC-RXNORM
+            name: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 04072025
+            version: 04072025
+            publisher: NLM
+            license: UMLS
+            releaseDate: 2025-04-07
+            uri: null
+            latest: false
+            loaded: true
+            code: ATC-RXNORM
+            fromPublisher: NLM
+            fromTerminology: ATC
+            fromVersion: 2024_01_19_24_09_03
+            toPublisher: NLM
+            toTerminology: RXNORM
+            toVersion: 04072025
+            terminology: RXNORM
+            description: Mapset from ATC 2024_01_19_24_09_03 to RXNORM 04072025
+            attributes: {complexity=simple, fhirFromTerminologyUri=http://www.whocc.no/atc, origin-version=04072025, fhirToTerminologyUri=http://www.nlm.nih.gov/research/umls/rxnorm, fhirFromTerminologyVersion=2024_01_19_24_09_03, origin-terminology=RXNORM, content-native-length=342, cardinality=N-1, fhirUri=http://www.nlm.nih.gov/research/umls/rxnorm?fhir_cm=ATC-RXNORM, fhirToTerminologyVersion=04072025, fhirVersion=04072025, content-native-md5hash=071f3fc0393f724fc683b852b3d4c61b, fhirId=nlm_atc-rxnorm_04072025}
+            statistics: {mappings=449079, uniqueFromCodes=4798, mappingsEmptyTarget=0, mappingsActive=449079, uniqueToCodes=89278}
         }]
     }
 
