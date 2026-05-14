@@ -39,6 +39,7 @@ class Terminology(BaseModel):
     name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    license: Optional[StrictStr] = Field(default=None, description="Terminology license, e.g. \"UMLS\"")
     release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
     uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
@@ -50,7 +51,7 @@ class Terminology(BaseModel):
     relationship_ct: Optional[StrictInt] = Field(default=None, description="Count of number of concept relationships in the terminology", alias="relationshipCt")
     tree_position_ct: Optional[StrictInt] = Field(default=None, description="Count of number of concept tree positions in the terminology", alias="treePositionCt")
     statistics: Optional[Dict[str, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "releaseDate", "uri", "latest", "loaded", "family", "attributes", "roots", "conceptCt", "relationshipCt", "treePositionCt", "statistics"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "license", "releaseDate", "uri", "latest", "loaded", "family", "attributes", "roots", "conceptCt", "relationshipCt", "treePositionCt", "statistics"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,6 +115,7 @@ class Terminology(BaseModel):
             "name": obj.get("name"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "license": obj.get("license"),
             "releaseDate": obj.get("releaseDate"),
             "uri": obj.get("uri"),
             "latest": obj.get("latest"),

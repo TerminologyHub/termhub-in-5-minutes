@@ -104,15 +104,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '417': None,
+            '500': None,
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -188,12 +184,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '500': None,
             '200': "bytearray",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -268,12 +264,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '500': None,
             '200': "bytearray",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -310,13 +306,13 @@ class MapsetApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -358,7 +354,7 @@ class MapsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         mapset: Annotated[StrictStr, Field(description="Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -380,7 +376,7 @@ class MapsetApi:
         :type id_or_uri_label: str
         :param mapset: Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type mapset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -416,9 +412,9 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
             '200': "bytearray",
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -436,7 +432,7 @@ class MapsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         mapset: Annotated[StrictStr, Field(description="Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -458,87 +454,7 @@ class MapsetApi:
         :type id_or_uri_label: str
         :param mapset: Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type mapset: str
-        :param format: Requested download format, e.g. \"native\" (required)
-        :type format: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._export_project_mapset_serialize(
-            id_or_uri_label=id_or_uri_label,
-            mapset=mapset,
-            format=format,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '401': None,
-            '200': "bytearray",
-            '500': None,
-            '403': None,
-            '500': None,
-            '200': "bytearray",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def export_project_mapset_with_http_info(
-        self,
-        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
-        mapset: Annotated[StrictStr, Field(description="Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
-        """Export project mapset
-
-        Exports specified project mapset in the specified format.
-
-        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
-        :type id_or_uri_label: str
-        :param mapset: Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
-        :type mapset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -575,8 +491,8 @@ class MapsetApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
             '403': None,
-            '500': None,
             '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -594,7 +510,7 @@ class MapsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         mapset: Annotated[StrictStr, Field(description="Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -616,7 +532,7 @@ class MapsetApi:
         :type id_or_uri_label: str
         :param mapset: Mapset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type mapset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -652,11 +568,9 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "bytearray",
-            '500': None,
             '403': None,
-            '500': None,
             '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,9 +609,9 @@ class MapsetApi:
             _path_params['mapset'] = mapset
         # process the query parameters
         if format is not None:
-            
+
             _query_params.append(('format', format))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -800,15 +714,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '417': None,
+            '500': None,
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -888,15 +798,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '417': None,
+            '500': None,
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -976,15 +882,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
-            '500': None,
-            '417': None,
             '404': None,
+            '417': None,
+            '500': None,
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -1025,13 +927,13 @@ class MapsetApi:
             _path_params['mapset'] = mapset
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1146,12 +1048,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
-            '200': "ResultListMapping",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "ResultListMapping",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1242,12 +1144,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
-            '200': "ResultListMapping",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "ResultListMapping",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1338,12 +1240,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
-            '200': "ResultListMapping",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "ResultListMapping",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1384,29 +1286,29 @@ class MapsetApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1514,12 +1416,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListMapset",
-            '500': None,
             '403': None,
-            '500': None,
             '417': None,
             '200': "ResultListMapset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1603,12 +1503,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListMapset",
-            '500': None,
             '403': None,
-            '500': None,
             '417': None,
             '200': "ResultListMapset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1692,12 +1590,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListMapset",
-            '500': None,
             '403': None,
-            '500': None,
             '417': None,
             '200': "ResultListMapset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1734,25 +1630,25 @@ class MapsetApi:
         # process the path parameters
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1871,12 +1767,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1971,12 +1867,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2071,12 +1967,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2118,33 +2014,33 @@ class MapsetApi:
             _path_params['idOrUriLabel'] = id_or_uri_label
         # process the query parameters
         if mapset is not None:
-            
+
             _query_params.append(('mapset', mapset))
-            
+
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2263,12 +2159,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2363,12 +2259,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2463,12 +2359,12 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListMapping",
-            '500': None,
             '403': None,
+            '404': None,
+            '200': "ResultListMapping",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2512,29 +2408,29 @@ class MapsetApi:
             _path_params['mapset'] = mapset
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2626,10 +2522,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
             '200': "Mapset",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2697,10 +2593,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
             '200': "Mapset",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2768,10 +2664,10 @@ class MapsetApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
             '200': "Mapset",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2895,14 +2791,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
-            '200': "List[Mapset]",
             '401': None,
-            '500': None,
             '403': None,
-            '500': None,
             '200': "List[Mapset]",
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2969,14 +2862,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
-            '200': "List[Mapset]",
             '401': None,
-            '500': None,
             '403': None,
-            '500': None,
             '200': "List[Mapset]",
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3043,14 +2933,11 @@ class MapsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
-            '200': "List[Mapset]",
             '401': None,
-            '500': None,
             '403': None,
-            '500': None,
             '200': "List[Mapset]",
             '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,

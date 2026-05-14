@@ -136,6 +136,7 @@ typings/
 # End of https://www.gitignore.io/api/osx,git
 .gradle/
 .gradle-user-home/
+*/temp_token.txt
 
 # IntelliJ
 .idea

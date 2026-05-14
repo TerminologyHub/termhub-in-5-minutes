@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
+from pydantic import Field, StrictBool, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 
@@ -43,6 +43,8 @@ class SyndicationApi:
     def get_syndication(
         self,
         id_or_uri_label: Annotated[Optional[StrictStr], Field(description="Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"")] = None,
+        style: Annotated[Optional[StrictStr], Field(description="Syndication style - empty defaults to 'default' or ontoserver")] = None,
+        json_only: Annotated[Optional[StrictBool], Field(description="If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -62,6 +64,10 @@ class SyndicationApi:
 
         :param id_or_uri_label: Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"
         :type id_or_uri_label: str
+        :param style: Syndication style - empty defaults to 'default' or ontoserver
+        :type style: str
+        :param json_only: If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed
+        :type json_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -86,6 +92,8 @@ class SyndicationApi:
 
         _param = self._get_syndication_serialize(
             id_or_uri_label=id_or_uri_label,
+            style=style,
+            json_only=json_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -93,11 +101,11 @@ class SyndicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': None,
-            '500': None,
             '403': None,
+            '417': None,
+            '500': None,
+            '200': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -114,6 +122,8 @@ class SyndicationApi:
     def get_syndication_with_http_info(
         self,
         id_or_uri_label: Annotated[Optional[StrictStr], Field(description="Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"")] = None,
+        style: Annotated[Optional[StrictStr], Field(description="Syndication style - empty defaults to 'default' or ontoserver")] = None,
+        json_only: Annotated[Optional[StrictBool], Field(description="If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,6 +143,10 @@ class SyndicationApi:
 
         :param id_or_uri_label: Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"
         :type id_or_uri_label: str
+        :param style: Syndication style - empty defaults to 'default' or ontoserver
+        :type style: str
+        :param json_only: If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed
+        :type json_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -157,6 +171,8 @@ class SyndicationApi:
 
         _param = self._get_syndication_serialize(
             id_or_uri_label=id_or_uri_label,
+            style=style,
+            json_only=json_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -164,11 +180,11 @@ class SyndicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': None,
-            '500': None,
             '403': None,
+            '417': None,
+            '500': None,
+            '200': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -185,6 +201,8 @@ class SyndicationApi:
     def get_syndication_without_preload_content(
         self,
         id_or_uri_label: Annotated[Optional[StrictStr], Field(description="Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"")] = None,
+        style: Annotated[Optional[StrictStr], Field(description="Syndication style - empty defaults to 'default' or ontoserver")] = None,
+        json_only: Annotated[Optional[StrictBool], Field(description="If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -204,6 +222,10 @@ class SyndicationApi:
 
         :param id_or_uri_label: Project id or uriLabel if not specified by a project api key, e.g. \"sandbox\"
         :type id_or_uri_label: str
+        :param style: Syndication style - empty defaults to 'default' or ontoserver
+        :type style: str
+        :param json_only: If true, adds jsonOnly=true parameter to FHIR R4 and R5 format links in the syndication feed
+        :type json_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -228,6 +250,8 @@ class SyndicationApi:
 
         _param = self._get_syndication_serialize(
             id_or_uri_label=id_or_uri_label,
+            style=style,
+            json_only=json_only,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -235,11 +259,11 @@ class SyndicationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': None,
-            '500': None,
             '403': None,
+            '417': None,
+            '500': None,
+            '200': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -251,6 +275,8 @@ class SyndicationApi:
     def _get_syndication_serialize(
         self,
         id_or_uri_label,
+        style,
+        json_only,
         _request_auth,
         _content_type,
         _headers,
@@ -272,9 +298,17 @@ class SyndicationApi:
         # process the path parameters
         # process the query parameters
         if id_or_uri_label is not None:
-            
+
             _query_params.append(('idOrUriLabel', id_or_uri_label))
-            
+
+        if style is not None:
+
+            _query_params.append(('style', style))
+
+        if json_only is not None:
+
+            _query_params.append(('jsonOnly', json_only))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter

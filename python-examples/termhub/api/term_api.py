@@ -109,8 +109,8 @@ class TermApi:
             '200': "List[str]",
             '401': None,
             '403': None,
-            '500': None,
             '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -192,8 +192,8 @@ class TermApi:
             '200': "List[str]",
             '401': None,
             '403': None,
-            '500': None,
             '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -275,8 +275,8 @@ class TermApi:
             '200': "List[str]",
             '401': None,
             '403': None,
-            '500': None,
             '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -314,17 +314,17 @@ class TermApi:
             _path_params['idOrUriLabel'] = id_or_uri_label
         # process the query parameters
         if terminology is not None:
-            
+
             _query_params.append(('terminology', terminology))
-            
+
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -443,16 +443,12 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListTerm",
-            '500': None,
             '403': None,
-            '500': None,
+            '404': None,
             '200': "ResultListTerm",
             '417': None,
-            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -547,16 +543,12 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListTerm",
-            '500': None,
             '403': None,
-            '500': None,
+            '404': None,
             '200': "ResultListTerm",
             '417': None,
-            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -651,16 +643,12 @@ class TermApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListTerm",
-            '500': None,
             '403': None,
-            '500': None,
+            '404': None,
             '200': "ResultListTerm",
             '417': None,
-            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -702,33 +690,33 @@ class TermApi:
             _path_params['idOrUriLabel'] = id_or_uri_label
         # process the query parameters
         if terminology is not None:
-            
+
             _query_params.append(('terminology', terminology))
-            
+
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter

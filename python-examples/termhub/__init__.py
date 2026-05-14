@@ -68,3 +68,4 @@ from termhub.models.subset_member import SubsetMember
 from termhub.models.subset_ref import SubsetRef
 from termhub.models.term import Term
 from termhub.models.terminology import Terminology
+from termhub.models.terminology_ref import TerminologyRef

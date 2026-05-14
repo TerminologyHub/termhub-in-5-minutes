@@ -47,7 +47,7 @@ class SubsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         subset: Annotated[StrictStr, Field(description="Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,7 +69,7 @@ class SubsetApi:
         :type id_or_uri_label: str
         :param subset: Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type subset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -104,10 +104,10 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -125,7 +125,7 @@ class SubsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         subset: Annotated[StrictStr, Field(description="Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -147,7 +147,7 @@ class SubsetApi:
         :type id_or_uri_label: str
         :param subset: Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type subset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -182,10 +182,10 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -203,7 +203,7 @@ class SubsetApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         subset: Annotated[StrictStr, Field(description="Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -225,7 +225,7 @@ class SubsetApi:
         :type id_or_uri_label: str
         :param subset: Subset id or abbreviation e.g. \"uuid1\" or \"CVX-NDC\". (required)
         :type subset: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -260,10 +260,10 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -302,9 +302,9 @@ class SubsetApi:
             _path_params['subset'] = subset
         # process the query parameters
         if format is not None:
-            
+
             _query_params.append(('format', format))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -407,12 +407,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -491,12 +491,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -575,12 +575,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -620,13 +620,13 @@ class SubsetApi:
             _path_params['subset'] = subset
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -725,12 +725,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -805,12 +805,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -885,12 +885,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "bytearray",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -927,13 +927,13 @@ class SubsetApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1052,12 +1052,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '500': None,
             '200': "ResultListSubsetMember",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1152,12 +1152,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '500': None,
             '200': "ResultListSubsetMember",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1252,12 +1252,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '500': None,
             '200': "ResultListSubsetMember",
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1299,33 +1299,33 @@ class SubsetApi:
             _path_params['idOrUriLabel'] = id_or_uri_label
         # process the query parameters
         if subset is not None:
-            
+
             _query_params.append(('subset', subset))
-            
+
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1444,12 +1444,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1544,12 +1544,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1644,12 +1644,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1693,29 +1693,29 @@ class SubsetApi:
             _path_params['subset'] = subset
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1830,12 +1830,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1926,12 +1926,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2022,12 +2022,12 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '500': None,
-            '200': "ResultListSubsetMember",
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListSubsetMember",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2068,29 +2068,29 @@ class SubsetApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if active is not None:
-            
+
             _query_params.append(('active', active))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2197,11 +2197,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListSubset",
-            '500': None,
             '403': None,
+            '200': "ResultListSubset",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2284,11 +2284,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListSubset",
-            '500': None,
             '403': None,
+            '200': "ResultListSubset",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2371,11 +2371,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListSubset",
-            '500': None,
             '403': None,
+            '200': "ResultListSubset",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2412,25 +2412,25 @@ class SubsetApi:
         # process the path parameters
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2521,11 +2521,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
             '200': "List[Subset]",
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2592,11 +2592,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
             '200': "List[Subset]",
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2663,11 +2663,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
+            '403': None,
+            '404': None,
             '200': "List[Subset]",
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2791,11 +2791,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Subset",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Subset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2862,11 +2862,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Subset",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Subset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2933,11 +2933,11 @@ class SubsetApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Subset",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Subset",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,

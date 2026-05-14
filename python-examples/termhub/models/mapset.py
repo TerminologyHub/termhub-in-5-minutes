@@ -39,6 +39,7 @@ class Mapset(BaseModel):
     name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    license: Optional[StrictStr] = Field(default=None, description="Terminology license, e.g. \"UMLS\"")
     release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
     uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
@@ -50,12 +51,11 @@ class Mapset(BaseModel):
     to_publisher: Optional[StrictStr] = Field(default=None, description="Publisher that maps in this set are mapped from, e.g. \"SNOMEDCT\"", alias="toPublisher")
     to_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that maps in this set are mapped to, e.g. \"SNOMEDCT\"", alias="toTerminology")
     to_version: Optional[StrictStr] = Field(default=None, description="Terminology version that maps in this set are mapped to, e.g. \"20230901\"", alias="toVersion")
-    license: Optional[StrictStr] = None
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
     description: Optional[StrictStr] = Field(default=None, description="Description of the mapset")
     attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
     statistics: Optional[Dict[str, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "toPublisher", "toTerminology", "toVersion", "license", "terminology", "description", "attributes", "statistics"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "license", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "toPublisher", "toTerminology", "toVersion", "terminology", "description", "attributes", "statistics"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,6 +119,7 @@ class Mapset(BaseModel):
             "name": obj.get("name"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "license": obj.get("license"),
             "releaseDate": obj.get("releaseDate"),
             "uri": obj.get("uri"),
             "latest": obj.get("latest"),
@@ -130,7 +131,6 @@ class Mapset(BaseModel):
             "toPublisher": obj.get("toPublisher"),
             "toTerminology": obj.get("toTerminology"),
             "toVersion": obj.get("toVersion"),
-            "license": obj.get("license"),
             "terminology": obj.get("terminology"),
             "description": obj.get("description"),
             "attributes": obj.get("attributes"),

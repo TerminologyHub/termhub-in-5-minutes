@@ -21,6 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from termhub.models.terminology_ref import TerminologyRef
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -39,6 +40,7 @@ class SubsetRef(BaseModel):
     name: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. \"20230901\"")
     publisher: Optional[StrictStr] = Field(default=None, description="Terminology publisher, e.g. \"SNOMEDCT\"")
+    license: Optional[StrictStr] = Field(default=None, description="Terminology license, e.g. \"UMLS\"")
     release_date: Optional[StrictStr] = Field(default=None, description="YYYY-MM-DD rendering of the release date", alias="releaseDate")
     uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
@@ -47,7 +49,8 @@ class SubsetRef(BaseModel):
     from_publisher: Optional[StrictStr] = Field(default=None, description="Publisher that maps in this set are mapped from, e.g. \"SNOMEDCT\"", alias="fromPublisher")
     from_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that members in this set are from, e.g. \"SNOMEDCT\"", alias="fromTerminology")
     from_version: Optional[StrictStr] = Field(default=None, description="Terminology version that members in this set are from, e.g. \"20230901\"", alias="fromVersion")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion"]
+    from_terminologies: Optional[List[TerminologyRef]] = Field(default=None, description="Terminology abbreviation/publisher/version tripes that members in this set are from.This is used by subsets whose members are from more than one terminology.", alias="fromTerminologies")
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "license", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "fromTerminologies"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +91,13 @@ class SubsetRef(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in from_terminologies (list)
+        _items = []
+        if self.from_terminologies:
+            for _item in self.from_terminologies:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['fromTerminologies'] = _items
         return _dict
 
     @classmethod
@@ -111,6 +121,7 @@ class SubsetRef(BaseModel):
             "name": obj.get("name"),
             "version": obj.get("version"),
             "publisher": obj.get("publisher"),
+            "license": obj.get("license"),
             "releaseDate": obj.get("releaseDate"),
             "uri": obj.get("uri"),
             "latest": obj.get("latest"),
@@ -118,7 +129,8 @@ class SubsetRef(BaseModel):
             "code": obj.get("code"),
             "fromPublisher": obj.get("fromPublisher"),
             "fromTerminology": obj.get("fromTerminology"),
-            "fromVersion": obj.get("fromVersion")
+            "fromVersion": obj.get("fromVersion"),
+            "fromTerminologies": [TerminologyRef.from_dict(_item) for _item in obj["fromTerminologies"]] if obj.get("fromTerminologies") is not None else None
         })
         return _obj
 

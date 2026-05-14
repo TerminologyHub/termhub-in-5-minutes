@@ -123,10 +123,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '200': "ResultListConceptRelationship",
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListConceptRelationship",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -218,10 +219,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '200': "ResultListConceptRelationship",
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListConceptRelationship",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -313,10 +315,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '200': "ResultListConceptRelationship",
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '200': "ResultListConceptRelationship",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -359,25 +362,25 @@ class ConceptByIdApi:
             _path_params['conceptId'] = concept_id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -494,9 +497,10 @@ class ConceptByIdApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -589,9 +593,10 @@ class ConceptByIdApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -684,9 +689,10 @@ class ConceptByIdApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResultListConceptRelationship",
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -729,25 +735,25 @@ class ConceptByIdApi:
             _path_params['conceptId'] = concept_id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -863,10 +869,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListConceptTreePosition",
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "ResultListConceptTreePosition",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -958,10 +965,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListConceptTreePosition",
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "ResultListConceptTreePosition",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1053,10 +1061,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '200': "ResultListConceptTreePosition",
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "ResultListConceptTreePosition",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1099,25 +1108,25 @@ class ConceptByIdApi:
             _path_params['conceptId'] = concept_id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1233,10 +1242,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1328,10 +1338,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1423,10 +1434,11 @@ class ConceptByIdApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
             '200': "ResultListConceptTreePosition",
             '500': None,
-            '404': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1469,25 +1481,25 @@ class ConceptByIdApi:
             _path_params['conceptId'] = concept_id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1586,14 +1598,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "Concept",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "Concept",
             '404': None,
+            '200': "Concept",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1668,14 +1677,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "Concept",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "Concept",
             '404': None,
+            '200': "Concept",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1750,14 +1756,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "Concept",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "Concept",
             '404': None,
+            '200': "Concept",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1796,9 +1799,9 @@ class ConceptByIdApi:
             _path_params['conceptId'] = concept_id
         # process the query parameters
         if include is not None:
-            
+
             _query_params.append(('include', include))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1893,12 +1896,12 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '403': None,
-            '200': None,
-            '401': None,
             '404': None,
+            '200': None,
+            '403': None,
             '500': None,
+            '401': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1969,12 +1972,12 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '403': None,
-            '200': None,
-            '401': None,
             '404': None,
+            '200': None,
+            '403': None,
             '500': None,
+            '401': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2045,12 +2048,12 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '403': None,
-            '200': None,
-            '401': None,
             '404': None,
+            '200': None,
+            '403': None,
             '500': None,
+            '401': None,
+            '417': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2095,7 +2098,7 @@ class ConceptByIdApi:
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'application/json', 
+                'application/json',
                 'image/png'
             ]
         )
@@ -2182,14 +2185,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[Mapping]",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "List[Mapping]",
             '404': None,
+            '200': "List[Mapping]",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2260,14 +2260,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[Mapping]",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "List[Mapping]",
             '404': None,
+            '200': "List[Mapping]",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2338,14 +2335,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[Mapping]",
-            '500': None,
             '403': None,
-            '500': None,
-            '200': "List[Mapping]",
             '404': None,
+            '200': "List[Mapping]",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2476,13 +2470,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Mapping]",
-            '404': None,
             '401': None,
             '403': None,
             '200': "List[Mapping]",
+            '404': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2553,13 +2545,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Mapping]",
-            '404': None,
             '401': None,
             '403': None,
             '200': "List[Mapping]",
+            '404': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2630,13 +2620,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Mapping]",
-            '404': None,
             '401': None,
             '403': None,
             '200': "List[Mapping]",
+            '404': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2767,11 +2755,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[SubsetMember]",
-            '500': None,
             '403': None,
+            '200': "List[SubsetMember]",
+            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2842,11 +2830,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[SubsetMember]",
-            '500': None,
             '403': None,
+            '200': "List[SubsetMember]",
+            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2917,11 +2905,11 @@ class ConceptByIdApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': None,
             '401': None,
-            '200': "List[SubsetMember]",
-            '500': None,
             '403': None,
+            '200': "List[SubsetMember]",
+            '404': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -21,6 +21,8 @@ from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Union
 from typing_extensions import Annotated
 from termhub.models.result_list_concept import ResultListConcept
+from termhub.models.result_list_concept_relationship import ResultListConceptRelationship
+from termhub.models.result_list_concept_tree_position import ResultListConceptTreePosition
 from termhub.models.result_list_terminology import ResultListTerminology
 from termhub.models.terminology import Terminology
 
@@ -47,7 +49,7 @@ class TerminologyApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,7 +71,7 @@ class TerminologyApi:
         :type id_or_uri_label: str
         :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
         :type terminology: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -104,10 +106,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -125,7 +127,7 @@ class TerminologyApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -147,7 +149,7 @@ class TerminologyApi:
         :type id_or_uri_label: str
         :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
         :type terminology: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -182,10 +184,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -203,7 +205,7 @@ class TerminologyApi:
         self,
         id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
         terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
-        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\"")],
+        format: Annotated[StrictStr, Field(description="Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\"")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -225,7 +227,7 @@ class TerminologyApi:
         :type id_or_uri_label: str
         :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
         :type terminology: str
-        :param format: Requested download format, e.g. \"native\" (required)
+        :param format: Requested download format, e.g. \"native\", \"r4\", \"r5\", \"r4-json-only\", \"r5-json-only\" (required)
         :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -260,10 +262,10 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
             '401': None,
-            '500': None,
             '403': None,
+            '200': "bytearray",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -302,9 +304,9 @@ class TerminologyApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if format is not None:
-            
+
             _query_params.append(('format', format))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -408,11 +410,11 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -492,11 +494,11 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -576,11 +578,11 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
-            '417': None,
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -618,17 +620,17 @@ class TerminologyApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -650,6 +652,379 @@ class TerminologyApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/terminology/{id}/concept/export',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def find_concept_relationships_by_terminology(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ResultListConceptRelationship:
+        """Find concept relationships by terminology
+
+        Finds all concept relationships for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_concept_relationships_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResultListConceptRelationship",
+            '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def find_concept_relationships_by_terminology_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ResultListConceptRelationship]:
+        """Find concept relationships by terminology
+
+        Finds all concept relationships for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_concept_relationships_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResultListConceptRelationship",
+            '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def find_concept_relationships_by_terminology_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Find concept relationships by terminology
+
+        Finds all concept relationships for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_concept_relationships_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResultListConceptRelationship",
+            '401': None,
+            '403': None,
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _find_concept_relationships_by_terminology_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        query,
+        offset,
+        limit,
+        ascending,
+        sort,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        if terminology is not None:
+            _path_params['terminology'] = terminology
+        # process the query parameters
+        if query is not None:
+
+            _query_params.append(('query', query))
+
+        if offset is not None:
+
+            _query_params.append(('offset', offset))
+
+        if limit is not None:
+
+            _query_params.append(('limit', limit))
+
+        if ascending is not None:
+
+            _query_params.append(('ascending', ascending))
+
+        if sort is not None:
+
+            _query_params.append(('sort', sort))
+
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/terminology/{terminology}/relationships',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -735,11 +1110,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListTerminology",
-            '500': None,
             '403': None,
+            '200': "ResultListTerminology",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -822,11 +1197,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListTerminology",
-            '500': None,
             '403': None,
+            '200': "ResultListTerminology",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -909,11 +1284,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
             '401': None,
-            '200': "ResultListTerminology",
-            '500': None,
             '403': None,
+            '200': "ResultListTerminology",
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -950,25 +1325,25 @@ class TerminologyApi:
         # process the path parameters
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1079,12 +1454,12 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListConcept",
-            '500': None,
             '403': None,
+            '200': "ResultListConcept",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1171,12 +1546,12 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListConcept",
-            '500': None,
             '403': None,
+            '200': "ResultListConcept",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1263,12 +1638,12 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': None,
-            '404': None,
             '401': None,
-            '200': "ResultListConcept",
-            '500': None,
             '403': None,
+            '200': "ResultListConcept",
+            '404': None,
+            '417': None,
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1308,25 +1683,25 @@ class TerminologyApi:
             _path_params['id'] = id
         # process the query parameters
         if query is not None:
-            
+
             _query_params.append(('query', query))
-            
+
         if offset is not None:
-            
+
             _query_params.append(('offset', offset))
-            
+
         if limit is not None:
-            
+
             _query_params.append(('limit', limit))
-            
+
         if sort is not None:
-            
+
             _query_params.append(('sort', sort))
-            
+
         if ascending is not None:
-            
+
             _query_params.append(('ascending', ascending))
-            
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1348,6 +1723,379 @@ class TerminologyApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/terminology/{id}/concept',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def find_tree_positions_by_terminology(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ResultListConceptTreePosition:
+        """Find tree positions by terminology
+
+        Finds all tree positions for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_tree_positions_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def find_tree_positions_by_terminology_with_http_info(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ResultListConceptTreePosition]:
+        """Find tree positions by terminology
+
+        Finds all tree positions for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_tree_positions_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def find_tree_positions_by_terminology_without_preload_content(
+        self,
+        id_or_uri_label: Annotated[StrictStr, Field(description="Project id or uriLabel, e.g. \"sandbox\"")],
+        terminology: Annotated[StrictStr, Field(description="Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\".")],
+        query: Annotated[Optional[StrictStr], Field(description="Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Start index for search results")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="Limit of results to return (hard limit of 1000 regardless of value)")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="<code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="Comma-separated list of fields to sort on")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Find tree positions by terminology
+
+        Finds all tree positions for the specified terminology. This call will not work for projects hosting multiple versions of the same terminology.
+
+        :param id_or_uri_label: Project id or uriLabel, e.g. \"sandbox\" (required)
+        :type id_or_uri_label: str
+        :param terminology: Terminology id or abbreviation. e.g. \"uuid1\" or \"ICD10CM\". (required)
+        :type terminology: str
+        :param query: Search text (<a target=\"_blank\" href=\"https://github.com/terminologyhub/termhub-in-5-minutes/blob/master/doc/SEARCH.md\">See here for more info</a>)
+        :type query: str
+        :param offset: Start index for search results
+        :type offset: int
+        :param limit: Limit of results to return (hard limit of 1000 regardless of value)
+        :type limit: int
+        :param ascending: <code>true</code> for ascending, <code>false</code> for descending, <code>null</code> for unspecified
+        :type ascending: bool
+        :param sort: Comma-separated list of fields to sort on
+        :type sort: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._find_tree_positions_by_terminology_serialize(
+            id_or_uri_label=id_or_uri_label,
+            terminology=terminology,
+            query=query,
+            offset=offset,
+            limit=limit,
+            ascending=ascending,
+            sort=sort,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
+            '200': "ResultListConceptTreePosition",
+            '404': None,
+            '417': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _find_tree_positions_by_terminology_serialize(
+        self,
+        id_or_uri_label,
+        terminology,
+        query,
+        offset,
+        limit,
+        ascending,
+        sort,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id_or_uri_label is not None:
+            _path_params['idOrUriLabel'] = id_or_uri_label
+        if terminology is not None:
+            _path_params['terminology'] = terminology
+        # process the query parameters
+        if query is not None:
+
+            _query_params.append(('query', query))
+
+        if offset is not None:
+
+            _query_params.append(('offset', offset))
+
+        if limit is not None:
+
+            _query_params.append(('limit', limit))
+
+        if ascending is not None:
+
+            _query_params.append(('ascending', ascending))
+
+        if sort is not None:
+
+            _query_params.append(('sort', sort))
+
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/project/{idOrUriLabel}/terminology/{terminology}/treePositions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1417,11 +2165,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
             '200': "List[Terminology]",
             '404': None,
-            '401': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1488,11 +2236,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
             '200': "List[Terminology]",
             '404': None,
-            '401': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1559,11 +2307,11 @@ class TerminologyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '401': None,
+            '403': None,
             '200': "List[Terminology]",
             '404': None,
-            '401': None,
             '500': None,
-            '403': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1688,9 +2436,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Terminology",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1758,9 +2507,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Terminology",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1828,9 +2578,10 @@ class TerminologyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': None,
-            '500': None,
-            '404': None,
             '403': None,
+            '404': None,
+            '200': "Terminology",
+            '500': None,
         }
         response_data = self.api_client.call_api(
             *_param,

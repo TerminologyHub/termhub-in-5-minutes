@@ -21,13 +21,12 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from termhub.models.terminology_ref import TerminologyRef
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Subset(BaseModel):
+class TerminologyRef(BaseModel):
     """
-    Represents a subset, refset, or value set in a terminology
+    Terminology abbreviation/publisher/version tripes that members in this set are from.This is used by subsets whose members are from more than one terminology.
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier")
     confidence: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Confidence value (for use with search results)")
@@ -45,21 +44,7 @@ class Subset(BaseModel):
     uri: Optional[StrictStr] = Field(default=None, description="Uri for downloading the terminology")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version of the terminology")
     loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the version of the terminology is loaded")
-    code: Optional[StrictStr] = Field(default=None, description="Subset code")
-    from_publisher: Optional[StrictStr] = Field(default=None, description="Publisher that maps in this set are mapped from, e.g. \"SNOMEDCT\"", alias="fromPublisher")
-    from_terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation that members in this set are from, e.g. \"SNOMEDCT\"", alias="fromTerminology")
-    from_version: Optional[StrictStr] = Field(default=None, description="Terminology version that members in this set are from, e.g. \"20230901\"", alias="fromVersion")
-    from_terminologies: Optional[List[TerminologyRef]] = Field(default=None, description="Terminology abbreviation/publisher/version tripes that members in this set are from.This is used by subsets whose members are from more than one terminology.", alias="fromTerminologies")
-    terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. \"SNOMEDCT\"")
-    category: Optional[StrictStr] = Field(default=None, description="Category for usage of this subset (e.g. \"cancer\")")
-    entity_type: Optional[StrictStr] = Field(default=None, description="Clinical class entity type for the kind of concepts in the subset, e.g. \"medication\" or \"diagnosis\"", alias="entityType")
-    description: Optional[StrictStr] = Field(default=None, description="Description of the subset")
-    expression: Optional[StrictStr] = Field(default=None, description="Concept query used as part of the subsets computable definition")
-    query: Optional[StrictStr] = Field(default=None, description="Concept query used as part of the subsets computable definition")
-    attributes: Optional[Dict[str, StrictStr]] = Field(default=None, description="Key/value pairs associated with this object")
-    statistics: Optional[Dict[str, StrictInt]] = None
-    disjoint_subsets: Optional[List[StrictStr]] = Field(default=None, description="Codes for matching terminology/publiser/version subsets this one is disjoint with", alias="disjointSubsets")
-    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "license", "releaseDate", "uri", "latest", "loaded", "code", "fromPublisher", "fromTerminology", "fromVersion", "fromTerminologies", "terminology", "category", "entityType", "description", "expression", "query", "attributes", "statistics", "disjointSubsets"]
+    __properties: ClassVar[List[str]] = ["id", "confidence", "modified", "created", "modifiedBy", "local", "active", "abbreviation", "name", "version", "publisher", "license", "releaseDate", "uri", "latest", "loaded"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,7 +64,7 @@ class Subset(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Subset from a JSON string"""
+        """Create an instance of TerminologyRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -100,18 +85,11 @@ class Subset(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in from_terminologies (list)
-        _items = []
-        if self.from_terminologies:
-            for _item in self.from_terminologies:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['fromTerminologies'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Subset from a dict"""
+        """Create an instance of TerminologyRef from a dict"""
         if obj is None:
             return None
 
@@ -134,21 +112,7 @@ class Subset(BaseModel):
             "releaseDate": obj.get("releaseDate"),
             "uri": obj.get("uri"),
             "latest": obj.get("latest"),
-            "loaded": obj.get("loaded"),
-            "code": obj.get("code"),
-            "fromPublisher": obj.get("fromPublisher"),
-            "fromTerminology": obj.get("fromTerminology"),
-            "fromVersion": obj.get("fromVersion"),
-            "fromTerminologies": [TerminologyRef.from_dict(_item) for _item in obj["fromTerminologies"]] if obj.get("fromTerminologies") is not None else None,
-            "terminology": obj.get("terminology"),
-            "category": obj.get("category"),
-            "entityType": obj.get("entityType"),
-            "description": obj.get("description"),
-            "expression": obj.get("expression"),
-            "query": obj.get("query"),
-            "attributes": obj.get("attributes"),
-            "statistics": obj.get("statistics"),
-            "disjointSubsets": obj.get("disjointSubsets")
+            "loaded": obj.get("loaded")
         })
         return _obj
 
