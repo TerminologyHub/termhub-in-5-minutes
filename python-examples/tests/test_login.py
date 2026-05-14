@@ -1,10 +1,15 @@
 import logging
 import os
-import requests
-import json
+import sys
 import configparser
 import pytest
-from requests import Response
+
+
+SCRIPTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
+if SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, SCRIPTS_DIR)
+
+from termhub_auth import first_present, request_access_token
 
 
 @pytest.fixture(scope="module")
@@ -34,41 +39,30 @@ class TestLogin:
         """
         Test the login endpoint. This will call the termhub api and return the authentication token
         """
-        # Define the URL, username, and password
         url: str = load_config.get("default", "url")
-        # first check if environment variables are set for username and password
-        if os.getenv("USER_NAME") and os.getenv("PASSWORD"):
-            username = os.getenv("USER_NAME")
-            password = os.getenv("PASSWORD")
-        else:
-            username: str = load_config.get("default", "username")
-            password: str = load_config.get("default", "password")
-        headers: dict[str, str] = {"Content-type": "application/json"}
+        username = first_present(
+            os.getenv("TERMHUB_USER"),
+            os.getenv("TERMHUB_USERNAME"),
+            os.getenv("USER_NAME"),
+            os.getenv("USERNAME"),
+            load_config.get("default", "username"),
+        )
+        password = first_present(
+            os.getenv("TERMHUB_PASSWORD"),
+            os.getenv("PASSWORD"),
+            load_config.get("default", "password"),
+        )
         
         self.logger.info(f"username = {username}")
         self.logger.info(f"password = {password}")
         
-        # Create a dictionary for the payload
-        payload:  dict[str, str | None] = {
-            "grant_type": "username_password",
-            "username": username,
-            "password": password
-        }
+        try:
+            access_token = request_access_token(url, username, password)
+        except RuntimeError as error:
+            pytest.fail(str(error))
         
-        # Send a POST request to the URL with the payload
-        response: Response = requests.post(url + "/auth/token", data=json.dumps(payload), headers=headers)
-        
-        # Check the status code of the response
-        assert response.status_code == 200, f"ERROR: POST call returned {response.status_code}, expected 200"
-        
-        # If the status code is 200, extract the access token from the response
-        access_token = response.json().get("access_token")
-        
-        # Check if the access token is not None
-        assert access_token is not None, "ERROR: Access token is None"
         self.logger.info(f"Authorization Token = {access_token}")
 
-        # Save the access token to a temp file
-        with open("temp_token.txt", "w") as token_file:
+        token_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "temp_token.txt"))
+        with open(token_path, "w", encoding="utf-8") as token_file:
             token_file.write(access_token)
-

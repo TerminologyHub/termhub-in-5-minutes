@@ -6,6 +6,7 @@ This tutorial shows how to interact with the FHIR R4 and R5 APIs through use of 
 Prerequisites
 -------------
 * Postman must be installed (with a version capable of importing a v2.1 collection)
+* To run the collections from the command line, Node.js and Newman must be available. If Newman is not installed globally, the runner will try `npx --yes newman`.
 * The [Termhub-FHIR-R4.postman_collection.json](Termhub-FHIR-R4.postman_collection.json) file must be loaded into Postman using File->Import to access the R4 FHIR APIs
 * The [Termhub-FHIR-R5.postman_collection.json](Termhub-FHIR-R5.postman_collection.json) file must be loaded into Postman using File->Import to access the R5 FHIR APIs
 
@@ -23,6 +24,27 @@ to use the "sandbox" project, which is public and available to all authenticated
 FHIR Swagger APIs are also available for these end points.
  - https://api.terminologyhub.com/r4/swagger-ui/index.html
  - https://api.terminologyhub.com/r5/swagger-ui/index.html
+
+Command Line Runner
+-------------------
+
+The `postman_fhir.py` runner verifies the Postman collections with Newman and injects a bearer token
+without saving credentials to the collection files.
+
+```bash
+export TERMHUB_USER=<username>
+export TERMHUB_PASSWORD=<password>
+python postman_fhir.py R4
+python postman_fhir.py R5
+```
+
+From the project root, the same checks are available through:
+
+```bash
+make fhir
+```
+
+You can set `TERMHUB_TOKEN` instead of username/password if you already have a valid token.
 
 
 Sample FHIR Calls

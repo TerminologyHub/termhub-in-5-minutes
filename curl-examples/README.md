@@ -19,6 +19,18 @@ Run this command before the sample curl calls below as they expect $API_URL to b
 When using an API_URL that points to an instance (such as https://api.terminologyhub.com) that
 requires authentication, the login call must first be used to obtain an access token.   
 
+Run Checks and Samples
+----------------------
+
+To automatically run the cURL commands listed in this README and refresh the files under `samples/`:
+
+```bash
+python curl_check.py <username> <password>
+```
+
+From the project root, this is also available as `make check-curl` or as part of `make resample`.
+The helper script uses only Python standard-library modules.
+
 
 Sample cURL Calls
 -----------------
@@ -432,6 +444,5 @@ curl -H "Authorization: Bearer $token" "$API_URL/project/sandbox/subset/2a545e12
 See sample payload data from this call in [`samples/get-subset-members-for-project-subset.txt`](samples/get-subset-members-for-project-subset.txt)
 
 [Back to Top](#termhub-in-5-minutes-curl-tutorial)
-
 
 

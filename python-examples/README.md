@@ -9,11 +9,9 @@ Prerequisites
 
 * Python 3.7+
 
-* All libraries in 'requirements.txt' must be installed.
-    * Run the command 'pip install -r requirements.txt' in a console window to check these libraries and install any
-      that are not already installed.
-    * If pip itself is not installed, run the command 'curl <https://bootstrap.pypa.io/get-pip.py> -o get-pip.py; python
-      get-pip.py' to install it.
+* The generated Python client needs the libraries in `requirements.txt`.
+    * From this directory, run `python -m pip install --user -r requirements.txt`.
+    * From the project root, run `make python-deps`.
 
 The various scripts make use of the `python-examples/config.ini` file to load necessary information that is uniform
 across all tests.
@@ -64,14 +62,7 @@ To automatically discover and run the pytest commands listed in this README, run
 python python_check.py
 ```
 
-Run tests automatically
------------------------
-
-To automatically discover and run the pytest commands listed in this README, run the helper script from this directory:
-
-```
-python python_check.py
-```
+From the project root, this is also available as `make check-python`.
 
 ### Login [MUST BE RUN FIRST]
 
@@ -446,4 +437,3 @@ pytest tests/test_history_api.py::TestHistoryApi::test_get_terminology_history_r
 ```
 
 [Back to Top](#termhub-in-5-minutes-python-tutorial)
-

@@ -64,6 +64,17 @@ Replace 'defaultUsername` with your username, and 'defaultPassword' with your pa
 
 Note that failure to properly set up this authentication <b>will result in all calls to the Termhub API failing with a 403 error.</b>
 
+## Run Checks and Samples
+
+To automatically run the Gradle test commands listed in this README and refresh sample output files:
+
+```bash
+python java_check.py <username> <password>
+```
+
+From the project root, this is also available as `make check-java` or as part of `make resample`.
+The helper uses `gradlew.bat` on Windows and `./gradlew` on macOS/Linux.
+
 ### Sample Java tests
 -----------------
 

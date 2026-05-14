@@ -35,6 +35,15 @@ swagger documentation url:
 
 **[Back to top](#evsrestapi-generate-client-code)**
 
+From the project root, the same generation step is available through:
+
+```bash
+make regenerate
+```
+
+This writes regenerated Java and Python clients into `doc/code-generator/build`. Review and copy the generated files
+into the matching `java-examples` and `python-examples` folders using the notes below, then run `make check`.
+
 ## Tasks to Regenerate Code & Next Steps...
 
 The following is a list of the available gradle tasks for each language the openapi code generator can generate. The

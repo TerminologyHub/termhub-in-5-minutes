@@ -126,6 +126,10 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 test {
     useJUnitPlatform()
     testLogging {
@@ -138,6 +142,24 @@ test {
 
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]
+}
+
+tasks.register('resolveAndLockAll') {
+    description = 'Resolves all resolvable configurations so Gradle can write gradle.lockfile for Trivy.'
+    doFirst {
+        if (!gradle.startParameter.writeDependencyLocks) {
+            throw new GradleException('Run with --write-locks to update gradle.lockfile.')
+        }
+    }
+    doLast {
+        configurations.findAll { it.canBeResolved }.each { configuration ->
+            try {
+                configuration.resolve()
+            } catch (Exception e) {
+                logger.lifecycle("Skipping ${configuration.name}: ${e.message}")
+            }
+        }
+    }
 }
 
 // Use spotless plugin to automatically format code, remove unused import, etc

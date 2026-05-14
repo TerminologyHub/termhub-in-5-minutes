@@ -7,13 +7,26 @@ Prerequisites
 -------------
 * curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
-* bash must be installed
+* bash must be installed. On Windows, Git Bash is recommended; if it is not on `PATH`, set
+  `BASH` to the full `bash.exe` path, such as `C:\Program Files\Git\bin\bash.exe`.
 
 The various scripts make use of the local `url.env` file to define the API URL.
 
 When using a url.env that points to an instance (such as https://api.terminologyhub.com) that
 requires authentication, the login.sh script must first be used to obtain an access
 token. All scripts accept a --help flag with additional examples.
+
+Run Checks and Samples
+----------------------
+
+To automatically run the bash commands listed in this README and refresh the files under `samples/`:
+
+```bash
+python bash_check.py <username> <password>
+```
+
+From the project root, this is also available as `make check-bash` or as part of `make resample`.
+The helper script uses only Python standard-library modules.
 
 Test Scripts
 ------------

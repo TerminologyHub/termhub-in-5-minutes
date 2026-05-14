@@ -15,9 +15,10 @@ To test against our TermHub terminology servers, you must first create an accoun
 
 1. [Tutorials by Language](#tutorials-by-language)
 2. [Use Cases](#use-cases)
-3. [Resources](#resources)
-4. [Contributing](#contributing)
-5. [License](#license)
+3. [Maintenance Commands](#maintenance-commands)
+4. [Resources](#resources)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Tutorials by Language
 
@@ -73,6 +74,61 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 **[Back to top](#table-of-contents)**
 
+## Maintenance Commands
+
+The project includes a root `Makefile` for the common upkeep workflow. Run these commands from the
+`termhub-in-5-minutes` directory.
+
+Set credentials once in your shell before running checks that call authenticated TermHub endpoints:
+
+```bash
+export TERMHUB_USER=<username>
+export TERMHUB_PASSWORD=<password>
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:TERMHUB_USER="<username>"
+$env:TERMHUB_PASSWORD="<password>"
+```
+
+For the bash examples on Windows, install Git for Windows or set `BASH` to a Windows-native
+`bash.exe`. The runner avoids WSL's `C:\Windows\System32\bash.exe` because WSL can fail when
+the Windows `PATH` contains drive paths it cannot translate.
+
+```powershell
+$env:BASH="C:\Program Files\Git\bin\bash.exe"
+```
+
+Common targets:
+
+```bash
+make resample       # recreate curl, bash, and Java sample files
+make check          # run curl, bash, Python, Java, and FHIR checks
+make fhir           # run both FHIR Postman collections with Newman
+make scan           # run Trivy source and resolved dependency scans
+make scan-strict    # same scan, but fail when vulnerabilities are found
+make scan-prepare   # generate resolved dependency inputs under build/trivy
+make regenerate     # regenerate Java and Python clients into doc/code-generator/build
+make python-deps    # install generated Python client dependencies for the current user
+```
+
+The curl, bash, FHIR runner, and check orchestration scripts use only Python standard-library modules.
+The generated Python client still needs its generated dependencies; use `make python-deps` when running
+the Python client tests on a fresh machine.
+The Trivy dependency scan is prepared before it runs. For Python, it installs requirements into
+`build/trivy/python-site` and writes a pinned `build/trivy/python/requirements.txt`; for Java, it
+resolves Gradle dependencies and updates `java-examples/gradle.lockfile`.
+
+Use `API_URL`, `PROJECT`, and `PYTHON` to override defaults, for example:
+
+```bash
+make check API_URL=https://dev.terminologyhub.com PROJECT=sandbox PYTHON=python3
+```
+
+**[Back to top](#table-of-contents)**
+
 
 ## Resources
 
@@ -104,4 +160,3 @@ All of the tutorials use an environment variable for the API URL of the deployme
 See the included [`LICENSE.txt`](LICENSE.txt) file for details.
 
 **[Back to top](#table-of-contents)**
-

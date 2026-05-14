@@ -1,49 +1,49 @@
 import os
 import re
-import requests
 import subprocess
 import sys
 
-# Define API_URL as a global variable
-API_URL = "https://api.terminologyhub.com"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPTS_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "scripts"))
+if SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, SCRIPTS_DIR)
+
+from process_output import print_process_failure
+from termhub_auth import DEFAULT_API_URL, require_credentials, request_access_token
+
+
+API_URL = os.environ.get("API_URL", DEFAULT_API_URL)
+README_PATH = os.path.join(BASE_DIR, "README.md")
 healthy_endpoints = []
 unhealthy_endpoints = []
+COMMANDS = "commands"
+FILES = "files"
 
 def check_jq():
     """Checks if jq is installed."""
     try:
         subprocess.run(["jq", "--version"], check = True, stdout = subprocess.DEVNULL, stderr = subprocess.DEVNULL)
-    except subprocess.CalledProcessError:
+    except (FileNotFoundError, subprocess.CalledProcessError):
         print("Error: jq is not installed. Please install jq to process JSON output.", file = sys.stderr)
         sys.exit(1)
 
 def get_auth_token():
-    credentials = {
-        "grant_type": "username_password",
-        "username": sys.argv[1],
-        "password": sys.argv[2]
-    }
-    response = requests.post(f"{API_URL}/auth/token", json=credentials, headers={"Content-Type": "application/json"})
-    
-    if response.status_code != 200:
-        raise Exception(f"Failed to get token: {response.status_code} {response.text}")
-    if not response.json().get("access_token"):
-        raise Exception("No token found in {API_URL}/auth/token response")
-    return response.json().get("access_token")
-    
+    """Resolve credentials and request the bearer token used by README curls."""
+    username, password = require_credentials(sys.argv[1:], "python curl_check.py <username> <password>")
+    return request_access_token(API_URL, username, password)
 
-def execute_curl(command, endpoint):
+
+def run_curl_command(command, endpoint):
     """Runs a curl command and returns the raw output."""
     try:
-        result = subprocess.run(command, shell = True, capture_output = True, text = True)
+        result = subprocess.run(command, shell = True, cwd=BASE_DIR, capture_output = True, text = True)
         if result.returncode == 0:
-            # regex to extract the endpoint from the curl command
             healthy_endpoints.append(endpoint)
             return result.stdout
         else:
             print(f"Error executing: {command}", file = sys.stderr)
-            print(f"Curl error: {result.stderr}", file = sys.stderr)
-            unhealthy_endpoints.append(re.searchendpoint)
+            print_process_failure("curl", result)
+            unhealthy_endpoints.append(endpoint)
             return None
     except Exception as e:
         print(f"Exception running curl: {e}", file = sys.stderr)
@@ -52,84 +52,82 @@ def execute_curl(command, endpoint):
 
 def process_markdown(token):
     """Parses README.md, extracts curl commands and corresponding sample files."""
-    if not os.path.exists("README.md"):
+    if not os.path.exists(README_PATH):
         print("Error: README.md not found.")
         sys.exit(1)
-    
-    with open("README.md", 'r', encoding='utf-8') as f:
+
+    with open(README_PATH, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-    
+
     sections = []
-    # set up each section with commands and corresponding files
-    current_section = {"curls": [], "files": []}
+    current_section = {COMMANDS: [], FILES: []}
     in_section = False
-    
+    skip_sample_links = False
+
     for line in lines:
-        # each section that has curl commands and corresponding sample files starts with "### "
         if line.startswith("### ") and not in_section:
-            current_section = {"curls": [], "files": []}
+            current_section = {COMMANDS: [], FILES: []}
             in_section = True
-            no_sample_section = False
+            skip_sample_links = False
             continue
 
-        # sections end with a "[Back to Top]"
         if line.startswith("[Back to Top]") and in_section:
             in_section = False
-            if current_section["curls"]:
+            if current_section[COMMANDS]:
                 sections.append(current_section)
+            current_section = {COMMANDS: [], FILES: []}
             continue
-        
+
         if in_section:
-            # found a curl command
             if line.startswith("curl -"):
-                # processing command with API_URL
                 curl_command = line.strip().replace("$API_URL", API_URL).replace("$token", token)
-                current_section["curls"].append(curl_command)
-            if no_sample_section:
+                current_section[COMMANDS].append(curl_command)
+            if skip_sample_links:
                 continue
             if line.startswith("No payload sample"):
-                no_sample_section = True
-                current_section["files"] = []
-            # all sample files are in the samples directory, so look for that
-            if(current_section["curls"] and "samples/" in line):
-              file_matches = re.findall(r'`samples/([^`]+)`', line)
-              for match in file_matches:
-                  current_section["files"].append(f"samples/{match}")
-    
-    if current_section["curls"]:
+                skip_sample_links = True
+                current_section[FILES] = []
+            if current_section[COMMANDS] and "samples/" in line:
+                file_matches = re.findall(r'`samples/([^`]+)`', line)
+                for match in file_matches:
+                    current_section[FILES].append(f"samples/{match}")
+
+    if in_section and current_section[COMMANDS]:
         sections.append(current_section)
-    
+
     return sections
 
 def run_sections(sections):
     """Executes curl commands and updates corresponding sample files."""
     for section in sections:
-        print(f"Processing section with {len(section['curls'])} curl commands and {len(section['files'])} sample files.")
-        file_index = 0
-        for curl_cmd in section["curls"]:
-            endpoint = re.search(r'\"(https://[^\"]+)\"', curl_cmd).group(1)
+        print(f"Processing section with {len(section[COMMANDS])} curl commands and {len(section[FILES])} sample files.")
+        sample_index = 0
+        for curl_command in section[COMMANDS]:
+            endpoint_match = re.search(r'\"(https?://[^\"]+)\"', curl_command)
+            endpoint = endpoint_match.group(1) if endpoint_match else curl_command
             print(f"Running: {endpoint}")
-            response = execute_curl(curl_cmd, endpoint)
-            # ignore extra responses if there are more responses in a section than sample files
-            if response and file_index < len(section["files"]):
+            response = run_curl_command(curl_command, endpoint)
+            if response and sample_index < len(section[FILES]):
                 try:
                     jq_process = subprocess.run(["jq", "."], input = response, text = True, capture_output = True, check = True)
                     formatted_response = jq_process.stdout
                 except subprocess.CalledProcessError:
-                    print(f"Error processing JSON with jq: {curl_cmd}", file = sys.stderr)
+                    print(f"Error processing JSON with jq: {curl_command}", file = sys.stderr)
                     formatted_response = response
-                
-                with open(section["files"][file_index], 'w', encoding='utf-8') as f:
+
+                sample_path = os.path.join(BASE_DIR, section[FILES][sample_index])
+                with open(sample_path, 'w', encoding='utf-8') as f:
                    f.write(formatted_response + "\n")
-                print(f"Updated: {section['files'][file_index]}")
-                file_index += 1
+                print(f"Updated: {section[FILES][sample_index]}")
+                sample_index += 1
 
 def report_endpoints():
+    """Print a health summary for all curl endpoints exercised in the run."""
     if unhealthy_endpoints:
       print("\nHealthy endpoints (total {}):".format(len(healthy_endpoints))) if healthy_endpoints else print("\nNo healthy endpoints found.")
       for endpoint in healthy_endpoints:
           print(endpoint)
-      
+
       print("\nUnhealthy endpoints (total {}):".format(len(unhealthy_endpoints)))
       for endpoint in unhealthy_endpoints:
           print(endpoint)
@@ -137,10 +135,6 @@ def report_endpoints():
       print("\nAll endpoints are healthy.")
 
 if __name__ == "__main__":
-    if(len(sys.argv) < 2):
-        print("This script requires a termhub username/password.")
-        print("\nUsage: python curl_check.py <username> <password>")
-        sys.exit(1)
     check_jq()
     token = get_auth_token()
     sections = process_markdown(token)
