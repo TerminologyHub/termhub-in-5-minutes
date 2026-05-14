@@ -10,7 +10,6 @@ esac; shift; done
 if [ ${#arr[@]} -ne 2 ] || [ -z $token ]; then
   echo "Usage: $0 [--token token] <projectId> <subset>"
   echo "e.g. $0 --token \$token sandbox SNOMEDCT_US-MODEL"
-  echo "e.g. $0 --token \$token sandbox 2a545e12-04eb-48ee-b988-c17346b4e05f"
 
   exit 1
 fi

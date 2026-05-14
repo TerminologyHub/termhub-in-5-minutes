@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu, Mar 27, 2025  4:03:31 PM
+Starting ...Thu, May 14, 2026  3:10:40 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
 query = 
@@ -7,61 +7,56 @@ offset = 0
 limit = 10
 sort = 
 ascending = 
-id = a1d1e426-26a6-4326-b18b-c54c154079b5
+id = b9c18dcd-8e75-44c4-ba27-d1aa1737e38b
 
   Performing terminologies lookup
     {
-      "id": "a1d1e426-26a6-4326-b18b-c54c154079b5",
-      "confidence": 8.573064804077148,
-      "modified": "2025-03-27T15:09:32.887+00:00",
-      "created": "2025-03-27T15:09:32.887+00:00",
+      "id": "b9c18dcd-8e75-44c4-ba27-d1aa1737e38b",
+      "confidence": 1.0,
+      "modified": "2024-05-13T18:29:48.953+00:00",
+      "created": "2024-05-13T18:29:48.953+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT_US",
-      "name": "Mini version of SNOMEDCT_US For testing purposes",
-      "version": "20240301",
+      "abbreviation": "RXNORM",
+      "name": "Mini version of RXNORM for testing purposes",
+      "version": "04012024",
       "publisher": "SANDBOX",
+      "license": "TERMHUB",
+      "releaseDate": "2024-04-01",
       "latest": true,
       "loaded": true,
-      "releaseDate": "2024-03-01",
-      "family": "SNOMEDCT",
+      "family": "RXNORM",
       "attributes": {
+        "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm",
         "autocomplete": "true",
-        "description-logic-based": "true",
-        "tree-positions": "true",
-        "unidirectional-rels": "true",
-        "has-relationship-directionality": "true",
+        "fhirVersion": "04012024",
+        "fhir-r4-md5hash": "eef004d2d75943b96b9856fd81a9602c",
+        "fhir-r5-length": "1303689",
+        "fhir-r5-md5hash": "5e460d1a9a3b83795f5ac2ef13fa0a8c",
+        "fhir-r4-length": "1303689",
         "ecl": "true",
-        "description-logic-profile": "EL++",
-        "fhirUri": "http://snomed.info/sct",
-        "show-sty": "true",
-        "polyhierarchy": "true",
-        "hierarchical": "true",
-        "fhirVersion": "http://snomed.info/sct/731000124108/version/20240301",
-        "fhirId": "snomedct_us_731000124108_20240301"
+        "fhirId": "rxnorm_04012024",
+        "fhirCompositional": "false"
       },
-      "roots": [
-        "138875005"
-      ],
       "statistics": {
         "parentsInactive": 0,
-        "parentsActive": 598,
-        "treePositions": 2158,
-        "termsInactive": 355,
+        "parentsActive": 0,
+        "treePositions": 0,
+        "termsInactive": 403,
         "childrenInactive": 0,
-        "relationships": 749,
-        "concepts": 440,
-        "terms": 1549,
-        "conceptsInactive": 3,
-        "termsActive": 1194,
-        "definitions": 19,
-        "conceptsActive": 437,
-        "childrenActive": 598
+        "relationships": 7428,
+        "concepts": 816,
+        "terms": 1975,
+        "conceptsInactive": 198,
+        "termsActive": 1572,
+        "definitions": 0,
+        "conceptsActive": 618,
+        "childrenActive": 0
       }
     }
 
 -----------------------------------------------------
-Finished ...Thu, Mar 27, 2025  4:03:31 PM
+Finished ...Thu, May 14, 2026  3:10:41 PM
 -----------------------------------------------------
 

@@ -1,47 +1,53 @@
 -----------------------------------------------------
-Starting ...Wed Jul 30 06:56:29 PDT 2025
+Starting ...Thu, May 14, 2026  3:10:56 PM
 -----------------------------------------------------
-url = https://dev.terminologyhub.com
-query =
+url = https://api.terminologyhub.com
+query = 
 offset = 0
 limit = 10
-sort =
-ascending =
-id = e1db453f-07f2-4c9a-a740-6395f7dea053
+sort = 
+ascending = 
+id = 78a5a54a-3613-42e3-9c79-aa2909c659ac
 
   Performing subsets lookup
     {
-      "id": "e1db453f-07f2-4c9a-a740-6395f7dea053",
-      "confidence": 3.215794086456299,
-      "modified": "2025-07-10T23:10:38.446+00:00",
-      "created": "2025-07-10T23:10:38.446+00:00",
+      "id": "78a5a54a-3613-42e3-9c79-aa2909c659ac",
+      "confidence": 1.0,
+      "modified": "2026-01-04T18:08:25.217+00:00",
+      "created": "2026-01-04T18:08:25.217+00:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
-      "abbreviation": "SNOMEDCT_US-MODEL",
-      "name": "SNOMEDCT model concepts",
-      "version": "20240301",
-      "publisher": "SANDBOX",
-      "releaseDate": "2024-03-01",
-      "latest": true,
+      "abbreviation": "RXNORM-prescribable",
+      "name": "RxNorm Current Prescribable Content",
+      "version": "01052026",
+      "publisher": "NLM",
+      "license": "UMLS",
+      "releaseDate": "2026-01-05",
+      "latest": false,
       "loaded": true,
-      "code": "900000000000012004",
-      "fromPublisher": "SANDBOX",
-      "fromTerminology": "SNOMEDCT_US",
-      "fromVersion": "20240301",
-      "terminology": "SNOMEDCT_US",
-      "description": "SNOMED CT model component",
+      "code": "RXNORM-prescribable",
+      "fromPublisher": "NLM",
+      "fromTerminology": "RXNORM",
+      "fromVersion": "01052026",
+      "terminology": "RXNORM",
+      "description": "Subset of currently prescribable drugs found in RxNorm. It is intended to be an approximation of the prescription drugs currently marketed in the US. The subset also includes many over-the-counter drugs. The subset includes only the active RxNorm normalized names, codes (RxCUIs), attributes, and relationships, as well as the FDA structured product label drugs and ingredients and the small set of CMS data.",
       "attributes": {
-        "fhirUri": "http://snomed.info/sct?fhir_vs=900000000000012004",
-        "fhirVersion": "20240301",
-        "fhirId": "sandbox_900000000000012004_20240301"
+        "fhirUri": "http://www.nlm.nih.gov/research/umls/rxnorm?fhir_vs=RXNORM-prescribable",
+        "fhirVersion": "01052026",
+        "fhir-r4-md5hash": "5c48c52e64014ae35fa19cfdfc9aba68",
+        "fhir-r5-length": "1013864",
+        "fhir-r5-md5hash": "5c48c52e64014ae35fa19cfdfc9aba68",
+        "fhir-r4-length": "1013864",
+        "fhirId": "nlm_rxnorm-prescribable_01052026"
       },
       "statistics": {
-        "members": 129,
-        "membersActive": 129
+        "members": 81944,
+        "membersActive": 81944
       }
     }
 
 -----------------------------------------------------
-Finished ...Wed Jul 30 06:56:30 PDT 2025
+Finished ...Thu, May 14, 2026  3:10:57 PM
 -----------------------------------------------------
+
